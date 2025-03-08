@@ -1,0 +1,210 @@
+<root main_tree_to_execute="BT_parsed">
+	<include path="utils.xml" />
+	<BehaviorTree ID="ParsedBT">
+		<ReactiveSequence name="init_then_run_mission (R) (R)">
+			<BtAction name="BtAction (R0)" prob="[1, 1, 1]" haltable="True" />
+			<BtAction name="BtAction (R1)" prob="[1, 1, 1]" haltable="True" />
+			<BtAction name="BtAction (R2)" prob="[1, 1, 1]" haltable="True" />
+			<BtAction name="BtAction (R3)" prob="[1, 1, 1]" haltable="True" />
+			<BtAction name="BtAction (R4)" prob="[1, 1, 1]" haltable="True" />
+			<BtAction name="BtAction (R5)" prob="[1, 1, 1]" haltable="True" />
+			<BtAction name="BtAction (R6)" prob="[1, 1, 1]" haltable="True" />
+			<ReactiveFallback name="print_mission_mode (R7) (R7)">
+				<ReactiveSequence name="(R70) (R70)">
+					<BtCondition name="BtCondition (R700)" prob="[1, 1, 0]" haltable="False" />
+					<BtAction name="BtAction (R701)" prob="[1, 1, 1]" haltable="True" />
+				</ReactiveSequence>
+				<BtAction name="BtAction (R71)" prob="[1, 1, 1]" haltable="True" />
+			</ReactiveFallback>
+			<ForceSuccess name="(R8) (R8)">
+				<ReactiveSequence name="test_if_robot_on_dock (R80) (R80)">
+					<ReactiveFallback name="dock_not_found_or_outside_dock (R800) (R800)">
+						<Inverter name="temp (R8000) (R8000)">
+							<BtAction name="BtAction (R80000)" prob="[1, 1, 1]" haltable="True" />
+						</Inverter>
+						<ReactiveSequence name="if_robot_not_on_dock_then_deactivate_detector (R8001) (R8001)">
+							<BtCondition name="BtCondition (R80010)" prob="[1, 1, 0]" haltable="False" />
+							<BtAction name="BtAction (R80011)" prob="[1, 1, 1]" haltable="True" />
+						</ReactiveSequence>
+					</ReactiveFallback>
+					<BtAction name="BtAction (R801)" prob="[1, 1, 1]" haltable="True" />
+					<BtAction name="BtAction (R802)" prob="[1, 1, 1]" haltable="True" />
+					<BtAction name="BtAction (R803)" prob="[1, 1, 1]" haltable="True" />
+				</ReactiveSequence>
+			</ForceSuccess>
+			<ReactiveSequence name="run_mission (R9) (R9)">
+				<ReactiveSequence name="undock_then_online_coverage_then_back (R90) (R90)">
+					<ReactiveSequence name="(R900) (R900)">
+						<BtAction name="BtAction (R9000)" prob="[1, 1, 1]" haltable="True" />
+						<ReactiveSequence name="perfom_undocking_and_save_start_pose (R9001) (R9001)">
+							<BtAction name="BtAction (R90010)" prob="[1, 1, 1]" haltable="True" />
+							<BtAction name="BtAction (R90011)" prob="[1, 1, 1]" haltable="True" />
+							<ReactiveSequence name="(R90012) (R90012)">
+								<BtAction name="BtAction (R900120)" prob="[1, 1, 1]" haltable="True" />
+								<ReactiveSequence name="relocalize_on_dock_and_undock (R900121) (R900121)">
+									<ForceSuccess name="(R9001210) (R9001210)">
+										<ReactiveFallback name="mode_selector (R90012100) (R90012100)">
+											<ReactiveSequence name="dock_found_attempt_to_relocalize (R900121000) (R900121000)">
+												<BtAction name="BtAction (R9001210000)" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="BtAction (R9001210001)" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="BtAction (R9001210002)" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="BtAction (R9001210003)" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="BtAction (R9001210004)" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="BtAction (R9001210005)" prob="[1, 1, 1]" haltable="True" />
+											</ReactiveSequence>
+											<ReactiveSequence name="dock_not_found (R900121001) (R900121001)">
+												<BtAction name="BtAction (R9001210010)" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="BtAction (R9001210011)" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="BtAction (R9001210012)" prob="[1, 1, 1]" haltable="True" />
+											</ReactiveSequence>
+										</ReactiveFallback>
+									</ForceSuccess>
+									<ReactiveFallback name="case_selector (R9001211) (R9001211)">
+										<ReactiveSequence name="dock_not_found_or_outside_dock (R90012110) (R90012110)">
+											<ReactiveFallback name="dock_not_found_or_outside_dock (R900121100) (R900121100)">
+												<Inverter name="(R9001211000) (R9001211000)">
+													<BtAction name="BtAction (R90012110000)" prob="[1, 1, 1]" haltable="True" />
+												</Inverter>
+												<BtCondition name="BtCondition (R9001211001)" prob="[1, 1, 0]" haltable="False" />
+											</ReactiveFallback>
+											<BtAction name="BtAction (R900121101)" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="BtAction (R900121102)" prob="[1, 1, 1]" haltable="True" />
+										</ReactiveSequence>
+										<ReactiveSequence name="dock_found_perform_undocking (R90012111) (R90012111)">
+											<BtAction name="BtAction (R900121110)" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="BtAction (R900121111)" prob="[1, 1, 1]" haltable="True" />
+											<ReactiveFallback name="undock_or_clear_obstacles_and_repeat (R900121112) (R900121112)">
+												<BtAction name="BtAction (R9001211120)" prob="[1, 1, 1]" haltable="True" />
+												<Inverter name="(R9001211121) (R9001211121)">
+													<ReactiveSequence name="clear_local_costmap_and_undock (R90012111210) (R90012111210)">
+														<BtAction name="BtAction (R900121112100)" prob="[1, 1, 1]" haltable="True" />
+														<BtAction name="BtAction (R900121112101)" prob="[1, 1, 1]" haltable="True" />
+														<BtCondition name="BtCondition (R900121112102)" prob="[1, 1, 0]" haltable="False" />
+														<BtAction name="BtAction (R900121112103)" prob="[1, 1, 1]" haltable="True" />
+														<BtAction name="BtAction (R900121112104)" prob="[1, 1, 1]" haltable="True" />
+													</ReactiveSequence>
+												</Inverter>
+											</ReactiveFallback>
+											<BtAction name="BtAction (R900121113)" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="BtAction (R900121114)" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="BtAction (R900121115)" prob="[1, 1, 1]" haltable="True" />
+										</ReactiveSequence>
+										<ReactiveSequence name="undocking_failed (R90012112) (R90012112)">
+											<BtAction name="BtAction (R900121120)" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="BtAction (R900121121)" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="BtAction (R900121122)" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="BtAction (R900121123)" prob="[1, 1, 1]" haltable="True" />
+										</ReactiveSequence>
+									</ReactiveFallback>
+								</ReactiveSequence>
+							</ReactiveSequence>
+							<BtAction name="BtAction (R90013)" prob="[1, 1, 1]" haltable="True" />
+							<BtAction name="BtAction (R90014)" prob="[1, 1, 1]" haltable="True" />
+						</ReactiveSequence>
+					</ReactiveSequence>
+					<ReactiveFallback name="(R901) (R901)">
+						<ReactiveFallback name="do_online_coverage (R9010) (R9010)">
+							<ReactiveSequence name="(R90100) (R90100)">
+								<BtAction name="BtAction (R901000)" prob="[1, 1, 1]" haltable="True" />
+								<BtAction name="BtAction (R901001)" prob="[1, 1, 1]" haltable="True" />
+								<BtAction name="BtAction (R901002)" prob="[1, 1, 1]" haltable="True" />
+								<BtAction name="BtAction (R901003)" prob="[1, 1, 1]" haltable="True" />
+							</ReactiveSequence>
+							<ReactiveSequence name="(R90101) (R90101)">
+								<BtAction name="BtAction (R901010)" prob="[1, 1, 1]" haltable="True" />
+								<BtAction name="BtAction (R901011)" prob="[1, 1, 1]" haltable="True" />
+							</ReactiveSequence>
+						</ReactiveFallback>
+					</ReactiveFallback>
+					<BtAction name="BtAction (R902)" prob="[1, 1, 1]" haltable="True" />
+					<BtAction name="BtAction (R903)" prob="[1, 1, 1]" haltable="True" />
+					<ReactiveSequence name="(R904) (R904)">
+						<ReactiveSequence name="mission_started_from_dock (R9040) (R9040)">
+							<BtAction name="BtAction (R90400)" prob="[1, 1, 1]" haltable="True" />
+							<ReactiveFallback name="attempt_to_dock_or_cleanup (R90401) (R90401)">
+								<Inverter name="(R904010) (R904010)">
+									<ReactiveSequence name="navigate_to_dock_and_dock (R9040100) (R9040100)">
+										<BtAction name="BtAction (R90401000)" prob="[1, 1, 1]" haltable="True" />
+										<BtAction name="BtAction (R90401001)" prob="[1, 1, 1]" haltable="True" />
+										<ForceSuccess name="Force Success (R90401002) (R90401002)">
+											<BtAction name="BtAction (R904010020)" prob="[1, 1, 1]" haltable="True" />
+										</ForceSuccess>
+										<BtAction name="BtAction (R90401003)" prob="[1, 1, 1]" haltable="True" />
+										<BtAction name="BtAction (R90401004)" prob="[1, 1, 1]" haltable="True" />
+										<BtAction name="BtAction (R90401005)" prob="[1, 1, 1]" haltable="True" />
+										<BtAction name="BtAction (R90401006)" prob="[1, 1, 1]" haltable="True" />
+										<ReactiveFallback name="docking_success_or_prepare_new_docking_attempt (R90401007) (R90401007)">
+											<ReactiveSequence name="perform_docking_until_bump (R904010070) (R904010070)">
+												<Inverter name="(R9040100700) (R9040100700)">
+													<BtCondition name="BtCondition (R90401007000)" prob="[1, 1, 0]" haltable="False" />
+												</Inverter>
+												<BtAction name="BtAction (R9040100701)" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="BtAction (R9040100702)" prob="[1, 1, 1]" haltable="True" />
+												<BtCondition name="BtCondition (R9040100703)" prob="[1, 1, 0]" haltable="False" />
+												<BtAction name="BtAction (R9040100704)" prob="[1, 1, 1]" haltable="True" />
+											</ReactiveSequence>
+											<ReactiveSequence name="clear_bump_and_backup (R904010071) (R904010071)">
+												<BtAction name="BtAction (R9040100710)" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="BtAction (R9040100711)" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="BtAction (R9040100712)" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="BtAction (R9040100713)" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="BtAction (R9040100714)" prob="[1, 1, 1]" haltable="True" />
+											</ReactiveSequence>
+										</ReactiveFallback>
+										<BtAction name="BtAction (R90401008)" prob="[1, 1, 1]" haltable="True" />
+									</ReactiveSequence>
+								</Inverter>
+								<ReactiveSequence name="cleanup_after_unsuccessful_docking (R904011) (R904011)">
+									<BtAction name="BtAction (R9040110)" prob="[1, 1, 1]" haltable="True" />
+									<BtAction name="BtAction (R9040111)" prob="[1, 1, 1]" haltable="True" />
+									<BtAction name="BtAction (R9040112)" prob="[1, 1, 1]" haltable="True" />
+									<BtAction name="BtAction (R9040113)" prob="[1, 1, 1]" haltable="True" />
+								</ReactiveSequence>
+							</ReactiveFallback>
+						</ReactiveSequence>
+						<ReactiveSequence name="mission_did_not_start_on_dock (R9041) (R9041)">
+							<BtAction name="BtAction (R90410)" prob="[1, 1, 1]" haltable="True" />
+							<ReactiveFallback name="go_to_start_pose_or_remove_start_pose_annotation (R90411) (R90411)">
+								<ReactiveSequence name="robot_goes_to_start_pose (R904110) (R904110)">
+									<BtAction name="BtAction (R9041100)" prob="[1, 1, 1]" haltable="True" />
+									<BtAction name="BtAction (R9041101)" prob="[1, 1, 1]" haltable="True" />
+									<ForceSuccess name="(R9041102) (R9041102)">
+										<ReactiveSequence name="(R90411020) (R90411020)">
+											<BtAction name="BtAction (R904110200)" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="BtAction (R904110201)" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="BtAction (R904110202)" prob="[1, 1, 1]" haltable="True" />
+										</ReactiveSequence>
+									</ForceSuccess>
+									<BtAction name="BtAction (R9041103)" prob="[1, 1, 1]" haltable="True" />
+									<Inverter name="(R9041104) (R9041104)">
+										<BtAction name="BtAction (R90411040)" prob="[1, 1, 1]" haltable="True" />
+									</Inverter>
+								</ReactiveSequence>
+								<ReactiveSequence name="on_failure (R904111) (R904111)">
+									<BtAction name="BtAction (R9041110)" prob="[1, 1, 1]" haltable="True" />
+									<BtAction name="BtAction (R9041111)" prob="[1, 1, 1]" haltable="True" />
+								</ReactiveSequence>
+							</ReactiveFallback>
+						</ReactiveSequence>
+					</ReactiveSequence>
+					<ReactiveSequence name="(R905) (R905)">
+						<BtAction name="BtAction (R9050)" prob="[1, 1, 1]" haltable="True" />
+						<BtAction name="BtAction (R9051)" prob="[1, 1, 1]" haltable="True" />
+					</ReactiveSequence>
+				</ReactiveSequence>
+			</ReactiveSequence>
+		</ReactiveSequence>
+	</BehaviorTree>
+	<TreeNodesModel>
+		<Action ID="BtAction">
+			<input_port name="name" />
+			<input_port name="prob" />
+			<input_port name="haltable" />
+		</Action>
+		<Condition ID="BtCondition">
+			<input_port name="name" />
+			<input_port name="prob" />
+			<input_port name="haltable" />
+		</Condition>
+	</TreeNodesModel>
+</root>

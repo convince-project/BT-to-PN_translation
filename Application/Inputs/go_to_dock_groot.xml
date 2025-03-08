@@ -1,0 +1,57 @@
+<root main_tree_to_execute="BT_parsed">
+	<include path="utils.xml" />
+	<BehaviorTree ID="ParsedBT">
+		<ReactiveFallback name="attempt_to_dock_or_cleanup (R)">
+			<Inverter name="(R0)">
+				<ReactiveSequence name="navigate_to_dock_and_dock (R00)">
+					<BtAction name="SetBlackboard (R000)" prob="[1, 1, 1]" haltable="True" />
+					<BtAction name="GetStartPoseFromAnnotation (R001)" prob="[1, 1, 1]" haltable="True" />
+					<ForceSuccess name="Force Success (R002)">
+						<BtAction name="ClearAllCostmaps (R0020)" prob="[1, 1, 1]" haltable="True" />
+					</ForceSuccess>
+					<BtAction name="GetRosParamAsString (R003)" prob="[1, 1, 1]" haltable="True" />
+					<BtAction name="NavigateToPose (R004)" prob="[1, 1, 1]" haltable="True" />
+					<BtAction name="ActivateDockingDetector (R005)" prob="[1, 1, 1]" haltable="True" />
+					<BtAction name="HandleStartPoseAnnotation (R006)" prob="[1, 1, 1]" haltable="True" />
+					<ReactiveFallback name="docking_success_or_prepare_new_docking_attempt (R007)">
+						<ReactiveSequence name="perform_docking_until_bump (R0070)">
+							<Inverter name="(R00700)">
+								<BtCondition name="IsBumpDetected (R007000)" prob="[1, 1, 0]" haltable="False" />
+							</Inverter>
+							<BtAction name="PerformDockingManeuver (R00701)" prob="[1, 1, 1]" haltable="True" />
+							<BtAction name="SimpleWait (R00702)" prob="[1, 1, 1]" haltable="True" />
+							<BtCondition name="IsChargingVoltagePresent (R00703)" prob="[1, 1, 0]" haltable="False" />
+							<BtAction name="PrintText (R00704)" prob="[1, 1, 1]" haltable="True" />
+						</ReactiveSequence>
+						<ReactiveSequence name="clear_bump_and_backup (R0071)">
+							<BtAction name="ResetBumperState (R00710)" prob="[1, 1, 1]" haltable="True" />
+							<BtAction name="ClearRecentBumperObstacles (R00711)" prob="[1, 1, 1]" haltable="True" />
+							<BtAction name="ClearEntireCostmap (R00712)" prob="[1, 1, 1]" haltable="True" />
+							<BtAction name="BackUp (R00713)" prob="[1, 1, 1]" haltable="True" />
+							<BtAction name="AlwaysFailure (R00714)" prob="[1, 1, 1]" haltable="True" />
+						</ReactiveSequence>
+					</ReactiveFallback>
+					<BtAction name="ActivateDockingDetector (R008)" prob="[1, 1, 1]" haltable="True" />
+				</ReactiveSequence>
+			</Inverter>
+			<ReactiveSequence name="cleanup_after_unsuccessful_docking (R1)">
+				<BtAction name="PrintText (R10)" prob="[1, 1, 1]" haltable="True" />
+				<BtAction name="HandleStartPoseAnnotation (R11)" prob="[1, 1, 1]" haltable="True" />
+				<BtAction name="ActivateDockingDetector (R12)" prob="[1, 1, 1]" haltable="True" />
+				<BtAction name="AlwaysFailure (R13)" prob="[1, 1, 1]" haltable="True" />
+			</ReactiveSequence>
+		</ReactiveFallback>
+	</BehaviorTree>
+	<TreeNodesModel>
+		<Action ID="BtAction">
+			<input_port name="name" />
+			<input_port name="prob" />
+			<input_port name="haltable" />
+		</Action>
+		<Condition ID="BtCondition">
+			<input_port name="name" />
+			<input_port name="prob" />
+			<input_port name="haltable" />
+		</Condition>
+	</TreeNodesModel>
+</root>

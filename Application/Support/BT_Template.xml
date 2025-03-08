@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<root main_tree_to_execute="BT_parsed">
+    <include path="utils.xml"/>
+    <BehaviorTree ID="ParsedBT">
+    </BehaviorTree>
+    <!-- ////////// -->
+    <TreeNodesModel>
+        <Action ID="BtAction">
+            <input_port name="name"/>
+            <input_port name="prob"/>
+            <input_port name="haltable"/>
+        </Action>
+        <Condition ID="BtCondition">
+            <input_port name="name"/>
+            <input_port name="prob"/>
+            <input_port name="haltable"/>
+        </Condition>
+    </TreeNodesModel>
+</root>

@@ -1,0 +1,6 @@
+pydot
+networkx
+numpy
+graphviz
+matplotlib
+tkinter

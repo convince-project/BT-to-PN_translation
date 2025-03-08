@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<root main_tree_to_execute="GoToDock">
+    <include path="utils.xml"/>
+    <!-- ////////// -->
+    <BehaviorTree ID="GoToDock">
+        <ReactiveFallback name="attempt_to_dock_or_cleanup">
+        <!-- num_attempts="10" -->
+            <Inverter>  
+                <ReactiveSequence name="navigate_to_dock_and_dock">
+                    <SetBlackboard output_key="mission_stage" value="docking"/>
+                    <GetStartPoseFromAnnotation mission_started_from_dock="true" start_pose="{start_pose}"/>
+                    <ForceSuccess name="Force Success">
+                        <ClearAllCostmaps __shared_blackboard="true"/>
+                    </ForceSuccess>
+                    <GetRosParamAsString node_name="bt_navigator" parameter_name="aggressive_nav_to_pose_bt_xml"
+                        parameter_value="{behavior_tree}"/>
+                    <NavigateToPose behavior_tree="{behavior_tree}" goal="{start_pose}" node_name="NavigateToDockingStart"
+                        error_code_id="{navigate_to_pose_error_code}"/>
+                    <ActivateDockingDetector enable="True" node_name="StartDockDetectorForDocking"/>
+                    <HandleStartPoseAnnotation operation="add" mission_started_from_dock="true"/>
+                    <ReactiveFallback name="docking_success_or_prepare_new_docking_attempt">
+                        <ReactiveSequence name="perform_docking_until_bump">
+                            <Inverter>
+                                <IsBumpDetected/>
+                            </Inverter>
+                            <PerformDockingManeuver/>
+                            <SimpleWait wait_duration="1.0"/>
+                            <IsChargingVoltagePresent/>
+                            <PrintText text_to_print="Docking mission successful!"/>
+                        </ReactiveSequence>
+                        <ReactiveSequence name="clear_bump_and_backup">
+                            <ResetBumperState/>
+                            <ClearRecentBumperObstacles reset_age="10"
+                                service_name="/slam_world_model/clear_recent_obstacles"/>
+                            <ClearEntireCostmap node_name="ClearLocalCostmap"
+                                service_name="local_costmap/clear_entirely_local_costmap"/>
+                            <BackUp backup_dist="-0.1" backup_speed="0.1" server_name="backup"/>
+                            <AlwaysFailure/>
+                        </ReactiveSequence>
+                    </ReactiveFallback>
+                    <ActivateDockingDetector enable="False" node_name="StopDockDetectorForDocking"/>
+                </ReactiveSequence>
+            </Inverter>
+            <ReactiveSequence name="cleanup_after_unsuccessful_docking">
+                <PrintText text_to_print="Docking mission failed!"/>
+                <HandleStartPoseAnnotation operation="remove" mission_started_from_dock="true"/>
+                <ActivateDockingDetector enable="False" node_name="StopDockDetectorForDocking"/>
+                <AlwaysFailure/>
+            </ReactiveSequence>
+        </ReactiveFallback>
+    </BehaviorTree>
+    <!-- ////////// -->
+    <TreeNodesModel>
+        <Action ID="ActivateDockingDetector">
+            <input_port name="enable"/>
+            <input_port name="node_name"/>
+        </Action>
+        <Action ID="BackUp">
+            <inout_port name="backup_dist"/>
+            <inout_port name="backup_speed"/>
+            <inout_port name="server_name"/>
+        </Action>
+        <Condition ID="IsBumpDetected"/>
+        <Action ID="ResetBumperState"/>
+        <SubTree ID="ClearAllCostmaps">
+            <inout_port name="__shared_blackboard"/>
+        </SubTree>
+        <Action ID="ClearEntireCostmap">
+            <inout_port name="service_name"/>
+            <input_port name="node_name"/>
+        </Action>
+        <Action ID="ClearRecentBumperObstacles">
+            <input_port name="reset_age"/>
+            <input_port name="service_name"/>
+            <input_port name="node_name"/>
+        </Action>
+        <Action ID="GetRosParamAsString">
+            <inout_port name="node_name"/>
+            <inout_port name="parameter_name"/>
+            <output_port name="parameter_value"/>
+        </Action>
+        <Action ID="HandleStartPoseAnnotation">
+            <input_port default="add" name="operation">Available operations: &quot;add&quot;, &quot;remove&quot;</input_port>
+            <input_port default="{mission_started_from_dock}" name="mission_started_from_dock"/>
+        </Action>
+        <Condition ID="IsChargingVoltagePresent"/>
+        <Action ID="NavigateToPose">
+            <input_port name="behavior_tree" default="point_to_point_navigation.xml"/>
+            <input_port name="goal"/>
+            <input_port name="node_name"/>
+            <output_port name="error_code_id"/>
+        </Action>
+        <Action ID="PerformDocking"/>
+        <Action ID="PerformDockingManeuver"/>
+        <Action ID="GetStartPoseFromAnnotation">
+            <input_port default="{mission_started_from_dock}" name="mission_started_from_dock"/>
+            <output_port default="{start_pose}" name="start_pose"/>
+        </Action>
+        <Action ID="PrintText">
+            <input_port name="text_to_print"/>
+        </Action>
+        <Action ID="SimpleWait">
+            <input_port name="wait_duration"/>
+        </Action>
+    </TreeNodesModel>
+    <!-- ////////// -->
+</root>

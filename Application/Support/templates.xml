@@ -1,0 +1,363 @@
+<?xml version="1.0"?>
+<structure>
+    <elements>
+        <element id="interface">
+            <interface id="P1">
+                <graphics>
+                    <position x="270.0" y="90.0"/>
+                </graphics>
+                <name>
+                    <value>P1</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0"/>
+                    </graphics>
+                </name>
+            </interface>
+        </element>
+        <element id="place">
+            <place id="P1">
+                <graphics>
+                    <position x="270.0" y="90.0"/>
+                </graphics>
+                <name>
+                    <value>P1</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0"/>
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <value>Tick,0,Halt,0,Running,0,Success,0,Failure,0,Counter,0</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0"/>
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        </element>
+        <element id="transition">
+            <transition id="T1">
+                <graphics>
+                    <position x="270.0" y="90.0"/>
+                </graphics>
+                <name>
+                    <value>T1</value>
+                    <graphics>
+                        <offset x="-5.0" y="35.0"/>
+                    </graphics>
+                </name>
+                <orientation>
+                    <value>0</value>
+                </orientation>
+                <rate>
+                    <value>1.0</value>
+                </rate>
+                <timed>
+                    <value>false</value>
+                </timed>
+                <infiniteServer>
+                    <value>false</value>
+                </infiniteServer>
+                <priority>
+                    <value>1</value>
+                </priority>
+            </transition>
+        </element>
+        <element id="N-arc">
+            <arc id="T1 to P1" source="T1" target="P1">
+                <graphics/>
+                <inscription>
+                    <value>Default,1</value>
+                    <graphics/>
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal"/>
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        </element>
+        <element id="R-arc">
+            <arc id="T1 to P1" source="T1" target="P1">
+                <graphics/>
+                <inscription>
+                    <value>Default,1</value>
+                    <graphics/>
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="reset"/>
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        </element>
+        <element id="I-arc">
+            <arc id="P1 to T2" source="P1" target="T2">
+                <graphics/>
+                <inscription>
+                    <value>Default,1</value>
+                    <graphics/>
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="inhibitor"/>
+            </arc>
+        </element>
+    </elements>
+    <templates>
+        <ControlFlow>
+            <template id="ReactiveSequence" atomic="True" Success="successor,success" Failure="halt,failure" Running="halt,running" Halt="halt"  summarizable="True">
+                <JANI_opt>
+                </JANI_opt>
+                <PNML_opt>
+                    <POT value="1,0,0,0,0,0"/>  <!-- 0 -->
+                    <POH value="0,1,0,0,0,0"/> <!-- 1 -->
+                    <PIS value="1,0,0,0,N,0"/> <!-- 2 -->
+                    <PIF value="0,1,N,0,0,1"/> <!-- 3 -->
+                    <PIR value="0,1,N,1,0,0"/> <!-- 4 -->
+                    <PIA value="0,1,N,0,0,0"/> <!-- 5 -->
+                    <CIT value="1,0,0,0,i,0"/> <!-- 6 -->
+                    <CIH value="0,1,i,0,0,0"/> <!-- 7 -->
+                    <COS value="1,0,0,0,i+1,0"/> <!-- 8 -->
+                    <COF value="0,1,i+1,0,0,1"/> <!-- 9 -->
+                    <COR value="0,1,i+1,1,0,0"/> <!-- 10 -->
+                    <COA value="0,1,i+1,0,0,0"/> <!-- 11 -->
+                    <RIS value="1,0,0,0,1,0"/> <!-- 12 -->
+                    <RIF value="0,1,i+1,0,0,1"/> <!-- 13 should be associated with a failure of the reactive sequence(after all children have been blocked) -->
+                    <RIR value="0,1,i+1,1,0,0"/> <!-- 14 should be associated with a running of the reactive sequence(after all children have been blocked)-->
+                    <RIST value="0,1,N,0,1,0"/> <!-- 13 should be associated with a failure of the reactive sequence(after all children have been blocked) -->
+                    <RIFT value="0,1,N,0,0,1"/> <!-- 13 should be associated with a failure of the reactive sequence(after all children have been blocked) -->
+                    <RIRT value="0,1,N,1,0,0"/> <!-- 14 should be associated with a running of the reactive sequence(after all children have been blocked)-->
+                    <add_structure>
+                    </add_structure>
+                </PNML_opt>
+            </template>
+            <template id="ReactiveFallback" atomic="True" Success="halt,success" Failure="successor,failure" Running="halt,running" Halt="halt"  summarizable="True">
+                <JANI_opt>
+                </JANI_opt>
+                <PNML_opt>
+                    <POT value="1,0,0,0,0,0"/>  <!-- 0 -->
+                    <POH value="0,1,0,0,0,0"/> <!-- 1 -->
+                    <PIS value="0,1,N,0,1,0"/> <!-- 2 -->
+                    <PIF value="1,0,0,0,0,N"/> <!-- 3 -->
+                    <PIR value="0,1,N,1,0,0"/> <!-- 4 -->
+                    <PIA value="0,1,N,0,0,0"/> <!-- 5 -->
+                    <CIT value="1,0,0,0,0,i"/> <!-- 6 -->
+                    <CIH value="0,1,i,0,0,0"/> <!-- 7 -->
+                    <COS value="0,1,i+1,0,1,0"/> <!-- 8 -->
+                    <COF value="1,0,0,0,0,i+1"/> <!-- 9 -->
+                    <COR value="0,1,i+1,1,0,0"/> <!-- 10 -->
+                    <COA value="0,1,i+1,0,0,0"/> <!-- 11 -->
+                    <RIS value="0,1,i+1,0,1,0"/> <!-- 12 should be associated with a success of the reactive sequence(after all children have been blocked) -->
+                    <RIF value="1,0,0,0,0,1"/> <!-- 13 -->
+                    <RIR value="0,1,i+1,1,0,0"/> <!-- 14 should be associated with a running of the reactive sequence(after all children have been blocked)-->
+                    <RIST value="0,1,N,0,1,0"/> <!-- Condition to return Success to parent after having blocked the children -->
+                    <RIFT value="0,1,N,0,0,1"/> <!-- Condition to return Success to parent after having blocked the children -->
+                    <RIRT value="0,1,N,1,0,0"/> <!-- Condition to return Success to parent after having blocked the children-->
+                    <add_structure>
+                    </add_structure>
+                </PNML_opt>
+            </template>
+            <template id="Sequence" atomic="True" Success="successor" Failure="memory,failure" Running="memory,running" Halt="halt"  summarizable="True">
+                <JANI_opt>
+                </JANI_opt>
+                <PNML_opt>
+                    <POT value="1,0,0,0,0,0" memory="O"/>  <!-- 0 -->
+                    <POH value="0,1,0,0,0,0"/> <!-- 1 -->
+                    <PIS value="1,0,0,0,N,0"/> <!-- 2 -->
+                    <PIF value="0,1,0,0,0,1" memory="I"/> <!-- 3 -->
+                    <PIR value="0,1,0,1,0,0" memory="I"/> <!-- 4 -->
+                    <PIA value="0,1,N,0,0,0"/> <!-- 5 -->
+                    <CIT value="1,0,0,0,i,0" memory="I"/> <!-- 6 -->
+                    <CIH value="0,1,i,0,1,0" memory="I"/> <!-- 7 -->
+                    <COS value="1,0,0,0,i+1,0"/> <!-- 8 -->
+                    <COF value="0,1,0,0,0,1" memory="O"/> <!-- 9 -->
+                    <COR value="0,1,0,1,0,0" memory="O"/> <!-- 10 -->
+                    <COA value="0,1,i+1,0,0,0"/> <!-- 11 -->
+                    <add_structure>
+                    </add_structure>
+                </PNML_opt>
+            </template>
+            <template id="Fallback" atomic="True" Success="memory,success" Failure="successor" Running="memory,running" Halt="halt"  summarizable="True">
+                <JANI_opt>
+                </JANI_opt>
+                <PNML_opt>
+                    <POT value="1,0,0,0,0,0" memory="O"/>  <!-- 0 -->
+                    <POH value="0,1,0,0,0,0"/> <!-- 1 -->
+                    <PIS value="0,1,0,0,1,0" memory="I"/> <!-- 2 -->
+                    <PIF value="1,0,0,0,0,N" /> <!-- 3 -->
+                    <PIR value="0,1,0,1,0,0" memory="I"/> <!-- 4 -->
+                    <PIA value="0,1,N,0,0,0"/> <!-- 5 -->
+                    <CIT value="1,0,0,0,0,i" memory="I"/> <!-- 6 -->
+                    <CIH value="0,1,i,0,0,1" memory="I"/> <!-- 7 -->
+                    <COS value="0,1,0,0,1,0" memory="O"/> <!-- 8 -->
+                    <COF value="1,0,0,0,0,i+1" /> <!-- 9 -->
+                    <COR value="0,1,0,1,0,0" memory="O"/> <!-- 10 -->
+                    <COA value="0,1,i+1,0,0,0"/> <!-- 11 -->
+                    <add_structure>
+                    </add_structure>
+                </PNML_opt>
+            </template>
+            <template id="Parallel" atomic="True" Success="success" Failure="failure" Running="running" Halt="halt"  summarizable="True">
+                <JANI_opt>
+                </JANI_opt>
+                <PNML_opt>
+                    <POT value="1,0,0,0,0,0"/>
+                    <POH value="0,1,0,0,0,0"/>
+                    <PIS value="1,0,N,0,0,K"/>
+                    <PIF value="1,0,N,0,N-K+1,0"/>
+                    <PIR value="1,0,N,1,0,0"/>
+                    <PIA value="0,1,1,0,0,0"/>
+                    <CIT value="1,0,0,0,0,0"/>
+                    <CIH value="0,1,0,0,0,0"/>
+                    <COS value="1,0,i,0,1,0"/>
+                    <COF value="1,0,i,0,0,1"/>
+                    <COR value="1,0,i,1,0,0"/>
+                    <COA value="0,1,i+1,0,0,0"/>
+                    <add_structure>
+                    </add_structure>
+                </PNML_opt>
+            </template>
+            <template id="Switch2" atomic="False" Success="reference" Failure="reference" Running="reference" Halt="reference"  summarizable="False">
+                <JANI_opt>
+                </JANI_opt>
+                <PNML_opt>
+                    <ReactiveFallback name="switch2">
+                        <ReactiveSequence name="case1">
+                            <BtCondition name="variable==case1"/>
+                            <Composite name="0"/>
+                        </ReactiveSequence>
+                        <ReactiveSequence name="case2">
+                            <BtCondition name="variable==case2"/>
+                            <Composite name="1"/>
+                        </ReactiveSequence>
+                    </ReactiveFallback>
+                </PNML_opt>
+            </template>
+            <template id="Composite" atomic="False">
+                <JANI_opt>
+                </JANI_opt>
+                <PNML_opt>
+                </PNML_opt>
+            </template>
+            <template id="Inverter" atomic="True" Success="failure" Failure="success" Running="running" Halt="halt"  summarizable="True">
+                <JANI_opt>
+                </JANI_opt>
+                <PNML_opt>
+                    <POT value="1,0,0,0,0,0"/>
+                    <POH value="0,1,0,0,0,0"/>
+                    <PIS value="1,0,0,0,0,1"/>
+                    <PIF value="1,0,0,0,1,0"/>
+                    <PIR value="1,0,0,1,0,0"/>
+                    <PIA value="0,1,1,0,0,0"/>
+                    <CIT value="1,0,0,0,0,0"/>
+                    <CIH value="0,1,0,0,0,0"/>
+                    <COS value="1,0,0,0,1,0"/>
+                    <COF value="1,0,0,0,0,1"/>
+                    <COR value="1,0,0,1,0,0"/>
+                    <COA value="0,1,1,0,0,0"/>
+                    <add_structure>
+                    </add_structure>
+                </PNML_opt>
+            </template>
+            <template id="ForceSuccess" atomic="True" Success="success" Failure="success" Running="running" Halt="halt"  summarizable="True">
+                <JANI_opt>
+                </JANI_opt>
+                <PNML_opt>
+                    <POT value="1,0,0,0,0,0"/>
+                    <POH value="0,1,0,0,0,0"/>
+                    <PIS value="1,0,0,0,1,0"/>
+                    <PIF value="0,0,0,0,0,0"/>
+                    <PIR value="1,0,0,1,0,0"/>
+                    <PIA value="0,1,1,0,0,0"/>
+                    <CIT value="1,0,0,0,0,0"/>
+                    <CIH value="0,1,0,0,0,0"/>
+                    <COS value="1,0,0,0,1,0"/>
+                    <COF value="1,0,0,0,1,0"/>
+                    <COR value="1,0,0,1,0,0"/>
+                    <COA value="0,1,1,0,0,0"/>
+                    <add_structure>
+                    </add_structure>
+                </PNML_opt>
+            </template>
+            <template id="ForceFailure" atomic="True" Success="failure" Failure="failure" Running="running" Halt="halt"  summarizable="True">
+                <JANI_opt>
+                </JANI_opt>
+                <PNML_opt>
+                    <POT value="1,0,0,0,0,0"/>
+                    <POH value="0,1,0,0,0,0"/>
+                    <PIS value="0,0,0,0,0,0"/>
+                    <PIF value="1,0,0,0,0,1"/>
+                    <PIR value="1,0,0,1,0,0"/>
+                    <PIA value="0,1,1,0,0,0"/>
+                    <CIT value="1,0,0,0,0,0"/>
+                    <CIH value="0,1,0,0,0,0"/>
+                    <COS value="1,0,0,0,0,1"/>
+                    <COF value="1,0,0,0,0,1"/>
+                    <COR value="1,0,0,1,0,0"/>
+                    <COA value="0,1,1,0,0,0"/>
+                    <add_structure>
+                    </add_structure>
+                </PNML_opt>
+            </template>
+            <template id="RetryUntilSuccessful" atomic="True" Success="success" Failure="name" Running="name" Halt="halt"  summarizable="True">
+                <JANI_opt>
+                </JANI_opt>
+                <PNML_opt>
+                    <POT value="1,0,0,0,0,0"/>
+                    <POH value="0,1,0,0,0,0"/>
+                    <PIS value="1,0,0,0,1,0"/>
+                    <PIF value="0,0,0,0,0,0"/>
+                    <PIR value="0,0,0,0,0,0"/>
+                    <PIA value="0,1,1,0,0,0"/>
+                    <CIT value="1,0,0,0,0,0"/>
+                    <CIH value="0,1,0,0,0,0"/>
+                    <COS value="1,0,0,0,1,0"/>
+                    <COF value="1,0,0,0,0,0"/>
+                    <COR value="1,0,0,0,0,0"/>
+                    <COA value="0,1,1,0,0,0"/>
+                    <add_structure>
+                    </add_structure>
+                </PNML_opt>
+            </template>
+        </ControlFlow>
+        <Execution>
+            <template id="BtCondition" atomic="True" summarizable="False">
+                <JANI_opt>
+                </JANI_opt>
+                <PNML_opt>
+                    <POT value="1,0,0,0,0,0" enabled="1"/> 
+                    <POH value="0,1,0,0,0,0" enabled="1"/>
+                    <PIS value="1,0,0,0,1,0" enabled="1"/>
+                    <PIF value="1,0,0,0,0,1" enabled="1"/>
+                    <PIR value="1,0,0,1,0,0" enabled="0"/>
+                    <PIA value="0,1,1,0,0,0" enabled="1"/> 
+                    <RIS value="0,1,i,0,1,0"/> <!-- 12 should be associated with a success of the reactive sequence(after all children have been blocked) -->
+                    <RIF value="1,0,0,0,0,1"/> <!-- 13 -->
+                    <RIR value="0,1,i,1,0,0"/> <!-- 14 should be associated with a running of the reactive sequence(after all children have been blocked)-->
+                </PNML_opt>
+            </template>
+            <template id="BtAction" atomic="True" summarizable="False">
+                <JANI_opt>
+                </JANI_opt>
+                <PNML_opt>
+                    <POT value="1,0,0,0,0,0" enabled="1"/>
+                    <POH value="0,1,0,0,0,0" enabled="1"/>
+                    <PIS value="1,0,0,0,1,0" enabled="1"/>
+                    <PIF value="1,0,0,0,0,1" enabled="1"/>
+                    <PIR value="1,0,0,1,0,0" enabled="1"/>
+                    <PIA value="0,1,1,0,0,0" enabled="1"/>
+                    <RIS value="0,1,i+1,0,1,0"/> <!-- 12 should be associated with a success of the reactive sequence(after all children have been blocked) -->
+                    <RIF value="0,1,i+1,0,0,1"/> <!-- 13 -->
+                    <RIR value="0,1,i+1,1,0,0"/> <!-- 14 should be associated with a running of the reactive sequence(after all children have been blocked)-->
+                </PNML_opt>
+            </template>
+        </Execution>
+    </templates>
+</structure>

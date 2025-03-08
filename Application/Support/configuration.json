@@ -1,0 +1,15 @@
+{
+    "GlobalOptimization":"False",
+    "interStructureGlobal":"True",
+    "singleToken":"False",
+    "image":{
+        "for_save":"True",
+        "xcmax":800,
+        "xcmin":100,
+        "ycmax":500,
+        "ycmin":100,
+        "yinvert":"True",
+        "xinvert":"False"
+    },
+    "output":"JANI"
+}

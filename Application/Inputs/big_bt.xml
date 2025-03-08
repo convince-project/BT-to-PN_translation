@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<!--Copyright Robert Bosch GmbH 2021. -->
+<root main_tree_to_execute="FullOnlineCoverageMissionTree">
+    <include path="room_by_room_coverage.xml"/>
+    <!-- ////////// -->
+    <!-- Once we have the mechanism to evaluate mission progress the following Bt tree will be modified-->
+    <BehaviorTree ID="FullOnlineCoverageMissionTree">
+        <ReactiveSequence name="init_then_run_mission">
+            <SetBlackboard output_key="mission_stage" value="initializing"/>
+            <SetBlackboard output_key="mission_failed" value="false"/>
+            <SetBlackboard output_key="mission_started_from_dock" value="true"/>
+            <SetBlackboard output_key="undocking_done" value="false"/>
+            <SetBlackboard output_key="online_coverage_done" value="false"/>
+            <SimpleWait wait_duration="2"/>
+            <ClearSlamWorldModel service_name="/slam_world_model/clear_mission_data"/>
+            <ReactiveFallback name="print_mission_mode">
+                <ReactiveSequence>
+                    <IsRoomByRoomMission/>
+                    <PrintText text_to_print="The robot is running a room by room mission"/>
+                </ReactiveSequence>
+                <PrintText text_to_print="The robot is running a full coverage mission"/>
+            </ReactiveFallback>
+            <ForceSuccess>
+                <ReactiveSequence name="test_if_robot_on_dock">
+                    <ReactiveFallback name="dock_not_found_or_outside_dock">
+                        <Inverter name="temp">
+                            <ActivateDockingDetector enable="True" node_name="StartDockDetector"/>
+                        </Inverter>
+                        <ReactiveSequence name="if_robot_not_on_dock_then_deactivate_detector">
+                            <IsOutsideDock/>
+                            <ActivateDockingDetector enable="False" node_name="StopDockDetector"/>
+                        </ReactiveSequence>
+                    </ReactiveFallback>
+                    <PrintText text_to_print="Robot outside dock or dock not found!"/>
+                    <ActivateDockingDetector enable="False" node_name="StopDockDetector"/>
+                    <SetBlackboard output_key="mission_started_from_dock" value="false"/>
+                </ReactiveSequence>
+            </ForceSuccess>
+            <ReactiveSequence name="run_mission">
+                <ReactiveSequence name="undock_then_online_coverage_then_back">
+                    <Switch2 variable="SUCCESS"
+                         case_1="{undocking_done}" case_2="false">
+                        <undocking_done/>
+                        <ReactiveSequence name="perfom_undocking_and_save_start_pose">
+                            <SetBlackboard output_key="mission_stage" value="undocking"/>
+                            <PrintText text_to_print="Undocking"/>
+                            <ReactiveSequence>
+                                <mission_started_from_dock/>
+                                <ReactiveSequence name="relocalize_on_dock_and_undock">
+                                    <ForceSuccess>
+                                        <ReactiveFallback name="mode_selector">
+                                            <ReactiveSequence name="dock_found_attempt_to_relocalize">
+                                                <ActivateDockingDetector enable="True" node_name="StartDockDetector"/>
+                                                <SetBlackboard output_key="mission_stage" value="relocalizing"/>
+                                                <PrintText text_to_print="dock found, try to relocalize!"/>
+                                                <HandleStartPoseAnnotation operation="add" mission_started_from_dock="true"/>
+                                                <RelocalizeOnCue service_name="/slam_world_model/relocalize_on_cue"/>
+                                                <ActivateDockingDetector enable="False" node_name="StartDockDetector"/>
+                                            </ReactiveSequence>
+                                            <ReactiveSequence name="dock_not_found">
+                                                <PrintText text_to_print="Dock not found cannot RelocalizeOnDock"/>
+                                                <ActivateDockingDetector enable="False" node_name="StartDockDetector"/>
+                                                <AlwaysFailure/>
+                                            </ReactiveSequence>
+                                        </ReactiveFallback>
+                                    </ForceSuccess>
+                                    <ReactiveFallback name="case_selector">
+                                        <ReactiveSequence name="dock_not_found_or_outside_dock">
+                                            <ReactiveFallback name="dock_not_found_or_outside_dock">
+                                                <Inverter>
+                                                    <ActivateDockingDetector enable="True" node_name="StartDockDetector"/>
+                                                </Inverter>
+                                                <IsOutsideDock/>
+                                            </ReactiveFallback>
+                                            <PrintText text_to_print="Robot outside dock or dock not found!"/>
+                                            <ActivateDockingDetector enable="False" node_name="StopDockDetector"/>
+                                        </ReactiveSequence>
+                                        <ReactiveSequence name="dock_found_perform_undocking">
+                                            <SetBlackboard output_key="mission_stage" value="undocking"/>
+                                            <PrintText text_to_print="Found the dock!"/>
+                                            <ReactiveFallback name="undock_or_clear_obstacles_and_repeat">
+                                                <PerformUndocking/>
+                                                <RetryUntilSuccessful num_attempts="5">
+                                                    <ReactiveSequence name="clear_local_costmap_and_undock">
+                                                        <ClearEntireCostmap node_name="" service_name="local_costmap/clear_entirely_local_costmap"/>
+                                                        <PerformUndocking/>
+                                                        <IsOutsideDock/>
+                                                        <PrintText text_to_print="Waiting for obstacles to be removed before retrying undocking"/>
+                                                        <SimpleWait wait_duration="2"/>
+                                                    </ReactiveSequence>
+                                                </RetryUntilSuccessful>
+                                            </ReactiveFallback>
+                                            <HandleStartPoseAnnotation operation="add" mission_started_from_dock="true"/>
+                                            <ActivateDockingDetector enable="False" node_name="StopDockDetector"/>
+                                            <PrintText text_to_print="Undocking mission successful!"/>
+                                        </ReactiveSequence>
+                                        <ReactiveSequence name="undocking_failed">
+                                            <PrintText text_to_print="Undocking mission failed!"/>
+                                            <HandleStartPoseAnnotation operation="remove" mission_started_from_dock="true"/>
+                                            <ActivateDockingDetector enable="False" node_name="StopDockDetector"/>
+                                            <AlwaysFailure/>
+                                        </ReactiveSequence>
+                                    </ReactiveFallback>
+                                </ReactiveSequence>
+                            </ReactiveSequence> 
+                            <SetBlackboard output_key="undocking_done" value="true"/>
+                            <HandleStartPoseAnnotation  operation="add"
+                                mission_started_from_dock="false"/>
+                        </ReactiveSequence>
+                    </Switch2>
+                    <ReactiveFallback>
+                        <ReactiveFallback name="do_online_coverage">
+                            <ReactiveSequence>
+                                <PrintText text_to_print="Perform online coverage"/>
+                                <SetBlackboard output_key="mission_stage" value="cleaning"/>
+                                <GoRoomByRoom/>
+                                <SetBlackboard output_key="online_coverage_done" value="true"/>
+                            </ReactiveSequence>
+                            <ReactiveSequence>
+                                <SetBlackboard output_key="mission_failed" value="true"/>
+                                <PrintText text_to_print="Online coverage failed!"/>
+                            </ReactiveSequence>
+                        </ReactiveFallback>
+                    </ReactiveFallback>
+                    <SetBlackboard output_key="mission_stage" value="docking"/>
+                    <PrintText text_to_print="Docking"/>
+                    <Switch2 case_1="true" case_2="false" name="mission_end_case_selector" variable="{mission_started_from_dock}">
+                        <ReactiveSequence name="mission_started_from_dock">
+                            <PrintText text_to_print="Robot started on the dock, will now drive to the dock!"/>
+                            <ReactiveFallback name="attempt_to_dock_or_cleanup">
+                                <RetryUntilSuccessful num_attempts="10">
+                                    <ReactiveSequence name="navigate_to_dock_and_dock">
+                                        <SetBlackboard output_key="mission_stage" value="docking"/>
+                                        <GetStartPoseFromAnnotation mission_started_from_dock="true" start_pose="{start_pose}"/>
+                                        <ForceSuccess name="Force Success">
+                                            <ClearAllCostmaps __shared_blackboard="true"/>
+                                        </ForceSuccess>
+                                        <GetRosParamAsString node_name="bt_navigator" parameter_name="aggressive_nav_to_pose_bt_xml"
+                                            parameter_value="{behavior_tree}"/>
+                                        <NavigateToPose behavior_tree="{behavior_tree}" goal="{start_pose}" node_name="NavigateToDockingStart"
+                                            error_code_id="{navigate_to_pose_error_code}"/>
+                                        <ActivateDockingDetector enable="True" node_name="StartDockDetectorForDocking"/>
+                                        <HandleStartPoseAnnotation operation="add" mission_started_from_dock="true"/>
+                                        <ReactiveFallback name="docking_success_or_prepare_new_docking_attempt">
+                                            <ReactiveSequence name="perform_docking_until_bump">
+                                                <Inverter>
+                                                    <IsBumpDetected/>
+                                                </Inverter>
+                                                <PerformDockingManeuver/>
+                                                <SimpleWait wait_duration="1.0"/>
+                                                <IsChargingVoltagePresent/>
+                                                <PrintText text_to_print="Docking mission successful!"/>
+                                            </ReactiveSequence>
+                                            <ReactiveSequence name="clear_bump_and_backup">
+                                                <ResetBumperState/>
+                                                <ClearRecentBumperObstacles reset_age="10"
+                                                    service_name="/slam_world_model/clear_recent_obstacles"/>
+                                                <ClearEntireCostmap node_name="ClearLocalCostmap"
+                                                    service_name="local_costmap/clear_entirely_local_costmap"/>
+                                                <BackUp backup_dist="-0.1" backup_speed="0.1" server_name="backup"/>
+                                                <AlwaysFailure/>
+                                            </ReactiveSequence>
+                                        </ReactiveFallback>
+                                        <ActivateDockingDetector enable="False" node_name="StopDockDetectorForDocking"/>
+                                    </ReactiveSequence>
+                                </RetryUntilSuccessful>
+                                <ReactiveSequence name="cleanup_after_unsuccessful_docking">
+                                    <PrintText text_to_print="Docking mission failed!"/>
+                                    <HandleStartPoseAnnotation operation="remove" mission_started_from_dock="true"/>
+                                    <ActivateDockingDetector enable="False" node_name="StopDockDetectorForDocking"/>
+                                    <AlwaysFailure/>
+                                </ReactiveSequence>
+                            </ReactiveFallback>
+                        </ReactiveSequence>
+                        <ReactiveSequence name="mission_did_not_start_on_dock">
+                            <PrintText text_to_print="Robot started away from dock, will now drive to start_pose!"/>
+                            <ReactiveFallback name="go_to_start_pose_or_remove_start_pose_annotation">
+                                <ReactiveSequence name="robot_goes_to_start_pose">
+                                    <GetStartPoseFromAnnotation mission_started_from_dock="false" start_pose="{start_pose}"/>
+                                    <SetBlackboard output_key="mission_stage" value="going_to_start_pose"/>
+                                    <ForceSuccess>
+                                        <ReactiveSequence>
+                                            <ClearCostmapAroundPoint node_name="ClearSlamWorldModelMap" point="{start_position}" reset_distance="0.3"
+                                                service_name="/slam_world_model/clear_area"/>
+                                            <ClearEntireCostmap node_name="ClearLocalCostmap" service_name="local_costmap/clear_entirely_local_costmap"/>
+                                            <SimpleWait wait_duration="0.1"/>
+                                        </ReactiveSequence>
+                                    </ForceSuccess>
+                                    <GetRosParamAsString node_name="bt_navigator" parameter_name="aggressive_nav_to_pose_bt_xml"
+                                        parameter_value="{behavior_tree}"/>
+                                    <RetryUntilSuccessful  num_attempts="3">
+                                        <NavigateToPose behavior_tree="{behavior_tree}" goal="{start_pose}" node_name="NavigateToDockingStart"
+                                            error_code_id="{navigate_to_pose_error_code}"/>
+                                    </RetryUntilSuccessful>
+                                </ReactiveSequence>
+                                <ReactiveSequence name="on_failure">
+                                    <HandleStartPoseAnnotation operation="remove" mission_started_from_dock="false"/>
+                                    <AlwaysFailure/>
+                                </ReactiveSequence>
+                            </ReactiveFallback>
+                        </ReactiveSequence>
+                    </Switch2>
+                    <ReactiveSequence>
+                        <mission_failed/>
+                        <AlwaysFailure/>
+                    </ReactiveSequence>
+                </ReactiveSequence>
+            </ReactiveSequence>
+        </ReactiveSequence>
+    </BehaviorTree>
+    <!-- ////////// -->
+    <TreeNodesModel>
+        <Action ID="ActivateDockingDetector">
+            <input_port name="enable"/>
+            <input_port name="node_name"/>
+        </Action>
+        <Action ID="HandleStartPoseAnnotation">
+            <input_port default="add" name="operation">Available operations: &quot;add&quot;, &quot;remove&quot;</input_port>
+            <input_port default="{mission_started_from_dock}" name="mission_started_from_dock"/>
+        </Action>
+        <Action ID="PerformOnlineCoverage">
+            <input_port name="timeout"/>
+        </Action>
+        <Condition ID="IsRobotStuck"/>
+        <Action ID="PerformOnlineCoverage">
+            <input_port name="timeout"/>
+        </Action>
+        <Action ID="PerformUnstuckAction"/>
+        <Action ID="SimpleWait">
+            <input_port name="wait_duration"/>
+        </Action>
+        <Action ID="PrintText">
+            <input_port name="text_to_print"/>
+        </Action>
+        <Condition ID="IsOutsideDock"/>
+        <Condition ID="DiagnosticStatus">
+            <input_port name="component_name"/>
+            <input_port name="status_level"/>
+        </Condition>
+        <Condition ID="IsRoomByRoomMission"/>
+        <Action ID="ClearSlamWorldModel">
+            <input_port default="/slam_world_model/clear_mission_data" name="service_name"/>
+        </Action>
+        <Action ID="ActivateDockingDetector">
+            <input_port name="enable"/>
+            <input_port name="node_name"/>
+        </Action>
+        <Action ID="BackUp">
+            <inout_port name="backup_dist"/>
+            <inout_port name="backup_speed"/>
+            <inout_port name="server_name"/>
+        </Action>
+        <Condition ID="IsBumpDetected"/>
+        <Action ID="ResetBumperState"/>
+        <SubTree ID="ClearAllCostmaps">
+            <inout_port name="__shared_blackboard"/>
+        </SubTree>
+        <Action ID="ClearEntireCostmap">
+            <inout_port name="service_name"/>
+            <input_port name="node_name"/>
+        </Action>
+        <Action ID="ClearRecentBumperObstacles">
+            <input_port name="reset_age"/>
+            <input_port name="service_name"/>
+            <input_port name="node_name"/>
+        </Action>
+        <Action ID="GetRosParamAsString">
+            <inout_port name="node_name"/>
+            <inout_port name="parameter_name"/>
+            <output_port name="parameter_value"/>
+        </Action>
+        <Action ID="HandleStartPoseAnnotation">
+            <input_port default="add" name="operation">Available operations: &quot;add&quot;, &quot;remove&quot;</input_port>
+            <input_port default="{mission_started_from_dock}" name="mission_started_from_dock"/>
+        </Action>
+        <Condition ID="IsChargingVoltagePresent"/>
+        <Action ID="NavigateToPose">
+            <input_port name="behavior_tree" default="point_to_point_navigation.xml"/>
+            <input_port name="goal"/>
+            <input_port name="node_name"/>
+            <output_port name="error_code_id"/>
+        </Action>
+        <Action ID="PerformDocking"/>
+        <Action ID="PerformDockingManeuver"/>
+        <Action ID="GetStartPoseFromAnnotation">
+            <input_port default="{mission_started_from_dock}" name="mission_started_from_dock"/>
+            <output_port default="{start_pose}" name="start_pose"/>
+        </Action>
+        <Action ID="PrintText">
+            <input_port name="text_to_print"/>
+        </Action>
+        <Action ID="SimpleWait">
+            <input_port name="wait_duration"/>
+        </Action>
+    </TreeNodesModel>
+    <!-- ////////// -->
+</root>

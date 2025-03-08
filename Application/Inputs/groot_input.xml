@@ -1,0 +1,204 @@
+<root main_tree_to_execute="BT_parsed">
+	<include path="utils.xml" />
+	<BehaviorTree ID="ParsedBT">
+		<ReactiveSequence name="init_then_run_mission">
+			<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+			<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+			<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+			<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+			<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+			<BtAction name="SimpleWait" prob="[1, 1, 1]" haltable="True" />
+			<BtAction name="ClearSlamWorldModel" prob="[1, 1, 1]" haltable="True" />
+			<ReactiveFallback name="print_mission_mode">
+				<ReactiveSequence>
+					<BtCondition name="IsRoomByRoomMission" prob="[1, 1, 0]" haltable="False" />
+					<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+				</ReactiveSequence>
+				<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+			</ReactiveFallback>
+			<ForceSuccess>
+				<ReactiveSequence name="test_if_robot_on_dock">
+					<ReactiveFallback name="dock_not_found_or_outside_dock">
+						<BtAction name="Inverter" prob="[1, 1, 1]" haltable="True" />
+						<ReactiveSequence name="if_robot_not_on_dock_then_deactivate_detector">
+							<BtCondition name="IsOutsideDock" prob="[1, 1, 0]" haltable="False" />
+							<BtAction name="ActivateDockingDetector" prob="[1, 1, 1]" haltable="True" />
+						</ReactiveSequence>
+					</ReactiveFallback>
+					<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+					<BtAction name="ActivateDockingDetector" prob="[1, 1, 1]" haltable="True" />
+					<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+				</ReactiveSequence>
+			</ForceSuccess>
+			<ReactiveSequence name="run_mission">
+				<ReactiveSequence name="undock_then_online_coverage_then_back">
+					<Switch2 variable="SUCCESS" case_1="{undocking_done}" case_2="false">
+						<BtAction name="undocking_done" prob="[1, 1, 1]" haltable="True" />
+						<ReactiveSequence name="perfom_undocking_and_save_start_pose">
+							<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+							<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+							<ReactiveSequence>
+								<BtAction name="mission_started_from_dock" prob="[1, 1, 1]" haltable="True" />
+								<ReactiveSequence name="relocalize_on_dock_and_undock">
+									<ForceSuccess>
+										<ReactiveFallback name="mode_selector">
+											<ReactiveSequence name="dock_found_attempt_to_relocalize">
+												<BtAction name="ActivateDockingDetector" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="HandleStartPoseAnnotation" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="RelocalizeOnCue" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="ActivateDockingDetector" prob="[1, 1, 1]" haltable="True" />
+											</ReactiveSequence>
+											<ReactiveSequence name="dock_not_found">
+												<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="ActivateDockingDetector" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="AlwaysFailure" prob="[1, 1, 1]" haltable="True" />
+											</ReactiveSequence>
+										</ReactiveFallback>
+									</ForceSuccess>
+									<ReactiveFallback name="case_selector">
+										<ReactiveSequence name="dock_not_found_or_outside_dock">
+											<ReactiveFallback name="dock_not_found_or_outside_dock">
+												<BtAction name="Inverter" prob="[1, 1, 1]" haltable="True" />
+												<BtCondition name="IsOutsideDock" prob="[1, 1, 0]" haltable="False" />
+											</ReactiveFallback>
+											<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="ActivateDockingDetector" prob="[1, 1, 1]" haltable="True" />
+										</ReactiveSequence>
+										<ReactiveSequence name="dock_found_perform_undocking">
+											<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+											<ReactiveFallback name="undock_or_clear_obstacles_and_repeat">
+												<BtAction name="PerformUndocking" prob="[1, 1, 1]" haltable="True" />
+												<RetryUntilSuccessful num_attempts="5">
+													<ReactiveSequence name="clear_local_costmap_and_undock">
+														<BtAction name="ClearEntireCostmap" prob="[1, 1, 1]" haltable="True" />
+														<BtAction name="PerformUndocking" prob="[1, 1, 1]" haltable="True" />
+														<BtCondition name="IsOutsideDock" prob="[1, 1, 0]" haltable="False" />
+														<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+														<BtAction name="SimpleWait" prob="[1, 1, 1]" haltable="True" />
+													</ReactiveSequence>
+												</RetryUntilSuccessful>
+											</ReactiveFallback>
+											<BtAction name="HandleStartPoseAnnotation" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="ActivateDockingDetector" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+										</ReactiveSequence>
+										<ReactiveSequence name="undocking_failed">
+											<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="HandleStartPoseAnnotation" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="ActivateDockingDetector" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="AlwaysFailure" prob="[1, 1, 1]" haltable="True" />
+										</ReactiveSequence>
+									</ReactiveFallback>
+								</ReactiveSequence>
+							</ReactiveSequence>
+							<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+							<BtAction name="HandleStartPoseAnnotation" prob="[1, 1, 1]" haltable="True" />
+						</ReactiveSequence>
+					</Switch2>
+					<ReactiveFallback>
+						<ReactiveFallback name="do_online_coverage">
+							<ReactiveSequence>
+								<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+								<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+								<BtAction name="GoRoomByRoom" prob="[1, 1, 1]" haltable="True" />
+								<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+							</ReactiveSequence>
+							<ReactiveSequence>
+								<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+								<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+							</ReactiveSequence>
+						</ReactiveFallback>
+					</ReactiveFallback>
+					<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+					<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+					<Switch2 case_1="true" case_2="false" name="mission_end_case_selector" variable="{mission_started_from_dock}">
+						<ReactiveSequence name="mission_started_from_dock">
+							<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+							<ReactiveFallback name="attempt_to_dock_or_cleanup">
+								<RetryUntilSuccessful num_attempts="10">
+									<ReactiveSequence name="navigate_to_dock_and_dock">
+										<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+										<BtAction name="GetStartPoseFromAnnotation" prob="[1, 1, 1]" haltable="True" />
+										<ForceSuccess name="Force Success">
+											<BtAction name="ClearAllCostmaps" prob="[1, 1, 1]" haltable="True" />
+										</ForceSuccess>
+										<BtAction name="GetRosParamAsString" prob="[1, 1, 1]" haltable="True" />
+										<BtAction name="NavigateToPose" prob="[1, 1, 1]" haltable="True" />
+										<BtAction name="ActivateDockingDetector" prob="[1, 1, 1]" haltable="True" />
+										<BtAction name="HandleStartPoseAnnotation" prob="[1, 1, 1]" haltable="True" />
+										<ReactiveFallback name="docking_success_or_prepare_new_docking_attempt">
+											<ReactiveSequence name="perform_docking_until_bump">
+												<BtAction name="Inverter" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="PerformDockingManeuver" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="SimpleWait" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="IsChargingVoltagePresent" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+											</ReactiveSequence>
+											<ReactiveSequence name="clear_bump_and_backup">
+												<BtAction name="ResetBumperState" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="ClearRecentBumperObstacles" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="ClearEntireCostmap" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="BackUp" prob="[1, 1, 1]" haltable="True" />
+												<BtAction name="AlwaysFailure" prob="[1, 1, 1]" haltable="True" />
+											</ReactiveSequence>
+										</ReactiveFallback>
+										<BtAction name="ActivateDockingDetector" prob="[1, 1, 1]" haltable="True" />
+									</ReactiveSequence>
+								</RetryUntilSuccessful>
+								<ReactiveSequence name="cleanup_after_unsuccessful_docking">
+									<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+									<BtAction name="HandleStartPoseAnnotation" prob="[1, 1, 1]" haltable="True" />
+									<BtAction name="ActivateDockingDetector" prob="[1, 1, 1]" haltable="True" />
+									<BtAction name="AlwaysFailure" prob="[1, 1, 1]" haltable="True" />
+								</ReactiveSequence>
+							</ReactiveFallback>
+						</ReactiveSequence>
+						<ReactiveSequence name="mission_did_not_start_on_dock">
+							<BtAction name="PrintText" prob="[1, 1, 1]" haltable="True" />
+							<ReactiveFallback name="go_to_start_pose_or_remove_start_pose_annotation">
+								<ReactiveSequence name="robot_goes_to_start_pose">
+									<BtAction name="GetStartPoseFromAnnotation" prob="[1, 1, 1]" haltable="True" />
+									<BtAction name="SetBlackboard" prob="[1, 1, 1]" haltable="True" />
+									<ForceSuccess>
+										<ReactiveSequence>
+											<BtAction name="ClearCostmapAroundPoint" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="ClearEntireCostmap" prob="[1, 1, 1]" haltable="True" />
+											<BtAction name="SimpleWait" prob="[1, 1, 1]" haltable="True" />
+										</ReactiveSequence>
+									</ForceSuccess>
+									<BtAction name="GetRosParamAsString" prob="[1, 1, 1]" haltable="True" />
+									<RetryUntilSuccessful num_attempts="3">
+										<BtAction name="NavigateToPose" prob="[1, 1, 1]" haltable="True" />
+									</RetryUntilSuccessful>
+								</ReactiveSequence>
+								<ReactiveSequence name="on_failure">
+									<BtAction name="HandleStartPoseAnnotation" prob="[1, 1, 1]" haltable="True" />
+									<BtAction name="AlwaysFailure" prob="[1, 1, 1]" haltable="True" />
+								</ReactiveSequence>
+							</ReactiveFallback>
+						</ReactiveSequence>
+					</Switch2>
+					<ReactiveSequence>
+						<BtAction name="mission_failed" prob="[1, 1, 1]" haltable="True" />
+						<BtAction name="AlwaysFailure" prob="[1, 1, 1]" haltable="True" />
+					</ReactiveSequence>
+				</ReactiveSequence>
+			</ReactiveSequence>
+		</ReactiveSequence>
+	</BehaviorTree>
+	<TreeNodesModel>
+		<Action ID="BtAction">
+			<inout_port name="name" />
+			<inout_port name="prob" />
+			<inout_port name="haltable" />
+		</Action>
+		<Action ID="BtCondition">
+			<inout_port name="name" />
+			<inout_port name="prob" />
+			<inout_port name="haltable" />
+		</Action>
+	</TreeNodesModel>
+</root>

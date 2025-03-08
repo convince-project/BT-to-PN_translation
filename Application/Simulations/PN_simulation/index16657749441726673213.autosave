@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
+  <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="Arc.js"></script>
+  <script language="javascript" type="text/javascript" src="Buttons.js"></script>
+  <script language="javascript" type="text/javascript" src="CustomJSONObject.js"></script>
+  <script language="javascript" type="text/javascript" src="FileSaver.js"></script>
+  <script language="javascript" type="text/javascript" src="FileSaver.min.js"></script>
+  <script language="javascript" type="text/javascript" src="GUI.js"></script>
+  <script language="javascript" type="text/javascript" src="Place.js"></script>
+  <script language="javascript" type="text/javascript" src="Token.js"></script>
+  <script language="javascript" type="text/javascript" src="Transition.js"></script>
+  <script language="javascript" type="text/javascript" src="gif.js"></script>
+  <script language="javascript" type="text/javascript" src="gif.worker.js"></script>
+  <script language="javascript" type="text/javascript" src="PN_simulation.js"></script>
+  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
+
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+<h1>Petri Net Simulation</h1>
+</body>
+</html>
