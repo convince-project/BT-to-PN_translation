@@ -1,1 +1,0 @@
-This file is a placeholder for the scripts implementing the MDP graphical cd simulation
