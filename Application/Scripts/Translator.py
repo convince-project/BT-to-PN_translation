@@ -603,7 +603,7 @@ def main():
             break
     parseBT(root, "",optimization_=False) # Parse the Bt
     # Draw the directed graph
-    P.render(script_path+"/Outputs//mages/Unoptimized_transition_graph",format='png')
+    P.render(script_path+"/Outputs/Images/Unoptimized_transition_graph",format='png')
     edgelist=get_edges(P)
     G=nx.DiGraph(edgelist)    
     F=Digraph(format='gv')

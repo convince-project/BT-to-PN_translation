@@ -1,4 +1,4 @@
-# Use OSRF ROS noetic (Ubuntu 20.04) as the base image
+# Use OSRF ROS noetic (Ubuntu 22.04) as the base image
 FROM ubuntu:22.04
 
 # Set non-interactive frontend for package installations
@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     libffi-dev \
     python3-pip \
+    graphviz \
     libffi8ubuntu1 \
     libncurses-dev \
     libgmp10 \
@@ -41,7 +42,7 @@ RUN tar -xzvf /tmp/nuXmv-2.0.0-linux64.tar.gz -C /root/
 # Install Behaverify
 WORKDIR /root/behaverify
 RUN python3 -m pip install -r /root/behaverify/requirements/core.txt
-# RUN python3 -m pip install -r /root/BT-to-PN_translation/requirements.txt
+RUN python3 -m pip install -r /root/BT-to-PN_translation/requirements.txt
 
 # Set working directory inside the container
 WORKDIR /root/BT-to-PN_translation
