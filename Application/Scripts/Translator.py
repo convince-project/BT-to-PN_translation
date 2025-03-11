@@ -520,21 +520,21 @@ class Graph:
                         temp=input_string.split("\"")[1]
                         in_string=f"{temp}".replace("&","and")
                         if in_string[-1]==" ":
-                            in_string=in_string[:-2]
+                            in_string=in_string[:-1]
                     else:
                         temp=input_string
                         in_string=f"{input_string}"
                         if in_string[-1]==" ":
-                            in_string=in_string[:-2]
+                            in_string=in_string[:-1]
                     if "\"" in output_string:
                         temp=output_string.split("\"")[1]
                         out_string=f"{temp}".replace("&","and")
                         if out_string[-1]==" ":
-                            out_string=out_string[:-2]
+                            out_string=out_string[:-1]
                     else:
                         out_string=f"{output_string}"
                         if out_string[-1]==" ":
-                            out_string=out_string[:-2]
+                            out_string=out_string[:-1]
                     print(input_string,out_string+"|")
                     new_arc=generateArc(Templateroot2,in_string,out_string,"normal",inscription)
                    
