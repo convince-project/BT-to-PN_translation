@@ -527,7 +527,7 @@ class Graph:
                         out_string=f"{temp}".replace("&","and")
                     else:
                         out_string=f"{output_string}"
-                    print(input_string,out_string)
+                    print(input_string,out_string+"|")
                     new_arc=generateArc(Templateroot2,in_string,out_string,"normal",inscription)
                    
                     PNMLroot.append(new_arc)    
