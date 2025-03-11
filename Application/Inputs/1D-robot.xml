@@ -1,9 +1,5 @@
 <root BTCPP_format="4">
     <BehaviorTree ID="one">
-        <!-- <Switch2>
-            <BtAction name="is_right" haltable="False"/>
-            <BtAction name="is_right" haltable="False"/>
-        </Switch2>  -->
         <ReactiveFallback>
             <BtCondition name="is_at_home" haltable="False" prob="1,1,0"/>
             <ReactiveSequence>

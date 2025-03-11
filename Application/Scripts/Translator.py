@@ -603,7 +603,7 @@ def main():
             break
     parseBT(root, "",optimization_=False) # Parse the Bt
     # Draw the directed graph
-    P.render(script_path+"/Outputs/Unoptimized_transition_graph",format='png')
+    P.render(script_path+"/Outputs//mages/Unoptimized_transition_graph",format='png')
     edgelist=get_edges(P)
     G=nx.DiGraph(edgelist)    
     F=Digraph(format='gv')
@@ -622,9 +622,9 @@ def main():
     F=temp_graph.construct_graph()
     # for i in Unsumm_nodes:
     #     F.node(i,i,style="filled",color='lightblue')
-    F.render(script_path+"/Outputs/Execution_flow_graph_opt",format='png')
+    F.render(script_path+"/Outputs/Images/Execution_flow_graph_opt",format='png')
     K=temp_graph.construct_PN(contracted=True)
-    temp_graph.to_PNML(script_path+"/Outputs/Optimized_PN",K)
+    temp_graph.to_PNML(script_path+"/Outputs/JANI/Optimized_PN",K)
     
     
 if __name__ == '__main__':

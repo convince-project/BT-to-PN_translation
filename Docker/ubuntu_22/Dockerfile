@@ -22,32 +22,29 @@ RUN apt-get update && apt-get install -y \
     libncurses5 \
     git \
     nano \
+    wget \
     python3-tk \
     apt-utils \
     && rm -rf /var/lib/apt/lists/*
     
 # Clone your Git repository (replace with your actual repo URL)
+
 WORKDIR /root/
-RUN mkdir src
-WORKDIR /root/src/
 RUN git clone https://github.com/convince-project/BT-to-PN_translation.git
 RUN git clone https://github.com/verivital/behaverify.git
 
 # Setup environment
 # Install Nuxmv
 RUN wget https://nuxmv.fbk.eu/theme/download.php?file=nuXmv-2.0.0-linux64.tar.gz -O /tmp/nuXmv-2.0.0-linux64.tar.gz
-RUN tar -xzvf /tmp/nuXmv-2.0.0-linux64.tar.gz -C /root/src/
+RUN tar -xzvf /tmp/nuXmv-2.0.0-linux64.tar.gz -C /root/
 
 # Install Behaverify
-WORKDIR /root/src/behaverify
-RUN python3 -m pip install -r /root/src/behaverify/requirements/core.txt
-
-# Setup environment
-COPY setup.sh /root/src/
-RUN chmod +x /root/src/setup.sh
+WORKDIR /root/behaverify
+RUN python3 -m pip install -r /root/behaverify/requirements/core.txt
+RUN python3 -m pip install -r /root/BT-to-PN_translation/requirements.txt
 
 # Set working directory inside the container
-WORKDIR /root/src/BT-to-PN_translation
+WORKDIR /root/BT-to-PN_translation
 # Expose any necessary ports (modify as needed)
 EXPOSE 11311 8080
 

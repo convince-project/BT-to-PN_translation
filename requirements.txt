@@ -3,4 +3,3 @@ networkx
 numpy
 graphviz
 matplotlib
-tkinter
