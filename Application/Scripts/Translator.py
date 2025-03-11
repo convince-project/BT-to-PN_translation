@@ -624,7 +624,7 @@ def main():
     #     F.node(i,i,style="filled",color='lightblue')
     F.render(script_path+"/Outputs/Images/Execution_flow_graph_opt",format='png')
     K=temp_graph.construct_PN(contracted=True)
-    temp_graph.to_PNML(script_path+"/Outputs/JANI/Optimized_PN",K)
+    temp_graph.to_PNML(script_path+"/Outputs/PNML/Optimized_PN",K)
     
     
 if __name__ == '__main__':
