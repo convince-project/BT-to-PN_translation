@@ -453,7 +453,6 @@ class Graph:
 
         for i in graph.source.split("\n"):
             if "circle" in i:
-                print({i.split(" ")[0].split("\t")[1]})
                 new_place=createPT1(Templateroot2,"place",i.split(" ")[0].split("\t")[1])
                 if i.split(" ")[0].split("\t")[1]=="R_T":
                     new_place=modifyField(new_place,"initialMarking/value","1","text")
@@ -517,8 +516,6 @@ class Graph:
                         inscription=str(int(attr["label"]))
                     except:
                         inscription=[x for x in re.split(r'"|\+',attr["label"]) if x][1]
-                    # print(input_string,output_string,inscription)
-                    # print(elements,elements[0],elements[1],attr)
                     if "\"" in input_string:
                         temp=input_string.split("\"")[1]
                         in_string=f"{temp}".replace("&","and")
@@ -530,6 +527,7 @@ class Graph:
                         out_string=f"{temp}".replace("&","and")
                     else:
                         out_string=f"{output_string}"
+                    print(input_string,out_string)
                     new_arc=generateArc(Templateroot2,in_string,out_string,"normal",inscription)
                    
                     PNMLroot.append(new_arc)    
