@@ -521,15 +521,15 @@ class Graph:
                     # print(elements,elements[0],elements[1],attr)
                     if "\"" in input_string:
                         temp=input_string.split("\"")[1]
-                        in_string=f"|{temp}|".replace("&","and")
+                        in_string=f"{temp}".replace("&","and")
                     else:
                         temp=input_string
-                        in_string=f"|{input_string}|"
+                        in_string=f"{input_string}"
                     if "\"" in output_string:
                         temp=output_string.split("\"")[1]
-                        out_string=f"|{temp}|".replace("&","and")
+                        out_string=f"{temp}".replace("&","and")
                     else:
-                        out_string=f"|{output_string}|"
+                        out_string=f"{output_string}"
                     new_arc=generateArc(Templateroot2,in_string,out_string,"normal",inscription)
                    
                     PNMLroot.append(new_arc)    
