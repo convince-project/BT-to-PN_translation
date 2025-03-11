@@ -453,7 +453,7 @@ class Graph:
 
         for i in graph.source.split("\n"):
             if "circle" in i:
-                print(f"{i.split(" ")[0].split("\t")[1]}|")
+                print({i.split(" ")[0].split("\t")[1]}+"|")
                 new_place=createPT1(Templateroot2,"place",i.split(" ")[0].split("\t")[1])
                 if i.split(" ")[0].split("\t")[1]=="R_T":
                     new_place=modifyField(new_place,"initialMarking/value","1","text")
