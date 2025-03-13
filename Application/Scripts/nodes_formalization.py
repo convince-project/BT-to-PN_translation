@@ -18,7 +18,6 @@ node_counter=0
 class Transition:
     def __init__(self,pre,post,priority=1,inferred=False):
         global P,Unsumm_nodes,Inf_arcs,variables
-        
         self.name=f"{pre} -> {post}"
         if inferred:
             P.edge(pre,post,str(priority),color='green')
@@ -43,6 +42,7 @@ def CreateReactiveNode(tree,name,node_type,optimization=False):
 
     Transition(name+"_T=1",name+"0_T=1")
     Transition(name+"_H=1",name+"0_H=1")
+    Transition(f"not({name}_N=4)",f"R({name}_M)")
     for i in tree:
         child_code=name+str(list(tree).index(i))
         successor_code=name+str(list(tree).index(i)+1)
@@ -51,7 +51,7 @@ def CreateReactiveNode(tree,name,node_type,optimization=False):
             # Case where the child returns the continuation response
             Transition(f"{child_code}_{node_type}=1",f"{successor_code}_T=1")
             # Case where the next child returns running
-            Transition(f"{child_code}_R=1",f"{name}_Temp_R=1 & {successor_code}_H=1","")
+            Transition(f"{child_code}_R=1",f"{name}_Temp_R=1 & {successor_code}_H=1")
             # Case where the child returns the non continuing condition
             Transition(f"{child_code}_{other_type}=1",f"{name}_Temp_{other_type}=1 & {successor_code}_H=1")
             # Case where the child returns an acknowledgement after being halted
@@ -65,7 +65,7 @@ def CreateReactiveNode(tree,name,node_type,optimization=False):
         else:
             Transition(f"{child_code}_"+node_type+"=1",name+"_"+node_type+"=1")
             Transition(child_code+"_R=1",name+"_R=1")
-            Transition( child_code+"_A=1",name+"_A=1")
+            Transition(child_code+"_A=1",name+"_A=1")
             Transition(child_code+"_A=1",name+"_Temp_"+other_type+"=1 & "+ child_code+"_A=1",inferred=True)
             Aux_nodes.append(name+"_Temp_"+other_type+"=1 & "+ child_code+"_A=1")
             Transition(child_code+"_A=1",name+"_Temp_R=1 & "+ child_code+"_A=1",inferred=True)
@@ -73,6 +73,7 @@ def CreateReactiveNode(tree,name,node_type,optimization=False):
             Transition(name+"_Temp_"+other_type+"=1 & "+ child_code+"_A=1",name+"_"+other_type+"=1",priority=2)# ,label='2')
             Transition(child_code+"_"+other_type+"=1",name+"_"+other_type+"=1")
             Transition(name+"_Temp_R=1 & "+ child_code+"_A=1",name+"_R=1", priority=2) #,label='2')
+    
 
 # RetryUntilSuccessful
 def CreateRetryUntilSuccessful(tree,name,iterations):
@@ -290,20 +291,20 @@ def CreateCondition(tree,name,optimization=True):
         haltable=True
 
     P.node(name+"_T=1",name+"_T=1",style="filled",color='lightblue')
-    P.edge(name+"_T=1",name+"_IT=1","",style="dashed")
+    # P.edge(name+"_T=1",name+"_IT=1","",style="dashed")
     variables.append(name+"_T")
-    variables.append(name+"_IT")
+    # variables.append(name+"_IT")
     Unsumm_nodes.append(name+"_T=1")
     # Unsumm_nodes.append(name+"_IT=1")
 
     if not (branches[0]=='0' and optimization):
-        P.edge(name+"_IT=1",name+"_S=1","",style="dashed")
+        P.edge(name+"_T=1",name+"_S=1","1")
         P.node(name+"_S=1",name+"_S=1",style="filled",color='lightblue')
         variables.append(name+"_S")
         Unsumm_nodes.append(name+"_S=1")
 
     if not (branches[1]=='0' and optimization):
-        P.edge(name+"_IT=1",name+"_F=1","",style="dashed")
+        P.edge(name+"_T=1",name+"_F=1","1")
         P.node(name+"_F=1",name+"_F=1",style="filled",color='lightblue')
         variables.append(name+"_F")
         Unsumm_nodes.append(name+"_F=1")
@@ -314,8 +315,8 @@ def CreateCondition(tree,name,optimization=True):
         Unsumm_nodes.append(name+"_A=1")
         variables.append(name+"_H")
         variables.append(name+"_A")
-        P.edge(name+"_H=1",name+"_IH=1","",style="dashed")
-        P.edge(name+"_IH=1",name+"_A=1","",style="dashed")
+        # P.edge(name+"_H=1",name+"_IH=1","",style="dashed")
+        P.edge(name+"_H=1",name+"_A=1","1")
         
         
 # Action nodes
@@ -324,7 +325,7 @@ def CreateAction(tree,name,optimization=True):
     global P,Unsumm_nodes,Inf_arcs,variables
 
     P.node(name+"_T=1",name+"_T=1",style="filled",color='lightblue')
-    P.edge(name+"_T=1",name+"_IT=1","",style="dashed")
+    # P.edge(name+"_T=1",name+"_IT=1","",style="dashed")
     Unsumm_nodes.append(name+"_T=1")
     variables.append(name+"_T")
     # variables.append(name+"_IT")
@@ -341,14 +342,14 @@ def CreateAction(tree,name,optimization=True):
 
     
     if  not ( branches[0]=='0' and optimization):
-        P.edge(name+"_IT=1",name+"_S=1","",style="dashed")
+        P.edge(name+"_T=1",name+"_S=1","1")
         P.node(name+"_S=1",name+"_S=1",style="filled",color='lightblue')
         variables.append(name+"_S")
         Unsumm_nodes.append(name+"_S=1")
 
     
     if  not ( branches[1]=='0' and optimization):
-        P.edge(name+"_IT=1",name+"_F=1","",style="dashed")
+        P.edge(name+"_T=1",name+"_F=1","1")
         P.node(name+"_F=1",name+"_F=1",style="filled",color='lightblue')
         variables.append(name+"_F")
         Unsumm_nodes.append(name+"_F=1")
@@ -358,16 +359,16 @@ def CreateAction(tree,name,optimization=True):
         P.node(name+"_R=1",name+"_R=1",style="filled",color='lightblue')
         variables.append(name+"_R")
         Unsumm_nodes.append(name+"_R=1")
-        P.edge(name+"_IT=1",name+"_R=1","",style="dashed")
+        P.edge(name+"_T=1",name+"_R=1","1")
 
     
     
     if (not optimization or haltable=="True"):
-        P.edge(name+"_H=1",name+"_IH=1","",style="dashed")
-        P.edge(name+"_IH=1",name+"_A=1","",style="dashed")
+        # P.edge(name+"_H=1",name+"_IH=1","",style="dashed")
+        P.edge(name+"_H=1",name+"_A=1","1")
         variables.append(name+"_H")
         variables.append(name+"_A")
-        variables.append(name+"_IH")
+        # variables.append(name+"_IH")
         # Unsumm_nodes.append(name+"_IH=1")
         Unsumm_nodes.append(name+"_H=1")
         Unsumm_nodes.append(name+"_A=1")

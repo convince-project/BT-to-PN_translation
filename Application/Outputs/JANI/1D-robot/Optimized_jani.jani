@@ -1,0 +1,2138 @@
+{
+    "actions": [],
+    "automata": [
+        {
+            "edges": [
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R_A <- R_A - 1",
+                                    "ref": "R_A",
+                                    "value": {
+                                        "left": "R_A",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_T <- R_T + 1",
+                                    "ref": "R_T",
+                                    "value": {
+                                        "left": "R_T",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R_A",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R_T <- R_T - 1",
+                                    "ref": "R_T",
+                                    "value": {
+                                        "left": "R_T",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R0_T <- R0_T + 1",
+                                    "ref": "R0_T",
+                                    "value": {
+                                        "left": "R0_T",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R_T",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R_S <- R_S - 1",
+                                    "ref": "R_S",
+                                    "value": {
+                                        "left": "R_S",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_T <- R_T + 1",
+                                    "ref": "R_T",
+                                    "value": {
+                                        "left": "R_T",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R_S",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R_F <- R_F - 1",
+                                    "ref": "R_F",
+                                    "value": {
+                                        "left": "R_F",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_T <- R_T + 1",
+                                    "ref": "R_T",
+                                    "value": {
+                                        "left": "R_T",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R_F",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R_R <- R_R - 1",
+                                    "ref": "R_R",
+                                    "value": {
+                                        "left": "R_R",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_T <- R_T + 1",
+                                    "ref": "R_T",
+                                    "value": {
+                                        "left": "R_T",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R_R",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R0_T <- R0_T - 1",
+                                    "ref": "R0_T",
+                                    "value": {
+                                        "left": "R0_T",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R0_S <- R0_S + 1",
+                                    "ref": "R0_S",
+                                    "value": {
+                                        "left": "R0_S",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R0_T",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R0_T <- R0_T - 1",
+                                    "ref": "R0_T",
+                                    "value": {
+                                        "left": "R0_T",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R0_F <- R0_F + 1",
+                                    "ref": "R0_F",
+                                    "value": {
+                                        "left": "R0_F",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R0_T",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R0_S <- R0_S - 1",
+                                    "ref": "R0_S",
+                                    "value": {
+                                        "left": "R0_S",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_Temp_S <- R_Temp_S + 1",
+                                    "ref": "R_Temp_S",
+                                    "value": {
+                                        "left": "R_Temp_S",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R10_H <- R10_H + 1",
+                                    "ref": "R10_H",
+                                    "value": {
+                                        "left": "R10_H",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R0_S",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R0_F <- R0_F - 1",
+                                    "ref": "R0_F",
+                                    "value": {
+                                        "left": "R0_F",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R10_T <- R10_T + 1",
+                                    "ref": "R10_T",
+                                    "value": {
+                                        "left": "R10_T",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R0_F",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R0_H <- R0_H - 1",
+                                    "ref": "R0_H",
+                                    "value": {
+                                        "left": "R0_H",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R0_A <- R0_A + 1",
+                                    "ref": "R0_A",
+                                    "value": {
+                                        "left": "R0_A",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R0_H",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R0_A <- R0_A - 1",
+                                    "ref": "R0_A",
+                                    "value": {
+                                        "left": "R0_A",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R10_H <- R10_H + 1",
+                                    "ref": "R10_H",
+                                    "value": {
+                                        "left": "R10_H",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R0_A",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R10_T <- R10_T - 1",
+                                    "ref": "R10_T",
+                                    "value": {
+                                        "left": "R10_T",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R10_S <- R10_S + 1",
+                                    "ref": "R10_S",
+                                    "value": {
+                                        "left": "R10_S",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R10_T",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R10_T <- R10_T - 1",
+                                    "ref": "R10_T",
+                                    "value": {
+                                        "left": "R10_T",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R10_F <- R10_F + 1",
+                                    "ref": "R10_F",
+                                    "value": {
+                                        "left": "R10_F",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R10_T",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R10_S <- R10_S - 1",
+                                    "ref": "R10_S",
+                                    "value": {
+                                        "left": "R10_S",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R11_T <- R11_T + 1",
+                                    "ref": "R11_T",
+                                    "value": {
+                                        "left": "R11_T",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R10_S",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R10_F <- R10_F - 1",
+                                    "ref": "R10_F",
+                                    "value": {
+                                        "left": "R10_F",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R1_Temp_F <- R1_Temp_F + 1",
+                                    "ref": "R1_Temp_F",
+                                    "value": {
+                                        "left": "R1_Temp_F",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R11_H <- R11_H + 1",
+                                    "ref": "R11_H",
+                                    "value": {
+                                        "left": "R11_H",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R10_F",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R10_H <- R10_H - 1",
+                                    "ref": "R10_H",
+                                    "value": {
+                                        "left": "R10_H",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R10_A <- R10_A + 1",
+                                    "ref": "R10_A",
+                                    "value": {
+                                        "left": "R10_A",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R10_H",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R10_A <- R10_A - 1",
+                                    "ref": "R10_A",
+                                    "value": {
+                                        "left": "R10_A",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R11_H <- R11_H + 1",
+                                    "ref": "R11_H",
+                                    "value": {
+                                        "left": "R11_H",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R10_A",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R11_T <- R11_T - 1",
+                                    "ref": "R11_T",
+                                    "value": {
+                                        "left": "R11_T",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R11_S <- R11_S + 1",
+                                    "ref": "R11_S",
+                                    "value": {
+                                        "left": "R11_S",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R11_T",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R11_T <- R11_T - 1",
+                                    "ref": "R11_T",
+                                    "value": {
+                                        "left": "R11_T",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R11_F <- R11_F + 1",
+                                    "ref": "R11_F",
+                                    "value": {
+                                        "left": "R11_F",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R11_T",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R11_T <- R11_T - 1",
+                                    "ref": "R11_T",
+                                    "value": {
+                                        "left": "R11_T",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R11_R <- R11_R + 1",
+                                    "ref": "R11_R",
+                                    "value": {
+                                        "left": "R11_R",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R11_T",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R11_S <- R11_S - 1",
+                                    "ref": "R11_S",
+                                    "value": {
+                                        "left": "R11_S",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_Temp_S <- R_Temp_S + 1",
+                                    "ref": "R_Temp_S",
+                                    "value": {
+                                        "left": "R_Temp_S",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R20_H <- R20_H + 1",
+                                    "ref": "R20_H",
+                                    "value": {
+                                        "left": "R20_H",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R11_S",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R11_F <- R11_F - 1",
+                                    "ref": "R11_F",
+                                    "value": {
+                                        "left": "R11_F",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R20_T <- R20_T + 1",
+                                    "ref": "R20_T",
+                                    "value": {
+                                        "left": "R20_T",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R11_F",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R11_R <- R11_R - 1",
+                                    "ref": "R11_R",
+                                    "value": {
+                                        "left": "R11_R",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_Temp_R <- R_Temp_R + 1",
+                                    "ref": "R_Temp_R",
+                                    "value": {
+                                        "left": "R_Temp_R",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R20_H <- R20_H + 1",
+                                    "ref": "R20_H",
+                                    "value": {
+                                        "left": "R20_H",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R11_R",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R11_H <- R11_H - 1",
+                                    "ref": "R11_H",
+                                    "value": {
+                                        "left": "R11_H",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R11_A <- R11_A + 1",
+                                    "ref": "R11_A",
+                                    "value": {
+                                        "left": "R11_A",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R11_H",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R11_A <- R11_A - 1",
+                                    "ref": "R11_A",
+                                    "value": {
+                                        "left": "R11_A",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R20_H <- R20_H + 1",
+                                    "ref": "R20_H",
+                                    "value": {
+                                        "left": "R20_H",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R11_A",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R1_Temp_F <- R1_Temp_F - 1",
+                                    "ref": "R1_Temp_F",
+                                    "value": {
+                                        "left": "R1_Temp_F",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R11_A <- R11_A - 1",
+                                    "ref": "R11_A",
+                                    "value": {
+                                        "left": "R11_A",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R20_T <- R20_T + 1",
+                                    "ref": "R20_T",
+                                    "value": {
+                                        "left": "R20_T",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": {
+                                "left": "R1_Temp_F",
+                                "op": "=",
+                                "right": 1
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "R11_A",
+                                "op": "=",
+                                "right": 1
+                            }
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 2
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R1_Temp_R <- R1_Temp_R - 1",
+                                    "ref": "R1_Temp_R",
+                                    "value": {
+                                        "left": "R1_Temp_R",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R11_A <- R11_A - 1",
+                                    "ref": "R11_A",
+                                    "value": {
+                                        "left": "R11_A",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_Temp_R <- R_Temp_R + 1",
+                                    "ref": "R_Temp_R",
+                                    "value": {
+                                        "left": "R_Temp_R",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R20_H <- R20_H + 1",
+                                    "ref": "R20_H",
+                                    "value": {
+                                        "left": "R20_H",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": {
+                                "left": "R1_Temp_R",
+                                "op": "=",
+                                "right": 1
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "R11_A",
+                                "op": "=",
+                                "right": 1
+                            }
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 2
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R20_T <- R20_T - 1",
+                                    "ref": "R20_T",
+                                    "value": {
+                                        "left": "R20_T",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R20_S <- R20_S + 1",
+                                    "ref": "R20_S",
+                                    "value": {
+                                        "left": "R20_S",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R20_T",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R20_T <- R20_T - 1",
+                                    "ref": "R20_T",
+                                    "value": {
+                                        "left": "R20_T",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R20_F <- R20_F + 1",
+                                    "ref": "R20_F",
+                                    "value": {
+                                        "left": "R20_F",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R20_T",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R20_S <- R20_S - 1",
+                                    "ref": "R20_S",
+                                    "value": {
+                                        "left": "R20_S",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R21_T <- R21_T + 1",
+                                    "ref": "R21_T",
+                                    "value": {
+                                        "left": "R21_T",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R20_S",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R20_F <- R20_F - 1",
+                                    "ref": "R20_F",
+                                    "value": {
+                                        "left": "R20_F",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R2_Temp_F <- R2_Temp_F + 1",
+                                    "ref": "R2_Temp_F",
+                                    "value": {
+                                        "left": "R2_Temp_F",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R21_H <- R21_H + 1",
+                                    "ref": "R21_H",
+                                    "value": {
+                                        "left": "R21_H",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R20_F",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R20_H <- R20_H - 1",
+                                    "ref": "R20_H",
+                                    "value": {
+                                        "left": "R20_H",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R20_A <- R20_A + 1",
+                                    "ref": "R20_A",
+                                    "value": {
+                                        "left": "R20_A",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R20_H",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R20_A <- R20_A - 1",
+                                    "ref": "R20_A",
+                                    "value": {
+                                        "left": "R20_A",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R21_H <- R21_H + 1",
+                                    "ref": "R21_H",
+                                    "value": {
+                                        "left": "R21_H",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R20_A",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R21_T <- R21_T - 1",
+                                    "ref": "R21_T",
+                                    "value": {
+                                        "left": "R21_T",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R21_S <- R21_S + 1",
+                                    "ref": "R21_S",
+                                    "value": {
+                                        "left": "R21_S",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R21_T",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R21_T <- R21_T - 1",
+                                    "ref": "R21_T",
+                                    "value": {
+                                        "left": "R21_T",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R21_F <- R21_F + 1",
+                                    "ref": "R21_F",
+                                    "value": {
+                                        "left": "R21_F",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R21_T",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R21_T <- R21_T - 1",
+                                    "ref": "R21_T",
+                                    "value": {
+                                        "left": "R21_T",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R21_R <- R21_R + 1",
+                                    "ref": "R21_R",
+                                    "value": {
+                                        "left": "R21_R",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R21_T",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R21_S <- R21_S - 1",
+                                    "ref": "R21_S",
+                                    "value": {
+                                        "left": "R21_S",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_S <- R_S + 1",
+                                    "ref": "R_S",
+                                    "value": {
+                                        "left": "R_S",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R21_S",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R21_F <- R21_F - 1",
+                                    "ref": "R21_F",
+                                    "value": {
+                                        "left": "R21_F",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_F <- R_F + 1",
+                                    "ref": "R_F",
+                                    "value": {
+                                        "left": "R_F",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R21_F",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R21_R <- R21_R - 1",
+                                    "ref": "R21_R",
+                                    "value": {
+                                        "left": "R21_R",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_R <- R_R + 1",
+                                    "ref": "R_R",
+                                    "value": {
+                                        "left": "R_R",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R21_R",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R21_H <- R21_H - 1",
+                                    "ref": "R21_H",
+                                    "value": {
+                                        "left": "R21_H",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R21_A <- R21_A + 1",
+                                    "ref": "R21_A",
+                                    "value": {
+                                        "left": "R21_A",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R21_H",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R21_A <- R21_A - 1",
+                                    "ref": "R21_A",
+                                    "value": {
+                                        "left": "R21_A",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_A <- R_A + 1",
+                                    "ref": "R_A",
+                                    "value": {
+                                        "left": "R_A",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R21_A",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R_Temp_S <- R_Temp_S - 1",
+                                    "ref": "R_Temp_S",
+                                    "value": {
+                                        "left": "R_Temp_S",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R21_A <- R21_A - 1",
+                                    "ref": "R21_A",
+                                    "value": {
+                                        "left": "R21_A",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_S <- R_S + 1",
+                                    "ref": "R_S",
+                                    "value": {
+                                        "left": "R_S",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": {
+                                "left": "R_Temp_S",
+                                "op": "=",
+                                "right": 1
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "R21_A",
+                                "op": "=",
+                                "right": 1
+                            }
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 2
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R_Temp_R <- R_Temp_R - 1",
+                                    "ref": "R_Temp_R",
+                                    "value": {
+                                        "left": "R_Temp_R",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R21_A <- R21_A - 1",
+                                    "ref": "R21_A",
+                                    "value": {
+                                        "left": "R21_A",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_R <- R_R + 1",
+                                    "ref": "R_R",
+                                    "value": {
+                                        "left": "R_R",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": {
+                                "left": "R_Temp_R",
+                                "op": "=",
+                                "right": 1
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "R21_A",
+                                "op": "=",
+                                "right": 1
+                            }
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 2
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R2_Temp_F <- R2_Temp_F - 1",
+                                    "ref": "R2_Temp_F",
+                                    "value": {
+                                        "left": "R2_Temp_F",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R21_A <- R21_A - 1",
+                                    "ref": "R21_A",
+                                    "value": {
+                                        "left": "R21_A",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_F <- R_F + 1",
+                                    "ref": "R_F",
+                                    "value": {
+                                        "left": "R_F",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": {
+                                "left": "R2_Temp_F",
+                                "op": "=",
+                                "right": 1
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "R21_A",
+                                "op": "=",
+                                "right": 1
+                            }
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 2
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R2_Temp_R <- R2_Temp_R - 1",
+                                    "ref": "R2_Temp_R",
+                                    "value": {
+                                        "left": "R2_Temp_R",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R21_A <- R21_A - 1",
+                                    "ref": "R21_A",
+                                    "value": {
+                                        "left": "R21_A",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R_R <- R_R + 1",
+                                    "ref": "R_R",
+                                    "value": {
+                                        "left": "R_R",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": {
+                                "left": "R2_Temp_R",
+                                "op": "=",
+                                "right": 1
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "R21_A",
+                                "op": "=",
+                                "right": 1
+                            }
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 2
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R_H <- R_H - 1",
+                                    "ref": "R_H",
+                                    "value": {
+                                        "left": "R_H",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R0_H <- R0_H + 1",
+                                    "ref": "R0_H",
+                                    "value": {
+                                        "left": "R0_H",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R_H",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                }
+            ],
+            "initial-locations": [
+                "loc"
+            ],
+            "locations": [
+                {
+                    "name": "loc"
+                }
+            ],
+            "name": "gspn_automaton",
+            "variables": []
+        }
+    ],
+    "constants": [],
+    "features": [
+        "derived-operators"
+    ],
+    "jani-version": 1,
+    "name": "PT",
+    "properties": [],
+    "restrict-initial": {
+        "exp": true
+    },
+    "system": {
+        "elements": [
+            {
+                "automaton": "gspn_automaton"
+            }
+        ]
+    },
+    "type": "mdp",
+    "variables": [
+        {
+            "initial-value": 0,
+            "name": "R_A",
+            "type": "int"
+        },
+        {
+            "initial-value": 1,
+            "name": "R_T",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R0_T",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R_S",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R0_S",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R0_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R_Temp_S",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R10_H",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R10_T",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R0_H",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R0_A",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R10_S",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R10_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R11_T",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R1_Temp_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R11_H",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R10_A",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R11_S",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R11_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R11_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R20_H",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R20_T",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R_Temp_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R11_A",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R1_Temp_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R20_S",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R20_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R21_T",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R2_Temp_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R21_H",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R20_A",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R21_S",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R21_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R21_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R21_A",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R2_Temp_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R_H",
+            "type": "int"
+        }
+    ]
+}

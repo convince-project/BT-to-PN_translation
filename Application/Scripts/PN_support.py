@@ -27,11 +27,11 @@ else:
 
 
 symbols={
-    "gtr":{
+    "les":{
         "op":"<",
         "comment":"<"
     },
-    "les":{
+    "gtr":{
         "op":">",
         "comment":">"
     },
@@ -104,15 +104,18 @@ def construct_guard2(string):
                 }
         else:
             try:
-                right=int(components[3])
+                left=array[1].split(" ")[0]
+                op=array[1].split(" ")[1]
+                right=int(array[1].split(" ")[2])
             except:
-                right=components[3]
-
+                left=array[1].split(" ")[0]
+                op=array[1].split(" ")[1]
+                right=array[1].split(" ")[2]
             return {
                 "op":symbols[components[0]]["op"],
                 "exp":{
-                    "left": components[1],
-                    "op": symbols[components[2]]["op"],
+                    "left": left,
+                    "op": symbols[op]["op"],
                     "right": right
                 }
             }
@@ -366,13 +369,45 @@ def construct_halt_assignment(in_vector,out_vector,in_place,out_place,structure,
         else:
             destination_template["comment"]=destination_template["comment"]+" "+in_place+":"+str(assignment_vector)
             destination_template["comment"]=destination_template["comment"]+" "+out_place+":"+str(out_vector)
-    # print(guard_string)
     edge_template['guard']["comment"]=guard_string
     edge_template['guard']["exp"]=construct_guard(guard_string,symbol)
     edge_template['destinations'].append(destination_template)
     temp.append(edge_template)
         
     return structure
+
+def replace_not_conditions(s):
+    def replacement(match):
+        var, val = match.groups()
+        if val is None:
+            val = 0  # default value if no 'a' specified
+        else:
+            val = int(val)
+        return f"{var}<{int(val)+1}"
+
+def repl_not(match):
+    expr = match.group(1)
+    if '=' in expr:
+        var, val = expr.split('=')
+        return f"{var.strip()}<{int(val.strip())}"
+    else:
+        var = expr.strip()
+        return f"{var}<1"  # 0+1 = 1 (default case)
+    
+def replace_reset_conditions(s):
+    def replacement(match):
+        var, val = match.groups()
+        val=0
+        return f"{var}<-0"
+
+def repl_reset(match):
+    expr = match.group(1)
+    var = expr.strip()
+    return f"{var}<-0"  # 0+1 = 1 (default case)
+
+# Main replacement function
+
+
 
 
 def create_assignment(guard,result,priority,structure):
@@ -395,18 +430,30 @@ def create_assignment(guard,result,priority,structure):
                         "ref": "",
                         "value": {}
                     }
+    
+    # Construct the guard
+
+    guard = re.sub(r'not\(\s*(.*?)\s*\)', repl_not, guard)
+    result = re.sub(r'R\(\s*(.*?)\s*\)', repl_reset, result)
+
     array=re.split(r'(=|\+=|>=|<| & )',guard)
+
     guard_string="("
     guard_variables=[]
+    assignment_variables=[]
+    op_variables=[]
     for p in range(len(array)-1):
         if p==0:
             guard_variables.append(array[p])
-
+            op_variables.append(array[p+1])
+            assignment_variables.append(array[p+2])
         if array[p+1]==" & ":
             guard_string+=array[p]+") "
         elif array[p]==" & ":
             guard_string+=array[p]+" ("
             guard_variables.append(array[p+1])
+            op_variables.append(array[p+2])
+            assignment_variables.append(array[p+3])
         elif array[p]=="=":
             guard_string+="eq "
         elif array[p]==">=":
@@ -416,22 +463,27 @@ def create_assignment(guard,result,priority,structure):
         else:    
             guard_string+=array[p]+" "
     guard_string+=array[len(array)-1]+")"
-    assignment_template1=copy.copy(assignment_template)
-    for i in guard_variables:
-        assignment_template1["ref"]=i
-        assignment_template1["value"]=0
-        assignment_template1["comment"]=i+" <- "+str(0)
+    for i in range(len(guard_variables)):
+        assignment_template1=copy.copy(assignment_template)
+        assignment_template1["ref"]=guard_variables[i]
+        if op_variables[i]=="<":
+            continue
+        else:
+            assignment_template1["value"]={'left': guard_variables[i] ,'op': '-','right': assignment_variables[i]}
+            assignment_template1["comment"]=guard_variables[i]+" <- "+guard_variables[i]+" - "+assignment_variables[i]
         destination_template["assignments"].append(assignment_template1)
-
     edge_template['guard']["exp"]=construct_guard2(guard_string)
 
-    array=re.split(r'(=|>=| & )',result)
+    # Construct the assignments
+    array=re.split(r'(<-|=|>=| & )',result)
     guard_string="("
     guard_variables=[]
     assignment_variables=[]
+    op_variables=[]
     for p in range(len(array)-1):
         if p==0:
             guard_variables.append(array[p])
+            op_variables.append(array[p+1])
             assignment_variables.append(array[p+2])
 
         if array[p+1]==" & ":
@@ -439,6 +491,7 @@ def create_assignment(guard,result,priority,structure):
         elif array[p]==" & ":
             guard_string+=array[p]+" ("
             guard_variables.append(array[p+1])
+            op_variables.append(array[p+2])
             assignment_variables.append(array[p+3])
         elif array[p]=="=":
             guard_string+="eq "
@@ -448,22 +501,33 @@ def create_assignment(guard,result,priority,structure):
             guard_string+=array[p]+" "
     
     guard_string+=array[len(array)-1]+")"
-    assignment_template1=copy.copy(assignment_template)
+    
     for i in range(len(guard_variables)):
-        try:
-            right=int(assignment_variables[i])
-        except:
-            
-            parts=assignment_variables[i].split("+")
-            right={
-                "left":parts[0],
-                "op":"+",
-                "right":int(parts[1])
-            }
-            #right=assignment_variables[i]
+        assignment_template1=copy.copy(assignment_template)
         assignment_template1["ref"]=guard_variables[i]
-        assignment_template1["value"]=right
-        assignment_template1["comment"]=guard_variables[i]+" <- "+assignment_variables[i]
+        if op_variables[i]=="<-":
+            assignment_template1["value"]=0
+            assignment_template1["comment"]=guard_variables[i]+" <- "+assignment_variables[i]
+        else:
+            
+            try:
+                right={'left': guard_variables[i] ,'op': '+','right': assignment_variables[i]}
+            except:
+                
+                parts=assignment_variables[i].split("+")
+                right={
+                    "left":parts[0],
+                    "op":"+",
+                    "right":{
+                        "left":parts[0],
+                        "op":"+",
+                        "right":int(parts[1])
+                    }
+                }
+                #right=assignment_variables[i]
+            
+            assignment_template1["value"]=right
+            assignment_template1["comment"]=guard_variables[i]+" <- "+ guard_variables[i]+" + "+assignment_variables[i]
         destination_template["assignments"].append(assignment_template1)
     edge_template["destinations"].append(destination_template)
     edge_template["priority"]["expression"]=priority

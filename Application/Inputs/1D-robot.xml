@@ -4,11 +4,11 @@
             <BtCondition name="is_at_home" haltable="False" prob="1,1,0"/>
             <ReactiveSequence>
                 <BtCondition name="is_right" haltable="False" prob="1,1,0"/>
-                <BtAction name="drive_left" haltable="False" prob="1,0,0"/>
+                <BtAction name="drive_left" haltable="True" prob="1,0,0"/>
             </ReactiveSequence>
             <ReactiveSequence>
                 <BtCondition name="is_left" haltable="False" prob="1,1,0"/>
-                <BtAction name="is_left" haltable="False" prob="1,0,0"/>
+                <BtAction name="is_left" haltable="True" prob="1,0,0"/>
             </ReactiveSequence> 
         </ReactiveFallback>
     </BehaviorTree>
