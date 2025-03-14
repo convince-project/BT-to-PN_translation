@@ -1,0 +1,33 @@
+{
+    "BT": {
+        "nodes": 9,
+        "optimized_transition_graph": "/home/matt/Desktop/NAS/Projects/PhD/MODELS/BT-to-PN_translation/Application/Outputs/Images/1D-robot/Optimized_transition_graph.png",
+        "unoptimized_transition_graph": "/home/matt/Desktop/NAS/Projects/PhD/MODELS/BT-to-PN_translation/Application/Outputs/Images/1D-robot/Unoptimized_transition_graph.png"
+    },
+    "Optimized": {
+        "JANI": {
+            "creation_time": 0.00044918060302734375,
+            "edges": 44,
+            "variables": 36
+        },
+        "PNML": {
+            "arcs": 101,
+            "creation_time": 0.01301431655883789,
+            "nodes": 80,
+            "transitions": 44
+        }
+    },
+    "Unoptimized": {
+        "JANI": {
+            "creation_time": 0.0015707015991210938,
+            "edges": 61,
+            "variables": 54
+        },
+        "PNML": {
+            "arcs": 136,
+            "creation_time": 0.018929719924926758,
+            "nodes": 115,
+            "transitions": 61
+        }
+    }
+}

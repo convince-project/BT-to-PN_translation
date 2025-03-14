@@ -1,0 +1,33 @@
+{
+    "BT": {
+        "nodes": 144,
+        "optimized_transition_graph": "/home/matt/Desktop/NAS/Projects/PhD/MODELS/BT-to-PN_translation/Application/Outputs/Images/big_bt_groot/Optimized_transition_graph.png",
+        "unoptimized_transition_graph": "/home/matt/Desktop/NAS/Projects/PhD/MODELS/BT-to-PN_translation/Application/Outputs/Images/big_bt_groot/Unoptimized_transition_graph.png"
+    },
+    "Optimized": {
+        "JANI": {
+            "creation_time": 0.022223234176635742,
+            "edges": 856,
+            "variables": 654
+        },
+        "PNML": {
+            "arcs": 2054,
+            "creation_time": 0.29332590103149414,
+            "nodes": 1510,
+            "transitions": 856
+        }
+    },
+    "Unoptimized": {
+        "JANI": {
+            "creation_time": 0.036006927490234375,
+            "edges": 1146,
+            "variables": 949
+        },
+        "PNML": {
+            "arcs": 2593,
+            "creation_time": 0.3860011100769043,
+            "nodes": 2095,
+            "transitions": 1146
+        }
+    }
+}

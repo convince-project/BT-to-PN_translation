@@ -17,6 +17,40 @@ import matplotlib.pyplot as plt
 script_path = os.path.abspath(__file__)
 script_path=os.path.dirname(os.path.dirname(script_path))
 
+report={
+    "BT":{
+        "nodes":0,
+        "unoptimized_transition_graph":"",
+        "optimized_transition_graph":""
+    },
+    "Unoptimized":{
+        "PNML":{
+            "nodes":0,
+            "transitions":0,
+            "arcs":0,
+            "creation_time":0
+        },
+        "JANI":{
+            "edges":0,
+            "variables":0,
+            "creation_time":0
+        }
+    },
+    "Optimized":{
+        "PNML":{
+            "nodes":0,
+            "transitions":0,
+            "arcs":0,
+            "creation_time":0
+        },
+        "JANI":{
+            "edges":0,
+            "variables":0,
+            "creation_time":0
+        }
+    }
+}
+
 from nodes_formalization import *
 
 def parseBT(tree,name,optimization_=False):
@@ -68,6 +102,8 @@ def parseBT(tree,name,optimization_=False):
             CreateSwitch2(tree,name)
         elif tree.tag=="ForceSuccess":
             CreateForceSuccess(tree,name)
+        elif tree.tag=="ForceFailure":
+            CreateForceFailure(tree,name)
         elif tree.tag=="RetryUntilSuccessful":
             if "num_attempts" in tree.attrib.keys():
                 number_of_iterations=tree.attrib["num_attempts"]
@@ -279,7 +315,9 @@ class Graph:
     text=""
 
     def __init__(self,graph):
-        self.text=graph.pipe().decode('latin-1')
+        start=time.time()
+        self.text=graph.pipe(engine="osage",format='dot').decode('latin-1')
+        end=time.time()
         self.xmax=1000
         self.xmin=0
         self.ymax=2000
@@ -528,7 +566,7 @@ class Graph:
 
 
     def to_PNML(self,filename,graph):
-        global SingleToken
+        global SingleToken, report
         blankPNML_path=script_path+"/Support/BlankPNML2.xml"
         SingleToken=True
         # Parse the behavior tree and construct the PNML
@@ -541,13 +579,16 @@ class Graph:
         # Extract the templates from the file
         Templatetree2 = ET.parse(script_path+"/Support/PN_templates.xml")
         Templateroot2 = Templatetree2.getroot()
-
+        start=time.time()
+        a1=graph.pipe(engine="osage",format='dot').decode('latin-1')
+        end=time.time()
         # Read the DOT file
-        G = read_dot_from_text_networkx(graph.pipe().decode('latin-1'))
+        G = read_dot_from_text_networkx(a1)
         # Remove the graph line from the text
-        dot_text = re.findall(r'graph \[.*?\];', graph.pipe().decode('latin-1'),flags=re.DOTALL)
+        dot_text = re.findall(r'graph \[.*?\];', a1,flags=re.DOTALL)
         x_min, y_min, x_max, y_max = map(float, dot_text[0].split("\"")[1].split(","))
         nodes=dict(G.nodes(data=True))
+        start=time.time()
         for i in graph.source.split("\n"):
             if "circle" in i:
                 name=i.split(" ")[0].split("\t")[1]
@@ -647,8 +688,23 @@ class Graph:
                             out_string=out_string[:-1]
                     
                     new_arc=generateArc(Templateroot2,in_string,out_string,"normal",inscription)
-                   
-                    PNMLroot.append(new_arc)    
+                    fin_name=" to ".join([in_string,out_string])
+                    if not fin_name in arcs:
+                        PNMLroot.append(new_arc)    
+                        arcs.append(fin_name)
+        end=time.time()
+        if "Unoptimized" in filename:
+            report["Unoptimized"]["PNML"]["nodes"]=len(nodes)
+            report["Unoptimized"]["PNML"]["transitions"]=len(transitions)
+            report["Unoptimized"]["PNML"]["arcs"]=len(arcs)
+            report["Unoptimized"]["PNML"]["creation_time"]=end-start
+        elif "Optimized" in filename:
+            report["Optimized"]["PNML"]["nodes"]=len(nodes)
+            report["Optimized"]["PNML"]["transitions"]=len(transitions)
+            report["Optimized"]["PNML"]["arcs"]=len(arcs)
+            report["Optimized"]["PNML"]["creation_time"]=end-start
+        else:
+            pass
         # Ensure the directory exists before opening the file
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         blankPNML.write(filename+".xml")
@@ -659,20 +715,24 @@ class Graph:
         f.close()
 
     def to_JANI(self,filename,graph):
-        
+        global report
         # Opening JSON file
         f = open(script_path+'/Support/test.jani')
         
+        start=time.time()
+        a1=graph.pipe(engine="osage",format='dot').decode('latin-1')
+        end=time.time()
         # Read the DOT file
-        G = read_dot_from_text_networkx(graph.pipe().decode('latin-1'))
+        G = read_dot_from_text_networkx(a1)
         # Remove the graph line from the text
-        dot_text = re.findall(r'graph \[.*?\];', graph.pipe().decode('latin-1'),flags=re.DOTALL)
+        dot_text = re.findall(r'graph \[.*?\];', a1,flags=re.DOTALL)
         x_min, y_min, x_max, y_max = map(float, dot_text[0].split("\"")[1].split(","))
-        nodes=dict(G.nodes(data=True))
 
         # returns JSON object as a dictionary
         gs.jani_structure= json.load(f)
-
+        nodes=dict(G.nodes(data=True))
+        transition_counter=0
+        start=time.time()
         for i in graph.source.split("\n"):
             if "circle" in i:
                 name=i.split(" ")[0].split("\t")[1]
@@ -693,17 +753,32 @@ class Graph:
                 input_vector=" & ".join(fin_name.split("--")[0].split(" and "))
                 output_vector=" & ".join(fin_name.split("--")[1].split(" and "))
                 priority=nodes[ends[0].split("\"")[1]]["label"]
-                # print(nodes[ends[0].split("\"")[1]])
+                transition_counter+=1
                 create_assignment(input_vector,output_vector,int(priority),gs.jani_structure)
+        end=time.time()
+
+        if "Unoptimized" in filename:
+            report["Unoptimized"]["JANI"]["variables"]=len(gs.jani_structure["variables"])
+            report["Unoptimized"]["JANI"]["edges"]=transition_counter
+            report["Unoptimized"]["JANI"]["creation_time"]=end-start
+        elif "Optimized" in filename:
+            report["Optimized"]["JANI"]["variables"]=len(gs.jani_structure["variables"])
+            report["Optimized"]["JANI"]["edges"]=transition_counter
+            report["Optimized"]["JANI"]["creation_time"]=end-start
+        else:
+            pass
         # Ensure the directory exists before opening the file
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         # Writing to sample.json
         with open(filename+".jani", "w", encoding='utf8') as outfile:
             json.dump(gs.jani_structure, outfile, ensure_ascii=False, indent=4)
   
+def count_nodes(node):
+    """Count all nodes under an ET node, including itself."""
+    return 1 + sum(count_nodes(child) for child in node)
 
 def main():
-    global blankPNML, P,Unsumm_nodes, F, G    
+    global blankPNML, P,Unsumm_nodes, F, G, report
     filename = askopenfilename(initialdir=script_path+"/Inputs") # show an "Open" dialog box and return the path to the selected input file
     folder=os.path.basename(filename).split(".")[0]
     # Extract the behavior tree from its file
@@ -713,8 +788,9 @@ def main():
         if i.tag=="BehaviorTree":
             root=i
             break
+    report["BT"]["nodes"]=count_nodes(i)
     parseBT(root, "") # Parse the Bt
-
+    print("Parsed BT")
     # Depict unoptimized graph
 
     temp_graph=Graph(P)
@@ -723,12 +799,23 @@ def main():
         end=i.label.split(" -> ")[1].split("\"")[1]
         if "I" in start or "I" in end:
             i.attributes.append(("style","dashed"))
+    print("Constructed BT graph")
     F=temp_graph.construct_graph()
-    F.render(script_path+"/Outputs/Images/"+folder+"/Unoptimized_transition_graph",format='png')
+    print("Constructed Unoptimized transition graph")
+
+    F.render(script_path+"/Outputs/Images/"+folder+"/Unoptimized_transition_graph",format='png',engine="osage")
+    report["BT"]["unoptimized_transition_graph"]=script_path+"/Outputs/Images/"+folder+"/Unoptimized_transition_graph.png"
+    
     K=temp_graph.construct_PN(contracted=True)
-    K.render(script_path+"/Outputs/Images/"+folder+"/Unoptimized_PN_image",format='png')
+    print("Constructed Unoptimized PN")
+
+    K.render(script_path+"/Outputs/Images/"+folder+"/Unoptimized_PN_image",format='png',engine="osage")
     temp_graph.to_PNML(script_path+"/Outputs/PNML/"+folder+"/Unoptimized_PN",K)
+    print("Constructed Unoptimized PNML")
+
     temp_graph.to_JANI(script_path+"/Outputs/JANI/"+folder+"/Unoptimized_jani",K)
+    print("Constructed Unoptimized JANI")
+
     # Depict optimized version
 
     edgelist=get_edges(P)
@@ -742,17 +829,32 @@ def main():
         if i.split("\"")[1] in Unsumm_nodes:
             floodFill(G,i,Q,edges)
     temp_graph=Graph(F)
+    print("Finished optimization")
+
     for i in temp_graph.edges:
         start=i.label.split(" -> ")[0].split("\"")[1]
         end=i.label.split(" -> ")[1].split("\"")[1]
         if "I" in start or "I" in end:
             i.attributes.append(("style","dashed"))
     F=temp_graph.construct_graph()
-    F.render(script_path+"/Outputs/Images/"+folder+"/Optimized_transition_graph",format='png')
+    print("Constructed graph")
+    F.render(script_path+"/Outputs/Images/"+folder+"/Optimized_transition_graph",format='png',engine="osage")
+    report["BT"]["optimized_transition_graph"]=script_path+"/Outputs/Images/"+folder+"/Optimized_transition_graph.png"
     K=temp_graph.construct_PN(contracted=True)
-    K.render(script_path+"/Outputs/Images/"+folder+"/Optimized_PN_image",format='png')
+    print("Constructed Optimized PN")
+    K.render(script_path+"/Outputs/Images/"+folder+"/Optimized_PN_image",format='png',engine="osage")
     temp_graph.to_PNML(script_path+"/Outputs/PNML/"+folder+"/Optimized_PN",K)
+    print("Constructed Optimized PNML")
     temp_graph.to_JANI(script_path+"/Outputs/JANI/"+folder+"/Optimized_jani",K)
+    print("Constructed Optimized JANI")
+
+    filename=script_path+"/Outputs/reports/"+folder+".json"
+    # Ensure the directory exists before opening the file
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    with open(filename, 'w', encoding='utf-8') as file:
+        json.dump(report, file, indent=4, sort_keys=True)
+
+    
     
     
 if __name__ == '__main__':

@@ -55,10 +55,48 @@
                                     }
                                 },
                                 {
-                                    "comment": "R0_T <- R0_T + 1",
-                                    "ref": "R0_T",
+                                    "comment": "R0_S <- R0_S + 1",
+                                    "ref": "R0_S",
                                     "value": {
-                                        "left": "R0_T",
+                                        "left": "R0_S",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R_T",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R_T <- R_T - 1",
+                                    "ref": "R_T",
+                                    "value": {
+                                        "left": "R_T",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R0_F <- R0_F + 1",
+                                    "ref": "R0_F",
+                                    "value": {
+                                        "left": "R0_F",
                                         "op": "+",
                                         "right": "1"
                                     }
@@ -198,82 +236,6 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R0_T <- R0_T - 1",
-                                    "ref": "R0_T",
-                                    "value": {
-                                        "left": "R0_T",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R0_S <- R0_S + 1",
-                                    "ref": "R0_S",
-                                    "value": {
-                                        "left": "R0_S",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R0_T",
-                            "op": "=",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R0_T <- R0_T - 1",
-                                    "ref": "R0_T",
-                                    "value": {
-                                        "left": "R0_T",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R0_F <- R0_F + 1",
-                                    "ref": "R0_F",
-                                    "value": {
-                                        "left": "R0_F",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R0_T",
-                            "op": "=",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
                                     "comment": "R0_S <- R0_S - 1",
                                     "ref": "R0_S",
                                     "value": {
@@ -330,10 +292,48 @@
                                     }
                                 },
                                 {
-                                    "comment": "R10_T <- R10_T + 1",
-                                    "ref": "R10_T",
+                                    "comment": "R10_S <- R10_S + 1",
+                                    "ref": "R10_S",
                                     "value": {
-                                        "left": "R10_T",
+                                        "left": "R10_S",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R0_F",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R0_F <- R0_F - 1",
+                                    "ref": "R0_F",
+                                    "value": {
+                                        "left": "R0_F",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R10_F <- R10_F + 1",
+                                    "ref": "R10_F",
+                                    "value": {
+                                        "left": "R10_F",
                                         "op": "+",
                                         "right": "1"
                                     }
@@ -421,82 +421,6 @@
                     "guard": {
                         "exp": {
                             "left": "R0_A",
-                            "op": "=",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R10_T <- R10_T - 1",
-                                    "ref": "R10_T",
-                                    "value": {
-                                        "left": "R10_T",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R10_S <- R10_S + 1",
-                                    "ref": "R10_S",
-                                    "value": {
-                                        "left": "R10_S",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R10_T",
-                            "op": "=",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R10_T <- R10_T - 1",
-                                    "ref": "R10_T",
-                                    "value": {
-                                        "left": "R10_T",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R10_F <- R10_F + 1",
-                                    "ref": "R10_F",
-                                    "value": {
-                                        "left": "R10_F",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R10_T",
                             "op": "=",
                             "right": 1
                         }
@@ -842,10 +766,48 @@
                                     }
                                 },
                                 {
-                                    "comment": "R20_T <- R20_T + 1",
-                                    "ref": "R20_T",
+                                    "comment": "R20_S <- R20_S + 1",
+                                    "ref": "R20_S",
                                     "value": {
-                                        "left": "R20_T",
+                                        "left": "R20_S",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "R11_F",
+                            "op": "=",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R11_F <- R11_F - 1",
+                                    "ref": "R11_F",
+                                    "value": {
+                                        "left": "R11_F",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R20_F <- R20_F + 1",
+                                    "ref": "R20_F",
+                                    "value": {
+                                        "left": "R20_F",
                                         "op": "+",
                                         "right": "1"
                                     }
@@ -1012,10 +974,65 @@
                                     }
                                 },
                                 {
-                                    "comment": "R20_T <- R20_T + 1",
-                                    "ref": "R20_T",
+                                    "comment": "R20_S <- R20_S + 1",
+                                    "ref": "R20_S",
                                     "value": {
-                                        "left": "R20_T",
+                                        "left": "R20_S",
+                                        "op": "+",
+                                        "right": "1"
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": {
+                                "left": "R1_Temp_F",
+                                "op": "=",
+                                "right": 1
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "R11_A",
+                                "op": "=",
+                                "right": 1
+                            }
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 2
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "R1_Temp_F <- R1_Temp_F - 1",
+                                    "ref": "R1_Temp_F",
+                                    "value": {
+                                        "left": "R1_Temp_F",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R11_A <- R11_A - 1",
+                                    "ref": "R11_A",
+                                    "value": {
+                                        "left": "R11_A",
+                                        "op": "-",
+                                        "right": "1"
+                                    }
+                                },
+                                {
+                                    "comment": "R20_F <- R20_F + 1",
+                                    "ref": "R20_F",
+                                    "value": {
+                                        "left": "R20_F",
                                         "op": "+",
                                         "right": "1"
                                     }
@@ -1106,82 +1123,6 @@
                     "location": "loc",
                     "priority": {
                         "expression": 2
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R20_T <- R20_T - 1",
-                                    "ref": "R20_T",
-                                    "value": {
-                                        "left": "R20_T",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R20_S <- R20_S + 1",
-                                    "ref": "R20_S",
-                                    "value": {
-                                        "left": "R20_S",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R20_T",
-                            "op": "=",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R20_T <- R20_T - 1",
-                                    "ref": "R20_T",
-                                    "value": {
-                                        "left": "R20_T",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R20_F <- R20_F + 1",
-                                    "ref": "R20_F",
-                                    "value": {
-                                        "left": "R20_F",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R20_T",
-                            "op": "=",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
                     }
                 },
                 {
@@ -1951,7 +1892,12 @@
         },
         {
             "initial-value": 0,
-            "name": "R0_T",
+            "name": "R0_S",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R0_F",
             "type": "int"
         },
         {
@@ -1971,16 +1917,6 @@
         },
         {
             "initial-value": 0,
-            "name": "R0_S",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R0_F",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
             "name": "R_Temp_S",
             "type": "int"
         },
@@ -1991,7 +1927,12 @@
         },
         {
             "initial-value": 0,
-            "name": "R10_T",
+            "name": "R10_S",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R10_F",
             "type": "int"
         },
         {
@@ -2002,16 +1943,6 @@
         {
             "initial-value": 0,
             "name": "R0_A",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R10_S",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R10_F",
             "type": "int"
         },
         {
@@ -2056,7 +1987,12 @@
         },
         {
             "initial-value": 0,
-            "name": "R20_T",
+            "name": "R20_S",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R20_F",
             "type": "int"
         },
         {
@@ -2072,16 +2008,6 @@
         {
             "initial-value": 0,
             "name": "R1_Temp_R",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R20_S",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R20_F",
             "type": "int"
         },
         {

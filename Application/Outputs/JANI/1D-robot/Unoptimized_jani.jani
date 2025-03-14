@@ -616,31 +616,6 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R1_M <- 0",
-                                    "ref": "R1_M",
-                                    "value": 0
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R1_N",
-                            "op": "<",
-                            "right": 4
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
                                     "comment": "R10_S <- R10_S - 1",
                                     "ref": "R10_S",
                                     "value": {
@@ -1415,31 +1390,6 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R2_M <- 0",
-                                    "ref": "R2_M",
-                                    "value": 0
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R2_N",
-                            "op": "<",
-                            "right": 4
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
                                     "comment": "R20_S <- R20_S - 1",
                                     "ref": "R20_S",
                                     "value": {
@@ -1936,31 +1886,6 @@
                             "left": "R_H",
                             "op": "=",
                             "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R_M <- 0",
-                                    "ref": "R_M",
-                                    "value": 0
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R_N",
-                            "op": "<",
-                            "right": 4
                         }
                     },
                     "location": "loc",
@@ -2719,16 +2644,6 @@
         },
         {
             "initial-value": 0,
-            "name": "R1_N",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R1_M",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
             "name": "R10_R",
             "type": "int"
         },
@@ -2829,16 +2744,6 @@
         },
         {
             "initial-value": 0,
-            "name": "R2_N",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R2_M",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
             "name": "R20_R",
             "type": "int"
         },
@@ -2875,16 +2780,6 @@
         {
             "initial-value": 0,
             "name": "R_H",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R_N",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R_M",
             "type": "int"
         },
         {

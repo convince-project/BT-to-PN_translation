@@ -42,7 +42,6 @@ def CreateReactiveNode(tree,name,node_type,optimization=False):
 
     Transition(name+"_T=1",name+"0_T=1")
     Transition(name+"_H=1",name+"0_H=1")
-    Transition(f"not({name}_N=4)",f"R({name}_M)")
     for i in tree:
         child_code=name+str(list(tree).index(i))
         successor_code=name+str(list(tree).index(i)+1)
@@ -75,38 +74,106 @@ def CreateReactiveNode(tree,name,node_type,optimization=False):
             Transition(name+"_Temp_R=1 & "+ child_code+"_A=1",name+"_R=1", priority=2) #,label='2')
     
 
-# RetryUntilSuccessful
 def CreateRetryUntilSuccessful(tree,name,iterations):
-    global P,Unsumm_nodes,Inf_arcs,variables
 
-    P.edge(name+"_T=1",name+"0_T=1")
-    Unsumm_nodes.append(name+"0_T=1")
-    P.edge(name+"0_S=1",name+"_S=1")
-    P.edge(name+"0_F=1",name+"_Temp="+name+"_Temp"+"+1 & "+name+"0_T=1")
-    P.edge(name+"0_R=1",name+"_Temp="+name+"_Temp"+"+1 & "+name+"0_T=1")
-    
-    P.edge(name+"_Temp="+name+"_Temp"+"+1 & "+name+"0_T=1",name+"0_T=1",color="green")
-    Inf_arcs.append("\""+name+"_Temp="+name+"_Temp"+"+1 & "+name+"0_T=1\" -> \""+name+"0_T=1\"")
-    Unsumm_nodes.append(name+"_Temp="+name+"_Temp"+"+1 & "+name+"0_T=1")
-    Unsumm_nodes.append(name+"0_T=1 & "+name+"_Temp="+str(iterations))
-    P.edge(name+"0_T=1 & "+name+"_Temp="+str(iterations),name+"_F=1")
-    P.edge(name+"0_T=1",name+"0_T=1 & "+name+"_Temp="+str(iterations),color="green")
-    Inf_arcs.append("\""+name+"0_T=1\" -> \""+name+"0_T=1 & "+name+"_Temp="+str(iterations)+"\"")
+    Transition(name+"_T=1",name+"_T=1 & "+name+"_M=2")
+    Transition(name+"_T=1 & "+name+"_M=2",name+"_T=1 & "+name+"_M=1",inferred=True)
+    Transition(name+"_T=1 & "+name+"_M=1",name+"0_T=1",priority=2)
+    Transition(name+"0_S=1",name+"_S=1 & R("+name+"_M)")
+    Transition(name+"0_F=1",name+"_T=1 & "+name+"_M=2")
+    Transition(name+"_T=1 & "+name+"_M=1",name+"_T=1 & "+name+"_M="+str(int(tree.attrib["num_attempts"])+1),inferred=True)
+    Transition(name+"_T=1 & "+name+"_M="+str(int(tree.attrib["num_attempts"])+1),name+"_F=1 & R("+name+"_M)",priority=3)
+    Transition(name+"0_R=1",name+"_R=1 & R("+name+"_M)")
+    Transition(name+"_R=1 & R("+name+"_M)",name+"_R=1",inferred=True)
+    Transition(name+"_F=1 & R("+name+"_M)",name+"_F=1",inferred=True)
+    Transition(name+"_S=1 & R("+name+"_M)",name+"_S=1",inferred=True)
+    Transition(name+"_H=1",name+"0_H=1")
+    Transition(name+"0_A=1",name+"_A=1")   
 
-    P.edge(name+"_H=1",name+"0_H=1")
-    P.edge(name+"0_A=1",name+"_A=1")
+    Unsumm_nodes.append(name+"_T=1")
+    Unsumm_nodes.append(name+"_T=1 & "+name+"_M=2")
+    Unsumm_nodes.append(name+"_T=1 & "+name+"_M="+str(int(tree.attrib["num_attempts"])+1))
+    Aux_nodes.append(name+"_R=1 & R("+name+"_M)")
+    Aux_nodes.append(name+"_S=1 & R("+name+"_M)")
+    Aux_nodes.append(name+"_F=1 & R("+name+"_M)")
+    Aux_nodes.append(name+"_T=1 & "+name+"_M=2")
+    Aux_nodes.append(name+"_T=1 & "+name+"_M=1")
+    Unsumm_nodes.append(name+"_R=1")
+    Unsumm_nodes.append(name+"_F=1")
+    Unsumm_nodes.append(name+"_S=1")
 
 # Switch2
 
 def CreateSwitch2(tree,name,optimization=False):
-    global P,Unsumm_nodes,Inf_arcs,variables
+    N=2
+    Transition(f"{name}_T=1",f"{name}0C_T=1")
+    Transition(f"{name}_H=1",f"{name}0_H=1")
+    Transition(f"{name}_H=1",f"{name}_H=1 & M0=1",inferred=True)
+    Aux_nodes.append(f"{name}_H=1 & M0=1")
+    Transition(f"{name}_H=1 & M0=1",f"{name}0_H=1",priority=2)
+    Aux_nodes.append(f"{name}0_H=1")
 
+    for i in range(0,N-1):
+        CreateCondition(tree,f"{name}{i}C")
+        Transition(f"{name}{i}C_S=1",f"{name}{i}C_C=2")
+        Aux_nodes.append(f"{name}{i}C_S=1")
+        Aux_nodes.append(f"{name}{i}C_C=2")
+        if i==N-2:
+            Transition(f"{name}{i}C_F=1",f"{name}{N-1}C_C=2")
+            Aux_nodes.append(f"{name}{i}C_F=1")
+            Aux_nodes.append(f"{name}{N-1}C_C=2")
 
-    CreateReactiveNode(tree,name,"F",optimization)
-    CreateReactiveNode(tree,name+"0","S",optimization)
-    CreateCondition(tree,name+"00",optimization)
-    CreateReactiveNode(tree[0],name+"01","S",optimization)
-    CreateReactiveNode(tree[1],name+"1","S",optimization)
+        else:
+            Transition(f"{name}{i}C_F=1",f"{name}{i+1}C_T=1")
+            Aux_nodes.append(f"{name}{i}C_F=1")
+            Aux_nodes.append(f"{name}{i+1}C_T=1")
+
+        Transition(f"{name}{i}C_C=2",f"{name}{i}C_C=2 & M{i}=1",inferred=True)
+        Aux_nodes.append(f"{name}{i}C_C=2")
+        Aux_nodes.append(f"{name}{i}C_C=2 & M{i}=1")
+        Transition(f"{name}{i}C_C=2 & M{i}=1",f"{name}{i}_T=1",priority=2)
+        Transition(f"{name}{i}C_C=2",f"{name}{i}_T=1")
+        for j in range(0,N):
+            if not i==j:
+                Transition(f"{name}{i}C_C=2",f"{name}{i}C_C=1 & M{j}=1",inferred=True)
+                Transition(f"{name}{i}C_C=1 & M{j}=1",f"{name}{j}_H=1",priority=2)
+                Transition(f"{name}{i}_A=1",f"{name}{i}_A=1 & {name}{j}C_C=1",inferred=True)
+                Aux_nodes.append(f"{name}{i}_A=1 & {name}{j}C_C=1")
+                Aux_nodes.append(f"{name}{i}C_C=1 & M{j}=1")
+                Transition(f"{name}{j}_A=1 & {name}{i}C_C=1",f"{name}{i}_T=1",priority=2)
+        Transition(f"{name}{i}_F=1",f"{name}_F=1")
+        Transition(f"{name}{i}_S=1",f"{name}_S=1")
+        Transition(f"{name}{i}_R=1",f"{name}_R=1 & M{i}=1")
+        Aux_nodes.append(f"{name}_R=1 & M{i}=1")
+        Transition(f"{name}_R=1 & M{i}=1",f"{name}_R=1",inferred=True)
+        Transition(f"{name}{i}_A=1",f"{name}{i+1}_H=1 & R(M{i})")
+        Aux_nodes.append(f"{name}{i+1}_H=1 & R(M{i})")
+        Transition(f"{name}{i+1}_H=1 & R(M{i})",f"{name}{i+1}_H=1",inferred=True)
+        
+    # Handling the last node
+
+    Transition(f"{name}{N-1}C_C=2",f"{name}{N-1}C_C=2 & M{N-1}=1",inferred=True)
+    Aux_nodes.append(f"{name}{N-1}C_C=2")
+    Aux_nodes.append(f"{name}{N-1}C_C=2 & M{N-1}=1")
+    Transition(f"{name}{N-1}C_C=2 & M{N-1}=1",f"{name}{N-1}_T=1",priority=2)
+    Transition(f"{name}{N-1}C_C=2",f"{name}{N-1}_T=1")
+    for j in range(0,N-1):
+        if not N-1==j:
+            Transition(f"{name}{N-1}C_C=2",f"{name}{N-1}C_C=1 & M{j}=1",inferred=True)
+            Aux_nodes.append(f"{name}{N-1}C_C=1 & M{j}=1")
+            Transition(f"{name}{N-1}C_C=1 & M{j}=1",f"{name}{j}_H=1",priority=2)
+            Transition(f"{name}{N-1}_A=1",f"{name}{N-1}_A=1 & {name}{j}C_C=1",inferred=True)
+            Aux_nodes.append(f"{name}{N-1}_A=1 & {name}{j}C_C=1")
+            Transition(f"{name}{j}_A=1 & {name}{N-1}C_C=1",f"{name}{N-1}_T=1",priority=2)
+    Transition(f"{name}{N-1}_F=1",f"{name}_F=1")
+    Transition(f"{name}{N-1}_S=1",f"{name}_S=1")
+    Transition(f"{name}{N-1}_R=1",f"{name}_R=1 & M{N-1}=1")
+    Transition(f"{name}_R=1 & M{N-1}=1",f"{name}_R=1",inferred=True)
+    Aux_nodes.append(f"{name}_R=1 & M{N-1}=1")
+    Transition(f"{name}{N-1}_A=1",f"{name}_A=1 & "+" & ".join([f"R(M{i})" for i in range(N)]))
+    Aux_nodes.append(f"{name}_A=1 & "+" & ".join([f"R(M{i})" for i in range(N)]))
+    Transition(f"{name}_A=1 & "+" & ".join([f"R(M{i})" for i in range(N)]),f"{name}_A=1",inferred=True)
+
     
 # Nodes with memory
 def CreateMemoryNode(tree,name,node_type):
@@ -247,39 +314,38 @@ def CreateParallel(tree,name):
 # Inverter
 
 def CreateInverter(tree,name):
-    global P,Unsumm_nodes,Inf_arcs,variables
-    P.edge(name+"_T=1",name+"0_T=1","")
-    P.edge(name+"0_S=1",name+"_F=1","")
-    P.edge(name+"0_F=1",name+"_S=1","")
-    P.edge(name+"0_R=1",name+"_R=1","")
-    P.edge(name+"_H=1",name+"0_H=1","")
-    P.edge(name+"0_A=1",name+"_A=1","")
+
+    Transition(name+"_T=1",name+"0_T=1")
+    Transition(name+"0_S=1",name+"_F=1")
+    Transition(name+"0_F=1",name+"_S=1")
+    Transition(name+"0_R=1",name+"_R=1")
+    Transition(name+"_H=1",name+"0_H=1")
+    Transition(name+"0_A=1",name+"_A=1")
 
 # Force Success
 
 def CreateForceSuccess(tree,name):    
-    global P,Unsumm_nodes,Inf_arcs,variables
-    P.edge(name+"_T=1",name+"0_T=1","")
-    P.edge(name+"0_S=1",name+"_S=1","")
-    P.edge(name+"0_F=1",name+"_S=1","")
-    P.edge(name+"0_R=1",name+"_R=1","")
-    P.edge(name+"_H=1",name+"0_H=1","")
-    P.edge(name+"0_A=1",name+"_A=1","")
+
+    Transition(name+"_T=1",name+"0_T=1")
+    Transition(name+"0_S=1",name+"_S=1")
+    Transition(name+"0_F=1",name+"_S=1")
+    Transition(name+"0_R=1",name+"_R=1")
+    Transition(name+"_H=1",name+"0_H=1")
+    Transition(name+"0_A=1",name+"_A=1")
+
 
 def CreateForceFailure(tree,name):    
-    global P,Unsumm_nodes,Inf_arcs,variables
-    P.edge(name+"_T=1",name+"0_T=1","")
-    P.edge(name+"0_S=1",name+"_F=1","")
-    P.edge(name+"0_F=1",name+"_F=1","")
-    P.edge(name+"0_R=1",name+"_R=1","")
-    P.edge(name+"_H=1",name+"0_H=1","")
-    P.edge(name+"0_A=1",name+"_A=1","")
+    Transition(name+"_T=1",name+"0_T=1")
+    Transition(name+"0_S=1",name+"_F=1")
+    Transition(name+"0_F=1",name+"_F=1")
+    Transition(name+"0_R=1",name+"_R=1")
+    Transition(name+"_H=1",name+"0_H=1")
+    Transition(name+"0_A=1",name+"_A=1")
+
     
 # Condition node
 
 def CreateCondition(tree,name,optimization=True):
-    global P,Unsumm_nodes,Inf_arcs,variables
-
     if "prob" in tree.attrib.keys():
         branches=tree.attrib['prob'].split(",")
     else:
@@ -289,22 +355,14 @@ def CreateCondition(tree,name,optimization=True):
         haltable=tree.attrib['haltable']
     else:
         haltable=True
-
-    P.node(name+"_T=1",name+"_T=1",style="filled",color='lightblue')
-    # P.edge(name+"_T=1",name+"_IT=1","",style="dashed")
-    variables.append(name+"_T")
-    # variables.append(name+"_IT")
-    Unsumm_nodes.append(name+"_T=1")
-    # Unsumm_nodes.append(name+"_IT=1")
-
     if not (branches[0]=='0' and optimization):
-        P.edge(name+"_T=1",name+"_S=1","1")
+        Transition(name+"_T=1",name+"_S=1")
         P.node(name+"_S=1",name+"_S=1",style="filled",color='lightblue')
         variables.append(name+"_S")
         Unsumm_nodes.append(name+"_S=1")
 
     if not (branches[1]=='0' and optimization):
-        P.edge(name+"_T=1",name+"_F=1","1")
+        Transition(name+"_T=1",name+"_F=1")
         P.node(name+"_F=1",name+"_F=1",style="filled",color='lightblue')
         variables.append(name+"_F")
         Unsumm_nodes.append(name+"_F=1")
@@ -316,8 +374,7 @@ def CreateCondition(tree,name,optimization=True):
         variables.append(name+"_H")
         variables.append(name+"_A")
         # P.edge(name+"_H=1",name+"_IH=1","",style="dashed")
-        P.edge(name+"_H=1",name+"_A=1","1")
-        
+        Transition(name+"_H=1",name+"_A=1")
         
 # Action nodes
 
@@ -342,14 +399,14 @@ def CreateAction(tree,name,optimization=True):
 
     
     if  not ( branches[0]=='0' and optimization):
-        P.edge(name+"_T=1",name+"_S=1","1")
+        Transition(name+"_T=1",name+"_S=1")
         P.node(name+"_S=1",name+"_S=1",style="filled",color='lightblue')
         variables.append(name+"_S")
         Unsumm_nodes.append(name+"_S=1")
 
     
     if  not ( branches[1]=='0' and optimization):
-        P.edge(name+"_T=1",name+"_F=1","1")
+        Transition(name+"_T=1",name+"_F=1")
         P.node(name+"_F=1",name+"_F=1",style="filled",color='lightblue')
         variables.append(name+"_F")
         Unsumm_nodes.append(name+"_F=1")
@@ -359,13 +416,13 @@ def CreateAction(tree,name,optimization=True):
         P.node(name+"_R=1",name+"_R=1",style="filled",color='lightblue')
         variables.append(name+"_R")
         Unsumm_nodes.append(name+"_R=1")
-        P.edge(name+"_T=1",name+"_R=1","1")
+        Transition(name+"_T=1",name+"_R=1")
 
     
     
     if (not optimization or haltable=="True"):
         # P.edge(name+"_H=1",name+"_IH=1","",style="dashed")
-        P.edge(name+"_H=1",name+"_A=1","1")
+        Transition(name+"_H=1",name+"_A=1")
         variables.append(name+"_H")
         variables.append(name+"_A")
         # variables.append(name+"_IH")
