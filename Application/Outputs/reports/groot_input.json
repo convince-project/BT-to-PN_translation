@@ -1,8 +1,6 @@
 {
     "BT": {
-        "nodes": 141,
-        "optimized_transition_graph": "/home/matt/Desktop/NAS/Projects/PhD/MODELS/BT-to-PN_translation/Application/Outputs/Images/groot_input/Optimized_transition_graph.png",
-        "unoptimized_transition_graph": "/home/matt/Desktop/NAS/Projects/PhD/MODELS/BT-to-PN_translation/Application/Outputs/Images/groot_input/Unoptimized_transition_graph.png"
+        "nodes": 141
     },
     "Optimized": {
         "JANI": {
