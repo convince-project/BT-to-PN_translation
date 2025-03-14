@@ -19,9 +19,7 @@ script_path=os.path.dirname(os.path.dirname(script_path))
 
 report={
     "BT":{
-        "nodes":0,
-        "unoptimized_transition_graph":"",
-        "optimized_transition_graph":""
+        "nodes":0
     },
     "Unoptimized":{
         "PNML":{
@@ -803,13 +801,13 @@ def main():
     F=temp_graph.construct_graph()
     print("Constructed Unoptimized transition graph")
 
-    F.render(script_path+"/Outputs/Images/"+folder+"/Unoptimized_transition_graph",format='png',engine="osage")
-    report["BT"]["unoptimized_transition_graph"]=script_path+"/Outputs/Images/"+folder+"/Unoptimized_transition_graph.png"
+    F.render(script_path+"/Outputs/Images/"+folder+"/Unoptimized_transition_graph",format='png',engine="dot")
+    # report["BT"]["unoptimized_transition_graph"]=script_path+"/Outputs/Images/"+folder+"/Unoptimized_transition_graph.png"
     
     K=temp_graph.construct_PN(contracted=True)
     print("Constructed Unoptimized PN")
 
-    K.render(script_path+"/Outputs/Images/"+folder+"/Unoptimized_PN_image",format='png',engine="osage")
+    K.render(script_path+"/Outputs/Images/"+folder+"/Unoptimized_PN_image",format='png',engine="dot")
     temp_graph.to_PNML(script_path+"/Outputs/PNML/"+folder+"/Unoptimized_PN",K)
     print("Constructed Unoptimized PNML")
 
@@ -838,11 +836,11 @@ def main():
             i.attributes.append(("style","dashed"))
     F=temp_graph.construct_graph()
     print("Constructed graph")
-    F.render(script_path+"/Outputs/Images/"+folder+"/Optimized_transition_graph",format='png',engine="osage")
-    report["BT"]["optimized_transition_graph"]=script_path+"/Outputs/Images/"+folder+"/Optimized_transition_graph.png"
+    F.render(script_path+"/Outputs/Images/"+folder+"/Optimized_transition_graph",format='png',engine="dot")
+    # report["BT"]["optimized_transition_graph"]=script_path+"/Outputs/Images/"+folder+"/Optimized_transition_graph.png"
     K=temp_graph.construct_PN(contracted=True)
     print("Constructed Optimized PN")
-    K.render(script_path+"/Outputs/Images/"+folder+"/Optimized_PN_image",format='png',engine="osage")
+    K.render(script_path+"/Outputs/Images/"+folder+"/Optimized_PN_image",format='png',engine="dot")
     temp_graph.to_PNML(script_path+"/Outputs/PNML/"+folder+"/Optimized_PN",K)
     print("Constructed Optimized PNML")
     temp_graph.to_JANI(script_path+"/Outputs/JANI/"+folder+"/Optimized_jani",K)

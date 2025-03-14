@@ -1,31 +1,29 @@
 {
     "BT": {
-        "nodes": 32,
-        "optimized_transition_graph": "/home/matt/Desktop/NAS/Projects/PhD/MODELS/BT-to-PN_translation/Application/Outputs/Images/go_to_dock_groot/Optimized_transition_graph.png",
-        "unoptimized_transition_graph": "/home/matt/Desktop/NAS/Projects/PhD/MODELS/BT-to-PN_translation/Application/Outputs/Images/go_to_dock_groot/Unoptimized_transition_graph.png"
+        "nodes": 32
     },
     "Optimized": {
         "JANI": {
-            "creation_time": 0.002458333969116211,
+            "creation_time": 0.0024976730346679688,
             "edges": 188,
             "variables": 146
         },
         "PNML": {
             "arcs": 433,
-            "creation_time": 0.07561230659484863,
+            "creation_time": 0.07457160949707031,
             "nodes": 334,
             "transitions": 188
         }
     },
     "Unoptimized": {
         "JANI": {
-            "creation_time": 0.0033779144287109375,
+            "creation_time": 0.0032744407653808594,
             "edges": 240,
             "variables": 198
         },
         "PNML": {
             "arcs": 534,
-            "creation_time": 0.08767890930175781,
+            "creation_time": 0.08684945106506348,
             "nodes": 438,
             "transitions": 240
         }
