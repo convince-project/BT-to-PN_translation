@@ -26,28 +26,28 @@
 
 elapse: 0.00 seconds, total: 0.00 seconds
 Output to file: /dev/null
-elapse: 0.54 seconds, total: 0.54 seconds
+elapse: 0.50 seconds, total: 0.50 seconds
 Runtime Statistics
 ------------------
-Machine name: 2c55f1b37cd1
-User time    0.545 seconds
-System time  0.018 seconds
+Machine name: af6034be359e
+User time    0.503 seconds
+System time  0.019 seconds
 
 Average resident text size       =     0K
 Average resident data+stack size =     0K
-Maximum resident size            = 40948K
+Maximum resident size            = 40864K
 
 Virtual text size                = 17832K
-Virtual data size                = 251027K
+Virtual data size                = 1044747K
     data size initialized        = 32226K
     data size uninitialized      =  8317K
-    data size sbrk               = 210484K
+    data size sbrk               = 1004204K
 Virtual memory limit             = -2147483648K (-2147483648K)
 
 Major page faults = 0
-Minor page faults = 20398
+Minor page faults = 20389
 Swaps = 0
-Input blocks = 0
+Input blocks = 8
 Output blocks = 8
-Context switch (voluntary) = 0
-Context switch (involuntary) = 21
+Context switch (voluntary) = 1
+Context switch (involuntary) = 9
