@@ -43,7 +43,8 @@ class BehaverifyInstrumentation(Instrumentation):
     def build_image(self):
         repo_folder = os.path.join(
             os.path.dirname(__file__),
-            ".."
+            "..",
+            "Docker/behaverify"
         )
         repo_folder = os.path.abspath(repo_folder)
         print(f"Building image from {repo_folder}")
