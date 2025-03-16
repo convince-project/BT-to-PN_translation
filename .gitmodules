@@ -1,6 +1,0 @@
-[submodule "behaverify"]
-	path = behaverify
-	url = https://github.com/verivital/behaverify.git
-[submodule "evaluation/behaverify"]
-	path = evaluation/behaverify
-	url = https://github.com/verivital/behaverify.git
