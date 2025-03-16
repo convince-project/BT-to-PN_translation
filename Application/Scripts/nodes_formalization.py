@@ -14,7 +14,7 @@ Inf_arcs=[]
 variables=[]
 node_counter=0
 
-
+# Transition Class
 class Transition:
     def __init__(self,pre,post,priority=1,inferred=False):
         global P,Unsumm_nodes,Inf_arcs,variables
@@ -24,6 +24,30 @@ class Transition:
             Inf_arcs.append(self.name)
         else:
             P.edge(pre,post,str(priority))
+
+def CreateCustomNode(tree,name,structure):
+    if tree.attrib["haltable"]=="False":
+        Transition(f"{name}_H=1",f"{name}_A=1")
+        Aux_nodes.append(f"{name}_H=1")
+        Aux_nodes.append(f"{name}_A=1")
+    for i in structure["transitions"]:
+        input=i["input"].replace("'btnode'",name)
+        output=i["output"].replace("'btnode'",name)
+        Transition(input,output,priority=i["priority"],inferred=i["inferred"])
+        if not input in Aux_nodes:
+            Aux_nodes.append(input)
+            if "_T" in input:
+                if len(input.split(" & ")) > 1:
+                    Transition(f"{name}_T=1",input,inferred=True)
+        if not output in Aux_nodes:
+            Aux_nodes.append(output)
+            if "_F" in output:
+                if len(output.split(" & ")) > 1:
+                    Transition(output,f"{name}_F=1",inferred=True)
+            if "_S" in output:
+                if len(output.split(" & ")) > 1:
+                    Transition(output,f"{name}_S=1",inferred=True)
+
 
 # Reactive nodes
 def CreateReactiveNode(tree,name,node_type,optimization=False):
@@ -73,7 +97,7 @@ def CreateReactiveNode(tree,name,node_type,optimization=False):
             Transition(child_code+"_"+other_type+"=1",name+"_"+other_type+"=1")
             Transition(name+"_Temp_R=1 & "+ child_code+"_A=1",name+"_R=1", priority=2) #,label='2')
     
-
+# RetryUntilSuccessful node
 def CreateRetryUntilSuccessful(tree,name,iterations):
 
     Transition(name+"_T=1",name+"_T=1 & "+name+"_M=2")
@@ -103,7 +127,6 @@ def CreateRetryUntilSuccessful(tree,name,iterations):
     Unsumm_nodes.append(name+"_S=1")
 
 # Switch2
-
 def CreateSwitch2(tree,name,optimization=False):
     N=2
     Transition(f"{name}_T=1",f"{name}0C_T=1")
@@ -173,8 +196,7 @@ def CreateSwitch2(tree,name,optimization=False):
     Transition(f"{name}{N-1}_A=1",f"{name}_A=1 & "+" & ".join([f"R(M{i})" for i in range(N)]))
     Aux_nodes.append(f"{name}_A=1 & "+" & ".join([f"R(M{i})" for i in range(N)]))
     Transition(f"{name}_A=1 & "+" & ".join([f"R(M{i})" for i in range(N)]),f"{name}_A=1",inferred=True)
-
-    
+   
 # Nodes with memory
 def CreateMemoryNode(tree,name,node_type):
     global P,Unsumm_nodes,Inf_arcs,variables
@@ -214,7 +236,6 @@ def CreateMemoryNode(tree,name,node_type):
         Inf_arcs.append(name+"_M="+str(list(tree).index(i))+" & "+name+"_"+other_type+"=1->"+name+"_"+other_type+"=1")
 
 # Parallel
-
 def CreateParallel(tree,name):
     global P,Unsumm_nodes,Inf_arcs,variables
     variables.append(name+"_T")
@@ -312,7 +333,6 @@ def CreateParallel(tree,name):
             Inf_arcs.append(name+"_NC="+str(list(tree).index(i)+1)+" & not "+name+"_CS>=K & not "+name+"_CF>="+str(len(tree))+"-K+1 & "+name+"_CR>=0->"+name+"_R=1")
             
 # Inverter
-
 def CreateInverter(tree,name):
 
     Transition(name+"_T=1",name+"0_T=1")
@@ -323,7 +343,6 @@ def CreateInverter(tree,name):
     Transition(name+"0_A=1",name+"_A=1")
 
 # Force Success
-
 def CreateForceSuccess(tree,name):    
 
     Transition(name+"_T=1",name+"0_T=1")
@@ -333,7 +352,7 @@ def CreateForceSuccess(tree,name):
     Transition(name+"_H=1",name+"0_H=1")
     Transition(name+"0_A=1",name+"_A=1")
 
-
+# Force Failure
 def CreateForceFailure(tree,name):    
     Transition(name+"_T=1",name+"0_T=1")
     Transition(name+"0_S=1",name+"_F=1")
@@ -342,9 +361,7 @@ def CreateForceFailure(tree,name):
     Transition(name+"_H=1",name+"0_H=1")
     Transition(name+"0_A=1",name+"_A=1")
 
-    
 # Condition node
-
 def CreateCondition(tree,name,optimization=True):
     if "prob" in tree.attrib.keys():
         branches=tree.attrib['prob'].split(",")
@@ -377,7 +394,6 @@ def CreateCondition(tree,name,optimization=True):
         Transition(name+"_H=1",name+"_A=1")
         
 # Action nodes
-
 def CreateAction(tree,name,optimization=True):
     global P,Unsumm_nodes,Inf_arcs,variables
 

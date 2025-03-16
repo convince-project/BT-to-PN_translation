@@ -1,0 +1,22 @@
+<root BTCPP_format="4">
+    <BehaviorTree ID="one">
+        <ReactiveFallback>
+            <ReactiveSequence>
+                <BtCondition name="control_received_" haltable="False" prob="1,1,0" path="DiNeROS_nodes.xml"/>
+                <BtAction name="control_get_" haltable="False" prob="1,0,0" path="DiNeROS_nodes.xml"/>
+            </ReactiveSequence>
+            <ReactiveSequence>
+                <BtCondition name="control_got_" haltable="False" prob="1,1,0" path="DiNeROS_nodes.xml"/>
+                <BtAction name="object_pick_" haltable="False" prob="1,0,0" path="DiNeROS_nodes.xml"/>
+            </ReactiveSequence> 
+            <ReactiveSequence>
+                <BtCondition name="object_picked_" haltable="False" prob="1,1,0" path="DiNeROS_nodes.xml"/>
+                <BtAction name="object_place_" haltable="False" prob="1,0,0" path="DiNeROS_nodes.xml"/>
+            </ReactiveSequence> 
+            <ReactiveSequence>
+                <BtCondition name="object_placed_" haltable="False" prob="1,1,0" path="DiNeROS_nodes.xml"/>
+                <BtAction name="control_done_" haltable="False" prob="1,0,0" path="DiNeROS_nodes.xml"/>
+            </ReactiveSequence> 
+        </ReactiveFallback>
+    </BehaviorTree>
+</root>

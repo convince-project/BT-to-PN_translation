@@ -16,6 +16,8 @@ import matplotlib.pyplot as plt
 
 script_path = os.path.abspath(__file__)
 script_path=os.path.dirname(os.path.dirname(script_path))
+custom_execution_nodes={}
+custom_places={}
 
 report={
     "BT":{
@@ -78,10 +80,13 @@ def parseBT(tree,name,optimization_=False):
         parseBT(i,tag,optimization_=optimization_)
 
     if len(list(tree))==0:
-        if tree.tag=="BtCondition":
-            CreateCondition(tree,name,optimization=optimization_)
+        if "path" in tree.attrib.keys():
+            CreateCustomNode(tree,name,custom_execution_nodes[tree.attrib["path"]+"/"+tree.attrib["name"]])
         else:
-            CreateAction(tree,name,optimization=optimization_)
+            if tree.tag=="BtCondition":
+                CreateCondition(tree,name,optimization=optimization_)
+            else:
+                CreateAction(tree,name,optimization=optimization_)
     else:
         
         if tree.tag=="ReactiveSequence":
@@ -565,7 +570,7 @@ class Graph:
 
     def to_PNML(self,filename,graph):
         global SingleToken, report
-        blankPNML_path=script_path+"/Support/BlankPNML2.xml"
+        blankPNML_path=script_path+"/Support/BlankPNML.xml"
         SingleToken=True
         # Parse the behavior tree and construct the PNML
         blankPNML=ET.parse(blankPNML_path)
@@ -590,13 +595,31 @@ class Graph:
         for i in graph.source.split("\n"):
             if "circle" in i:
                 name=i.split(" ")[0].split("\t")[1]
-                new_place=createPT1(Templateroot2,"place",i.split(" ")[0].split("\t")[1])
-                if i.split(" ")[0].split("\t")[1]=="R_T":
+                if len(name.split("\"")) >1:
+                    name=name.split("\"")[1]
+                new_place=createPT1(Templateroot2,"place",name)
+                if name=="R_T":
                     new_place=modifyField(new_place,"initialMarking/value","1","text")
                 else:
-                    new_place=modifyField(new_place,"initialMarking/value","0","text")
+                    if name in custom_places.keys():
+                        if "initial_value" in custom_places[name].keys():
+                            new_place=modifyField(new_place,"initialMarking/value",str(custom_places[name]["initial_value"]),"text")
+                            tags=[x.tag for x in new_place]
+                            for field in custom_places[name]["additional_elements"]:
+                                
+                                if not field.tag in tags:
+                                    new_place.append(field)
+                                else:
+                                    for x in field:
+                                        new_place[tags.index(field.tag)].append(x)
+                        else:
+                            new_place=modifyField(new_place,"initialMarking/value","0","text")
+                    else:
+                        new_place=modifyField(new_place,"initialMarking/value","0","text")
+
                 
                 pos=nodes[name]["pos"].split("\"")[1]
+                
                 x=float(pos.split(",")[0])
                 y=float(pos.split(",")[1])
 
@@ -715,7 +738,7 @@ class Graph:
     def to_JANI(self,filename,graph):
         global report
         # Opening JSON file
-        f = open(script_path+'/Support/test.jani')
+        f = open(script_path+'/Support/template.jani')
         
         start=time.time()
         a1=graph.pipe(engine="osage",format='dot').decode('latin-1')
@@ -734,7 +757,8 @@ class Graph:
         for i in graph.source.split("\n"):
             if "circle" in i:
                 name=i.split(" ")[0].split("\t")[1]
-                
+                if len(name.split("\"")) >1:
+                    name=name.split("\"")[1]
                 if name=="R_T":
                     assignment=1
                 else:
@@ -775,13 +799,77 @@ def count_nodes(node):
     """Count all nodes under an ET node, including itself."""
     return 1 + sum(count_nodes(child) for child in node)
 
-def main():
+
+
+def customize_Tree(root,filename):
+    global custom_execution_nodes
+    custom_nodes=root.findall(".//*[@path]")
+    nodes={}
+    place={
+        "initial_value":0,
+        "additional_content":{}
+    }
+    constants={}
+
+    
+
+    paths_list=[]
+    if len(custom_nodes)>0:
+        for i in custom_nodes:
+            if not os.path.dirname(filename)+"/"+i.attrib["path"] in paths_list:
+                paths_list.append((i.attrib["path"],os.path.dirname(filename)+"/"+i.attrib["path"]))
+        for path in paths_list:
+            nodes_tree = ET.parse(path[1]) # extract the bt in xml format
+            nodes_root = nodes_tree.getroot() # take its root
+            temp_constants=nodes_root.findall(".//constants")
+            for i in temp_constants[0]:
+                constants[i.tag]=i.attrib["value"]
+            temp_variables=nodes_root.findall(".//variables")
+            for i in temp_variables[0]:
+                if not i.tag in custom_places.keys():
+                    custom_places[i.tag]={}
+                custom_places[i.tag]["initial_value"]=i.attrib["value"]
+
+            temp_places_variables=nodes_root.findall(".//places_params")
+            for i in temp_places_variables[0]:
+                if not i.attrib["id"] in custom_places.keys():
+                    custom_places[i.attrib["id"]]={}
+                custom_places[i.attrib["id"]]["additional_elements"]=[x for x in i]
+            
+            temp_nodes=nodes_root.findall(".//btnode")
+            for i in temp_nodes:
+                custom_execution_node={
+                    "name":i.attrib["name"],
+                    "transitions":[]
+                }
+                for m in i:
+                    transition={
+                        "input":"",
+                        "output":"",
+                        "priority":"",
+                        "inferred":False
+                    }
+                    for k in constants.keys():
+                        m.attrib["input"]=m.attrib["input"].replace(k,constants[k])
+                        m.attrib["output"]=m.attrib["output"].replace(k,constants[k])
+                    transition["input"]=m.attrib["input"]
+                    transition["output"]=m.attrib["output"]
+                    transition["priority"]=int(m.attrib["priority"])
+                    transition["inferred"]=False if m.attrib["inferred"]=="False" else True
+                    custom_execution_node["transitions"].append(transition)
+                custom_execution_nodes[path[0]+"/"+i.attrib["name"]]=custom_execution_node
+        return root
+    else:
+        return root
+
+def main(filename):
     global blankPNML, P,Unsumm_nodes, F, G, report
-    filename = askopenfilename(initialdir=script_path+"/Inputs") # show an "Open" dialog box and return the path to the selected input file
+
     folder=os.path.basename(filename).split(".")[0]
     # Extract the behavior tree from its file
-    tree = ET.parse(filename) # extract the bt in cml format
+    tree = ET.parse(filename) # extract the bt in xml format
     root = tree.getroot() # take its root
+    root=customize_Tree(root,filename)
     for i in root: # if it is a more structured file it looks for the Behavior Tree tag
         if i.tag=="BehaviorTree":
             root=i
@@ -856,4 +944,10 @@ def main():
     
     
 if __name__ == '__main__':
-    main()
+    import argparse
+    parser = argparse.ArgumentParser(description="Run BehaVerify evaluation")
+    parser.add_argument("--file", type=int, help="Behavior Tree file")
+    args = parser.parse_args()
+    # If filename is not provided via CLI, open the file dialog
+    filename = args.file if args.file else askopenfilename(initialdir=script_path+"/Inputs") # show an "Open" dialog box and return the path to the selected input file
+    main(filename)

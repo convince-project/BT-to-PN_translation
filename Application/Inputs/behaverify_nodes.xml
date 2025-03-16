@@ -1,0 +1,48 @@
+<model>
+    <btnodes>
+        <btnode name="x_too_small">
+            <transition input="'btnode'_T=1 &amp; x_pos=x_min" output="'btnode'_S=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1 &amp; x_pos=x_goal" output="'btnode'_F=1 &amp; x_pos=x_goal" inferred="False" priority="2"/>
+        </btnode>
+        <btnode name="move_x_up">
+            <transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; x_pos=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1 &amp; x_pos=x_max" output="'btnode'_F=1 &amp; x_pos=x_max" inferred="False" priority="2"/>
+        </btnode>
+        <btnode name="x_too_big">
+            <transition input="'btnode'_T=1 &amp; x_pos=x_goal" output="'btnode'_S=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1 &amp; x_pos=x_goal" output="'btnode'_F=1 &amp; x_pos=x_goal" inferred="False" priority="2"/>
+        </btnode>
+        <btnode name="move_x_down">
+            <transition input="'btnode'_T=1 &amp; x_pos=1" output="'btnode'_S=1" inferred="False" priority="1"/>
+        </btnode>    
+        <btnode name="y_too_small">
+            <transition input="'btnode'_T=1 &amp; y_pos=y_min" output="'btnode'_S=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1 &amp; y_pos=y_goal" output="'btnode'_F=1 &amp; y_pos=y_goal" inferred="False" priority="2"/>
+        </btnode>
+        <btnode name="move_y_up">
+            <transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; y_pos=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1 &amp; y_pos=y_max" output="'btnode'_F=1 &amp; y_pos=y_max" inferred="False" priority="2"/>
+        </btnode>
+        <btnode name="y_too_big">
+            <transition input="'btnode'_T=1 &amp; y_pos=y_goal" output="'btnode'_S=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1 &amp; y_pos=y_goal" output="'btnode'_F=1 &amp; y_pos=y_goal" inferred="False" priority="2"/>
+        </btnode>
+        <btnode name="move_y_down">
+            <transition input="'btnode'_T=1 &amp; y_pos=1" output="'btnode'_S=1" inferred="False" priority="1"/>
+        </btnode>
+    </btnodes>
+    <constants>
+        <x_goal value="5"/>
+        <y_goal value="5"/>
+        <x_min value="1"/>
+        <x_max value="10"/>
+        <y_min value="1"/>
+        <y_max value="10"/>
+    </constants>
+    <variables>
+        <x_pos value="3"/>
+        <y_pos value="3"/>
+    </variables>
+    <places_params>
+    </places_params>
+</model>

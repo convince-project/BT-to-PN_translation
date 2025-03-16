@@ -455,7 +455,7 @@ def create_assignment(guard,result,priority,structure):
             op_variables.append(array[p+2])
             assignment_variables.append(array[p+3])
         elif array[p]=="=":
-            guard_string+="eq "
+            guard_string+="gq "
         elif array[p]==">=":
             guard_string+="gq "
         elif array[p]=="<":

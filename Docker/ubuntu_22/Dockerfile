@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Update and install essential packages
 RUN apt-get update && apt-get install -y \
     build-essential \
+    docker.io \
     libffi-dev \
     python3-pip \
     graphviz \
@@ -29,6 +30,11 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
     
 # Clone your Git repository (replace with your actual repo URL)
+
+RUN usermod -aG docker root
+RUN newgrp docker
+
+COPY behaverify_runner.py /root/behaverify_runner.py
 
 WORKDIR /root/
 RUN git clone https://github.com/convince-project/BT-to-PN_translation.git

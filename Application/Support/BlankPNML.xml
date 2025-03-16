@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <pnml>
-    <net id="Net-One" type="P/T net">
-        <token id="Halt" enabled="true" red="255" green="192" blue="0"/>
-        <token id="Running" enabled="true" red="19" green="166" blue="255"/>
-        <token id="Success" enabled="true" red="146" green="208" blue="0"/>
-        <token id="Failure" enabled="true" red="237" green="0" blue="7"/>
-        <token id="Counter" enabled="true" red="158" green="40" blue="150"/>
-        <token id="Tick" enabled="true" red="0" green="0" blue="0"/>
+    <net id="Net-One" type="http://www.pnml.org/version-2009/grammar/ptnet">
+       <token id="Default" enabled="true" red="0" green="0" blue="0"/>
     </net>
 </pnml>
