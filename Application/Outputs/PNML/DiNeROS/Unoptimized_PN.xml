@@ -498,7 +498,7 @@
                 <text>R-AwaitingControl</text>
             </name>
                 <initialMarking>
-                    <value>10</value>
+                    <value>0</value>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>

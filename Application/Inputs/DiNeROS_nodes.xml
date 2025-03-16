@@ -33,7 +33,7 @@
         <side value="R"/>
     </constants>
     <variables>
-        <R-AwaitingControl value="10"/>
+        <R-AwaitingControl value="0"/>
     </variables>
     <places_params>
         <place id="L-AwaitingControl">

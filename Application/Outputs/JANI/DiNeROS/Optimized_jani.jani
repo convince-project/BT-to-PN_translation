@@ -2188,7 +2188,7 @@
             "type": "int"
         },
         {
-            "initial-value": 0,
+            "initial-value": "0",
             "name": "R-AwaitingControl",
             "type": "int"
         },

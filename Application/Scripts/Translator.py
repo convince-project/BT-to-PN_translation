@@ -764,6 +764,10 @@ class Graph:
                 else:
                     assignment=0
                 initial_assignment={}
+
+                if name in custom_places.keys():
+                    if "initial_value" in custom_places[name].keys():
+                        assignment=custom_places[name]["initial_value"]
                 initial_assignment["initial-value"]=assignment
                 initial_assignment["name"]=name
                 initial_assignment["type"]="int"
