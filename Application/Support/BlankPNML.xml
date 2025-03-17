@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<pnml>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
     <net id="Net-One" type="http://www.pnml.org/version-2009/grammar/ptnet">
-       <token id="Default" enabled="true" red="0" green="0" blue="0"/>
+        <page id="top">
+       </page>
     </net>
 </pnml>

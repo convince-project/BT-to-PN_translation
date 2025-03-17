@@ -18,6 +18,7 @@ script_path = os.path.abspath(__file__)
 script_path=os.path.dirname(os.path.dirname(script_path))
 custom_execution_nodes={}
 custom_places={}
+root_name=""
 
 report={
     "BT":{
@@ -53,29 +54,29 @@ report={
 
 from nodes_formalization import *
 
-def parseBT(tree,name,optimization_=False):
+def parseBT(tree,name,root_name="R",optimization_=False):
     node_counter=0
     for i in tree:
         if not name=="":
             tag=name+str(list(tree).index(i))
         else:
-            tag="R"
-            P.node("R_T=1","R_T=1",style="filled",color='lightblue')
-            Unsumm_nodes.append("R_T=1")
-            P.node("R_H=1","R_H=1",style="filled",color='lightblue')
-            Unsumm_nodes.append("R_H=1")
-            P.node("R_S=1","R_S=1",style="filled",color='lightblue')
-            Unsumm_nodes.append("R_S=1")
-            P.node("R_F=1","R_F=1",style="filled",color='lightblue')
-            Unsumm_nodes.append("R_F=1")
-            P.node("R_R=1","R_R=1",style="filled",color='lightblue')
-            Unsumm_nodes.append("R_R=1")
-            P.node("R_A=1","R_A=1",style="filled",color='lightblue')
-            Unsumm_nodes.append("R_A=1")
-            Transition("R_A=1","R_T=1")
-            Transition("R_S=1","R_T=1")
-            Transition("R_F=1","R_T=1")
-            Transition("R_R=1","R_T=1")
+            tag=root_name
+            P.node(f"{root_name}_T=1",f"{root_name}_T=1",style="filled",color='lightblue')
+            Unsumm_nodes.append(f"{root_name}_T=1")
+            P.node(f"{root_name}_H=1",f"{root_name}_H=1",style="filled",color='lightblue')
+            Unsumm_nodes.append(f"{root_name}_H=1")
+            P.node(f"{root_name}_S=1",f"{root_name}_S=1",style="filled",color='lightblue')
+            Unsumm_nodes.append(f"{root_name}_S=1")
+            P.node(f"{root_name}_F=1",f"{root_name}_F=1",style="filled",color='lightblue')
+            Unsumm_nodes.append(f"{root_name}_F=1")
+            P.node(f"{root_name}_R=1",f"{root_name}_R=1",style="filled",color='lightblue')
+            Unsumm_nodes.append(f"{root_name}_R=1")
+            P.node(f"{root_name}_A=1",f"{root_name}_A=1",style="filled",color='lightblue')
+            Unsumm_nodes.append(f"{root_name}_A=1")
+            Transition(f"{root_name}_A=1",f"{root_name}_T=1")
+            Transition(f"{root_name}_S=1",f"{root_name}_T=1")
+            Transition(f"{root_name}_F=1",f"{root_name}_T=1")
+            Transition(f"{root_name}_R=1",f"{root_name}_T=1")
 
         parseBT(i,tag,optimization_=optimization_)
 
@@ -568,13 +569,13 @@ class Graph:
                 PNMLroot.append(rank)
 
 
-    def to_PNML(self,filename,graph):
+    def to_PNML(self,filename,graph,graphics):
         global SingleToken, report
         blankPNML_path=script_path+"/Support/BlankPNML.xml"
         SingleToken=True
         # Parse the behavior tree and construct the PNML
         blankPNML=ET.parse(blankPNML_path)
-        PNMLroot=blankPNML.getroot()[0]
+        PNMLroot=blankPNML.getroot()[0][0]
         places=[]
         transitions=[]
         arcs=[]
@@ -598,24 +599,26 @@ class Graph:
                 if len(name.split("\"")) >1:
                     name=name.split("\"")[1]
                 new_place=createPT1(Templateroot2,"place",name)
-                if name=="R_T":
-                    new_place=modifyField(new_place,"initialMarking/value","1","text")
+                if name==f"{root_name}_T":
+                    new_place=modifyField(new_place,"initialMarking/text","1","text")
                 else:
                     if name in custom_places.keys():
                         if "initial_value" in custom_places[name].keys():
-                            new_place=modifyField(new_place,"initialMarking/value",str(custom_places[name]["initial_value"]),"text")
-                            tags=[x.tag for x in new_place]
-                            for field in custom_places[name]["additional_elements"]:
-                                
-                                if not field.tag in tags:
-                                    new_place.append(field)
-                                else:
-                                    for x in field:
-                                        new_place[tags.index(field.tag)].append(x)
+                            print(custom_places[name])
+                            new_place=modifyField(new_place,"initialMarking/text",str(custom_places[name]["initial_value"]),"text")
+                            
                         else:
-                            new_place=modifyField(new_place,"initialMarking/value","0","text")
+                            new_place=modifyField(new_place,"initialMarking/text","0","text")
+                        tags=[x.tag for x in new_place]
+                        for field in custom_places[name]["additional_elements"]:
+                            
+                            if not field.tag in tags:
+                                new_place.append(field)
+                            else:
+                                for x in field:
+                                    new_place[tags.index(field.tag)].append(x)
                     else:
-                        new_place=modifyField(new_place,"initialMarking/value","0","text")
+                        new_place=modifyField(new_place,"initialMarking/text","0","text")
 
                 
                 pos=nodes[name]["pos"].split("\"")[1]
@@ -630,7 +633,8 @@ class Graph:
                 if xinvert:
                     xpar=1-xpar
                 
-                new_place=modifyField(new_place,
+                if graphics:
+                    new_place=modifyField(new_place,
                                     "graphics/position",
                                     {"x":f"{self.xmin+((self.xmax-self.xmin)*xpar):.2f}",
                                      "y":f"{self.ymin+((self.ymax-self.ymin)*ypar):.2f}"},
@@ -657,8 +661,8 @@ class Graph:
                     ypar=1-ypar
                 if xinvert:
                     xpar=1-xpar
-                
-                new_place=modifyField(new_place,
+                if graphics:
+                    new_place=modifyField(new_place,
                                     "graphics/position",
                                     {"x":f"{self.xmin+((self.xmax-self.xmin)*xpar):.2f}",
                                      "y":f"{self.ymin+((self.ymax-self.ymin)*ypar):.2f}"},
@@ -726,6 +730,15 @@ class Graph:
             report["Optimized"]["PNML"]["creation_time"]=end-start
         else:
             pass
+
+        for elem in blankPNML.getroot().iter():
+            # Remove namespace prefix from tags
+            elem.tag = elem.tag.split('}', 1)[-1] if '}' in elem.tag else elem.tag
+            # # Remove namespace prefix from attributes
+            # elem.attrib = {key.split('}', 1)[-1]: value for key, value in elem.attrib.items()}
+            
+        blankPNML.getroot().attrib["xmlns"]="http://www.pnml.org/version-2009/grammar/pnml"
+
         # Ensure the directory exists before opening the file
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         blankPNML.write(filename+".xml")
@@ -759,7 +772,7 @@ class Graph:
                 name=i.split(" ")[0].split("\t")[1]
                 if len(name.split("\"")) >1:
                     name=name.split("\"")[1]
-                if name=="R_T":
+                if name==f"{root_name}_T":
                     assignment=1
                 else:
                     assignment=0
@@ -868,7 +881,7 @@ def customize_Tree(root,filename):
 
 def main(filename):
     global blankPNML, P,Unsumm_nodes, F, G, report
-
+    graphics=False
     folder=os.path.basename(filename).split(".")[0]
     # Extract the behavior tree from its file
     tree = ET.parse(filename) # extract the bt in xml format
@@ -879,7 +892,7 @@ def main(filename):
             root=i
             break
     report["BT"]["nodes"]=count_nodes(i)
-    parseBT(root, "") # Parse the Bt
+    parseBT(root, "",root_name) # Parse the Bt
     print("Parsed BT")
     # Depict unoptimized graph
 
@@ -898,9 +911,9 @@ def main(filename):
     
     K=temp_graph.construct_PN(contracted=True)
     print("Constructed Unoptimized PN")
-
-    K.render(script_path+"/Outputs/Images/"+folder+"/Unoptimized_PN_image",format='png',engine="dot")
-    temp_graph.to_PNML(script_path+"/Outputs/PNML/"+folder+"/Unoptimized_PN",K)
+    if graphics:
+        K.render(script_path+"/Outputs/Images/"+folder+"/Unoptimized_PN_image",format='png',engine="dot")
+    temp_graph.to_PNML(script_path+"/Outputs/PNML/"+folder+"/Unoptimized_PN",K,graphics)
     print("Constructed Unoptimized PNML")
 
     temp_graph.to_JANI(script_path+"/Outputs/JANI/"+folder+"/Unoptimized_jani",K)
@@ -932,8 +945,9 @@ def main(filename):
     # report["BT"]["optimized_transition_graph"]=script_path+"/Outputs/Images/"+folder+"/Optimized_transition_graph.png"
     K=temp_graph.construct_PN(contracted=True)
     print("Constructed Optimized PN")
-    K.render(script_path+"/Outputs/Images/"+folder+"/Optimized_PN_image",format='png',engine="dot")
-    temp_graph.to_PNML(script_path+"/Outputs/PNML/"+folder+"/Optimized_PN",K)
+    if graphics:
+        K.render(script_path+"/Outputs/Images/"+folder+"/Optimized_PN_image",format='png',engine="dot")
+    temp_graph.to_PNML(script_path+"/Outputs/PNML/"+folder+"/Optimized_PN",K,graphics)
     print("Constructed Optimized PNML")
     temp_graph.to_JANI(script_path+"/Outputs/JANI/"+folder+"/Optimized_jani",K)
     print("Constructed Optimized JANI")
@@ -948,10 +962,14 @@ def main(filename):
     
     
 if __name__ == '__main__':
+    global root_node
     import argparse
     parser = argparse.ArgumentParser(description="Run BehaVerify evaluation")
-    parser.add_argument("--file", type=int, help="Behavior Tree file")
+    parser.add_argument("--file", type=str, help="Behavior Tree file")
+    parser.add_argument("--root", type=str, help="Name of the root node")
     args = parser.parse_args()
+    print(args)
     # If filename is not provided via CLI, open the file dialog
     filename = args.file if args.file else askopenfilename(initialdir=script_path+"/Inputs") # show an "Open" dialog box and return the path to the selected input file
+    root_name=args.root if args.root else "R"
     main(filename)

@@ -1,39 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
 <model>
     <btnodes>
         <btnode name="control_received_">
-            <transition input="'btnode'_T=1 &amp; side-AwaitingControl=1" output="'btnode'_S=1" inferred="False" priority="1"/>
-            <transition input="'btnode'_T=1 &amp; not(side-AwaitingControl)" output="'btnode'_F=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1 &amp; side-AwaitingControl=1" output="'btnode'_S=1" inferred="False" priority="1" />
+            <transition input="'btnode'_T=1 &amp; not(side-AwaitingControl)" output="'btnode'_F=1" inferred="False" priority="1" />
         </btnode>
         <btnode name="control_get_">
-            <transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-GetControl=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-GetControl=1" inferred="False" priority="1" />
         </btnode>
         <btnode name="control_got_">
-            <transition input="'btnode'_T=1 &amp; side-Ready=1" output="'btnode'_S=1" inferred="False" priority="1"/>
-            <transition input="'btnode'_T=1 &amp; not(side-Ready)" output="'btnode'_F=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1 &amp; side-Ready=1" output="'btnode'_S=1" inferred="False" priority="1" />
+            <transition input="'btnode'_T=1 &amp; not(side-Ready)" output="'btnode'_F=1" inferred="False" priority="1" />
         </btnode>
         <btnode name="object_pick_">
-            <transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-ObjectPick=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-ObjectPick=1" inferred="False" priority="1" />
         </btnode>    
         <btnode name="object_picked_">
-            <transition input="'btnode'_T=1 &amp; side-ObjectPicked=1" output="'btnode'_S=1" inferred="False" priority="1"/>
-            <transition input="'btnode'_T=1 &amp; not(side-ObjectPicked)" output="'btnode'_F=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1 &amp; side-ObjectPicked=1" output="'btnode'_S=1" inferred="False" priority="1" />
+            <transition input="'btnode'_T=1 &amp; not(side-ObjectPicked)" output="'btnode'_F=1" inferred="False" priority="1" />
         </btnode>
         <btnode name="object_place_">
-            <transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-ObjectPlace=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-ObjectPlace=1" inferred="False" priority="1" />
         </btnode>
         <btnode name="object_placed_">
-            <transition input="'btnode'_T=1 &amp; side-ObjectPlaced=1" output="'btnode'_S=1" inferred="False" priority="1"/>
-            <transition input="'btnode'_T=1 &amp; not(side-ObjectPlaced)" output="'btnode'_F=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1 &amp; side-ObjectPlaced=1" output="'btnode'_S=1" inferred="False" priority="1" />
+            <transition input="'btnode'_T=1 &amp; not(side-ObjectPlaced)" output="'btnode'_F=1" inferred="False" priority="1" />
         </btnode>
         <btnode name="control_done_">
-            <transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-Done=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-Done=1" inferred="False" priority="1" />
         </btnode>
     </btnodes>
     <constants>
-        <side value="R"/>
+        <side value="R" />
     </constants>
     <variables>
-        <R-AwaitingControl value="0"/>
+        <R-AwaitingControl value="0" />
     </variables>
     <places_params>
         <place id="L-AwaitingControl">

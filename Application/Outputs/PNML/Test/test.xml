@@ -1,0 +1,9 @@
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+    <net id="Net-One" type="http://www.pnml.org/version-2009/grammar/ptnet">
+        <page id="MainPage">
+            <place id="p1"/>
+            <transition id="t1"/>
+            <arc source="p1" target="t1"/>
+        </page>
+    </net>
+</pnml>

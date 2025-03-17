@@ -1,0 +1,1793 @@
+Parsed Arguments:
+  flagInhibitor: false
+  flagSignal: false
+  flagPurge: false
+  flagOverrideInstanceCount: false
+  pnmlPath: /home/ubuntu_usr/inputs/GRPNs/dineros_grpn_original.pnml
+  tinaPath: /home/ubuntu_usr/
+  tinaVersion: 3.7.0
+Application started successfully.
+WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.
+00:41:46.868 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:46.868 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+[INFO] Transforming page: EndControlService
+[WARNING] Detected potentially cyclic service call on: endControlService
+[WARNING] Falling back to user defined thread number for: endControlService
+Checking: GetControlServiceCall
+---- Info: getControlService ---- endControlService
+Checking: EndControlServiceCall
+---- Info: endControlService ---- endControlService
+Matching: EndControlServiceCall with 2
+Performing for cap: 2
+[ServiceUtils] Copying server page EndControlService (0).
+Defaulting initial marking of EndControlIn to 0.
+Defaulting initial marking of EndControlOut to 0.
+Searching for external referenced object: GetShared
+Found external referenced object: GetShared
+Adding 8 objects for service endControlService
+[ServiceUtils] Copying server page EndControlService (1).
+Searching for external referenced object: GetShared
+Found external referenced object: GetShared
+Adding 8 objects for service endControlService
+[INFO] Transforming page: GetControlService
+[WARNING] Detected potentially cyclic service call on: getControlService
+[WARNING] Falling back to user defined thread number for: getControlService
+Checking: GetControlServiceCall
+---- Info: getControlService ---- getControlService
+Matching: GetControlServiceCall with 2
+Performing for cap: 2
+[ServiceUtils] Copying server page GetControlService (0).
+Defaulting initial marking of GetControlIn to 0.
+Defaulting initial marking of GetControlOut to 0.
+Searching for external referenced object: GetShared
+Found external referenced object: GetShared
+Adding 8 objects for service getControlService
+[ServiceUtils] Copying server page GetControlService (1).
+Searching for external referenced object: GetShared
+Found external referenced object: GetShared
+Adding 8 objects for service getControlService
+[INFO] Transforming page: SensorService
+[WARNING] Detected potentially cyclic service call on: sensorService
+[WARNING] Falling back to user defined thread number for: sensorService
+Checking: GetControlServiceCall
+---- Info: getControlService ---- sensorService
+Checking: EndControlServiceCall
+---- Info: endControlService ---- sensorService
+Checking: SensorServiceCall
+---- Info: sensorService ---- sensorService
+Matching: SensorServiceCall with 1
+Performing for cap: 1
+[ServiceUtils] Copying server page SensorService (0).
+Defaulting initial marking of SensorIn to 0.
+Defaulting initial marking of SensorInter to 0.
+Defaulting initial marking of SensorOut to 0.
+Adding 10 objects for service sensorService
+[INFO] Transforming page: PickService
+[WARNING] Detected potentially cyclic service call on: pickService
+[WARNING] Falling back to user defined thread number for: pickService
+Checking: GetControlServiceCall
+---- Info: getControlService ---- pickService
+Checking: EndControlServiceCall
+---- Info: endControlService ---- pickService
+Checking: SensorServiceCall
+---- Info: sensorService ---- pickService
+Checking: PlaceServiceCall
+---- Info: placeService ---- pickService
+Checking: PickServiceCall
+---- Info: pickService ---- pickService
+Matching: PickServiceCall with 2
+Performing for cap: 2
+[ServiceUtils] Copying server page PickService (0).
+Defaulting initial marking of PickInput to 0.
+Defaulting initial marking of Picking to 0.
+Defaulting initial marking of PickOutput to 0.
+Searching for external referenced object: Safe
+Found external referenced object: Safe
+Searching for external referenced object: Unsafe
+Found external referenced object: Unsafe
+Adding 22 objects for service pickService
+[ServiceUtils] Copying server page PickService (1).
+Searching for external referenced object: Safe
+Found external referenced object: Safe
+Searching for external referenced object: Unsafe
+Found external referenced object: Unsafe
+Adding 22 objects for service pickService
+[INFO] Transforming page: PlaceService
+[WARNING] Detected potentially cyclic service call on: placeService
+[WARNING] Falling back to user defined thread number for: placeService
+Checking: GetControlServiceCall
+---- Info: getControlService ---- placeService
+Checking: EndControlServiceCall
+---- Info: endControlService ---- placeService
+Checking: SensorServiceCall
+---- Info: sensorService ---- placeService
+Checking: PlaceServiceCall
+---- Info: placeService ---- placeService
+Matching: PlaceServiceCall with 2
+Performing for cap: 2
+[ServiceUtils] Copying server page PlaceService (0).
+Defaulting initial marking of PlaceInput to 0.
+Defaulting initial marking of Placing to 0.
+Defaulting initial marking of PlaceOutput to 0.
+Searching for external referenced object: Safe
+Found external referenced object: Safe
+Searching for external referenced object: Unsafe
+Found external referenced object: Unsafe
+Adding 22 objects for service placeService
+[ServiceUtils] Copying server page PlaceService (1).
+Searching for external referenced object: Safe
+Found external referenced object: Safe
+Searching for external referenced object: Unsafe
+Found external referenced object: Unsafe
+Adding 22 objects for service placeService
+[TRANSFORM] Transforming topic transition: RightCellTopic
+00:41:47.121 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:47.122 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:47.178 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:47.179 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:47.245 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:47.245 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:47.317 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:47.317 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:47.396 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:47.396 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+[TRANSFORM] Transforming topic transition: UITopic
+00:41:47.463 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:47.463 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:47.519 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:47.519 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:47.580 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:47.580 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:47.644 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:47.644 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:47.705 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:47.705 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:47.758 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:47.758 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+[TRANSFORM] Transforming topic transition: LeftCellTopic
+00:41:47.832 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:47.832 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:47.887 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:47.887 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:47.945 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:47.945 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.004 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.004 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.058 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.058 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.112 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.112 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+[INFO] Transforming service transition: GetControlServiceCall
+00:41:48.197 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.198 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.260 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.260 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.323 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.323 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.384 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.385 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.444 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.444 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.503 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.503 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.557 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.557 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.608 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.608 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+[INFO] Transforming service transition: EndControlServiceCall
+00:41:48.663 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.663 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.717 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.718 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.768 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.768 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.824 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.824 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.878 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.878 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.939 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.939 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:48.994 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:48.994 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:49.062 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.062 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+[INFO] Transforming service transition: SensorServiceCall
+00:41:49.119 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.120 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:49.180 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.181 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:49.238 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.238 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+[INFO] Transforming service transition: PlaceServiceCall
+00:41:49.304 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.305 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:49.363 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.363 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:49.423 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.423 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:49.481 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.481 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:49.538 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.539 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:49.600 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.600 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:49.654 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.654 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:49.709 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.709 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+[INFO] Transforming service transition: PickServiceCall
+00:41:49.766 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.766 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:49.818 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.818 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:49.874 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.874 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:49.932 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.933 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:49.988 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:49.989 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.048 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.048 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.110 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.111 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.173 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.173 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.252 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.252 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.309 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.309 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.362 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.363 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.412 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.413 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.467 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.468 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.520 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.520 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.575 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.576 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.633 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.634 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.688 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.689 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.771 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.772 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.835 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.835 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:50.890 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.891 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+Adding ref transition: InputSignalToTrueTransition-Stop-SafeToUnsafe-REF-0-0
+REF: InputSignalToTrueTransition-Stop
+00:41:50.963 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:50.963 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:51.019 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.020 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:51.087 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.087 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:51.136 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.137 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:51.190 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.190 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+Adding ref transition: InputSignalToTrueTransition-Blue-SortBlue-REF-0-0
+REF: InputSignalToTrueTransition-Blue
+00:41:51.244 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.244 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:51.297 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.298 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:51.357 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.357 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:51.416 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.417 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:51.470 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.471 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+Adding ref transition: InputSignalToTrueTransition-Red-SortRed-REF-0-0
+REF: InputSignalToTrueTransition-Red
+00:41:51.519 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.519 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:51.573 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.573 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:51.635 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.635 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:51.691 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.691 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:51.771 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.772 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+Adding ref transition: InputSignalToTrueTransition-Green-SortGreen-REF-0-0
+REF: InputSignalToTrueTransition-Green
+00:41:51.824 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.825 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:51.880 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.880 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:51.951 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:51.951 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:52.016 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.016 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:52.064 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.064 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+Adding ref transition: InputSignalToTrueTransition-PlaceFail-PlacingFail-INSTANCE-0-REF-0-0
+REF: InputSignalToTrueTransition-PlaceFail
+00:41:52.116 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.116 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:52.167 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.167 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:52.216 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.216 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:52.269 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.270 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:52.323 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.324 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+Adding ref transition: InputSignalToTrueTransition-PickFail-PickingFail-INSTANCE-1-REF-0-0
+REF: InputSignalToTrueTransition-PickFail
+00:41:52.377 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.377 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:52.436 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.436 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:52.493 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.494 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:52.548 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.548 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:52.604 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.605 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+Adding ref transition: InputSignalToTrueTransition-PickFail-PickingFail-INSTANCE-0-REF-0-0
+REF: InputSignalToTrueTransition-PickFail
+00:41:52.657 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.657 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:52.708 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.709 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:52.774 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.775 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:52.825 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.825 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:52.877 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.877 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+Adding ref transition: InputSignalToTrueTransition-PlaceFail-PlacingFail-INSTANCE-1-REF-0-0
+REF: InputSignalToTrueTransition-PlaceFail
+00:41:52.988 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:52.988 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.042 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.043 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.105 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.106 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.158 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.158 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.212 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.212 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+Adding ref transition: InputSignalToTrueTransition-PickSuccess-PickingSuccess-INSTANCE-1-REF-0-0
+REF: InputSignalToTrueTransition-PickSuccess
+00:41:53.263 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.263 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.319 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.320 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.378 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.378 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.434 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.434 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.488 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.489 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+Adding ref transition: InputSignalToTrueTransition-PlaceSuccess-PlacingSuccess-INSTANCE-0-REF-0-0
+REF: InputSignalToTrueTransition-PlaceSuccess
+00:41:53.541 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.542 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.587 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.588 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.645 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.645 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.699 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.700 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.754 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.754 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+Adding ref transition: InputSignalToTrueTransition-PlaceSuccess-PlacingSuccess-INSTANCE-1-REF-0-0
+REF: InputSignalToTrueTransition-PlaceSuccess
+00:41:53.808 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.809 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.860 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.860 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.914 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.915 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:53.968 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:53.968 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:54.027 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:54.028 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+Adding ref transition: InputSignalToTrueTransition-PickSuccess-PickingSuccess-INSTANCE-0-REF-0-0
+REF: InputSignalToTrueTransition-PickSuccess
+00:41:54.088 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:54.088 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:54.144 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:54.144 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:54.221 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:54.222 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:54.275 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:54.276 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:54.326 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:54.326 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+Adding ref transition: InputSignalToTrueTransition-Sensor-GetSensorData-INSTANCE-0-REF-0-0
+REF: InputSignalToTrueTransition-Sensor
+00:41:54.380 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:54.380 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+00:41:54.432 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:54.433 [main] ERROR import - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+[FLATTENER] Checking marking.
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTER] Found NULL-marking. Falling back to 0 ...
+[FLATTENER] Breaking references and pages.
+Resolving reference on : ChannelConnectorTransition-UITopic
+>> Detected reference: DispatcherChannelTransitionRef-UITopic-0
+Resolving reference on : PlacingFail-INSTANCE-1
+>> Detected reference: PD-REF-0-PlacingFail-INSTANCE-1
+Resolving reference on : InputSignalToTrueTransition-Blue
+>> Detected reference: InputSignalToTrueTransition-Blue-SortBlue-REF-0-0
+Resolving reference on : InputSignalToFalseTransition-PickSuccess
+>> Detected reference: InputSignalToFalseTransition-PickSuccess-PickingSuccess-INSTANCE-0-REF-0-0
+>> Detected reference: InputSignalToFalseTransition-PickSuccess-PickingSuccess-INSTANCE-1-REF-0-0
+Resolving reference on : InputSignalToTrueTransition-Stop
+>> Detected reference: InputSignalToTrueTransition-Stop-SafeToUnsafe-REF-0-0
+Resolving reference on : PickingSuccess-INSTANCE-1
+>> Detected reference: PD-REF-0-PickingSuccess-INSTANCE-1
+Resolving reference on : InputSignalToTrueTransition-PickFail
+>> Detected reference: InputSignalToTrueTransition-PickFail-PickingFail-INSTANCE-0-REF-0-0
+>> Detected reference: InputSignalToTrueTransition-PickFail-PickingFail-INSTANCE-1-REF-0-0
+Resolving reference on : DispatcherOutputTransition-LeftCellTopic-0
+>> Detected reference: CallbackInputRefTransition-LeftCellTopic-0-0
+Resolving reference on : InputSignalToFalseTransition-Stop
+>> Detected reference: InputSignalToFalseTransition-Stop-SafeToUnsafe-REF-0-0
+Resolving reference on : PickingSuccess-INSTANCE-0
+>> Detected reference: PD-REF-0-PickingSuccess-INSTANCE-0
+Resolving reference on : InputSignalToFalseTransition-PlaceFail
+>> Detected reference: InputSignalToFalseTransition-PlaceFail-PlacingFail-INSTANCE-1-REF-0-0
+>> Detected reference: InputSignalToFalseTransition-PlaceFail-PlacingFail-INSTANCE-0-REF-0-0
+Resolving reference on : InputSignalToFalseTransition-PlaceSuccess
+>> Detected reference: InputSignalToFalseTransition-PlaceSuccess-PlacingSuccess-INSTANCE-0-REF-0-0
+>> Detected reference: InputSignalToFalseTransition-PlaceSuccess-PlacingSuccess-INSTANCE-1-REF-0-0
+Resolving reference on : InputSignalToTrueTransition-Sensor
+>> Detected reference: InputSignalToTrueTransition-Sensor-GetSensorData-INSTANCE-0-REF-0-0
+Resolving reference on : InputSignalToFalseTransition-PickFail
+>> Detected reference: InputSignalToFalseTransition-PickFail-PickingFail-INSTANCE-1-REF-0-0
+>> Detected reference: InputSignalToFalseTransition-PickFail-PickingFail-INSTANCE-0-REF-0-0
+Resolving reference on : SortBlue
+>> Detected reference: PD-REF-0-SortBlue
+Resolving reference on : SortRed
+>> Detected reference: PD-REF-0-SortRed
+Resolving reference on : InputSignalToTrueTransition-Red
+>> Detected reference: InputSignalToTrueTransition-Red-SortRed-REF-0-0
+Resolving reference on : InputSignalToFalseTransition-Sensor
+>> Detected reference: InputSignalToFalseTransition-Sensor-GetSensorData-INSTANCE-0-REF-0-0
+Resolving reference on : SafeToUnsafe
+>> Detected reference: PD-REF-0-SafeToUnsafe
+Resolving reference on : SortGreen
+>> Detected reference: PD-REF-0-SortGreen
+Resolving reference on : InputSignalToTrueTransition-PlaceSuccess
+>> Detected reference: InputSignalToTrueTransition-PlaceSuccess-PlacingSuccess-INSTANCE-1-REF-0-0
+>> Detected reference: InputSignalToTrueTransition-PlaceSuccess-PlacingSuccess-INSTANCE-0-REF-0-0
+Resolving reference on : ChannelConnectorTransition-LeftCellTopic
+>> Detected reference: DispatcherChannelTransitionRef-LeftCellTopic-0
+Resolving reference on : DispatcherOutputTransition-UITopic-0
+>> Detected reference: CallbackInputRefTransition-UITopic-0-0
+Resolving reference on : InputSignalToFalseTransition-Blue
+>> Detected reference: InputSignalToFalseTransition-Blue-SortBlue-REF-0-0
+Resolving reference on : ChannelConnectorTransition-RightCellTopic
+>> Detected reference: DispatcherChannelTransitionRef-RightCellTopic-0
+Resolving reference on : InputSignalToFalseTransition-Red
+>> Detected reference: InputSignalToFalseTransition-Red-SortRed-REF-0-0
+Resolving reference on : PlacingFail-INSTANCE-0
+>> Detected reference: PD-REF-0-PlacingFail-INSTANCE-0
+Resolving reference on : DispatcherOutputTransition-RightCellTopic-0
+>> Detected reference: CallbackInputRefTransition-RightCellTopic-0-0
+Resolving reference on : InputSignalToTrueTransition-PlaceFail
+>> Detected reference: InputSignalToTrueTransition-PlaceFail-PlacingFail-INSTANCE-0-REF-0-0
+>> Detected reference: InputSignalToTrueTransition-PlaceFail-PlacingFail-INSTANCE-1-REF-0-0
+Resolving reference on : InputSignalToFalseTransition-Green
+>> Detected reference: InputSignalToFalseTransition-Green-SortGreen-REF-0-0
+Resolving reference on : InputSignalToTrueTransition-Green
+>> Detected reference: InputSignalToTrueTransition-Green-SortGreen-REF-0-0
+Resolving reference on : PickingFail-INSTANCE-1
+>> Detected reference: PD-REF-0-PickingFail-INSTANCE-1
+Resolving reference on : GetSensorData-INSTANCE-0
+>> Detected reference: PD-REF-0-GetSensorData-INSTANCE-0
+Resolving reference on : PlacingSuccess-INSTANCE-0
+>> Detected reference: PD-REF-0-PlacingSuccess-INSTANCE-0
+Resolving reference on : PickingFail-INSTANCE-0
+>> Detected reference: PD-REF-0-PickingFail-INSTANCE-0
+Resolving reference on : PlacingSuccess-INSTANCE-1
+>> Detected reference: PD-REF-0-PlacingSuccess-INSTANCE-1
+Resolving reference on : InputSignalToTrueTransition-PickSuccess
+>> Detected reference: InputSignalToTrueTransition-PickSuccess-PickingSuccess-INSTANCE-0-REF-0-0
+>> Detected reference: InputSignalToTrueTransition-PickSuccess-PickingSuccess-INSTANCE-1-REF-0-0
+[FLATTENER] Running postprocessing.
+--------------- STRUCTURE ---------------
+----------------- PLACES ----------------
+Place ObjectPoolRed -- selectorRed
+--- Marking: 1
+Place InputSignalFalsePlace-PickSuccess -- signal
+--- Marking: 1
+Place ServiceCallMultiFlagPlace-endControlService-0-1 -- channel
+--- Marking: 0
+Place CallbackCapacityPlace-RightCellTopic-0-0 -- channel
+--- Marking: 10
+Place PublisherConnectorPlace-LeftCellTopic-1 -- channel
+--- Marking: 0
+Place EndControlOut-INSTANCE-1 -- EndControl
+--- Marking: 0
+Place ServiceCallMultiInactivePlace-pickService-1 -- channel
+--- Marking: 1
+Place ServiceCallMultiInactivePlace-sensorService-0 -- channel
+--- Marking: 1
+Place InputSignalTruePlace-PickFail -- signal
+--- Marking: 0
+Place DispatcherConnectorPlace-UITopic-0 -- channel
+--- Marking: 0
+Place GetControlIn-INSTANCE-0 -- GetControl
+--- Marking: 0
+Place PickInput-INSTANCE-1 -- PickService
+--- Marking: 0
+Place EndControlIn-INSTANCE-0 -- EndControl
+--- Marking: 0
+Place ServiceCallMultiInactivePlace-placeService-1 -- channel
+--- Marking: 1
+Place ServiceClientCallConnectPlace-sensorService-0 -- channel
+--- Marking: 0
+Place ServiceClientCallPlace-sensorService-0 -- channel
+--- Marking: 0
+Place InputSignalFalsePlace-Stop -- signal
+--- Marking: 1
+Place EndControlOut-INSTANCE-0 -- EndControl
+--- Marking: 0
+Place DispatcherCapacityPlace-RightCellTopic-0 -- channel
+--- Marking: 16
+Place R-AwaitingControl -- RC1
+--- Marking: 0
+Place FeedbackDone -- Feedback
+--- Marking: 0
+Place Placing-INSTANCE-0 -- PlaceService
+--- Marking: 0
+Place Placing-INSTANCE-1 -- PlaceService
+--- Marking: 0
+Place PublisherCapacityPlace-UITopic-0 -- channel
+--- Marking: 10
+Place EndControlIn-INSTANCE-1 -- EndControl
+--- Marking: 0
+Place ServiceClientCallConnectPlace-endControlService-1 -- channel
+--- Marking: 0
+Place SensorIn-INSTANCE-0 -- SensorService
+--- Marking: 0
+Place InputSignalFalsePlace-PlaceSuccess -- signal
+--- Marking: 1
+Place ServiceCallMultiActivePlace-endControlService-0 -- channel
+--- Marking: 0
+Place ServiceCallMultiInactivePlace-pickService-0 -- channel
+--- Marking: 1
+Place ServiceCallMultiFlagPlace-pickService-0-0 -- channel
+--- Marking: 0
+Place ChannelConnectorPlace-LeftCellTopic -- channel
+--- Marking: 0
+Place ServiceTogglePlace-placeService-1 -- channel
+--- Marking: 1
+Place PublisherCapacityPlace-LeftCellTopic-0 -- channel
+--- Marking: 10
+Place DispatcherConnectorPlace-LeftCellTopic-0 -- channel
+--- Marking: 0
+Place PD-0-SortBlue -- none
+--- Marking: 0
+Place ServiceClientCallConnectPlace-getControlService-0 -- channel
+--- Marking: 0
+Place ServiceCallMultiFlagPlace-placeService-1-1 -- channel
+--- Marking: 0
+Place ServiceTogglePlace-getControlService-1 -- channel
+--- Marking: 1
+Place ServiceCallMultiInactivePlace-endControlService-0 -- channel
+--- Marking: 1
+Place InputSignalFalsePlace-Sensor -- signal
+--- Marking: 1
+Place DispatcherCapacityPlace-LeftCellTopic-0 -- channel
+--- Marking: 16
+Place ServiceClientCallPlace-getControlService-1 -- channel
+--- Marking: 0
+Place CallbackInputPlace-LeftCellTopic-0-0 -- channel
+--- Marking: 0
+Place PlaceInput-INSTANCE-0 -- PlaceService
+--- Marking: 0
+Place DispatcherInputPlace-LeftCellTopic-0 -- channel
+--- Marking: 0
+Place PublisherConnectorPlace-LeftCellTopic-0 -- channel
+--- Marking: 0
+Place PublisherConnectorPlace-UITopic-0 -- channel
+--- Marking: 0
+Place PickInput-INSTANCE-0 -- PickService
+--- Marking: 0
+Place ServiceCallMultiFlagPlace-pickService-1-0 -- channel
+--- Marking: 0
+Place ServiceClientRespConnectPlace-sensorService-0 -- channel
+--- Marking: 0
+Place CallbackConnectorPlace-UITopic-0-0 -- channel
+--- Marking: 0
+Place ServiceCallMultiFlagPlace-getControlService-0-1 -- channel
+--- Marking: 0
+Place ServiceClientCallConnectPlace-pickService-1 -- channel
+--- Marking: 0
+Place R-Ready -- RC1
+--- Marking: 0
+Place L-Ready -- LC1
+--- Marking: 0
+Place ServiceClientCallConnectPlace-placeService-0 -- channel
+--- Marking: 0
+Place PD-0-PickingSuccess-INSTANCE-1 -- none
+--- Marking: 0
+Place DispatcherInputPlace-RightCellTopic-0 -- channel
+--- Marking: 0
+Place PickOutput-INSTANCE-1 -- PickService
+--- Marking: 0
+Place InputSignalFalsePlace-Blue -- signal
+--- Marking: 1
+Place ChannelConnectorPlace-UITopic -- channel
+--- Marking: 0
+Place RedOut -- selectorRed
+--- Marking: 0
+Place ServiceCallMultiActivePlace-pickService-0 -- channel
+--- Marking: 0
+Place GetControlIn-INSTANCE-1 -- GetControl
+--- Marking: 0
+Place CallbackInputPlace-UITopic-0-0 -- channel
+--- Marking: 0
+Place PD-0-PlacingFail-INSTANCE-0 -- none
+--- Marking: 0
+Place ServiceClientCallConnectPlace-placeService-1 -- channel
+--- Marking: 0
+Place ChannelConnectorPlace-RightCellTopic -- channel
+--- Marking: 0
+Place PD-0-PlacingSuccess-INSTANCE-1 -- none
+--- Marking: 0
+Place ServiceCallMultiActivePlace-pickService-1 -- channel
+--- Marking: 0
+Place PD-0-PickingFail-INSTANCE-1 -- none
+--- Marking: 0
+Place R-ObjectPicked -- RC1
+--- Marking: 0
+Place PD-0-PlacingSuccess-INSTANCE-0 -- none
+--- Marking: 0
+Place PublisherConnectorPlace-RightCellTopic-0 -- channel
+--- Marking: 0
+Place ServiceClientCallConnectPlace-endControlService-0 -- channel
+--- Marking: 0
+Place SensorResponse -- SafetyModel
+--- Marking: 0
+Place ServiceTogglePlace-placeService-0 -- channel
+--- Marking: 1
+Place ServiceClientCallConnectPlace-pickService-0 -- channel
+--- Marking: 0
+Place InputSignalTruePlace-PlaceSuccess -- signal
+--- Marking: 0
+Place ObjectPoolBlue -- selectorBlue
+--- Marking: 1
+Place CallbackInputPlace-RightCellTopic-0-0 -- channel
+--- Marking: 0
+Place GetControlOut-INSTANCE-0 -- GetControl
+--- Marking: 0
+Place R-Done -- RC1
+--- Marking: 0
+Place Picking-INSTANCE-0 -- PickService
+--- Marking: 0
+Place ServiceCallMultiActivePlace-placeService-0 -- channel
+--- Marking: 0
+Place Unsafe -- SafetyModel
+--- Marking: 1
+Place L-Done -- LC1
+--- Marking: 0
+Place CallbackConnectorPlace-LeftCellTopic-0-0 -- channel
+--- Marking: 0
+Place InputSignalTruePlace-Red -- signal
+--- Marking: 0
+Place PlaceInput-INSTANCE-1 -- PlaceService
+--- Marking: 0
+Place CallbackCapacityPlace-LeftCellTopic-0-0 -- channel
+--- Marking: 10
+Place ServiceClientCallPlace-getControlService-0 -- channel
+--- Marking: 0
+Place ServiceClientRespConnectPlace-getControlService-1 -- channel
+--- Marking: 0
+Place InputSignalTruePlace-Sensor -- signal
+--- Marking: 0
+Place PD-0-SortRed -- none
+--- Marking: 0
+Place L-AwaitingControl -- LC1
+--- Marking: 0
+Place DispatcherConnectorPlace-RightCellTopic-0 -- channel
+--- Marking: 0
+Place ServiceTogglePlace-endControlService-0 -- channel
+--- Marking: 1
+Place ServiceClientRespPlace-placeService-1 -- channel
+--- Marking: 0
+Place ServiceClientCallPlace-placeService-1 -- channel
+--- Marking: 0
+Place ServiceClientCallPlace-pickService-1 -- channel
+--- Marking: 0
+Place ServiceTogglePlace-endControlService-1 -- channel
+--- Marking: 1
+Place PD-0-PickingSuccess-INSTANCE-0 -- none
+--- Marking: 0
+Place ServiceClientRespPlace-endControlService-0 -- channel
+--- Marking: 0
+Place ServiceCallMultiFlagPlace-placeService-0-0 -- channel
+--- Marking: 0
+Place ServiceCallMultiFlagPlace-endControlService-0-0 -- channel
+--- Marking: 0
+Place ServiceCallMultiActivePlace-getControlService-0 -- channel
+--- Marking: 0
+Place ServiceCallMultiFlagPlace-pickService-0-1 -- channel
+--- Marking: 0
+Place InputSignalFalsePlace-Red -- signal
+--- Marking: 1
+Place InputSignalFalsePlace-Green -- signal
+--- Marking: 1
+Place InputSignalFalsePlace-PlaceFail -- signal
+--- Marking: 1
+Place ServiceCallMultiFlagPlace-placeService-1-0 -- channel
+--- Marking: 0
+Place GetShared -- SharedSync
+--- Marking: 1
+Place ServiceClientRespPlace-getControlService-0 -- channel
+--- Marking: 0
+Place ServiceCallMultiFlagPlace-pickService-1-1 -- channel
+--- Marking: 0
+Place ServiceClientRespConnectPlace-endControlService-1 -- channel
+--- Marking: 0
+Place Picking-INSTANCE-1 -- PickService
+--- Marking: 0
+Place ServiceTogglePlace-pickService-0 -- channel
+--- Marking: 1
+Place ServiceClientRespConnectPlace-getControlService-0 -- channel
+--- Marking: 0
+Place ServiceCallMultiActivePlace-placeService-1 -- channel
+--- Marking: 0
+Place ServiceCallMultiActivePlace-sensorService-0 -- channel
+--- Marking: 0
+Place ServiceCallMultiFlagPlace-endControlService-1-1 -- channel
+--- Marking: 0
+Place ServiceTogglePlace-sensorService-0 -- channel
+--- Marking: 1
+Place R-ObjectPlaced -- RC1
+--- Marking: 0
+Place ServiceCallMultiFlagPlace-endControlService-1-0 -- channel
+--- Marking: 0
+Place PublisherConnectorPlace-UITopic-1 -- channel
+--- Marking: 0
+Place ServiceClientRespPlace-pickService-1 -- channel
+--- Marking: 0
+Place PlaceOutput-INSTANCE-0 -- PlaceService
+--- Marking: 0
+Place ObjectPoolGreen -- selectorGreen
+--- Marking: 1
+Place ServiceCallMultiInactivePlace-endControlService-1 -- channel
+--- Marking: 1
+Place ServiceCallMultiInactivePlace-getControlService-0 -- channel
+--- Marking: 1
+Place ServiceClientCallPlace-placeService-0 -- channel
+--- Marking: 0
+Place SensorOut-INSTANCE-0 -- SensorService
+--- Marking: 0
+Place GreenOut -- selectorGreen
+--- Marking: 0
+Place FeedbackIn -- Feedback
+--- Marking: 0
+Place L-ObjectPlaced -- LC1
+--- Marking: 0
+Place CallbackCapacityPlace-UITopic-0-0 -- channel
+--- Marking: 10
+Place PublisherCapacityPlace-LeftCellTopic-1 -- channel
+--- Marking: 10
+Place InputSignalTruePlace-PlaceFail -- signal
+--- Marking: 0
+Place BlueOut -- selectorBlue
+--- Marking: 0
+Place ServiceCallMultiActivePlace-getControlService-1 -- channel
+--- Marking: 0
+Place ServiceClientRespPlace-placeService-0 -- channel
+--- Marking: 0
+Place PD-0-GetSensorData-INSTANCE-0 -- none
+--- Marking: 0
+Place PD-0-PickingFail-INSTANCE-0 -- none
+--- Marking: 0
+Place InputSignalTruePlace-Green -- signal
+--- Marking: 0
+Place PlaceOutput-INSTANCE-1 -- PlaceService
+--- Marking: 0
+Place DispatcherInputPlace-UITopic-0 -- channel
+--- Marking: 0
+Place PublisherCapacityPlace-UITopic-1 -- channel
+--- Marking: 10
+Place ServiceClientRespPlace-getControlService-1 -- channel
+--- Marking: 0
+Place ServiceClientRespConnectPlace-endControlService-0 -- channel
+--- Marking: 0
+Place ServiceClientRespConnectPlace-pickService-0 -- channel
+--- Marking: 0
+Place ServiceCallMultiFlagPlace-getControlService-1-0 -- channel
+--- Marking: 0
+Place ServiceTogglePlace-getControlService-0 -- channel
+--- Marking: 1
+Place ServiceCallMultiInactivePlace-getControlService-1 -- channel
+--- Marking: 1
+Place PublisherCapacityPlace-RightCellTopic-0 -- channel
+--- Marking: 10
+Place GetControlOut-INSTANCE-1 -- GetControl
+--- Marking: 0
+Place ServiceCallMultiInactivePlace-placeService-0 -- channel
+--- Marking: 1
+Place SensorInter-INSTANCE-0 -- SensorService
+--- Marking: 0
+Place ServiceTogglePlace-pickService-1 -- channel
+--- Marking: 1
+Place L-ObjectPicked -- LC1
+--- Marking: 0
+Place PickOutput-INSTANCE-0 -- PickService
+--- Marking: 0
+Place InputSignalTruePlace-Blue -- signal
+--- Marking: 0
+Place PD-0-SafeToUnsafe -- none
+--- Marking: 0
+Place ServiceCallMultiFlagPlace-getControlService-0-0 -- channel
+--- Marking: 0
+Place ServiceClientRespPlace-pickService-0 -- channel
+--- Marking: 0
+Place ServiceCallMultiFlagPlace-placeService-0-1 -- channel
+--- Marking: 0
+Place ServiceClientCallConnectPlace-getControlService-1 -- channel
+--- Marking: 0
+Place ServiceClientRespPlace-endControlService-1 -- channel
+--- Marking: 0
+Place ServiceClientRespConnectPlace-pickService-1 -- channel
+--- Marking: 0
+Place InputSignalTruePlace-Stop -- signal
+--- Marking: 0
+Place InputSignalFalsePlace-PickFail -- signal
+--- Marking: 1
+Place DispatcherCapacityPlace-UITopic-0 -- channel
+--- Marking: 16
+Place ServiceClientCallPlace-pickService-0 -- channel
+--- Marking: 0
+Place CallbackConnectorPlace-RightCellTopic-0-0 -- channel
+--- Marking: 0
+Place PD-0-SortGreen -- none
+--- Marking: 0
+Place ServiceClientRespConnectPlace-placeService-1 -- channel
+--- Marking: 0
+Place ServiceCallMultiActivePlace-endControlService-1 -- channel
+--- Marking: 0
+Place ServiceClientRespConnectPlace-placeService-0 -- channel
+--- Marking: 0
+Place ServiceClientCallPlace-endControlService-0 -- channel
+--- Marking: 0
+Place ServiceCallMultiFlagPlace-sensorService-0-0 -- channel
+--- Marking: 0
+Place Safe -- SafetyModel
+--- Marking: 0
+Place ServiceClientCallPlace-endControlService-1 -- channel
+--- Marking: 0
+Place InputSignalTruePlace-PickSuccess -- signal
+--- Marking: 0
+Place PD-0-PlacingFail-INSTANCE-1 -- none
+--- Marking: 0
+Place SensorCall -- SafetyModel
+--- Marking: 0
+Place ServiceClientRespPlace-sensorService-0 -- channel
+--- Marking: 0
+Place ServiceCallMultiFlagPlace-getControlService-1-1 -- channel
+--- Marking: 0
+-------------- TRANSITIONS --------------
+Transition ServiceClientRespConnectTransition-placeService-0
+Transition PublisherOverflowTransition-LeftCellTopic-0
+Transition TransitionSafe
+Transition ServiceClientCallTransition-sensorService-0
+Transition ServiceCallMultiEntryTransition-placeService-1-1
+Transition ServiceCallMultiExitTransition-pickService-1-1
+Transition ServiceCallMultiExitTransition-endControlService-0-1
+Transition ServiceClientRespConnectTransition-getControlService-1
+Transition CallbackInputTransition-UITopic-0-0
+Transition ServiceCallMultiEntryTransition-endControlService-1-1
+Transition PickingAbort-INSTANCE-1
+Transition InputSignalToTrueTransition-Stop
+Transition PlacingAbort-INSTANCE-1
+Transition ServiceClientRespTransition-getControlService-1
+Transition ServiceClientRespConnectTransition-sensorService-0
+Transition InputSignalToFalseTransition-PlaceFail
+Transition InputSignalToFalseTransition-PlaceSuccess
+Transition ServiceCallMultiEntryTransition-sensorService-0-0
+Transition InputSignalToFalseTransition-PickFail
+Transition ServiceCallMultiEntryTransition-pickService-1-1
+Transition InputSignalToTrueTransition-Red
+Transition SafeToUnsafe
+Transition ServiceClientRespTransition-pickService-1
+Transition ServiceCallMultiEntryTransition-pickService-1-0
+Transition ServiceCallMultiEntryTransition-placeService-0-0
+Transition ServiceCallMultiEntryTransition-pickService-0-1
+Transition ServiceCallMultiExitTransition-pickService-0-0
+Transition ServiceClientRespTransition-sensorService-0
+Transition ServiceClientCallTransition-endControlService-1
+Transition DispatcherOutputTransition-UITopic-0
+Transition PublisherInputTransition-RightCellTopic-0
+Transition InputSignalToFalseTransition-Blue
+Transition ServiceClientCallTransition-getControlService-1
+Transition DispatcherOutputTransition-RightCellTopic-0
+Transition ServiceClientRespConnectTransition-endControlService-0
+Transition Pick-INSTANCE-1
+Transition CallbackOverflowTransition-UITopic-0-0
+Transition ServiceClientRespTransition-endControlService-1
+Transition ServiceClientRespConnectTransition-pickService-0
+Transition ServiceClientCallConnectTransition-getControlService-1
+Transition InputSignalToFalseTransition-PickSuccess
+Transition ServiceClientCallTransition-placeService-0
+Transition DispatcherOverflowTransition-LeftCellTopic-0
+Transition ServiceCallMultiEntryTransition-getControlService-1-1
+Transition DispatcherOutputTransition-LeftCellTopic-0
+Transition ServiceCallMultiExitTransition-endControlService-1-0
+Transition ServiceClientRespConnectTransition-pickService-1
+Transition DispatcherOverflowTransition-RightCellTopic-0
+Transition ServiceClientRespTransition-endControlService-0
+Transition ServiceClientRespTransition-placeService-1
+Transition UnsafeToSensorCall
+Transition SortBlue
+Transition SortRed
+Transition ServiceClientCallConnectTransition-placeService-0
+Transition ServiceCallMultiExitTransition-placeService-1-1
+Transition DispatcherInputTransition-LeftCellTopic-0
+Transition CallbackOutputTransition-UITopic-0-0
+Transition ShowFeedback
+Transition ServiceCallMultiEntryTransition-placeService-0-1
+Transition PublisherOutputTransition-LeftCellTopic-1
+Transition SortGreen
+Transition PublisherOverflowTransition-UITopic-0
+Transition CallbackOverflowTransition-LeftCellTopic-0-0
+Transition PublisherOverflowTransition-LeftCellTopic-1
+Transition ServiceClientCallConnectTransition-getControlService-0
+Transition CallbackOverflowTransition-RightCellTopic-0-0
+Transition ServiceCallMultiExitTransition-placeService-0-0
+Transition ServiceCallMultiExitTransition-placeService-0-1
+Transition PlacingFail-INSTANCE-0
+Transition CallbackOutputTransition-LeftCellTopic-0-0
+Transition ServiceClientCallTransition-placeService-1
+Transition PublisherOutputTransition-RightCellTopic-0
+Transition TransitionUnsafe
+Transition InputSignalToTrueTransition-PlaceFail
+Transition ServiceCallMultiExitTransition-getControlService-0-0
+Transition CallbackInputTransition-RightCellTopic-0-0
+Transition ServiceClientRespConnectTransition-placeService-1
+Transition ServiceCallMultiEntryTransition-getControlService-1-0
+Transition End-INSTANCE-1
+Transition InputSignalToFalseTransition-Green
+Transition ProcessSensorData-INSTANCE-0
+Transition Get-INSTANCE-0
+Transition ServiceClientRespConnectTransition-getControlService-0
+Transition PickingFail-INSTANCE-1
+Transition ServiceCallMultiEntryTransition-pickService-0-0
+Transition PickingFail-INSTANCE-0
+Transition DispatcherInputTransition-RightCellTopic-0
+Transition CallbackInputTransition-LeftCellTopic-0-0
+Transition ChannelConnectorTransition-UITopic
+Transition Place-INSTANCE-0
+Transition End-INSTANCE-0
+Transition PlacingFail-INSTANCE-1
+Transition ServiceClientRespTransition-placeService-0
+Transition InputSignalToTrueTransition-Blue
+Transition ServiceCallMultiEntryTransition-endControlService-0-0
+Transition PickingSuccess-INSTANCE-1
+Transition DispatcherOverflowTransition-UITopic-0
+Transition PublisherInputTransition-LeftCellTopic-1
+Transition ServiceCallMultiEntryTransition-getControlService-0-0
+Transition ServiceClientCallConnectTransition-pickService-0
+Transition PublisherInputTransition-UITopic-1
+Transition InputSignalToFalseTransition-Sensor
+Transition PublisherOutputTransition-UITopic-1
+Transition ServiceCallMultiEntryTransition-endControlService-1-0
+Transition ServiceClientCallTransition-pickService-1
+Transition PublisherOverflowTransition-UITopic-1
+Transition ServiceClientCallConnectTransition-placeService-1
+Transition ChannelConnectorTransition-RightCellTopic
+Transition PublisherOutputTransition-LeftCellTopic-0
+Transition Get-INSTANCE-1
+Transition ServiceClientRespTransition-pickService-0
+Transition ServiceCallMultiExitTransition-pickService-1-0
+Transition PlacingAbort-INSTANCE-0
+Transition PublisherOverflowTransition-RightCellTopic-0
+Transition PlacingSuccess-INSTANCE-0
+Transition PlacingSuccess-INSTANCE-1
+Transition ServiceClientRespTransition-getControlService-0
+Transition ServiceClientCallConnectTransition-endControlService-0
+Transition InputSignalToTrueTransition-PickFail
+Transition InputSignalToFalseTransition-Stop
+Transition ServiceClientCallTransition-endControlService-0
+Transition PickingSuccess-INSTANCE-0
+Transition ServiceCallMultiExitTransition-sensorService-0-0
+Transition Pick-INSTANCE-0
+Transition ServiceCallMultiEntryTransition-placeService-1-0
+Transition PublisherInputTransition-UITopic-0
+Transition ServiceClientCallTransition-getControlService-0
+Transition PickingAbort-INSTANCE-0
+Transition InputSignalToTrueTransition-Sensor
+Transition ServiceClientCallConnectTransition-endControlService-1
+Transition ServiceCallMultiExitTransition-getControlService-1-0
+Transition DispatcherInputTransition-UITopic-0
+Transition Place-INSTANCE-1
+Transition ServiceCallMultiExitTransition-getControlService-1-1
+Transition SafeToSensorCall
+Transition CallbackOutputTransition-RightCellTopic-0-0
+Transition ServiceCallMultiExitTransition-getControlService-0-1
+Transition ServiceClientRespConnectTransition-endControlService-1
+Transition ServiceCallMultiEntryTransition-getControlService-0-1
+Transition InputSignalToTrueTransition-PlaceSuccess
+Transition ChannelConnectorTransition-LeftCellTopic
+Transition PublisherInputTransition-LeftCellTopic-0
+Transition ServiceClientCallConnectTransition-sensorService-0
+Transition InputSignalToFalseTransition-Red
+Transition ServiceCallMultiExitTransition-pickService-0-1
+Transition ServiceCallMultiExitTransition-placeService-1-0
+Transition ServiceCallMultiEntryTransition-endControlService-0-1
+Transition ServiceCallMultiExitTransition-endControlService-0-0
+Transition InputSignalToTrueTransition-Green
+Transition PublisherOutputTransition-UITopic-0
+Transition ServiceClientCallTransition-pickService-0
+Transition ServiceClientCallConnectTransition-pickService-1
+Transition ServiceCallMultiExitTransition-endControlService-1-1
+Transition GetSensorData-INSTANCE-0
+Transition InputSignalToTrueTransition-PickSuccess
+-------------- TRANSITION DETAILS --------------
+--- Transition: ServiceClientRespConnectTransition-placeService-0 subnet: channel --- name: ServiceClientRespConnectTransition-placeService-0
+------ Inputplace:  ServiceClientRespConnectPlace-placeService-0 subnet: channel ---------
+------ Outputplace: L-ObjectPlaced subnet: LC1 ---------
+------ Outputplace: ServiceTogglePlace-placeService-0 subnet: channel ---------
+--- Transition: PublisherOverflowTransition-LeftCellTopic-0 subnet: channel --- name: PublisherOverflowTransition-LeftCellTopic-0
+------ Inputplace:  RedOut subnet: selectorRed ---------
+------ Inputplace:  PublisherCapacityPlace-LeftCellTopic-0 subnet: channel ---------
+--- Transition: TransitionSafe subnet: SafetyModel --- name: TransitionSafe
+------ Inputplace:  SensorResponse subnet: SafetyModel ---------
+------ Outputplace: Safe subnet: SafetyModel ---------
+--- Transition: ServiceClientCallTransition-sensorService-0 subnet: channel --- name: ServiceClientCallTransition-sensorService-0
+------ Inputplace:  ServiceClientCallConnectPlace-sensorService-0 subnet: channel ---------
+------ Outputplace: ServiceClientCallPlace-sensorService-0 subnet: channel ---------
+--- Transition: ServiceCallMultiEntryTransition-placeService-1-1 subnet: channel --- name: ServiceCallMultiEntryTransition-placeService-1-1
+------ Inputplace:  ServiceCallMultiInactivePlace-placeService-1 subnet: channel ---------
+------ Inputplace:  ServiceClientCallPlace-placeService-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiFlagPlace-placeService-1-1 subnet: channel ---------
+------ Outputplace: PlaceInput-INSTANCE-1 subnet: PlaceService ---------
+------ Outputplace: ServiceCallMultiActivePlace-placeService-1 subnet: channel ---------
+--- Transition: ServiceCallMultiExitTransition-pickService-1-1 subnet: channel --- name: ServiceCallMultiExitTransition-pickService-1-1
+------ Inputplace:  ServiceCallMultiActivePlace-pickService-1 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiFlagPlace-pickService-1-1 subnet: channel ---------
+------ Inputplace:  PickOutput-INSTANCE-1 subnet: PickService ---------
+------ Outputplace: ServiceCallMultiInactivePlace-pickService-1 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-pickService-1 subnet: channel ---------
+--- Transition: ServiceCallMultiExitTransition-endControlService-0-1 subnet: channel --- name: ServiceCallMultiExitTransition-endControlService-0-1
+------ Inputplace:  ServiceCallMultiFlagPlace-endControlService-0-1 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiActivePlace-endControlService-0 subnet: channel ---------
+------ Inputplace:  EndControlOut-INSTANCE-0 subnet: EndControl ---------
+------ Outputplace: ServiceClientRespPlace-endControlService-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiInactivePlace-endControlService-0 subnet: channel ---------
+--- Transition: ServiceClientRespConnectTransition-getControlService-1 subnet: channel --- name: ServiceClientRespConnectTransition-getControlService-1
+------ Inputplace:  ServiceClientRespConnectPlace-getControlService-1 subnet: channel ---------
+------ Outputplace: ServiceTogglePlace-getControlService-1 subnet: channel ---------
+------ Outputplace: R-Ready subnet: RC1 ---------
+--- Transition: CallbackInputTransition-UITopic-0-0 subnet: channel --- name: CallbackInputTransition-UITopic-0-0
+------ Inputplace:  CallbackCapacityPlace-UITopic-0-0 subnet: channel ---------
+------ Inputplace:  CallbackInputPlace-UITopic-0-0 subnet: channel ---------
+------ Outputplace: CallbackConnectorPlace-UITopic-0-0 subnet: channel ---------
+--- Transition: ServiceCallMultiEntryTransition-endControlService-1-1 subnet: channel --- name: ServiceCallMultiEntryTransition-endControlService-1-1
+------ Inputplace:  ServiceCallMultiInactivePlace-endControlService-1 subnet: channel ---------
+------ Inputplace:  ServiceClientCallPlace-endControlService-1 subnet: channel ---------
+------ Outputplace: EndControlIn-INSTANCE-1 subnet: EndControl ---------
+------ Outputplace: ServiceCallMultiFlagPlace-endControlService-1-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiActivePlace-endControlService-1 subnet: channel ---------
+--- Transition: PickingAbort-INSTANCE-1 subnet: PickService --- name: PickingAbort-INSTANCE-1
+------ Inputplace:  Unsafe subnet: SafetyModel ---------
+------ Inputplace:  Picking-INSTANCE-1 subnet: PickService ---------
+------ Outputplace: Unsafe subnet: SafetyModel ---------
+------ Outputplace: PickOutput-INSTANCE-1 subnet: PickService ---------
+--- Transition: InputSignalToTrueTransition-Stop subnet: signal --- name: InputSignalToTrueTransition-Stop
+------ Inputplace:  InputSignalFalsePlace-Stop subnet: signal ---------
+------ Outputplace: InputSignalTruePlace-Stop subnet: signal ---------
+------ Outputplace: PD-0-SafeToUnsafe subnet: none ---------
+--- Transition: PlacingAbort-INSTANCE-1 subnet: PlaceService --- name: PlacingAbort-INSTANCE-1
+------ Inputplace:  Unsafe subnet: SafetyModel ---------
+------ Inputplace:  Placing-INSTANCE-1 subnet: PlaceService ---------
+------ Outputplace: Unsafe subnet: SafetyModel ---------
+------ Outputplace: PlaceOutput-INSTANCE-1 subnet: PlaceService ---------
+--- Transition: ServiceClientRespTransition-getControlService-1 subnet: channel --- name: ServiceClientRespTransition-getControlService-1
+------ Inputplace:  ServiceClientRespPlace-getControlService-1 subnet: channel ---------
+------ Outputplace: ServiceClientRespConnectPlace-getControlService-1 subnet: channel ---------
+--- Transition: ServiceClientRespConnectTransition-sensorService-0 subnet: channel --- name: ServiceClientRespConnectTransition-sensorService-0
+------ Inputplace:  ServiceClientRespConnectPlace-sensorService-0 subnet: channel ---------
+------ Outputplace: ServiceTogglePlace-sensorService-0 subnet: channel ---------
+------ Outputplace: SensorResponse subnet: SafetyModel ---------
+--- Transition: InputSignalToFalseTransition-PlaceFail subnet: signal --- name: InputSignalToFalseTransition-PlaceFail
+------ Inputplace:  PD-0-PlacingFail-INSTANCE-1 subnet: none ---------
+------ Inputplace:  PD-0-PlacingFail-INSTANCE-0 subnet: none ---------
+------ Inputplace:  InputSignalTruePlace-PlaceFail subnet: signal ---------
+------ Outputplace: InputSignalFalsePlace-PlaceFail subnet: signal ---------
+--- Transition: InputSignalToFalseTransition-PlaceSuccess subnet: signal --- name: InputSignalToFalseTransition-PlaceSuccess
+------ Inputplace:  PD-0-PlacingSuccess-INSTANCE-1 subnet: none ---------
+------ Inputplace:  PD-0-PlacingSuccess-INSTANCE-0 subnet: none ---------
+------ Inputplace:  InputSignalTruePlace-PlaceSuccess subnet: signal ---------
+------ Outputplace: InputSignalFalsePlace-PlaceSuccess subnet: signal ---------
+--- Transition: ServiceCallMultiEntryTransition-sensorService-0-0 subnet: channel --- name: ServiceCallMultiEntryTransition-sensorService-0-0
+------ Inputplace:  ServiceCallMultiInactivePlace-sensorService-0 subnet: channel ---------
+------ Inputplace:  ServiceClientCallPlace-sensorService-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiActivePlace-sensorService-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiFlagPlace-sensorService-0-0 subnet: channel ---------
+------ Outputplace: SensorIn-INSTANCE-0 subnet: SensorService ---------
+--- Transition: InputSignalToFalseTransition-PickFail subnet: signal --- name: InputSignalToFalseTransition-PickFail
+------ Inputplace:  PD-0-PickingFail-INSTANCE-1 subnet: none ---------
+------ Inputplace:  PD-0-PickingFail-INSTANCE-0 subnet: none ---------
+------ Inputplace:  InputSignalTruePlace-PickFail subnet: signal ---------
+------ Outputplace: InputSignalFalsePlace-PickFail subnet: signal ---------
+--- Transition: ServiceCallMultiEntryTransition-pickService-1-1 subnet: channel --- name: ServiceCallMultiEntryTransition-pickService-1-1
+------ Inputplace:  ServiceCallMultiInactivePlace-pickService-1 subnet: channel ---------
+------ Inputplace:  ServiceClientCallPlace-pickService-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiActivePlace-pickService-1 subnet: channel ---------
+------ Outputplace: PickInput-INSTANCE-1 subnet: PickService ---------
+------ Outputplace: ServiceCallMultiFlagPlace-pickService-1-1 subnet: channel ---------
+--- Transition: InputSignalToTrueTransition-Red subnet: signal --- name: InputSignalToTrueTransition-Red
+------ Inputplace:  InputSignalFalsePlace-Red subnet: signal ---------
+------ Outputplace: PD-0-SortRed subnet: none ---------
+------ Outputplace: InputSignalTruePlace-Red subnet: signal ---------
+--- Transition: SafeToUnsafe subnet: SafetyModel --- name: SafeToUnsafe
+------ Inputplace:  Safe subnet: SafetyModel ---------
+------ Inputplace:  PD-0-SafeToUnsafe subnet: none ---------
+------ Outputplace: Unsafe subnet: SafetyModel ---------
+------ Outputplace: PD-0-SafeToUnsafe subnet: none ---------
+--- Transition: ServiceClientRespTransition-pickService-1 subnet: channel --- name: ServiceClientRespTransition-pickService-1
+------ Inputplace:  ServiceClientRespPlace-pickService-1 subnet: channel ---------
+------ Outputplace: ServiceClientRespConnectPlace-pickService-1 subnet: channel ---------
+--- Transition: ServiceCallMultiEntryTransition-pickService-1-0 subnet: channel --- name: ServiceCallMultiEntryTransition-pickService-1-0
+------ Inputplace:  ServiceCallMultiInactivePlace-pickService-1 subnet: channel ---------
+------ Inputplace:  ServiceClientCallPlace-pickService-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiActivePlace-pickService-1 subnet: channel ---------
+------ Outputplace: PickInput-INSTANCE-1 subnet: PickService ---------
+------ Outputplace: ServiceCallMultiFlagPlace-pickService-1-0 subnet: channel ---------
+--- Transition: ServiceCallMultiEntryTransition-placeService-0-0 subnet: channel --- name: ServiceCallMultiEntryTransition-placeService-0-0
+------ Inputplace:  ServiceCallMultiInactivePlace-placeService-0 subnet: channel ---------
+------ Inputplace:  ServiceClientCallPlace-placeService-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiActivePlace-placeService-0 subnet: channel ---------
+------ Outputplace: PlaceInput-INSTANCE-0 subnet: PlaceService ---------
+------ Outputplace: ServiceCallMultiFlagPlace-placeService-0-0 subnet: channel ---------
+--- Transition: ServiceCallMultiEntryTransition-pickService-0-1 subnet: channel --- name: ServiceCallMultiEntryTransition-pickService-0-1
+------ Inputplace:  ServiceCallMultiInactivePlace-pickService-0 subnet: channel ---------
+------ Inputplace:  ServiceClientCallPlace-pickService-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiActivePlace-pickService-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiFlagPlace-pickService-0-1 subnet: channel ---------
+------ Outputplace: PickInput-INSTANCE-0 subnet: PickService ---------
+--- Transition: ServiceCallMultiExitTransition-pickService-0-0 subnet: channel --- name: ServiceCallMultiExitTransition-pickService-0-0
+------ Inputplace:  ServiceCallMultiActivePlace-pickService-0 subnet: channel ---------
+------ Inputplace:  PickOutput-INSTANCE-0 subnet: PickService ---------
+------ Inputplace:  ServiceCallMultiFlagPlace-pickService-0-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiInactivePlace-pickService-0 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-pickService-0 subnet: channel ---------
+--- Transition: ServiceClientRespTransition-sensorService-0 subnet: channel --- name: ServiceClientRespTransition-sensorService-0
+------ Inputplace:  ServiceClientRespPlace-sensorService-0 subnet: channel ---------
+------ Outputplace: ServiceClientRespConnectPlace-sensorService-0 subnet: channel ---------
+--- Transition: ServiceClientCallTransition-endControlService-1 subnet: channel --- name: ServiceClientCallTransition-endControlService-1
+------ Inputplace:  ServiceClientCallConnectPlace-endControlService-1 subnet: channel ---------
+------ Outputplace: ServiceClientCallPlace-endControlService-1 subnet: channel ---------
+--- Transition: DispatcherOutputTransition-UITopic-0 subnet: channel --- name: DispatcherOutputTransition-UITopic-0
+------ Inputplace:  DispatcherConnectorPlace-UITopic-0 subnet: channel ---------
+------ Outputplace: DispatcherCapacityPlace-UITopic-0 subnet: channel ---------
+------ Outputplace: CallbackInputPlace-UITopic-0-0 subnet: channel ---------
+--- Transition: PublisherInputTransition-RightCellTopic-0 subnet: channel --- name: PublisherInputTransition-RightCellTopic-0
+------ Inputplace:  PublisherCapacityPlace-RightCellTopic-0 subnet: channel ---------
+------ Inputplace:  GreenOut subnet: selectorGreen ---------
+------ Outputplace: PublisherConnectorPlace-RightCellTopic-0 subnet: channel ---------
+--- Transition: InputSignalToFalseTransition-Blue subnet: signal --- name: InputSignalToFalseTransition-Blue
+------ Inputplace:  InputSignalTruePlace-Blue subnet: signal ---------
+------ Inputplace:  PD-0-SortBlue subnet: none ---------
+------ Outputplace: InputSignalFalsePlace-Blue subnet: signal ---------
+--- Transition: ServiceClientCallTransition-getControlService-1 subnet: channel --- name: ServiceClientCallTransition-getControlService-1
+------ Inputplace:  ServiceClientCallConnectPlace-getControlService-1 subnet: channel ---------
+------ Outputplace: ServiceClientCallPlace-getControlService-1 subnet: channel ---------
+--- Transition: DispatcherOutputTransition-RightCellTopic-0 subnet: channel --- name: DispatcherOutputTransition-RightCellTopic-0
+------ Inputplace:  DispatcherConnectorPlace-RightCellTopic-0 subnet: channel ---------
+------ Outputplace: CallbackInputPlace-RightCellTopic-0-0 subnet: channel ---------
+------ Outputplace: DispatcherCapacityPlace-RightCellTopic-0 subnet: channel ---------
+--- Transition: ServiceClientRespConnectTransition-endControlService-0 subnet: channel --- name: ServiceClientRespConnectTransition-endControlService-0
+------ Inputplace:  ServiceClientRespConnectPlace-endControlService-0 subnet: channel ---------
+------ Outputplace: L-Done subnet: LC1 ---------
+------ Outputplace: ServiceTogglePlace-endControlService-0 subnet: channel ---------
+--- Transition: Pick-INSTANCE-1 subnet: PickService --- name: Pick-INSTANCE-1
+------ Inputplace:  Safe subnet: SafetyModel ---------
+------ Inputplace:  PickInput-INSTANCE-1 subnet: PickService ---------
+------ Outputplace: Safe subnet: SafetyModel ---------
+------ Outputplace: Picking-INSTANCE-1 subnet: PickService ---------
+--- Transition: CallbackOverflowTransition-UITopic-0-0 subnet: channel --- name: CallbackOverflowTransition-UITopic-0-0
+------ Inputplace:  CallbackCapacityPlace-UITopic-0-0 subnet: channel ---------
+------ Inputplace:  CallbackInputPlace-UITopic-0-0 subnet: channel ---------
+--- Transition: ServiceClientRespTransition-endControlService-1 subnet: channel --- name: ServiceClientRespTransition-endControlService-1
+------ Inputplace:  ServiceClientRespPlace-endControlService-1 subnet: channel ---------
+------ Outputplace: ServiceClientRespConnectPlace-endControlService-1 subnet: channel ---------
+--- Transition: ServiceClientRespConnectTransition-pickService-0 subnet: channel --- name: ServiceClientRespConnectTransition-pickService-0
+------ Inputplace:  ServiceClientRespConnectPlace-pickService-0 subnet: channel ---------
+------ Outputplace: L-ObjectPicked subnet: LC1 ---------
+------ Outputplace: ServiceTogglePlace-pickService-0 subnet: channel ---------
+--- Transition: ServiceClientCallConnectTransition-getControlService-1 subnet: channel --- name: ServiceClientCallConnectTransition-getControlService-1
+------ Inputplace:  ServiceTogglePlace-getControlService-1 subnet: channel ---------
+------ Inputplace:  R-AwaitingControl subnet: RC1 ---------
+------ Outputplace: ServiceClientCallConnectPlace-getControlService-1 subnet: channel ---------
+--- Transition: InputSignalToFalseTransition-PickSuccess subnet: signal --- name: InputSignalToFalseTransition-PickSuccess
+------ Inputplace:  PD-0-PickingSuccess-INSTANCE-0 subnet: none ---------
+------ Inputplace:  InputSignalTruePlace-PickSuccess subnet: signal ---------
+------ Inputplace:  PD-0-PickingSuccess-INSTANCE-1 subnet: none ---------
+------ Outputplace: InputSignalFalsePlace-PickSuccess subnet: signal ---------
+--- Transition: ServiceClientCallTransition-placeService-0 subnet: channel --- name: ServiceClientCallTransition-placeService-0
+------ Inputplace:  ServiceClientCallConnectPlace-placeService-0 subnet: channel ---------
+------ Outputplace: ServiceClientCallPlace-placeService-0 subnet: channel ---------
+--- Transition: DispatcherOverflowTransition-LeftCellTopic-0 subnet: channel --- name: DispatcherOverflowTransition-LeftCellTopic-0
+------ Inputplace:  DispatcherCapacityPlace-LeftCellTopic-0 subnet: channel ---------
+------ Inputplace:  DispatcherInputPlace-LeftCellTopic-0 subnet: channel ---------
+--- Transition: ServiceCallMultiEntryTransition-getControlService-1-1 subnet: channel --- name: ServiceCallMultiEntryTransition-getControlService-1-1
+------ Inputplace:  ServiceClientCallPlace-getControlService-1 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiInactivePlace-getControlService-1 subnet: channel ---------
+------ Outputplace: GetControlIn-INSTANCE-1 subnet: GetControl ---------
+------ Outputplace: ServiceCallMultiActivePlace-getControlService-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiFlagPlace-getControlService-1-1 subnet: channel ---------
+--- Transition: DispatcherOutputTransition-LeftCellTopic-0 subnet: channel --- name: DispatcherOutputTransition-LeftCellTopic-0
+------ Inputplace:  DispatcherConnectorPlace-LeftCellTopic-0 subnet: channel ---------
+------ Outputplace: DispatcherCapacityPlace-LeftCellTopic-0 subnet: channel ---------
+------ Outputplace: CallbackInputPlace-LeftCellTopic-0-0 subnet: channel ---------
+--- Transition: ServiceCallMultiExitTransition-endControlService-1-0 subnet: channel --- name: ServiceCallMultiExitTransition-endControlService-1-0
+------ Inputplace:  EndControlOut-INSTANCE-1 subnet: EndControl ---------
+------ Inputplace:  ServiceCallMultiFlagPlace-endControlService-1-0 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiActivePlace-endControlService-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiInactivePlace-endControlService-1 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-endControlService-0 subnet: channel ---------
+--- Transition: ServiceClientRespConnectTransition-pickService-1 subnet: channel --- name: ServiceClientRespConnectTransition-pickService-1
+------ Inputplace:  ServiceClientRespConnectPlace-pickService-1 subnet: channel ---------
+------ Outputplace: ServiceTogglePlace-pickService-1 subnet: channel ---------
+------ Outputplace: R-ObjectPicked subnet: RC1 ---------
+--- Transition: DispatcherOverflowTransition-RightCellTopic-0 subnet: channel --- name: DispatcherOverflowTransition-RightCellTopic-0
+------ Inputplace:  DispatcherInputPlace-RightCellTopic-0 subnet: channel ---------
+------ Inputplace:  DispatcherCapacityPlace-RightCellTopic-0 subnet: channel ---------
+--- Transition: ServiceClientRespTransition-endControlService-0 subnet: channel --- name: ServiceClientRespTransition-endControlService-0
+------ Inputplace:  ServiceClientRespPlace-endControlService-0 subnet: channel ---------
+------ Outputplace: ServiceClientRespConnectPlace-endControlService-0 subnet: channel ---------
+--- Transition: ServiceClientRespTransition-placeService-1 subnet: channel --- name: ServiceClientRespTransition-placeService-1
+------ Inputplace:  ServiceClientRespPlace-placeService-1 subnet: channel ---------
+------ Outputplace: ServiceClientRespConnectPlace-placeService-1 subnet: channel ---------
+--- Transition: UnsafeToSensorCall subnet: SafetyModel --- name: UnsafeToSensorCall
+------ Inputplace:  Unsafe subnet: SafetyModel ---------
+------ Outputplace: SensorCall subnet: SafetyModel ---------
+--- Transition: SortBlue subnet: selectorBlue --- name: SortBlue
+------ Inputplace:  ObjectPoolBlue subnet: selectorBlue ---------
+------ Inputplace:  PD-0-SortBlue subnet: none ---------
+------ Outputplace: BlueOut subnet: selectorBlue ---------
+------ Outputplace: PD-0-SortBlue subnet: none ---------
+--- Transition: SortRed subnet: selectorRed --- name: SortRed
+------ Inputplace:  ObjectPoolRed subnet: selectorRed ---------
+------ Inputplace:  PD-0-SortRed subnet: none ---------
+------ Outputplace: RedOut subnet: selectorRed ---------
+------ Outputplace: PD-0-SortRed subnet: none ---------
+--- Transition: ServiceClientCallConnectTransition-placeService-0 subnet: channel --- name: ServiceClientCallConnectTransition-placeService-0
+------ Inputplace:  L-ObjectPicked subnet: LC1 ---------
+------ Inputplace:  ServiceTogglePlace-placeService-0 subnet: channel ---------
+------ Outputplace: ServiceClientCallConnectPlace-placeService-0 subnet: channel ---------
+--- Transition: ServiceCallMultiExitTransition-placeService-1-1 subnet: channel --- name: ServiceCallMultiExitTransition-placeService-1-1
+------ Inputplace:  ServiceCallMultiFlagPlace-placeService-1-1 subnet: channel ---------
+------ Inputplace:  PlaceOutput-INSTANCE-1 subnet: PlaceService ---------
+------ Inputplace:  ServiceCallMultiActivePlace-placeService-1 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-placeService-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiInactivePlace-placeService-1 subnet: channel ---------
+--- Transition: DispatcherInputTransition-LeftCellTopic-0 subnet: channel --- name: DispatcherInputTransition-LeftCellTopic-0
+------ Inputplace:  DispatcherCapacityPlace-LeftCellTopic-0 subnet: channel ---------
+------ Inputplace:  DispatcherInputPlace-LeftCellTopic-0 subnet: channel ---------
+------ Outputplace: DispatcherConnectorPlace-LeftCellTopic-0 subnet: channel ---------
+--- Transition: CallbackOutputTransition-UITopic-0-0 subnet: channel --- name: CallbackOutputTransition-UITopic-0-0
+------ Inputplace:  CallbackConnectorPlace-UITopic-0-0 subnet: channel ---------
+------ Outputplace: FeedbackIn subnet: Feedback ---------
+------ Outputplace: CallbackCapacityPlace-UITopic-0-0 subnet: channel ---------
+--- Transition: ShowFeedback subnet: Feedback --- name: ShowFeedback
+------ Inputplace:  FeedbackIn subnet: Feedback ---------
+------ Outputplace: FeedbackDone subnet: Feedback ---------
+--- Transition: ServiceCallMultiEntryTransition-placeService-0-1 subnet: channel --- name: ServiceCallMultiEntryTransition-placeService-0-1
+------ Inputplace:  ServiceCallMultiInactivePlace-placeService-0 subnet: channel ---------
+------ Inputplace:  ServiceClientCallPlace-placeService-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiActivePlace-placeService-0 subnet: channel ---------
+------ Outputplace: PlaceInput-INSTANCE-0 subnet: PlaceService ---------
+------ Outputplace: ServiceCallMultiFlagPlace-placeService-0-1 subnet: channel ---------
+--- Transition: PublisherOutputTransition-LeftCellTopic-1 subnet: channel --- name: PublisherOutputTransition-LeftCellTopic-1
+------ Inputplace:  PublisherConnectorPlace-LeftCellTopic-1 subnet: channel ---------
+------ Outputplace: PublisherCapacityPlace-LeftCellTopic-1 subnet: channel ---------
+------ Outputplace: ChannelConnectorPlace-LeftCellTopic subnet: channel ---------
+--- Transition: SortGreen subnet: selectorGreen --- name: SortGreen
+------ Inputplace:  PD-0-SortGreen subnet: none ---------
+------ Inputplace:  ObjectPoolGreen subnet: selectorGreen ---------
+------ Outputplace: GreenOut subnet: selectorGreen ---------
+------ Outputplace: PD-0-SortGreen subnet: none ---------
+--- Transition: PublisherOverflowTransition-UITopic-0 subnet: channel --- name: PublisherOverflowTransition-UITopic-0
+------ Inputplace:  PublisherCapacityPlace-UITopic-0 subnet: channel ---------
+------ Inputplace:  L-Done subnet: LC1 ---------
+--- Transition: CallbackOverflowTransition-LeftCellTopic-0-0 subnet: channel --- name: CallbackOverflowTransition-LeftCellTopic-0-0
+------ Inputplace:  CallbackInputPlace-LeftCellTopic-0-0 subnet: channel ---------
+------ Inputplace:  CallbackCapacityPlace-LeftCellTopic-0-0 subnet: channel ---------
+--- Transition: PublisherOverflowTransition-LeftCellTopic-1 subnet: channel --- name: PublisherOverflowTransition-LeftCellTopic-1
+------ Inputplace:  PublisherCapacityPlace-LeftCellTopic-1 subnet: channel ---------
+------ Inputplace:  BlueOut subnet: selectorBlue ---------
+--- Transition: ServiceClientCallConnectTransition-getControlService-0 subnet: channel --- name: ServiceClientCallConnectTransition-getControlService-0
+------ Inputplace:  L-AwaitingControl subnet: LC1 ---------
+------ Inputplace:  ServiceTogglePlace-getControlService-0 subnet: channel ---------
+------ Outputplace: ServiceClientCallConnectPlace-getControlService-0 subnet: channel ---------
+--- Transition: CallbackOverflowTransition-RightCellTopic-0-0 subnet: channel --- name: CallbackOverflowTransition-RightCellTopic-0-0
+------ Inputplace:  CallbackCapacityPlace-RightCellTopic-0-0 subnet: channel ---------
+------ Inputplace:  CallbackInputPlace-RightCellTopic-0-0 subnet: channel ---------
+--- Transition: ServiceCallMultiExitTransition-placeService-0-0 subnet: channel --- name: ServiceCallMultiExitTransition-placeService-0-0
+------ Inputplace:  ServiceCallMultiActivePlace-placeService-0 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiFlagPlace-placeService-0-0 subnet: channel ---------
+------ Inputplace:  PlaceOutput-INSTANCE-0 subnet: PlaceService ---------
+------ Outputplace: ServiceCallMultiInactivePlace-placeService-0 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-placeService-0 subnet: channel ---------
+--- Transition: ServiceCallMultiExitTransition-placeService-0-1 subnet: channel --- name: ServiceCallMultiExitTransition-placeService-0-1
+------ Inputplace:  ServiceCallMultiActivePlace-placeService-0 subnet: channel ---------
+------ Inputplace:  PlaceOutput-INSTANCE-0 subnet: PlaceService ---------
+------ Inputplace:  ServiceCallMultiFlagPlace-placeService-0-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiInactivePlace-placeService-0 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-placeService-1 subnet: channel ---------
+--- Transition: PlacingFail-INSTANCE-0 subnet: PlaceService --- name: PlacingFail-INSTANCE-0
+------ Inputplace:  PD-0-PlacingFail-INSTANCE-0 subnet: none ---------
+------ Inputplace:  Placing-INSTANCE-0 subnet: PlaceService ---------
+------ Outputplace: PD-0-PlacingFail-INSTANCE-0 subnet: none ---------
+------ Outputplace: PlaceOutput-INSTANCE-0 subnet: PlaceService ---------
+--- Transition: CallbackOutputTransition-LeftCellTopic-0-0 subnet: channel --- name: CallbackOutputTransition-LeftCellTopic-0-0
+------ Inputplace:  CallbackConnectorPlace-LeftCellTopic-0-0 subnet: channel ---------
+------ Outputplace: L-AwaitingControl subnet: LC1 ---------
+------ Outputplace: CallbackCapacityPlace-LeftCellTopic-0-0 subnet: channel ---------
+--- Transition: ServiceClientCallTransition-placeService-1 subnet: channel --- name: ServiceClientCallTransition-placeService-1
+------ Inputplace:  ServiceClientCallConnectPlace-placeService-1 subnet: channel ---------
+------ Outputplace: ServiceClientCallPlace-placeService-1 subnet: channel ---------
+--- Transition: PublisherOutputTransition-RightCellTopic-0 subnet: channel --- name: PublisherOutputTransition-RightCellTopic-0
+------ Inputplace:  PublisherConnectorPlace-RightCellTopic-0 subnet: channel ---------
+------ Outputplace: PublisherCapacityPlace-RightCellTopic-0 subnet: channel ---------
+------ Outputplace: ChannelConnectorPlace-RightCellTopic subnet: channel ---------
+--- Transition: TransitionUnsafe subnet: SafetyModel --- name: TransitionUnsafe
+------ Inputplace:  SensorResponse subnet: SafetyModel ---------
+------ Outputplace: Unsafe subnet: SafetyModel ---------
+--- Transition: InputSignalToTrueTransition-PlaceFail subnet: signal --- name: InputSignalToTrueTransition-PlaceFail
+------ Inputplace:  InputSignalFalsePlace-PlaceFail subnet: signal ---------
+------ Outputplace: PD-0-PlacingFail-INSTANCE-1 subnet: none ---------
+------ Outputplace: PD-0-PlacingFail-INSTANCE-0 subnet: none ---------
+------ Outputplace: InputSignalTruePlace-PlaceFail subnet: signal ---------
+--- Transition: ServiceCallMultiExitTransition-getControlService-0-0 subnet: channel --- name: ServiceCallMultiExitTransition-getControlService-0-0
+------ Inputplace:  ServiceCallMultiActivePlace-getControlService-0 subnet: channel ---------
+------ Inputplace:  GetControlOut-INSTANCE-0 subnet: GetControl ---------
+------ Inputplace:  ServiceCallMultiFlagPlace-getControlService-0-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiInactivePlace-getControlService-0 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-getControlService-0 subnet: channel ---------
+--- Transition: CallbackInputTransition-RightCellTopic-0-0 subnet: channel --- name: CallbackInputTransition-RightCellTopic-0-0
+------ Inputplace:  CallbackCapacityPlace-RightCellTopic-0-0 subnet: channel ---------
+------ Inputplace:  CallbackInputPlace-RightCellTopic-0-0 subnet: channel ---------
+------ Outputplace: CallbackConnectorPlace-RightCellTopic-0-0 subnet: channel ---------
+--- Transition: ServiceClientRespConnectTransition-placeService-1 subnet: channel --- name: ServiceClientRespConnectTransition-placeService-1
+------ Inputplace:  ServiceClientRespConnectPlace-placeService-1 subnet: channel ---------
+------ Outputplace: R-ObjectPlaced subnet: RC1 ---------
+------ Outputplace: ServiceTogglePlace-placeService-1 subnet: channel ---------
+--- Transition: ServiceCallMultiEntryTransition-getControlService-1-0 subnet: channel --- name: ServiceCallMultiEntryTransition-getControlService-1-0
+------ Inputplace:  ServiceClientCallPlace-getControlService-0 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiInactivePlace-getControlService-1 subnet: channel ---------
+------ Outputplace: GetControlIn-INSTANCE-1 subnet: GetControl ---------
+------ Outputplace: ServiceCallMultiActivePlace-getControlService-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiFlagPlace-getControlService-1-0 subnet: channel ---------
+--- Transition: End-INSTANCE-1 subnet: EndControl --- name: End-INSTANCE-1
+------ Inputplace:  EndControlIn-INSTANCE-1 subnet: EndControl ---------
+------ Outputplace: EndControlOut-INSTANCE-1 subnet: EndControl ---------
+------ Outputplace: GetShared subnet: SharedSync ---------
+--- Transition: InputSignalToFalseTransition-Green subnet: signal --- name: InputSignalToFalseTransition-Green
+------ Inputplace:  InputSignalTruePlace-Green subnet: signal ---------
+------ Inputplace:  PD-0-SortGreen subnet: none ---------
+------ Outputplace: InputSignalFalsePlace-Green subnet: signal ---------
+--- Transition: ProcessSensorData-INSTANCE-0 subnet: SensorService --- name: ProcessSensorData-INSTANCE-0
+------ Inputplace:  SensorInter-INSTANCE-0 subnet: SensorService ---------
+------ Outputplace: SensorOut-INSTANCE-0 subnet: SensorService ---------
+--- Transition: Get-INSTANCE-0 subnet: GetControl --- name: Get-INSTANCE-0
+------ Inputplace:  GetControlIn-INSTANCE-0 subnet: GetControl ---------
+------ Inputplace:  GetShared subnet: SharedSync ---------
+------ Outputplace: GetControlOut-INSTANCE-0 subnet: GetControl ---------
+--- Transition: ServiceClientRespConnectTransition-getControlService-0 subnet: channel --- name: ServiceClientRespConnectTransition-getControlService-0
+------ Inputplace:  ServiceClientRespConnectPlace-getControlService-0 subnet: channel ---------
+------ Outputplace: L-Ready subnet: LC1 ---------
+------ Outputplace: ServiceTogglePlace-getControlService-0 subnet: channel ---------
+--- Transition: PickingFail-INSTANCE-1 subnet: PickService --- name: PickingFail-INSTANCE-1
+------ Inputplace:  PD-0-PickingFail-INSTANCE-1 subnet: none ---------
+------ Inputplace:  Picking-INSTANCE-1 subnet: PickService ---------
+------ Outputplace: PD-0-PickingFail-INSTANCE-1 subnet: none ---------
+------ Outputplace: PickOutput-INSTANCE-1 subnet: PickService ---------
+--- Transition: ServiceCallMultiEntryTransition-pickService-0-0 subnet: channel --- name: ServiceCallMultiEntryTransition-pickService-0-0
+------ Inputplace:  ServiceClientCallPlace-pickService-0 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiInactivePlace-pickService-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiActivePlace-pickService-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiFlagPlace-pickService-0-0 subnet: channel ---------
+------ Outputplace: PickInput-INSTANCE-0 subnet: PickService ---------
+--- Transition: PickingFail-INSTANCE-0 subnet: PickService --- name: PickingFail-INSTANCE-0
+------ Inputplace:  PD-0-PickingFail-INSTANCE-0 subnet: none ---------
+------ Inputplace:  Picking-INSTANCE-0 subnet: PickService ---------
+------ Outputplace: PD-0-PickingFail-INSTANCE-0 subnet: none ---------
+------ Outputplace: PickOutput-INSTANCE-0 subnet: PickService ---------
+--- Transition: DispatcherInputTransition-RightCellTopic-0 subnet: channel --- name: DispatcherInputTransition-RightCellTopic-0
+------ Inputplace:  DispatcherCapacityPlace-RightCellTopic-0 subnet: channel ---------
+------ Inputplace:  DispatcherInputPlace-RightCellTopic-0 subnet: channel ---------
+------ Outputplace: DispatcherConnectorPlace-RightCellTopic-0 subnet: channel ---------
+--- Transition: CallbackInputTransition-LeftCellTopic-0-0 subnet: channel --- name: CallbackInputTransition-LeftCellTopic-0-0
+------ Inputplace:  CallbackInputPlace-LeftCellTopic-0-0 subnet: channel ---------
+------ Inputplace:  CallbackCapacityPlace-LeftCellTopic-0-0 subnet: channel ---------
+------ Outputplace: CallbackConnectorPlace-LeftCellTopic-0-0 subnet: channel ---------
+--- Transition: ChannelConnectorTransition-UITopic subnet: none --- name: ChannelConnectorTransition-UITopic
+------ Inputplace:  ChannelConnectorPlace-UITopic subnet: channel ---------
+------ Outputplace: DispatcherInputPlace-UITopic-0 subnet: channel ---------
+--- Transition: Place-INSTANCE-0 subnet: PlaceService --- name: Place-INSTANCE-0
+------ Inputplace:  Safe subnet: SafetyModel ---------
+------ Inputplace:  PlaceInput-INSTANCE-0 subnet: PlaceService ---------
+------ Outputplace: Safe subnet: SafetyModel ---------
+------ Outputplace: Placing-INSTANCE-0 subnet: PlaceService ---------
+--- Transition: End-INSTANCE-0 subnet: EndControl --- name: End-INSTANCE-0
+------ Inputplace:  EndControlIn-INSTANCE-0 subnet: EndControl ---------
+------ Outputplace: GetShared subnet: SharedSync ---------
+------ Outputplace: EndControlOut-INSTANCE-0 subnet: EndControl ---------
+--- Transition: PlacingFail-INSTANCE-1 subnet: PlaceService --- name: PlacingFail-INSTANCE-1
+------ Inputplace:  PD-0-PlacingFail-INSTANCE-1 subnet: none ---------
+------ Inputplace:  Placing-INSTANCE-1 subnet: PlaceService ---------
+------ Outputplace: PD-0-PlacingFail-INSTANCE-1 subnet: none ---------
+------ Outputplace: PlaceOutput-INSTANCE-1 subnet: PlaceService ---------
+--- Transition: ServiceClientRespTransition-placeService-0 subnet: channel --- name: ServiceClientRespTransition-placeService-0
+------ Inputplace:  ServiceClientRespPlace-placeService-0 subnet: channel ---------
+------ Outputplace: ServiceClientRespConnectPlace-placeService-0 subnet: channel ---------
+--- Transition: InputSignalToTrueTransition-Blue subnet: signal --- name: InputSignalToTrueTransition-Blue
+------ Inputplace:  InputSignalFalsePlace-Blue subnet: signal ---------
+------ Outputplace: InputSignalTruePlace-Blue subnet: signal ---------
+------ Outputplace: PD-0-SortBlue subnet: none ---------
+--- Transition: ServiceCallMultiEntryTransition-endControlService-0-0 subnet: channel --- name: ServiceCallMultiEntryTransition-endControlService-0-0
+------ Inputplace:  ServiceClientCallPlace-endControlService-0 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiInactivePlace-endControlService-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiFlagPlace-endControlService-0-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiActivePlace-endControlService-0 subnet: channel ---------
+------ Outputplace: EndControlIn-INSTANCE-0 subnet: EndControl ---------
+--- Transition: PickingSuccess-INSTANCE-1 subnet: PickService --- name: PickingSuccess-INSTANCE-1
+------ Inputplace:  PD-0-PickingSuccess-INSTANCE-1 subnet: none ---------
+------ Inputplace:  Picking-INSTANCE-1 subnet: PickService ---------
+------ Outputplace: PD-0-PickingSuccess-INSTANCE-1 subnet: none ---------
+------ Outputplace: PickOutput-INSTANCE-1 subnet: PickService ---------
+--- Transition: DispatcherOverflowTransition-UITopic-0 subnet: channel --- name: DispatcherOverflowTransition-UITopic-0
+------ Inputplace:  DispatcherCapacityPlace-UITopic-0 subnet: channel ---------
+------ Inputplace:  DispatcherInputPlace-UITopic-0 subnet: channel ---------
+--- Transition: PublisherInputTransition-LeftCellTopic-1 subnet: channel --- name: PublisherInputTransition-LeftCellTopic-1
+------ Inputplace:  PublisherCapacityPlace-LeftCellTopic-1 subnet: channel ---------
+------ Inputplace:  BlueOut subnet: selectorBlue ---------
+------ Outputplace: PublisherConnectorPlace-LeftCellTopic-1 subnet: channel ---------
+--- Transition: ServiceCallMultiEntryTransition-getControlService-0-0 subnet: channel --- name: ServiceCallMultiEntryTransition-getControlService-0-0
+------ Inputplace:  ServiceCallMultiInactivePlace-getControlService-0 subnet: channel ---------
+------ Inputplace:  ServiceClientCallPlace-getControlService-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiActivePlace-getControlService-0 subnet: channel ---------
+------ Outputplace: GetControlIn-INSTANCE-0 subnet: GetControl ---------
+------ Outputplace: ServiceCallMultiFlagPlace-getControlService-0-0 subnet: channel ---------
+--- Transition: ServiceClientCallConnectTransition-pickService-0 subnet: channel --- name: ServiceClientCallConnectTransition-pickService-0
+------ Inputplace:  L-Ready subnet: LC1 ---------
+------ Inputplace:  ServiceTogglePlace-pickService-0 subnet: channel ---------
+------ Outputplace: ServiceClientCallConnectPlace-pickService-0 subnet: channel ---------
+--- Transition: PublisherInputTransition-UITopic-1 subnet: channel --- name: PublisherInputTransition-UITopic-1
+------ Inputplace:  PublisherCapacityPlace-UITopic-1 subnet: channel ---------
+------ Inputplace:  R-Done subnet: RC1 ---------
+------ Outputplace: PublisherConnectorPlace-UITopic-1 subnet: channel ---------
+--- Transition: InputSignalToFalseTransition-Sensor subnet: signal --- name: InputSignalToFalseTransition-Sensor
+------ Inputplace:  InputSignalTruePlace-Sensor subnet: signal ---------
+------ Inputplace:  PD-0-GetSensorData-INSTANCE-0 subnet: none ---------
+------ Outputplace: InputSignalFalsePlace-Sensor subnet: signal ---------
+--- Transition: PublisherOutputTransition-UITopic-1 subnet: channel --- name: PublisherOutputTransition-UITopic-1
+------ Inputplace:  PublisherConnectorPlace-UITopic-1 subnet: channel ---------
+------ Outputplace: ChannelConnectorPlace-UITopic subnet: channel ---------
+------ Outputplace: PublisherCapacityPlace-UITopic-1 subnet: channel ---------
+--- Transition: ServiceCallMultiEntryTransition-endControlService-1-0 subnet: channel --- name: ServiceCallMultiEntryTransition-endControlService-1-0
+------ Inputplace:  ServiceClientCallPlace-endControlService-0 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiInactivePlace-endControlService-1 subnet: channel ---------
+------ Outputplace: EndControlIn-INSTANCE-1 subnet: EndControl ---------
+------ Outputplace: ServiceCallMultiFlagPlace-endControlService-1-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiActivePlace-endControlService-1 subnet: channel ---------
+--- Transition: ServiceClientCallTransition-pickService-1 subnet: channel --- name: ServiceClientCallTransition-pickService-1
+------ Inputplace:  ServiceClientCallConnectPlace-pickService-1 subnet: channel ---------
+------ Outputplace: ServiceClientCallPlace-pickService-1 subnet: channel ---------
+--- Transition: PublisherOverflowTransition-UITopic-1 subnet: channel --- name: PublisherOverflowTransition-UITopic-1
+------ Inputplace:  PublisherCapacityPlace-UITopic-1 subnet: channel ---------
+------ Inputplace:  R-Done subnet: RC1 ---------
+--- Transition: ServiceClientCallConnectTransition-placeService-1 subnet: channel --- name: ServiceClientCallConnectTransition-placeService-1
+------ Inputplace:  R-ObjectPicked subnet: RC1 ---------
+------ Inputplace:  ServiceTogglePlace-placeService-1 subnet: channel ---------
+------ Outputplace: ServiceClientCallConnectPlace-placeService-1 subnet: channel ---------
+--- Transition: ChannelConnectorTransition-RightCellTopic subnet: none --- name: ChannelConnectorTransition-RightCellTopic
+------ Inputplace:  ChannelConnectorPlace-RightCellTopic subnet: channel ---------
+------ Outputplace: DispatcherInputPlace-RightCellTopic-0 subnet: channel ---------
+--- Transition: PublisherOutputTransition-LeftCellTopic-0 subnet: channel --- name: PublisherOutputTransition-LeftCellTopic-0
+------ Inputplace:  PublisherConnectorPlace-LeftCellTopic-0 subnet: channel ---------
+------ Outputplace: ChannelConnectorPlace-LeftCellTopic subnet: channel ---------
+------ Outputplace: PublisherCapacityPlace-LeftCellTopic-0 subnet: channel ---------
+--- Transition: Get-INSTANCE-1 subnet: GetControl --- name: Get-INSTANCE-1
+------ Inputplace:  GetControlIn-INSTANCE-1 subnet: GetControl ---------
+------ Inputplace:  GetShared subnet: SharedSync ---------
+------ Outputplace: GetControlOut-INSTANCE-1 subnet: GetControl ---------
+--- Transition: ServiceClientRespTransition-pickService-0 subnet: channel --- name: ServiceClientRespTransition-pickService-0
+------ Inputplace:  ServiceClientRespPlace-pickService-0 subnet: channel ---------
+------ Outputplace: ServiceClientRespConnectPlace-pickService-0 subnet: channel ---------
+--- Transition: ServiceCallMultiExitTransition-pickService-1-0 subnet: channel --- name: ServiceCallMultiExitTransition-pickService-1-0
+------ Inputplace:  ServiceCallMultiActivePlace-pickService-1 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiFlagPlace-pickService-1-0 subnet: channel ---------
+------ Inputplace:  PickOutput-INSTANCE-1 subnet: PickService ---------
+------ Outputplace: ServiceCallMultiInactivePlace-pickService-1 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-pickService-0 subnet: channel ---------
+--- Transition: PlacingAbort-INSTANCE-0 subnet: PlaceService --- name: PlacingAbort-INSTANCE-0
+------ Inputplace:  Unsafe subnet: SafetyModel ---------
+------ Inputplace:  Placing-INSTANCE-0 subnet: PlaceService ---------
+------ Outputplace: Unsafe subnet: SafetyModel ---------
+------ Outputplace: PlaceOutput-INSTANCE-0 subnet: PlaceService ---------
+--- Transition: PublisherOverflowTransition-RightCellTopic-0 subnet: channel --- name: PublisherOverflowTransition-RightCellTopic-0
+------ Inputplace:  PublisherCapacityPlace-RightCellTopic-0 subnet: channel ---------
+------ Inputplace:  GreenOut subnet: selectorGreen ---------
+--- Transition: PlacingSuccess-INSTANCE-0 subnet: PlaceService --- name: PlacingSuccess-INSTANCE-0
+------ Inputplace:  PD-0-PlacingSuccess-INSTANCE-0 subnet: none ---------
+------ Inputplace:  Placing-INSTANCE-0 subnet: PlaceService ---------
+------ Outputplace: PD-0-PlacingSuccess-INSTANCE-0 subnet: none ---------
+------ Outputplace: PlaceOutput-INSTANCE-0 subnet: PlaceService ---------
+--- Transition: PlacingSuccess-INSTANCE-1 subnet: PlaceService --- name: PlacingSuccess-INSTANCE-1
+------ Inputplace:  PD-0-PlacingSuccess-INSTANCE-1 subnet: none ---------
+------ Inputplace:  Placing-INSTANCE-1 subnet: PlaceService ---------
+------ Outputplace: PD-0-PlacingSuccess-INSTANCE-1 subnet: none ---------
+------ Outputplace: PlaceOutput-INSTANCE-1 subnet: PlaceService ---------
+--- Transition: ServiceClientRespTransition-getControlService-0 subnet: channel --- name: ServiceClientRespTransition-getControlService-0
+------ Inputplace:  ServiceClientRespPlace-getControlService-0 subnet: channel ---------
+------ Outputplace: ServiceClientRespConnectPlace-getControlService-0 subnet: channel ---------
+--- Transition: ServiceClientCallConnectTransition-endControlService-0 subnet: channel --- name: ServiceClientCallConnectTransition-endControlService-0
+------ Inputplace:  L-ObjectPlaced subnet: LC1 ---------
+------ Inputplace:  ServiceTogglePlace-endControlService-0 subnet: channel ---------
+------ Outputplace: ServiceClientCallConnectPlace-endControlService-0 subnet: channel ---------
+--- Transition: InputSignalToTrueTransition-PickFail subnet: signal --- name: InputSignalToTrueTransition-PickFail
+------ Inputplace:  InputSignalFalsePlace-PickFail subnet: signal ---------
+------ Outputplace: PD-0-PickingFail-INSTANCE-0 subnet: none ---------
+------ Outputplace: PD-0-PickingFail-INSTANCE-1 subnet: none ---------
+------ Outputplace: InputSignalTruePlace-PickFail subnet: signal ---------
+--- Transition: InputSignalToFalseTransition-Stop subnet: signal --- name: InputSignalToFalseTransition-Stop
+------ Inputplace:  InputSignalTruePlace-Stop subnet: signal ---------
+------ Inputplace:  PD-0-SafeToUnsafe subnet: none ---------
+------ Outputplace: InputSignalFalsePlace-Stop subnet: signal ---------
+--- Transition: ServiceClientCallTransition-endControlService-0 subnet: channel --- name: ServiceClientCallTransition-endControlService-0
+------ Inputplace:  ServiceClientCallConnectPlace-endControlService-0 subnet: channel ---------
+------ Outputplace: ServiceClientCallPlace-endControlService-0 subnet: channel ---------
+--- Transition: PickingSuccess-INSTANCE-0 subnet: PickService --- name: PickingSuccess-INSTANCE-0
+------ Inputplace:  PD-0-PickingSuccess-INSTANCE-0 subnet: none ---------
+------ Inputplace:  Picking-INSTANCE-0 subnet: PickService ---------
+------ Outputplace: PD-0-PickingSuccess-INSTANCE-0 subnet: none ---------
+------ Outputplace: PickOutput-INSTANCE-0 subnet: PickService ---------
+--- Transition: ServiceCallMultiExitTransition-sensorService-0-0 subnet: channel --- name: ServiceCallMultiExitTransition-sensorService-0-0
+------ Inputplace:  ServiceCallMultiActivePlace-sensorService-0 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiFlagPlace-sensorService-0-0 subnet: channel ---------
+------ Inputplace:  SensorOut-INSTANCE-0 subnet: SensorService ---------
+------ Outputplace: ServiceCallMultiInactivePlace-sensorService-0 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-sensorService-0 subnet: channel ---------
+--- Transition: Pick-INSTANCE-0 subnet: PickService --- name: Pick-INSTANCE-0
+------ Inputplace:  Safe subnet: SafetyModel ---------
+------ Inputplace:  PickInput-INSTANCE-0 subnet: PickService ---------
+------ Outputplace: Safe subnet: SafetyModel ---------
+------ Outputplace: Picking-INSTANCE-0 subnet: PickService ---------
+--- Transition: ServiceCallMultiEntryTransition-placeService-1-0 subnet: channel --- name: ServiceCallMultiEntryTransition-placeService-1-0
+------ Inputplace:  ServiceClientCallPlace-placeService-0 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiInactivePlace-placeService-1 subnet: channel ---------
+------ Outputplace: PlaceInput-INSTANCE-1 subnet: PlaceService ---------
+------ Outputplace: ServiceCallMultiFlagPlace-placeService-1-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiActivePlace-placeService-1 subnet: channel ---------
+--- Transition: PublisherInputTransition-UITopic-0 subnet: channel --- name: PublisherInputTransition-UITopic-0
+------ Inputplace:  PublisherCapacityPlace-UITopic-0 subnet: channel ---------
+------ Inputplace:  L-Done subnet: LC1 ---------
+------ Outputplace: PublisherConnectorPlace-UITopic-0 subnet: channel ---------
+--- Transition: ServiceClientCallTransition-getControlService-0 subnet: channel --- name: ServiceClientCallTransition-getControlService-0
+------ Inputplace:  ServiceClientCallConnectPlace-getControlService-0 subnet: channel ---------
+------ Outputplace: ServiceClientCallPlace-getControlService-0 subnet: channel ---------
+--- Transition: PickingAbort-INSTANCE-0 subnet: PickService --- name: PickingAbort-INSTANCE-0
+------ Inputplace:  Unsafe subnet: SafetyModel ---------
+------ Inputplace:  Picking-INSTANCE-0 subnet: PickService ---------
+------ Outputplace: Unsafe subnet: SafetyModel ---------
+------ Outputplace: PickOutput-INSTANCE-0 subnet: PickService ---------
+--- Transition: InputSignalToTrueTransition-Sensor subnet: signal --- name: InputSignalToTrueTransition-Sensor
+------ Inputplace:  InputSignalFalsePlace-Sensor subnet: signal ---------
+------ Outputplace: InputSignalTruePlace-Sensor subnet: signal ---------
+------ Outputplace: PD-0-GetSensorData-INSTANCE-0 subnet: none ---------
+--- Transition: ServiceClientCallConnectTransition-endControlService-1 subnet: channel --- name: ServiceClientCallConnectTransition-endControlService-1
+------ Inputplace:  R-ObjectPlaced subnet: RC1 ---------
+------ Inputplace:  ServiceTogglePlace-endControlService-1 subnet: channel ---------
+------ Outputplace: ServiceClientCallConnectPlace-endControlService-1 subnet: channel ---------
+--- Transition: ServiceCallMultiExitTransition-getControlService-1-0 subnet: channel --- name: ServiceCallMultiExitTransition-getControlService-1-0
+------ Inputplace:  GetControlOut-INSTANCE-1 subnet: GetControl ---------
+------ Inputplace:  ServiceCallMultiActivePlace-getControlService-1 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiFlagPlace-getControlService-1-0 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-getControlService-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiInactivePlace-getControlService-1 subnet: channel ---------
+--- Transition: DispatcherInputTransition-UITopic-0 subnet: channel --- name: DispatcherInputTransition-UITopic-0
+------ Inputplace:  DispatcherCapacityPlace-UITopic-0 subnet: channel ---------
+------ Inputplace:  DispatcherInputPlace-UITopic-0 subnet: channel ---------
+------ Outputplace: DispatcherConnectorPlace-UITopic-0 subnet: channel ---------
+--- Transition: Place-INSTANCE-1 subnet: PlaceService --- name: Place-INSTANCE-1
+------ Inputplace:  Safe subnet: SafetyModel ---------
+------ Inputplace:  PlaceInput-INSTANCE-1 subnet: PlaceService ---------
+------ Outputplace: Safe subnet: SafetyModel ---------
+------ Outputplace: Placing-INSTANCE-1 subnet: PlaceService ---------
+--- Transition: ServiceCallMultiExitTransition-getControlService-1-1 subnet: channel --- name: ServiceCallMultiExitTransition-getControlService-1-1
+------ Inputplace:  GetControlOut-INSTANCE-1 subnet: GetControl ---------
+------ Inputplace:  ServiceCallMultiActivePlace-getControlService-1 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiFlagPlace-getControlService-1-1 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-getControlService-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiInactivePlace-getControlService-1 subnet: channel ---------
+--- Transition: SafeToSensorCall subnet: SafetyModel --- name: SafeToSensorCall
+------ Inputplace:  Safe subnet: SafetyModel ---------
+------ Outputplace: SensorCall subnet: SafetyModel ---------
+--- Transition: CallbackOutputTransition-RightCellTopic-0-0 subnet: channel --- name: CallbackOutputTransition-RightCellTopic-0-0
+------ Inputplace:  CallbackConnectorPlace-RightCellTopic-0-0 subnet: channel ---------
+------ Outputplace: CallbackCapacityPlace-RightCellTopic-0-0 subnet: channel ---------
+------ Outputplace: R-AwaitingControl subnet: RC1 ---------
+--- Transition: ServiceCallMultiExitTransition-getControlService-0-1 subnet: channel --- name: ServiceCallMultiExitTransition-getControlService-0-1
+------ Inputplace:  ServiceCallMultiFlagPlace-getControlService-0-1 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiActivePlace-getControlService-0 subnet: channel ---------
+------ Inputplace:  GetControlOut-INSTANCE-0 subnet: GetControl ---------
+------ Outputplace: ServiceCallMultiInactivePlace-getControlService-0 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-getControlService-1 subnet: channel ---------
+--- Transition: ServiceClientRespConnectTransition-endControlService-1 subnet: channel --- name: ServiceClientRespConnectTransition-endControlService-1
+------ Inputplace:  ServiceClientRespConnectPlace-endControlService-1 subnet: channel ---------
+------ Outputplace: R-Done subnet: RC1 ---------
+------ Outputplace: ServiceTogglePlace-endControlService-1 subnet: channel ---------
+--- Transition: ServiceCallMultiEntryTransition-getControlService-0-1 subnet: channel --- name: ServiceCallMultiEntryTransition-getControlService-0-1
+------ Inputplace:  ServiceCallMultiInactivePlace-getControlService-0 subnet: channel ---------
+------ Inputplace:  ServiceClientCallPlace-getControlService-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiFlagPlace-getControlService-0-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiActivePlace-getControlService-0 subnet: channel ---------
+------ Outputplace: GetControlIn-INSTANCE-0 subnet: GetControl ---------
+--- Transition: InputSignalToTrueTransition-PlaceSuccess subnet: signal --- name: InputSignalToTrueTransition-PlaceSuccess
+------ Inputplace:  InputSignalFalsePlace-PlaceSuccess subnet: signal ---------
+------ Outputplace: PD-0-PlacingSuccess-INSTANCE-1 subnet: none ---------
+------ Outputplace: PD-0-PlacingSuccess-INSTANCE-0 subnet: none ---------
+------ Outputplace: InputSignalTruePlace-PlaceSuccess subnet: signal ---------
+--- Transition: ChannelConnectorTransition-LeftCellTopic subnet: none --- name: ChannelConnectorTransition-LeftCellTopic
+------ Inputplace:  ChannelConnectorPlace-LeftCellTopic subnet: channel ---------
+------ Outputplace: DispatcherInputPlace-LeftCellTopic-0 subnet: channel ---------
+--- Transition: PublisherInputTransition-LeftCellTopic-0 subnet: channel --- name: PublisherInputTransition-LeftCellTopic-0
+------ Inputplace:  RedOut subnet: selectorRed ---------
+------ Inputplace:  PublisherCapacityPlace-LeftCellTopic-0 subnet: channel ---------
+------ Outputplace: PublisherConnectorPlace-LeftCellTopic-0 subnet: channel ---------
+--- Transition: ServiceClientCallConnectTransition-sensorService-0 subnet: channel --- name: ServiceClientCallConnectTransition-sensorService-0
+------ Inputplace:  ServiceTogglePlace-sensorService-0 subnet: channel ---------
+------ Inputplace:  SensorCall subnet: SafetyModel ---------
+------ Outputplace: ServiceClientCallConnectPlace-sensorService-0 subnet: channel ---------
+--- Transition: InputSignalToFalseTransition-Red subnet: signal --- name: InputSignalToFalseTransition-Red
+------ Inputplace:  PD-0-SortRed subnet: none ---------
+------ Inputplace:  InputSignalTruePlace-Red subnet: signal ---------
+------ Outputplace: InputSignalFalsePlace-Red subnet: signal ---------
+--- Transition: ServiceCallMultiExitTransition-pickService-0-1 subnet: channel --- name: ServiceCallMultiExitTransition-pickService-0-1
+------ Inputplace:  ServiceCallMultiActivePlace-pickService-0 subnet: channel ---------
+------ Inputplace:  PickOutput-INSTANCE-0 subnet: PickService ---------
+------ Inputplace:  ServiceCallMultiFlagPlace-pickService-0-1 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-pickService-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiInactivePlace-pickService-0 subnet: channel ---------
+--- Transition: ServiceCallMultiExitTransition-placeService-1-0 subnet: channel --- name: ServiceCallMultiExitTransition-placeService-1-0
+------ Inputplace:  PlaceOutput-INSTANCE-1 subnet: PlaceService ---------
+------ Inputplace:  ServiceCallMultiFlagPlace-placeService-1-0 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiActivePlace-placeService-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiInactivePlace-placeService-1 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-placeService-0 subnet: channel ---------
+--- Transition: ServiceCallMultiEntryTransition-endControlService-0-1 subnet: channel --- name: ServiceCallMultiEntryTransition-endControlService-0-1
+------ Inputplace:  ServiceClientCallPlace-endControlService-1 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiInactivePlace-endControlService-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiFlagPlace-endControlService-0-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiActivePlace-endControlService-0 subnet: channel ---------
+------ Outputplace: EndControlIn-INSTANCE-0 subnet: EndControl ---------
+--- Transition: ServiceCallMultiExitTransition-endControlService-0-0 subnet: channel --- name: ServiceCallMultiExitTransition-endControlService-0-0
+------ Inputplace:  ServiceCallMultiFlagPlace-endControlService-0-0 subnet: channel ---------
+------ Inputplace:  ServiceCallMultiActivePlace-endControlService-0 subnet: channel ---------
+------ Inputplace:  EndControlOut-INSTANCE-0 subnet: EndControl ---------
+------ Outputplace: ServiceClientRespPlace-endControlService-0 subnet: channel ---------
+------ Outputplace: ServiceCallMultiInactivePlace-endControlService-0 subnet: channel ---------
+--- Transition: InputSignalToTrueTransition-Green subnet: signal --- name: InputSignalToTrueTransition-Green
+------ Inputplace:  InputSignalFalsePlace-Green subnet: signal ---------
+------ Outputplace: InputSignalTruePlace-Green subnet: signal ---------
+------ Outputplace: PD-0-SortGreen subnet: none ---------
+--- Transition: PublisherOutputTransition-UITopic-0 subnet: channel --- name: PublisherOutputTransition-UITopic-0
+------ Inputplace:  PublisherConnectorPlace-UITopic-0 subnet: channel ---------
+------ Outputplace: PublisherCapacityPlace-UITopic-0 subnet: channel ---------
+------ Outputplace: ChannelConnectorPlace-UITopic subnet: channel ---------
+--- Transition: ServiceClientCallTransition-pickService-0 subnet: channel --- name: ServiceClientCallTransition-pickService-0
+------ Inputplace:  ServiceClientCallConnectPlace-pickService-0 subnet: channel ---------
+------ Outputplace: ServiceClientCallPlace-pickService-0 subnet: channel ---------
+--- Transition: ServiceClientCallConnectTransition-pickService-1 subnet: channel --- name: ServiceClientCallConnectTransition-pickService-1
+------ Inputplace:  ServiceTogglePlace-pickService-1 subnet: channel ---------
+------ Inputplace:  R-Ready subnet: RC1 ---------
+------ Outputplace: ServiceClientCallConnectPlace-pickService-1 subnet: channel ---------
+--- Transition: ServiceCallMultiExitTransition-endControlService-1-1 subnet: channel --- name: ServiceCallMultiExitTransition-endControlService-1-1
+------ Inputplace:  ServiceCallMultiFlagPlace-endControlService-1-1 subnet: channel ---------
+------ Inputplace:  EndControlOut-INSTANCE-1 subnet: EndControl ---------
+------ Inputplace:  ServiceCallMultiActivePlace-endControlService-1 subnet: channel ---------
+------ Outputplace: ServiceClientRespPlace-endControlService-1 subnet: channel ---------
+------ Outputplace: ServiceCallMultiInactivePlace-endControlService-1 subnet: channel ---------
+--- Transition: GetSensorData-INSTANCE-0 subnet: SensorService --- name: GetSensorData-INSTANCE-0
+------ Inputplace:  SensorIn-INSTANCE-0 subnet: SensorService ---------
+------ Inputplace:  PD-0-GetSensorData-INSTANCE-0 subnet: none ---------
+------ Outputplace: SensorInter-INSTANCE-0 subnet: SensorService ---------
+------ Outputplace: PD-0-GetSensorData-INSTANCE-0 subnet: none ---------
+--- Transition: InputSignalToTrueTransition-PickSuccess subnet: signal --- name: InputSignalToTrueTransition-PickSuccess
+------ Inputplace:  InputSignalFalsePlace-PickSuccess subnet: signal ---------
+------ Outputplace: PD-0-PickingSuccess-INSTANCE-0 subnet: none ---------
+------ Outputplace: InputSignalTruePlace-PickSuccess subnet: signal ---------
+------ Outputplace: PD-0-PickingSuccess-INSTANCE-1 subnet: none ---------
+----------------- REF PLACES -----------------
+----------------- REF TRANSITIONS -----------------
+--------------- T SIGNALS (STATIC)---------------
+
+
+
+(Stop)
+
+
+(Blue)
+(Red)
+
+(Green)
+(PlaceFail)
+
+
+
+
+(PickFail)
+(PickFail)
+
+
+
+(PlaceFail)
+(PickSuccess)
+
+
+
+(PlaceSuccess)
+(PlaceSuccess)
+(PickSuccess)
+
+
+
+
+
+(Sensor)
+[FLATTENER] Exporting to pnml.
+top
+00:41:54.577 [main] ERROR PNML validation - The rng grammar file is not valid : White spaces are required between publicId and systemId.
+00:41:54.577 [main] ERROR export - Grammar file errors have been raised, the validation can't be done, process will continue without Grammar validation
+[FLATTENER] Converting to net format.
+[FLATTENER] Including inhibitor arcs into net format.
+[FLATTENER] Found inh arc: pub-arc-5-RightCellTopic-0
+[FLATTENER] Found inh arc: callback-arc-5-LeftCellTopic-0-0
+[FLATTENER] Found inh arc: pub-arc-5-LeftCellTopic-1
+[FLATTENER] Found inh arc: dis-arc-5-LeftCellTopic-0
+[FLATTENER] Found inh arc: callback-arc-5-RightCellTopic-0-0
+[FLATTENER] Found inh arc: pub-arc-5-LeftCellTopic-0
+[FLATTENER] Found inh arc: callback-arc-5-UITopic-0-0
+[FLATTENER] Found inh arc: dis-arc-5-RightCellTopic-0
+[FLATTENER] Found inh arc: dis-arc-5-UITopic-0
+[FLATTENER] Found inh arc: pub-arc-5-UITopic-1
+[FLATTENER] Found inh arc: pub-arc-5-UITopic-0
+[FLATTENER] Finished.

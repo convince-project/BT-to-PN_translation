@@ -1,59 +1,76 @@
-# Use OSRF ROS noetic (Ubuntu 22.04) as the base image
 FROM ubuntu:22.04
+RUN apt-get update -y
+RUN apt-get upgrade -y
 
-# Set non-interactive frontend for package installations
-ENV DEBIAN_FRONTEND=noninteractive
+# Set build-time arguments
+ARG VENUE=2025_CAV
+ENV USER=BehaVerify_${VENUE}  
 
-# Update and install essential packages
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    docker.io \
-    libffi-dev \
-    python3-pip \
-    graphviz \
-    libffi8ubuntu1 \
-    libncurses-dev \
-    libgmp10 \
-    libtinfo5 \
-    libgmp-dev \
-    libgmp3-dev \
-    pkg-config \
-    libxkbfile-dev \
-    libx11-dev \
-    libsecret-1-dev \
-    libncurses5 \
-    git \
-    nano \
-    wget \
-    python3-tk \
-    apt-utils \
-    && rm -rf /var/lib/apt/lists/*
-    
-# Clone your Git repository (replace with your actual repo URL)
+# Ensure user and group IDs are defined
+ARG UID=22237
+ARG GID=22237
 
-RUN usermod -aG docker root
-RUN newgrp docker
+# Create a non-root user
+RUN groupadd -g $GID "$USER" \
+    && useradd -u $UID -g $GID -m -s /bin/bash "$USER"
 
-COPY behaverify_runner.py /root/behaverify_runner.py
+# Give sudo privileges to the non-root user
+RUN apt-get update && apt-get install -y sudo \
+    && echo "$USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/$USER \
+    && chmod 0440 /etc/sudoers.d/$USER
 
-WORKDIR /root/
-RUN git clone https://github.com/convince-project/BT-to-PN_translation.git
-RUN git clone https://github.com/verivital/behaverify.git
+# Verify user creation
+RUN cat /etc/passwd | grep "$USER"
 
-# Setup environment
-# Install Nuxmv
+
+# Set the working directory
+WORKDIR /home/$USER
+
+# Switch to the non-root user
+USER $USER
+
+# Install Behaverify and nuXmv
+
+RUN sudo apt-get install wget -y
+RUN sudo apt-get install git -y
+RUN sudo apt-get install python3 pip python3-venv -y
+RUN sudo apt install -y chrpath libcln6 libginac-dev libginac11 libz3-4 libz3-dev libglpk40
+
+ADD https://api.github.com/repos/verivital/behaverify/git/refs/heads/main version.json
+
+RUN git clone --filter=blob:none --no-checkout --depth 1 --sparse https://github.com/verivital/behaverify
+WORKDIR /home/$USER/behaverify
+RUN git sparse-checkout set --no-cone
+RUN echo !/* > /home/$USER/behaverify/.git/info/sparse-checkout
+RUN echo /REPRODUCIBILITY/$VENUE >> /home/$USER/behaverify/.git/info/sparse-checkout
+RUN git checkout
+
+RUN echo $USER > /home/$USER/user.txt
+RUN ls /home/$USER/behaverify/
+
+RUN python3 -m venv /home/$USER/python_venvs/behaverify
+RUN /home/$USER/python_venvs/behaverify/bin/python3 -m pip install --upgrade pip
+RUN /home/$USER/python_venvs/behaverify/bin/python3 -m pip install -r /home/$USER/behaverify/REPRODUCIBILITY/${VENUE}/requirements/core.txt
+RUN python3 -m venv /home/$USER/python_venvs/results
+RUN /home/$USER/python_venvs/results/bin/python3 -m pip install --upgrade pip
+RUN /home/$USER/python_venvs/results/bin/python3 -m pip install -r /home/$USER/behaverify/REPRODUCIBILITY/${VENUE}/requirements/drawing.txt
+
 RUN wget https://nuxmv.fbk.eu/theme/download.php?file=nuXmv-2.0.0-linux64.tar.gz -O /tmp/nuXmv-2.0.0-linux64.tar.gz
-RUN tar -xzvf /tmp/nuXmv-2.0.0-linux64.tar.gz -C /root/
+RUN tar -xzvf /tmp/nuXmv-2.0.0-linux64.tar.gz -C /home/$USER/behaverify/REPRODUCIBILITY/$VENUE/
+RUN ls /home/$USER/behaverify/REPRODUCIBILITY/${VENUE}/nuXmv-2.0.0-Linux/bin
 
-# Install Behaverify
-WORKDIR /root/behaverify
-RUN python3 -m pip install -r /root/behaverify/requirements/core.txt
-RUN python3 -m pip install -r /root/BT-to-PN_translation/requirements.txt
+RUN ln -s /home/$USER/behaverify/REPRODUCIBILITY/${VENUE}/nuXmv-2.0.0-Linux/bin/nuXmv /home/$USER/behaverify/REPRODUCIBILITY/${VENUE}/nuXmv
 
-# Set working directory inside the container
-WORKDIR /root/BT-to-PN_translation
-# Expose any necessary ports (modify as needed)
-EXPOSE 11311 8080
+# Install Storm
+# Set the working directory
+WORKDIR /home/$USER
 
-# Default command (use Bash for easy manual usage)
-CMD ["bash"]
+
+RUN wget https://github.com/convince-project/smc_storm/releases/download/0.0.6/smc_storm_executable.tar.gz -O /tmp/smc_storm_executable.tar.gz
+RUN mkdir smc_storm
+RUN tar -xvf /tmp/smc_storm_executable.tar.gz -C smc_storm
+WORKDIR /home/$USER/smc_storm
+RUN ./install.sh
+RUN echo "export PATH=\$PATH:$(pwd)/bin" >> /home/${USER}/.bashrc
+
+WORKDIR /home/$USER

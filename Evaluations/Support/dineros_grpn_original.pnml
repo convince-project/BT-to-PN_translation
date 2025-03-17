@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+    <net id="SortingWorkflowSyncedSensorSafeSig" type="http://www.pnml.org/version-2009/grammar/ptnet">
+        <name>
+            <text>SortingWorkflowSyncedSensorSafeSig</text>
+        </name>
+        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+            <inputsignals>
+                <inputsignal>
+                    <inputsignalID>Red</inputsignalID>
+                    <initialvalue>false</initialvalue>
+                </inputsignal>
+                <inputsignal>
+                    <inputsignalID>Blue</inputsignalID>
+                    <initialvalue>false</initialvalue>
+                </inputsignal>
+                <inputsignal>
+                    <inputsignalID>Green</inputsignalID>
+                    <initialvalue>false</initialvalue>
+                </inputsignal>
+                <inputsignal>
+                    <inputsignalID>PickSuccess</inputsignalID>
+                    <initialvalue>false</initialvalue>
+                </inputsignal>
+                <inputsignal>
+                    <inputsignalID>PlaceSuccess</inputsignalID>
+                    <initialvalue>false</initialvalue>
+                </inputsignal>
+                <inputsignal>
+                    <inputsignalID>PickFail</inputsignalID>
+                    <initialvalue>false</initialvalue>
+                </inputsignal>
+                <inputsignal>
+                    <inputsignalID>PlaceFail</inputsignalID>
+                    <initialvalue>false</initialvalue>
+                </inputsignal>
+                <inputsignal>
+                    <inputsignalID>Stop</inputsignalID>
+                    <initialvalue>false</initialvalue>
+                </inputsignal>
+                <inputsignal>
+                    <inputsignalID>Sensor</inputsignalID>
+                    <initialvalue>false</initialvalue>
+                </inputsignal>
+            </inputsignals>
+        </toolspecific>
+        <page id="top">
+            <page id="SelectorPage">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>nodePage</type>
+                </toolspecific>
+                <place id="ObjectPoolRed">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>selector</node>
+                        <subnet>selectorRed</subnet>
+                        <balloonMarking>
+                            <tokens>
+                                <token>{"color" : "green", "name" : "green1", "pickSuccess" : "false", "placeSuccess" : "false",
+                                        "humanDetected" : "false", "sensorData" : "", "trace" : "", "locked" : "false" } </token>
+                            </tokens>
+                        </balloonMarking>
+                    </toolspecific>
+                    <initialMarking>
+                        <text>1</text>
+                    </initialMarking>
+                    <name>
+                        <text>ObjectPoolRed</text>
+                    </name>
+                </place>
+                <place id="ObjectPoolBlue">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>selector</node>
+                        <subnet>selectorBlue</subnet>
+                        <balloonMarking>
+                            <tokens>
+                                <token>{"color" : "blue", "name" : "blue1", "pickSuccess" : "false", "placeSuccess" : "false",
+                                    "humanDetected" : "false", "sensorData" : "", "trace" : "", "locked" : "false" } </token>
+                            </tokens>
+                        </balloonMarking>
+                    </toolspecific>
+                    <initialMarking>
+                        <text>1</text>
+                    </initialMarking>
+                    <name>
+                        <text>ObjectPoolBlue</text>
+                    </name>
+                </place>
+                <place id="ObjectPoolGreen">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>selector</node>
+                        <subnet>selectorGreen</subnet>
+                        <balloonMarking>
+                            <tokens>
+                                <token>{"color" : "red", "name" : "red1", "pickSuccess" : "false", "placeSuccess" : "false",
+                                    "humanDetected" : "false", "sensorData" : "", "trace" : "", "locked" : "false" } </token>
+                            </tokens>
+                        </balloonMarking>
+                    </toolspecific>
+                    <initialMarking>
+                        <text>1</text>
+                    </initialMarking>
+                    <name>
+                        <text>ObjectPoolGreen</text>
+                    </name>
+                </place>
+                
+                <transition id="SortRed">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>selector</node>
+                        <subnet>selectorRed</subnet>
+                        <type>discreteTransitionType</type>
+                        <inputsignalclause>(Red)</inputsignalclause>
+                    </toolspecific>
+                    <name>
+                        <text>SortRed</text>
+                    </name>
+                </transition>
+                <transition id="SortBlue">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>selector</node>
+                        <subnet>selectorBlue</subnet>
+                        <type>discreteTransitionType</type>
+                        <inputsignalclause>(Blue)</inputsignalclause>
+                    </toolspecific>
+                    <name>
+                        <text>SortBlue</text>
+                    </name>
+                </transition>
+                <transition id="SortGreen">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>selector</node>
+                        <subnet>selectorGreen</subnet>
+                        <type>discreteTransitionType</type>
+                        <inputsignalclause>(Green)</inputsignalclause>
+                    </toolspecific>
+                    <name>
+                        <text>SortGreen</text>
+                    </name>
+                </transition>
+                
+                <place id="RedOut">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>selector</node>
+                        <subnet>selectorRed</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>RedOut</text>
+                    </name>
+                </place>
+                <place id="BlueOut">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>selector</node>
+                        <subnet>selectorBlue</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>BlueOut</text>
+                    </name>
+                </place>
+                <place id="GreenOut">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>selector</node>
+                        <subnet>selectorGreen</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>GreenOut</text>
+                    </name>
+                </place>
+                
+                <arc id="a1" source="SortRed" target="RedOut">
+                </arc>
+                <arc id="a2" source="SortBlue" target="BlueOut">
+                </arc>
+                <arc id="a3" source="SortGreen" target="GreenOut">
+                </arc>
+                <arc id="a4" source="ObjectPoolRed" target="SortRed">
+                </arc>
+                <arc id="a5" source="ObjectPoolBlue" target="SortBlue">
+                </arc>
+                <arc id="a6" source="ObjectPoolGreen" target="SortGreen">
+                </arc>
+            </page>
+            
+            <transition id="LeftCellTopic">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>topicTransitionType</type>
+                    <topicName>LeftCellTopic</topicName>
+                    <publishers>
+                        <publisher>
+                            <id>RedOut</id>
+                            <limit>10</limit>
+                        </publisher>
+                        <publisher>
+                            <id>BlueOut</id>
+                            <limit>10</limit>
+                        </publisher>
+                    </publishers>
+                    <subscribers>
+                        <subscriber>
+                            <id>L-AwaitingControl</id>
+                            <limit>10</limit>
+                        </subscriber>
+                    </subscribers>
+                </toolspecific>
+                <name>
+                    <text>LeftCellTopic</text>
+                </name>
+            </transition>
+            <transition id="RightCellTopic">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>topicTransitionType</type>
+                    <topicName>RightCellTopic</topicName>
+                    <publishers>
+                        <publisher>
+                            <id>GreenOut</id>
+                            <limit>10</limit>
+                        </publisher>
+                    </publishers>
+                    <subscribers>
+                        <subscriber>
+                            <id>R-AwaitingControl</id>
+                            <limit>10</limit>
+                        </subscriber>
+                    </subscribers>
+                </toolspecific>
+                <name>
+                    <text>RightCellTopic</text>
+                </name>
+            </transition>
+            
+            <transition id="UITopic">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>topicTransitionType</type>
+                    <topicName>UITopic</topicName>
+                    <publishers>
+                        <publisher>
+                            <id>L-Done</id>
+                            <limit>10</limit>
+                        </publisher>
+                        <publisher>
+                            <id>R-Done</id>
+                            <limit>10</limit>
+                        </publisher>
+                    </publishers>
+                    <subscribers>
+                        <subscriber>
+                            <id>FeedbackIn</id>
+                            <limit>10</limit>
+                        </subscriber>
+                    </subscribers>
+                </toolspecific>
+                <name>
+                    <text>UITopic</text>
+                </name>
+            </transition>
+            
+            <page id="LeftControllerPage">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>nodePage</type>
+                </toolspecific>
+                
+                <place id="L-AwaitingControl">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>LeftController</node>
+                        <subnet>LC1</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>L-AwaitingControl</text>
+                    </name>
+                </place>
+                <place id="L-Ready">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>LeftController</node>
+                        <subnet>LC1</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>L-Ready</text>
+                    </name>
+                </place>
+                <place id="L-ObjectPicked">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>LeftController</node>
+                        <subnet>LC1</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>L-ObjectPicked</text>
+                    </name>
+                </place>
+                <place id="L-ObjectPlaced">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>LeftController</node>
+                        <subnet>LC1</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>L-ObjectPlaced</text>
+                    </name>
+                </place>
+                <place id="L-Done">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>LeftController</node>
+                        <subnet>LC1</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>L-Done</text>
+                    </name>
+                </place>
+            </page>
+            
+            <page id="RightControllerPage">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>nodePage</type>
+                </toolspecific>
+                
+                <place id="R-AwaitingControl">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>RightController</node>
+                        <subnet>RC1</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>R-AwaitingControl</text>
+                    </name>
+                </place>
+                <place id="R-Ready">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>RightController</node>
+                        <subnet>RC1</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>R-Ready</text>
+                    </name>
+                </place>
+                <place id="R-ObjectPicked">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>RightController</node>
+                        <subnet>RC1</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>R-ObjectPicked</text>
+                    </name>
+                </place>
+                <place id="R-ObjectPlaced">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>RightController</node>
+                        <subnet>RC1</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>R-ObjectPlaced</text>
+                    </name>
+                </place>
+                <place id="R-Done">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>RightController</node>
+                        <subnet>RC1</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>R-Done</text>
+                    </name>
+                </place>
+            </page>
+            
+            <page id="FeedbackPage">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>nodePage</type>
+                </toolspecific>
+                <place id="FeedbackIn">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>Feedback</node>
+                        <subnet>Feedback</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>FeedbackIn</text>
+                    </name>
+                </place>
+                
+                <transition id="ShowFeedback">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>Feedback</node>
+                        <subnet>Feedback</subnet>
+                        <type>discreteTransitionType</type>
+                        <inputsignalclause></inputsignalclause>
+                    </toolspecific>
+                    <name>
+                        <text>ShowFeedback</text>
+                    </name>
+                </transition>
+                
+                <place id="FeedbackDone">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <node>Feedback</node>
+                        <subnet>Feedback</subnet>
+                    </toolspecific>
+                    <name>
+                        <text>FeedbackDone</text>
+                    </name>
+                </place>
+                
+                <arc id="a7" source="FeedbackIn" target="ShowFeedback">
+                </arc>
+                <arc id="a8" source="ShowFeedback" target="FeedbackDone">
+                </arc>
+            </page>
+            
+            <page id="SynchronizerPage">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>nodePage</type>
+                </toolspecific>
+                <page id="GetControlService">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <type>serverPrototype</type>
+                        <serviceName>getControlService</serviceName>
+                    </toolspecific>
+                    
+                    <place id="GetControlIn">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Synchronizer</node>
+                            <subnet>GetControl</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>GetControlIn</text>
+                        </name>
+                    </place>
+                    <place id="GetControlOut">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Synchronizer</node>
+                            <subnet>GetControl</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>GetControlOut</text>
+                        </name>
+                    </place>
+                    <referencePlace id="GetSharedRef" ref="GetShared">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Synchronizer</node>
+                            <subnet>GetControl</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>GetSharedRef</text>
+                        </name>
+                    </referencePlace>
+                    <transition id="Get">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Synchronizer</node>
+                            <subnet>GetControl</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause></inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>Get</text>
+                        </name>
+                    </transition>
+                    <arc id="a9" source="GetControlIn" target="Get">
+                    </arc>
+                    <arc id="a10" source="Get" target="GetControlOut">
+                    </arc>
+                    <arc id="a11" source="GetSharedRef" target="Get">
+                    </arc>
+                </page>
+                <page id="EndControlService">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <type>serverPrototype</type>
+                        <serviceName>endControlService</serviceName>
+                    </toolspecific>
+                
+                    <place id="EndControlIn">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Synchronizer</node>
+                            <subnet>EndControl</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>EndControlIn</text>
+                        </name>
+                    </place>
+                    <place id="EndControlOut">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Synchronizer</node>
+                            <subnet>EndControl</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>EndControlOut</text>
+                        </name>
+                    </place>
+                    <referencePlace id="GetEndSharedRef" ref="GetShared">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Synchronizer</node>
+                            <subnet>EndControl</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>GetEndSharedRef</text>
+                        </name>
+                    </referencePlace>
+                    <transition id="End">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Synchronizer</node>
+                            <subnet>EndControl</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause></inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>End</text>
+                        </name>
+                    </transition>
+                    <arc id="a12" source="EndControlIn" target="End">
+                    </arc>
+                    <arc id="a13" source="End" target="EndControlOut">
+                    </arc>
+                    <arc id="a13b" source="End" target="GetEndSharedRef">
+                    </arc>
+                </page>
+                <page id="SharedSpacePage">
+                    <place id="GetShared">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Synchronizer</node>
+                            <subnet>SharedSync</subnet>
+                            <balloonMarking>
+                            	<tokens>
+                                <token>{ "color":"NONE","name":"NONE","pickSuccess":"false","placeSuccess":"false",
+                                        "humanDetected":"false","sensorData":"NONE","trace":"NONE", "locked" : "true" }
+                                    </token>
+                              </tokens>
+                            </balloonMarking>
+                        </toolspecific>
+                        <initialMarking>
+                            <text>1</text>
+                        </initialMarking>
+                        <name>
+                            <text>GetShared</text>
+                        </name>
+                    </place>
+                </page>
+            </page>
+       
+            <transition id="GetControlServiceCall">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>serviceTransitionType</type>
+                    <serviceName>getControlService</serviceName>
+                    <serverInput>GetControlIn</serverInput>
+                    <serverOutput>GetControlOut</serverOutput>
+                    <serverCapacity>2</serverCapacity>
+                    <channels>
+                        <channel>
+                            <cid>c1</cid>
+                            <request>L-AwaitingControl</request>
+                            <response>L-Ready</response>
+                        </channel>
+                        <channel>
+                            <cid>c2</cid>
+                            <request>R-AwaitingControl</request>
+                            <response>R-Ready</response>
+                        </channel>
+                    </channels>
+                </toolspecific>
+                <name>
+                    <text>GetControlServiceCall</text>
+                </name>
+            </transition>
+            <transition id="EndControlServiceCall">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>serviceTransitionType</type>
+                    <serviceName>endControlService</serviceName>
+                    <serverInput>EndControlIn</serverInput>
+                    <serverOutput>EndControlOut</serverOutput>
+                    <serverCapacity>2</serverCapacity>
+                    <channels>
+                        <channel>
+                            <cid>c3</cid>
+                            <request>L-ObjectPlaced</request>
+                            <response>L-Done</response>
+                        </channel>
+                        <channel>
+                            <cid>c4</cid>
+                            <request>R-ObjectPlaced</request>
+                            <response>R-Done</response>
+                        </channel>
+                    </channels>
+                </toolspecific>
+                <name>
+                    <text>EndControlServiceCall</text>
+                </name>
+            </transition>
+            
+            <transition id="PickServiceCall">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>serviceTransitionType</type>
+                    <serviceName>pickService</serviceName>
+                    <serverInput>PickInput</serverInput>
+                    <serverOutput>PickOutput</serverOutput>
+                    <serverCapacity>2</serverCapacity>
+                    <channels>
+                        <channel>
+                            <cid>c5</cid>
+                            <request>L-Ready</request>
+                            <response>L-ObjectPicked</response>
+                        </channel>
+                        <channel>
+                            <cid>c6</cid>
+                            <request>R-Ready</request>
+                            <response>R-ObjectPicked</response>
+                        </channel>
+                    </channels>
+                </toolspecific>
+                <name>
+                    <text>PickServiceCall</text>
+                </name>
+            </transition>
+            
+            <transition id="PlaceServiceCall">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>serviceTransitionType</type>
+                    <serviceName>placeService</serviceName>
+                    <serverInput>PlaceInput</serverInput>
+                    <serverOutput>PlaceOutput</serverOutput>
+                    <serverCapacity>2</serverCapacity>
+                    <channels>
+                        <channel>
+                            <cid>c7</cid>
+                            <request>L-ObjectPicked</request>
+                            <response>L-ObjectPlaced</response>
+                        </channel>
+                        <channel>
+                            <cid>c8</cid>
+                            <request>R-ObjectPicked</request>
+                            <response>R-ObjectPlaced</response>
+                        </channel>
+                    </channels>
+                </toolspecific>
+                <name>
+                    <text>PlaceServiceCall</text>
+                </name>
+            </transition>
+            
+            <page id="ExecutorPage">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>nodePage</type>
+                </toolspecific>
+                
+                <page id="PickService">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <type>serverPrototype</type>
+                        <serviceName>pickService</serviceName>
+                    </toolspecific>
+                    
+                    <place id="PickInput">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PickService</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>PickInput</text>
+                        </name>
+                    </place>
+                    <place id="Picking">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PickService</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>Picking</text>
+                        </name>
+                    </place>
+                    <place id="PickOutput">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PickService</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>PickOutput</text>
+                        </name>
+                    </place>
+                    
+                    <transition id="Pick">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PickService</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause></inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>Pick</text>
+                        </name>
+                    </transition>
+                    <transition id="PickingFail">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PickService</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause>(PickFail)</inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>PickingFail</text>
+                        </name>
+                    </transition>
+                    <transition id="PickingSuccess">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PickService</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause>(PickSuccess)</inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>PickingSuccess</text>
+                        </name>
+                    </transition>
+                    <transition id="PickingAbort">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PickService</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause></inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>PickingAbort</text>
+                        </name>
+                    </transition>
+                    <referencePlace id="PickSafeRef" ref="Safe">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PickService</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>PickSafeRef</text>
+                        </name>
+                    </referencePlace>
+                    <referencePlace id="PickUnsafeRef" ref="Unsafe">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PickService</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>PickUnsafeRef</text>
+                        </name>
+                    </referencePlace>
+                    <arc id="a15" source="PickInput" target="Pick">
+                    </arc>
+                    <arc id="a16" source="Pick" target="PickSafeRef">
+                    </arc>
+                    <arc id="a17" source="PickSafeRef" target="Pick">
+                    </arc>
+                    <arc id="a18" source="Pick" target="Picking">
+                    </arc>
+                    <arc id="a19" source="Picking" target="PickingFail">
+                    </arc>
+                    <arc id="a20" source="Picking" target="PickingSuccess">
+                    </arc>
+                    <arc id="a21" source="Picking" target="PickingAbort">
+                    </arc>
+                    <arc id="a22" source="PickingFail" target="PickOutput">
+                    </arc>
+                    <arc id="a23" source="PickingSuccess" target="PickOutput">
+                    </arc>
+                    <arc id="a24" source="PickingAbort" target="PickOutput">
+                    </arc>
+                    <arc id="a24n1" source="PickingAbort" target="PickUnsafeRef">
+                    </arc>
+                    <arc id="a24n2" source="PickUnsafeRef" target="PickingAbort">
+                    </arc>
+                </page>
+                
+                <page id="PlaceService">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <type>serverPrototype</type>
+                        <serviceName>placeService</serviceName>
+                    </toolspecific>
+                    
+                    <place id="PlaceInput">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PlaceService</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>PlaceInput</text>
+                        </name>
+                    </place>
+                    <place id="Placing">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PlaceService</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>Placing</text>
+                        </name>
+                    </place>
+                    <place id="PlaceOutput">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PlaceService</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>PlaceOutput</text>
+                        </name>
+                    </place>
+                    
+                    <transition id="Place">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PlaceService</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause></inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>Place</text>
+                        </name>
+                    </transition>
+                    <transition id="PlacingFail">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PlaceService</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause>(PlaceFail)</inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>PlacingFail</text>
+                        </name>
+                    </transition>
+                    <transition id="PlacingSuccess">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PlaceService</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause>(PlaceSuccess)</inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>PlacingSuccess</text>
+                        </name>
+                    </transition>
+                    <transition id="PlacingAbort">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PlaceService</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause></inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>PlaceingAbort</text>
+                        </name>
+                    </transition>
+                    <referencePlace id="PlaceSafeRef" ref="Safe">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PlaceService</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>PlaceSafeRef</text>
+                        </name>
+                    </referencePlace>
+                    <referencePlace id="PlaceUnsafeRef" ref="Unsafe">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>PlaceService</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>PlaceUnsafeRef</text>
+                        </name>
+                    </referencePlace>
+                    <arc id="a25" source="PlaceInput" target="Place">
+                    </arc>
+                    <arc id="a26" source="Place" target="PlaceSafeRef">
+                    </arc>
+                    <arc id="a27" source="PlaceSafeRef" target="Place">
+                    </arc>
+                    <arc id="a28" source="Place" target="Placing">
+                    </arc>
+                    <arc id="a29" source="Placing" target="PlacingFail">
+                    </arc>
+                    <arc id="a30" source="Placing" target="PlacingSuccess">
+                    </arc>
+                    <arc id="a31" source="Placing" target="PlacingAbort">
+                    </arc>
+                    <arc id="a32" source="PlacingFail" target="PlaceOutput">
+                    </arc>
+                    <arc id="a33" source="PlacingSuccess" target="PlaceOutput">
+                    </arc>
+                    <arc id="a34" source="PlacingAbort" target="PlaceOutput">
+                    </arc>
+                    <arc id="a34n1" source="PlacingAbort" target="PlaceUnsafeRef">
+                    </arc>
+                    <arc id="a34n2" source="PlaceUnsafeRef" target="PlacingAbort">
+                    </arc>
+                </page>
+                
+                <page id="SafetyModel">
+                    <place id="Unsafe">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>SafetyModel</subnet>
+                            <balloonMarking>
+                                <tokens>
+                                    <token>{ "color":"NONE","name":"NONE","pickSuccess":"false","placeSuccess":"false",
+                                        "humanDetected":"false","sensorData":"NONE","trace":"-safety", "locked" : "true" }
+                                    </token>
+                                </tokens>
+                            </balloonMarking>
+                        </toolspecific>
+                        <initialMarking>
+                            <text>1</text>
+                        </initialMarking>
+                        <name>
+                            <text>Unsafe</text>
+                        </name>
+                    </place>
+                    <place id="Safe">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>SafetyModel</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>Safe</text>
+                        </name>
+                    </place>
+                    <place id="SensorCall">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>SafetyModel</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>SensorCall</text>
+                        </name>
+                    </place>
+                    <place id="SensorResponse">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>SafetyModel</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>SensorResponse</text>
+                        </name>
+                    </place>
+                    
+                    <transition id="UnsafeToSensorCall">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>SafetyModel</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause></inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>UnsafeToSensorCall</text>
+                        </name>
+                    </transition>
+                    <transition id="SafeToUnsafe">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>SafetyModel</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause>(Stop)</inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>SafeToUnsafe</text>
+                        </name>
+                    </transition>
+                    <transition id="TransitionSafe">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>SafetyModel</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause></inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>TransitionSafe</text>
+                        </name>
+                    </transition>
+                    <transition id="TransitionUnsafe">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>SafetyModel</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause></inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>TransitionUnsafe</text>
+                        </name>
+                    </transition>
+                    <transition id="SafeToSensorCall">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Executor</node>
+                            <subnet>SafetyModel</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause></inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>SafeToSensorCall</text>
+                        </name>
+                    </transition>
+                    
+                    <arc id="a49" source="Unsafe" target="UnsafeToSensorCall">
+                    </arc>
+                    <arc id="a50" source="UnsafeToSensorCall" target="SensorCall">
+                    </arc>
+                    <arc id="a51" source="Safe" target="SafeToUnsafe">
+                    </arc>
+                    <arc id="a52" source="SafeToUnsafe" target="Unsafe">
+                    </arc>
+                    <arc id="a53" source="SensorResponse" target="TransitionUnsafe">
+                    </arc>
+                    <arc id="a54" source="TransitionUnsafe" target="Unsafe">
+                    </arc>
+                    <arc id="a55" source="Safe" target="SafeToSensorCall">
+                    </arc>
+                    <arc id="a56" source="SafeToSensorCall" target="SensorCall">
+                    </arc>
+                    <arc id="a57" source="SensorResponse" target="TransitionSafe">
+                    </arc>
+                    <arc id="a58" source="TransitionSafe" target="Safe">
+                    </arc>
+                </page>
+            </page>
+            
+            <transition id="SensorServiceCall">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>serviceTransitionType</type>
+                    <serviceName>sensorService</serviceName>
+                    <serverInput>SensorIn</serverInput>
+                    <serverOutput>SensorOut</serverOutput>
+                    <serverCapacity>1</serverCapacity>
+                    <channels>
+                        <channel>
+                            <cid>c9</cid>
+                            <request>SensorCall</request>
+                            <response>SensorResponse</response>
+                        </channel>
+                    </channels>
+                </toolspecific>
+                <name>
+                    <text>SensorServiceCall</text>
+                </name>
+            </transition>
+        
+            <page id="SensorPage">
+                <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                    <type>nodePage</type>
+                </toolspecific>
+                
+                <page id="SensorService">
+                    <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                        <type>serverPrototype</type>
+                        <serviceName>sensorService</serviceName>
+                    </toolspecific>
+                    
+                    <place id="SensorIn">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Sensorics</node>
+                            <subnet>SensorService</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>SensorIn</text>
+                        </name>
+                    </place>
+                    <place id="SensorInter">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Sensorics</node>
+                            <subnet>SensorService</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>SensorInter</text>
+                        </name>
+                    </place>
+                    <place id="SensorOut">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Sensorics</node>
+                            <subnet>SensorService</subnet>
+                        </toolspecific>
+                        <name>
+                            <text>SensorOut</text>
+                        </name>
+                    </place>
+                    <transition id="GetSensorData">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Sensorics</node>
+                            <subnet>SensorService</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause>(Sensor)</inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>GetSensorData</text>
+                        </name>
+                    </transition>
+                    <transition id="ProcessSensorData">
+                        <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+                            <node>Sensorics</node>
+                            <subnet>SensorService</subnet>
+                            <type>discreteTransitionType</type>
+                            <inputsignalclause></inputsignalclause>
+                        </toolspecific>
+                        <name>
+                            <text>ProcessSensorData</text>
+                        </name>
+                    </transition>
+                    <arc id="a59" source="SensorIn" target="GetSensorData">
+                    </arc>
+                    <arc id="a60" source="GetSensorData" target="SensorInter">
+                    </arc>
+                    <arc id="a61" source="SensorInter" target="ProcessSensorData">
+                    </arc>
+                    <arc id="a62" source="ProcessSensorData" target="SensorOut">
+                    </arc>
+                </page>
+            </page>
+        </page>
+    </net>
+</pnml>
