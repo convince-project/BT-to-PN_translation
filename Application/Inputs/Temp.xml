@@ -1,20 +1,7 @@
 <root BTCPP_format="4">
     <BehaviorTree ID="one">
-        <Switch2>
-            <BtAction name="is_right" haltable="True" prob="1,1,1"/>
-            <BtAction name="is_right" haltable="True" prob="1,1,1"/>
-        </Switch2> 
-        
-                <!-- <ReactiveSequence>
-                    <BtCondition name="is_left" haltable="True" prob="1,1,0"/>
-                    <BtAction name="is_left" haltable="True" prob="1,1,1"/>
-                    <ForceSuccess>
-                        <BtAction name="is_left" haltable="True" prob="1,1,0"/>
-                    </ForceSuccess>
-                </ReactiveSequence> -->
-
-                
-              
-            
+            <BtAction name="move_x_up" haltable="True" prob="1,1,1" path="temp_node.xml"/>
     </BehaviorTree>
 </root>
+
+ <!-- path="temp_node.xml" -->

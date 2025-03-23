@@ -17,6 +17,19 @@ VENUE = "2025_CAV"
 USER_behaverify = f"BehaVerify_{VENUE}"
 USER_tina = "ubuntu_usr"
 
+application_folder=os.path.join(
+            os.path.dirname(__file__),
+            "..",
+            "..",
+            "Application"
+        )
+evaluation_folder=os.path.join(
+        os.path.dirname(__file__),
+        "..",
+        "..",
+        "Evaluations"
+    )
+
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
@@ -146,10 +159,9 @@ class tina_Instrumentation(Instrumentation):
         
         output = self.exec(
             [
+                f"sudo chmod -R a+w /home/{USER_tina}",
                 f"ls /home/{USER_tina}/tina-3.7.0/bin ",
-                f"{tina_path}tina -help",
-                f"cat {file}",
-                f"{tina_path}tina -PNML {file}",
+                f"{tina_path}walk -f safe -R -PNML {file} -v {repr_folder}inputs/PNMLs/log.txt",
             ]
         )
         results = {}
@@ -291,13 +303,14 @@ class dineros_Instrumentation(Instrumentation):
         output = self.exec(
             [
                 f"sudo chmod -R a+w /home/{USER_tina}",
-                f"test -e /home/ubuntu_usr/inputs/GRPNs/{file} && echo 'File exists' || echo 'File does not exist'",
+                f"sudo mkdir -p {repr_folder}/inputs/PNMLs/",
+                f"test -e /home/{USER_tina}/inputs/GRPNs/{file} && echo 'File exists' || echo 'File does not exist'",
                 f"java -jar {flattener_folder}/{flattener_exec} --help",
                 f"java -jar {flattener_folder}/{flattener_exec} --pnml {repr_folder}inputs/GRPNs/{file} \
                     --tinaPath /home/{USER_tina}/ \
-                    | tee /home/ubuntu_usr/inputs/GRPNs/log.txt",
+                    | tee /home/{USER_tina}/inputs/GRPNs/log.txt",
                 f"FILE=$(ls -1 /home/{USER_tina}/temp/pnml | head -n 1)",
-                f"{tina_path}/tina -PNML /home/{USER_tina}/temp/pnml/$FILE"
+                f"time {tina_path}/tina -PNML /home/{USER_tina}/temp/pnml/$FILE >> {repr_folder}inputs/PNMLs/log.txt",
             ]
         )
         results = {}
@@ -332,9 +345,7 @@ class storm_Instrumentation(Instrumentation):
     # override
     def run_experiment(self, parameters: dict) -> dict:
         assert "size" in parameters, "Size must be provided"
-        size = parameters["size"]
-        seed = parameters["seed"]
-        res = self.eval_with_size(size, seed)
+        res = self.eval_with_size(parameters)
         
         return res
 
@@ -430,59 +441,51 @@ class storm_Instrumentation(Instrumentation):
         er: docker.models.containers.ExecResult = self.container.exec_run(wrapped_cmd)
         return er.output.decode("utf-8")
 
-    def eval_with_size(self, size: int, seed: int) -> dict:
+    def eval_with_size(self, parameters) -> dict:
+        size = parameters["size"]
+        seed = parameters["seed"]
+        file = parameters["file"]
+        label= parameters["label"]
+        property=parameters["property"]
         repr_folder = f"/home/{USER_behaverify}/"
         storm_exec= f"/home/{USER_behaverify}/smc_storm/bin/smc_storm"
+
+        command = " ".join([
+            "time smc_storm",
+            f"--model {file}",
+            f"--custom-property {property}",
+            "--n-threads 10",
+            "--batch-size 20",
+            "--disable-explored-states-caching",
+            "--show-statistics",
+            f"--confidence 0.95"
+        ])
+
         output = self.exec(
             [
-                f"echo {repr_folder}",
-                f"ls {repr_folder}/smc_storm/bin/",
-                f"echo ' '",
                 f"export PATH=$PATH:/home/{USER_behaverify}/smc_storm/bin",
-                f"smc_storm -h"
+                f"{command}"
             ]
         )
-        results = {}
         print(output)
-        # for metric in self.metrics:
-        #     if metric == "runtime_verification":
-        #         behaverify_fname = "SILENT_LTL_full_opt_simple_robot"
-        #         output = self.exec(
-        #             [f"cat {results_folder}/{behaverify_fname}_{size}.txt"]
-        #         )
-        #         # print(output)
-        #         # find "User time    0.045 seconds" and extract the number
-        #         matches = re.findall(r"User time\s+([0-9.]+) seconds", output)
-        #         assert len(matches) == 1, f"Expected 1 match, got {matches}"
-        #         results[metric] = float(matches[0])
-        #     if metric == "runtime_conversion":
-        #         results[metric] = 0.0
+        results = output
         return results
 
 
 def prepare_dineros_pnml():
     import xml.etree.ElementTree as ET
-
-    application_folder=os.path.join(
-            os.path.dirname(__file__),
-            "..",
-            "..",
-            "Application"
-        )
-    evaluation_folder=os.path.join(
-            os.path.dirname(__file__),
-            "..",
-            "..",
-            "Evaluations"
-        )
     translator_script=f"{application_folder}/Scripts/Translator.py"
     
     controllers={
         "L":{
-            "controller":"LeftControllerPage"
+            "controllerpage":"LeftControllerPage",
+            "controller":"LeftController",
+            "subnet":"LC1"
         },
         "R":{
-            "controller":"RightControllerPage"
+            "controllerpage":"RightControllerPage",
+            "controller":"RightController",
+            "subnet":"RC1"
         }
     }
     
@@ -503,10 +506,20 @@ def prepare_dineros_pnml():
     PNML_root=PNML_tree.getroot()
 
     for parameter in controllers.keys():
+        
+
         # Load the XML file
         xml_file = params_file
         tree = ET.parse(xml_file)
         root = tree.getroot()
+
+        elements_additives=root.find(".//elements_additive")
+        elements_additives.find(".//places").find(".//node").text=controllers[parameter]["controller"]
+        elements_additives.find(".//places").find(".//subnet").text=controllers[parameter]["subnet"]
+        elements_additives.find(".//transitions").find(".//node").text=controllers[parameter]["controller"]
+        elements_additives.find(".//transitions").find(".//subnet").text=controllers[parameter]["subnet"]
+
+
         
 
         # Find the <side> element inside <constants>
@@ -526,20 +539,20 @@ def prepare_dineros_pnml():
 
         tree =ET.parse(f"{evaluation_folder}/results/pnml/Controller_{parameter}.pnml")
         root = tree.getroot()
-        net_root=root.find(".//net")
+        print(f"{evaluation_folder}/results/pnml/Controller_{parameter}.pnml")
+        # net_root=root.find(".//net")
         # Manually track parents
         for parent in root.iter():
             for graphics in list(parent):  # Iterate over children
                 if graphics.tag == "graphics":
                     parent.remove(graphics)  # Remove element manually
-        controller_element=PNML_root.find(f".//pnml:page[@id='{controllers[parameter]["controller"]}']",namespace)
-
+        controller_element=PNML_root.find(f".//pnml:page[@id='{controllers[parameter]["controllerpage"]}']",namespace)
         elements = list(controller_element)  # Convert to a list
         for element in elements[1:]:  # Skip the first element
             controller_element.remove(element)
-        elements = list(net_root)  # Convert to a list
-        for element in elements:
-            controller_element.append(element)
+        # elements = list(net_root)  # Convert to a list
+        # for element in elements:
+        #     controller_element.append(element)
         
         for elem in tree.iter():
             if "}" in elem.tag:  # Namespace is present
@@ -555,67 +568,142 @@ def prepare_dineros_pnml():
     os.path.abspath(dineros_pnml)
     os.chdir(dineros_pnml)
 
-def extract_data(size=10,seed=0):
+def prepare_input_file(container,file,folder):
+    command=f"docker exec {container} mkdir -p {folder}"
+    os.system(command)
+    command = f"docker cp {file} {container}:{folder}"
+    os.system(command)
+
+def export_file(container,file,out_folder):
+    command = f"docker cp  {container}:{file} {out_folder}"
+    os.system(command)
+
+def dineros_func(metrics,size,seed,file):    
+    repo_folder = os.path.join(
+            os.path.dirname(__file__),
+            ".."
+        )
+    origin_folder = os.path.abspath(repo_folder)+f"/Support/"
+    result_folder = os.path.abspath(repo_folder)+f"/results/dineros_nets"
+    repr_folder = f"/home/{USER_tina}/inputs/GRPNs"
+    file="dineros_grpn_original.pnml"
+
+    runner = dineros_Instrumentation(metrics)
+    runner.prepare()
+    prepare_input_file(runner.container.short_id,f"{origin_folder}{file}",repr_folder)
+    results = runner.run_experiment({"size":size, "seed":seed, "file":file})
+    print(repr_folder)
+    export_file(runner.container.short_id,f"{repr_folder}/log.txt",repr_folder)
+    export_file(runner.container.short_id,f"/home/{USER_tina}/temp/pnml",result_folder)
     
+    prepare_dineros_pnml() 
+    runner.stop_container()
+    return results
 
+def extract_smc_storm_results(log: str):
+    result_pattern = re.search(r"Result:\s*(\d+)", log)
+    user_time_pattern = re.search(r"real\s+(\d+)m([\d.]+)s", log)
+    min_trace_pattern = re.search(r"Min trace length:\s*(\d+)", log)
+    max_trace_pattern = re.search(r"Max trace length:\s*(\d+)", log)
+    
+    result = int(result_pattern.group(1)) if result_pattern else None
+    
+    if user_time_pattern:
+        user_time = int(user_time_pattern.group(1)) * 60 + float(user_time_pattern.group(2))
+    else:
+        user_time = None
+    
+    min_trace_length = int(min_trace_pattern.group(1)) if min_trace_pattern else None
+    max_trace_length = int(max_trace_pattern.group(1)) if max_trace_pattern else None
+    
+    return {
+        "result": result,
+        "user_time": user_time,
+        "min_trace_length": min_trace_length,
+        "max_trace_length": max_trace_length
+    }
 
-    metrics = [
-        "runtime_verification",
-        # "runtime_conversion",
-    ]
+def storm_func(params):
+
+    size=params["size"]
+    seed=params["seed"]
+    metrics=params["metrics"]
+    input=f"{params["input_folder"]}/{params["file"]}"
+    container_folder=f"{params["container_input"]}/"
+    
+    parameters={
+        "size":size,
+        "seed":seed,
+        "file":f"{container_folder}inputs/{params['label']}/{params["file"]}",
+        "property":params["property"],
+        "label":params["label"]
+    }
+    print(container_folder)
+
     runner = storm_Instrumentation(metrics)
     runner.prepare()
-    results = runner.run_experiment({"size":size, "seed":seed})
+    prepare_input_file(runner.container.short_id,input,f"{container_folder}inputs/{parameters['label']}")
+    results = runner.run_experiment(parameters)
+    os.makedirs(f"{params["output_folder"]}/{params["label"]}",exist_ok=True)
+
+    result_struct=extract_smc_storm_results(results)
+
     # docker cp my_container:/home/user/data.txt /home/matt/Desktop/
     runner.stop_container()
+    return result_struct
+    
+def tina_func(metrics,size,seed):
+    file="behaverify"
 
-    # Tina part
-    runner = tina_Instrumentation(metrics)
-    runner.prepare()
-    application_folder=os.path.join(
-            os.path.dirname(__file__),
-            "..",
-            "..",
-            "Application"
-        )
+    command=f"python3 {application_folder}/Scripts/Translator.py --file {application_folder}/Inputs/{file}.xml"
+    os.system(command)
     repr_folder = f"/home/{USER_tina}/inputs/PNMLs"
-    input_folder=f"{application_folder}/Outputs/PNML/1D-robot"
+    input_folder=f"{application_folder}/Outputs/PNML/{file}"
     file=f"Unoptimized_PN.xml"
     outfile=f"Unoptimized_PN.pnml"
     command = f"docker cp {input_folder}/{file} {runner.container.short_id}:{repr_folder}/{outfile}"
     os.system(command)
+    runner = tina_Instrumentation(metrics)
+    runner.prepare()
     
     
     results = runner.run_experiment({"size":size, "seed":seed,"file":f"{repr_folder}/{outfile}"})
     # docker cp my_container:/home/user/data.txt /home/matt/Desktop/
+    
+    origin_folder = os.path.abspath(evaluation_folder)+f"/Support/log.txt"
+    command = f"docker cp  {runner.container.short_id}:{repr_folder}/log.txt {origin_folder}"
+    os.system(command)
+    
     runner.stop_container()
+    return results
 
-    # Dineros part
-    # repo_folder = os.path.join(
-    #         os.path.dirname(__file__),
-    #         ".."
-    #     )
-
-    # origin_folder = os.path.abspath(repo_folder)+f"/Support/"
-    # result_folder = os.path.abspath(repo_folder)+f"/results/dineros_nets"
-    # repr_folder = f"/home/{USER_tina}/inputs/GRPNs"
-    # runner = dineros_Instrumentation(metrics)
-    # runner.prepare()
-    # file="dineros_grpn_original.pnml"
-    # command = f"docker cp {origin_folder}{file} {runner.container.short_id}:{repr_folder}"
-    # os.system(command)
-    # results = runner.run_experiment({"size":size, "seed":seed, "file":file})
-    # command = f"docker cp  {runner.container.short_id}:{repr_folder}/log.txt {origin_folder}"
-    # os.system(command)
-    # command = f"docker cp  {runner.container.short_id}:/home/{USER_tina}/temp/pnml {result_folder}"
-    # os.system(command)
+def extract_data(size=10,seed=0):
     
-    # prepare_dineros_pnml()
+    metrics = [
+        "runtime_verification",
+        # "runtime_conversion",
+    ]
+    results=None
+    jani_folder=f"{application_folder}/Outputs/JANI"
+    model="behaverify"
+    file="Optimized_jani"
 
-    # docker cp my_container:/home/user/data.txt /home/matt/Desktop/
-    # runner.stop_container()
+    strom_verification_input={
+        "metrics":metrics,
+        "size":size,
+        "seed":seed,
+        "input_folder":f"{jani_folder}/{model}",
+        "file":f"{file}.jani",
+        "container_input":f"/home/{USER_behaverify}/inputs",
+        "output_folder":"",
+        "property":"'P=? [F(x_pos=111 & y_pos=1)]'",
+        "output_folder":f"{evaluation_folder}/results/behaverify_comparison/storm_result"
+    }
 
-    
+    results=storm_func(strom_verification_input)
+
+
+    # results=dineros_func(metrics,10,0)
     return results
 
 if __name__ == "__main__":

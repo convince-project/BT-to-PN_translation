@@ -1,31 +1,31 @@
 {
     "BT": {
-        "nodes": 14
+        "nodes": 15
     },
     "Optimized": {
         "JANI": {
-            "creation_time": 0.0006258487701416016,
-            "edges": 52,
-            "variables": 39
+            "creation_time": 0.0012860298156738281,
+            "edges": 77,
+            "variables": 77
         },
         "PNML": {
-            "arcs": 145,
-            "creation_time": 0.018798828125,
-            "nodes": 91,
-            "transitions": 52
+            "arcs": 229,
+            "creation_time": 0.026404857635498047,
+            "nodes": 154,
+            "transitions": 77
         }
     },
     "Unoptimized": {
         "JANI": {
-            "creation_time": 0.001375436782836914,
-            "edges": 94,
-            "variables": 90
+            "creation_time": 0.001905679702758789,
+            "edges": 101,
+            "variables": 101
         },
         "PNML": {
-            "arcs": 232,
-            "creation_time": 0.047609806060791016,
-            "nodes": 184,
-            "transitions": 94
+            "arcs": 273,
+            "creation_time": 0.03320932388305664,
+            "nodes": 202,
+            "transitions": 101
         }
     }
 }

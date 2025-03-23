@@ -4,27 +4,27 @@
     },
     "Optimized": {
         "JANI": {
-            "creation_time": 0.0004711151123046875,
+            "creation_time": 0.0006043910980224609,
             "edges": 44,
-            "variables": 36
+            "variables": 37
         },
         "PNML": {
-            "arcs": 101,
-            "creation_time": 0.010596513748168945,
-            "nodes": 80,
+            "arcs": 105,
+            "creation_time": 0.028353452682495117,
+            "nodes": 81,
             "transitions": 44
         }
     },
     "Unoptimized": {
         "JANI": {
-            "creation_time": 0.0008857250213623047,
+            "creation_time": 0.0010254383087158203,
             "edges": 61,
-            "variables": 54
+            "variables": 55
         },
         "PNML": {
-            "arcs": 136,
-            "creation_time": 0.01569676399230957,
-            "nodes": 115,
+            "arcs": 142,
+            "creation_time": 0.01805591583251953,
+            "nodes": 116,
             "transitions": 61
         }
     }

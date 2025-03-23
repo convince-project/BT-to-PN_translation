@@ -41,6 +41,7 @@ RUN apt-get update && apt-get install -y \
     git \
     nano \
     gnupg2 \
+    python3-tk \
     lsb-release \
     && locale-gen en_US.UTF-8
 
@@ -87,7 +88,6 @@ RUN chmod a+w /home/$USER/
 RUN mkdir inputs
 RUN mkdir inputs/PNMLs
 RUN mkdir inputs/GRPNs
-
 
 # Expose ROS default ports
 EXPOSE 11311

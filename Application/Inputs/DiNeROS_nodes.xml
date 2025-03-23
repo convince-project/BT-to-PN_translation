@@ -1,185 +1,309 @@
 <?xml version='1.0' encoding='utf-8'?>
 <model>
-    <btnodes>
-        <btnode name="control_received_">
-            <transition input="'btnode'_T=1 &amp; side-AwaitingControl=1" output="'btnode'_S=1" inferred="False" priority="1" />
-            <transition input="'btnode'_T=1 &amp; not(side-AwaitingControl)" output="'btnode'_F=1" inferred="False" priority="1" />
-        </btnode>
-        <btnode name="control_get_">
-            <transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-GetControl=1" inferred="False" priority="1" />
-        </btnode>
-        <btnode name="control_got_">
-            <transition input="'btnode'_T=1 &amp; side-Ready=1" output="'btnode'_S=1" inferred="False" priority="1" />
-            <transition input="'btnode'_T=1 &amp; not(side-Ready)" output="'btnode'_F=1" inferred="False" priority="1" />
-        </btnode>
-        <btnode name="object_pick_">
-            <transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-ObjectPick=1" inferred="False" priority="1" />
-        </btnode>    
-        <btnode name="object_picked_">
-            <transition input="'btnode'_T=1 &amp; side-ObjectPicked=1" output="'btnode'_S=1" inferred="False" priority="1" />
-            <transition input="'btnode'_T=1 &amp; not(side-ObjectPicked)" output="'btnode'_F=1" inferred="False" priority="1" />
-        </btnode>
-        <btnode name="object_place_">
-            <transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-ObjectPlace=1" inferred="False" priority="1" />
-        </btnode>
-        <btnode name="object_placed_">
-            <transition input="'btnode'_T=1 &amp; side-ObjectPlaced=1" output="'btnode'_S=1" inferred="False" priority="1" />
-            <transition input="'btnode'_T=1 &amp; not(side-ObjectPlaced)" output="'btnode'_F=1" inferred="False" priority="1" />
-        </btnode>
-        <btnode name="control_done_">
-            <transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-Done=1" inferred="False" priority="1" />
-        </btnode>
-    </btnodes>
-    <constants>
-        <side value="R" />
-    </constants>
-    <variables>
-        <R-AwaitingControl value="0" />
-    </variables>
-    <places_params>
-        <place id="L-AwaitingControl">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>LeftController</node>
-                <subnet>LC1</subnet>
-            </toolspecific>
-            <name>
-                <text>L-AwaitingControl</text>
-            </name>
-        </place>
-        <place id="L-GetControl">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>LeftController</node>
-                <subnet>LC1</subnet>
-            </toolspecific>
-            <name>
-                <text>L-GetControl</text>
-            </name>
-        </place>
-        <place id="L-Ready">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>LeftController</node>
-                <subnet>LC1</subnet>
-            </toolspecific>
-            <name>
-                <text>L-Ready</text>
-            </name>
-        </place>
-        <place id="L-ObjectPick">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>LeftController</node>
-                <subnet>LC1</subnet>
-            </toolspecific>
-            <name>
-                <text>L-ObjectPick</text>
-            </name>
-        </place>
-        <place id="L-ObjectPicked">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>LeftController</node>
-                <subnet>LC1</subnet>
-            </toolspecific>
-            <name>
-                <text>L-ObjectPicked</text>
-            </name>
-        </place>
-        <place id="L-ObjectPlace">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>LeftController</node>
-                <subnet>LC1</subnet>
-            </toolspecific>
-            <name>
-                <text>L-ObjectPlace</text>
-            </name>
-        </place>
-        <place id="L-ObjectPlaced">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>LeftController</node>
-                <subnet>LC1</subnet>
-            </toolspecific>
-            <name>
-                <text>L-ObjectPlaced</text>
-            </name>
-        </place>
-        <place id="L-Done">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>LeftController</node>
-                <subnet>LC1</subnet>
-            </toolspecific>
-            <name>
-                <text>L-Done</text>
-            </name>
-        </place>                
-        <place id="R-AwaitingControl">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>RightController</node>
-                <subnet>RC1</subnet>
-            </toolspecific>
-            <name>
-                <text>R-AwaitingControl</text>
-            </name>
-        </place>
-        <place id="R-GetControl">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>RightController</node>
-                <subnet>RC1</subnet>
-            </toolspecific>
-            <name>
-                <text>R-GetControl</text>
-            </name>
-        </place>
-        <place id="R-Ready">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>RightController</node>
-                <subnet>RC1</subnet>
-            </toolspecific>
-            <name>
-                <text>R-Ready</text>
-            </name>
-        </place>
-        <place id="R-ObjectPick">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>RightController</node>
-                <subnet>RC1</subnet>
-            </toolspecific>
-            <name>
-                <text>R-ObjectPick</text>
-            </name>
-        </place>
-        <place id="R-ObjectPicked">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>RightController</node>
-                <subnet>RC1</subnet>
-            </toolspecific>
-            <name>
-                <text>R-ObjectPicked</text>
-            </name>
-        </place>
-        <place id="R-ObjectPlace">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>RightController</node>
-                <subnet>RC1</subnet>
-            </toolspecific>
-            <name>
-                <text>R-ObjectPlace</text>
-            </name>
-        </place>
-        <place id="R-ObjectPlaced">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>RightController</node>
-                <subnet>RC1</subnet>
-            </toolspecific>
-            <name>
-                <text>R-ObjectPlaced</text>
-            </name>
-        </place>
-        <place id="R-Done">
-            <toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
-                <node>RightController</node>
-                <subnet>RC1</subnet>
-            </toolspecific>
-            <name>
-                <text>R-Done</text>
-            </name>
-        </place>
-    </places_params>
+	<btnodes>
+		<btnode name="control_received_">
+			<transition input="'btnode'_T=1 &amp; side-AwaitingControl=1" output="'btnode'_S=1" inferred="False" priority="1" />
+			<transition input="'btnode'_T=1 &amp; not(side-AwaitingControl)" output="'btnode'_F=1" inferred="False" priority="1" />
+		</btnode>
+		<btnode name="control_get_">
+			<transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-GetControl=1" inferred="False" priority="1" />
+		</btnode>
+		<btnode name="control_got_">
+			<transition input="'btnode'_T=1 &amp; side-Ready=1" output="'btnode'_S=1" inferred="False" priority="1" />
+			<transition input="'btnode'_T=1 &amp; not(side-Ready)" output="'btnode'_F=1" inferred="False" priority="1" />
+		</btnode>
+		<btnode name="object_pick_">
+			<transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-ObjectPick=1" inferred="False" priority="1" />
+		</btnode>
+		<btnode name="object_picked_">
+			<transition input="'btnode'_T=1 &amp; side-ObjectPicked=1" output="'btnode'_S=1" inferred="False" priority="1" />
+			<transition input="'btnode'_T=1 &amp; not(side-ObjectPicked)" output="'btnode'_F=1" inferred="False" priority="1" />
+		</btnode>
+		<btnode name="object_place_">
+			<transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-ObjectPlace=1" inferred="False" priority="1" />
+		</btnode>
+		<btnode name="object_placed_">
+			<transition input="'btnode'_T=1 &amp; side-ObjectPlaced=1" output="'btnode'_S=1" inferred="False" priority="1" />
+			<transition input="'btnode'_T=1 &amp; not(side-ObjectPlaced)" output="'btnode'_F=1" inferred="False" priority="1" />
+		</btnode>
+		<btnode name="control_done_">
+			<transition input="'btnode'_T=1" output="'btnode'_S=1 &amp; side-Done=1" inferred="False" priority="1" />
+		</btnode>
+	</btnodes>
+	<constants>
+		<side value="R" />
+	</constants>
+	<variables>
+		<R-AwaitingControl value="0" />
+	</variables>
+	<elements_additive>
+		<places>
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>RightController</node>
+				<subnet>RC1</subnet>
+				<balloonMarking>
+					<tokens>
+						<token>
+							{"color" : "red", "name" : "red1", "pickSuccess" : "false", "placeSuccess" : "false",
+							"humanDetected" : "false", "sensorData" : "", "trace" : "", "locked" : "false" }
+						</token>
+					</tokens>
+				</balloonMarking>
+			</toolspecific>
+		</places>
+		<transitions>
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>RightController</node>
+				<subnet>RC1</subnet>
+				<type>
+					discreteTransitionType
+				</type>
+				<inputsignalclause>
+					(Green)
+				</inputsignalclause>
+			</toolspecific>
+		</transitions>
+	</elements_additive>
+	<places_params>
+		<place id="L-AwaitingControl">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					LeftController
+				</node>
+				<subnet>
+					LC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					L-AwaitingControl
+				</text>
+			</name>
+		</place>
+		<place id="L-GetControl">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					LeftController
+				</node>
+				<subnet>
+					LC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					L-GetControl
+				</text>
+			</name>
+		</place>
+		<place id="L-Ready">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					LeftController
+				</node>
+				<subnet>
+					LC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					L-Ready
+				</text>
+			</name>
+		</place>
+		<place id="L-ObjectPick">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					LeftController
+				</node>
+				<subnet>
+					LC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					L-ObjectPick
+				</text>
+			</name>
+		</place>
+		<place id="L-ObjectPicked">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					LeftController
+				</node>
+				<subnet>
+					LC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					L-ObjectPicked
+				</text>
+			</name>
+		</place>
+		<place id="L-ObjectPlace">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					LeftController
+				</node>
+				<subnet>
+					LC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					L-ObjectPlace
+				</text>
+			</name>
+		</place>
+		<place id="L-ObjectPlaced">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					LeftController
+				</node>
+				<subnet>
+					LC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					L-ObjectPlaced
+				</text>
+			</name>
+		</place>
+		<place id="L-Done">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					LeftController
+				</node>
+				<subnet>
+					LC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					L-Done
+				</text>
+			</name>
+		</place>
+		<place id="R-AwaitingControl">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					RightController
+				</node>
+				<subnet>
+					RC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					R-AwaitingControl
+				</text>
+			</name>
+		</place>
+		<place id="R-GetControl">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					RightController
+				</node>
+				<subnet>
+					RC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					R-GetControl
+				</text>
+			</name>
+		</place>
+		<place id="R-Ready">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					RightController
+				</node>
+				<subnet>
+					RC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					R-Ready
+				</text>
+			</name>
+		</place>
+		<place id="R-ObjectPick">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					RightController
+				</node>
+				<subnet>
+					RC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					R-ObjectPick
+				</text>
+			</name>
+		</place>
+		<place id="R-ObjectPicked">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					RightController
+				</node>
+				<subnet>
+					RC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					R-ObjectPicked
+				</text>
+			</name>
+		</place>
+		<place id="R-ObjectPlace">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					RightController
+				</node>
+				<subnet>
+					RC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					R-ObjectPlace
+				</text>
+			</name>
+		</place>
+		<place id="R-ObjectPlaced">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					RightController
+				</node>
+				<subnet>
+					RC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					R-ObjectPlaced
+				</text>
+			</name>
+		</place>
+		<place id="R-Done">
+			<toolspecific tool="de.tudresden.inf.st.pnml.distributedPN" version="0.1">
+				<node>
+					RightController
+				</node>
+				<subnet>
+					RC1
+				</subnet>
+			</toolspecific>
+			<name>
+				<text>
+					R-Done
+				</text>
+			</name>
+		</place>
+	</places_params>
 </model>

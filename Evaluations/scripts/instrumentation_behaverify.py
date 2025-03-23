@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from instrumentation import Instrumentation
+from collections import defaultdict
 
 DOCKERFILE = "Dockerfile"
 DOCKER_TAG = "behaverify"
@@ -17,6 +18,50 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 plt.style.use("bmh")
 
+
+import re
+from collections import defaultdict
+
+import re
+from collections import defaultdict
+
+def extract_multiple_specifications(text):
+    """
+    Extracts specifications and user times grouped by 'optimized' and 'unoptimized'.
+    
+    Parameters:
+        text (str): The input log text.
+    
+    Returns:
+        dict: A dictionary where keys are 'optimized' and 'unoptimized' and values contain 'specification' and 'user_time'.
+    """
+    results = {"optimized": {"specification": None, "user_time": None},
+               "unoptimized": {"specification": None, "user_time": None}}
+    current_category = None  # Track category (optimized/unoptimized)
+
+    # Split text into lines
+    lines = text.splitlines()
+    for line in lines:
+        # Match the filename after ">>>> tail"
+        file_match = re.match(r">>>> tail\s+(\S+)", line)
+        if file_match:
+            # Determine the category based on filename
+            if "full_opt" in line:  # Optimized cases
+                current_category = "optimized"
+            else:  # Unoptimized cases
+                current_category = "unoptimized"
+
+        # Match the specification
+        spec_match = re.search(r'-- specification\s+.*?\s+is\s+(true|false)', line)
+        if spec_match and current_category:
+            results[current_category]["specification"] = spec_match.group(1)
+
+        # Match the user time
+        user_time_match = re.search(r'User time\s+([\d.]+)\s+seconds', line)
+        if user_time_match and current_category:
+            results[current_category]["user_time"] = float(user_time_match.group(1))
+
+    return results
 
 class BehaverifyInstrumentation(Instrumentation):
     def __init__(self, metrics: List[str]):
@@ -36,8 +81,7 @@ class BehaverifyInstrumentation(Instrumentation):
         size = parameters["size"]
         seed = parameters["seed"]
         res = self.eval_with_size(size, seed)
-        for metric in self.metrics:
-            assert metric in res, f"{metric} must be in the results {res}"
+
         return res
 
     def build_image(self):
@@ -177,6 +221,13 @@ class BehaverifyInstrumentation(Instrumentation):
                 f"ls {results_folder}",
                 # "echo '>>>> tail LTL_full_opt_CHANGED_simple_robot'",
                 # f"tail -n 1 {results_folder}/LTL_full_opt_CHANGED_simple_robot_{size}.txt",
+                "echo '>>>> tail LTL_no_opt_simple_robot'",
+                f"tail -n 1 {results_folder}/LTL_no_opt_simple_robot_{size}.txt",
+                # "echo '>>>> tail SILENT_LTL_full_opt_CHANGED_simple_robot'",
+                # f"tail -n 27 {results_folder}/SILENT_LTL_full_opt_CHANGED_simple_robot_{size}.txt",
+                "echo '>>>> tail SILENT_LTL_no_opt_simple_robot'",
+                f"tail -n 27 {results_folder}/SILENT_LTL_no_opt_simple_robot_{size}.txt",
+                "echo ' '",
                 "echo '>>>> tail LTL_full_opt_simple_robot'",
                 f"tail -n 1 {results_folder}/LTL_full_opt_simple_robot_{size}.txt",
                 # "echo '>>>> tail SILENT_LTL_full_opt_CHANGED_simple_robot'",
@@ -186,21 +237,9 @@ class BehaverifyInstrumentation(Instrumentation):
             ]
         )
         print(output)
-        results = {}
-        # print(output)
-        for metric in self.metrics:
-            if metric == "runtime_verification":
-                behaverify_fname = "SILENT_LTL_full_opt_simple_robot"
-                output = self.exec(
-                    [f"cat {results_folder}/{behaverify_fname}_{size}.txt"]
-                )
-                # print(output)
-                # find "User time    0.045 seconds" and extract the number
-                matches = re.findall(r"User time\s+([0-9.]+) seconds", output)
-                assert len(matches) == 1, f"Expected 1 match, got {matches}"
-                results[metric] = float(matches[0])
-            if metric == "runtime_conversion":
-                results[metric] = 0.0
+        results={}
+        results = extract_multiple_specifications(output)
+    
         return results
 
 def extract_data(size=10,seed=0):
@@ -226,7 +265,7 @@ def extract_data(size=10,seed=0):
             ".."
         )
     
-    destination_path = os.path.abspath(repo_folder)+f"/results/results_{args.size}/"
+    destination_path = os.path.abspath(repo_folder)+f"/results/behaverify_comparison/behaverify_results/results_{size}/"
     os.makedirs(destination_path,exist_ok=True)
     # Construct the `docker cp` command
     command = f"docker cp {runner.container.short_id}:{result_path} {destination_path}"
@@ -237,7 +276,7 @@ def extract_data(size=10,seed=0):
     os.system(command)
 
     # Run the command on the host using os.system() or subprocess.run()
-    os.system(command)  # Alternative: subprocess.run(command, shell=True)
+    # os.system(command)  # Alternative: subprocess.run(command, shell=True)
     command=f"rm {destination_path}results/*_first_* {destination_path}results/*_last_* \
                  {destination_path}smv/first_* {destination_path}smv/last_*  "
     os.system(command)

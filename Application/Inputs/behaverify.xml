@@ -17,6 +17,7 @@
                 <BtCondition name="y_too_big" haltable="False" prob="1,1,0" path="behaverify_nodes.xml"/>
                 <BtAction name="move_y_down" haltable="False" prob="1,0,0" path="behaverify_nodes.xml"/>
             </ReactiveSequence> 
+            <BtAction name="reset" haltable="False" prob="1,0,0" path="behaverify_nodes.xml"/>
         </ReactiveFallback>
     </BehaviorTree>
 </root>

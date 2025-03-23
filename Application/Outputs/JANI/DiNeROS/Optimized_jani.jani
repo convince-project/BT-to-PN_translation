@@ -8,21 +8,21 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R_A <- R_A - 1",
-                                    "ref": "R_A",
+                                    "comment": "RR_A <- RR_A - 1",
+                                    "ref": "RR_A",
                                     "value": {
-                                        "left": "R_A",
+                                        "left": "RR_A",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R_T <- R_T + 1",
-                                    "ref": "R_T",
+                                    "comment": "RR_T <- RR_T + 1",
+                                    "ref": "RR_T",
                                     "value": {
-                                        "left": "R_T",
+                                        "left": "RR_T",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -31,7 +31,7 @@
                     ],
                     "guard": {
                         "exp": {
-                            "left": "R_A",
+                            "left": "RR_A",
                             "op": "≥",
                             "right": 1
                         }
@@ -46,12 +46,50 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R_T <- R_T - 1",
-                                    "ref": "R_T",
+                                    "comment": "RR_T <- RR_T - 1",
+                                    "ref": "RR_T",
                                     "value": {
-                                        "left": "R_T",
+                                        "left": "RR_T",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR00_T <- RR00_T + 1",
+                                    "ref": "RR00_T",
+                                    "value": {
+                                        "left": "RR00_T",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR_T",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR00_T <- RR00_T - 1",
+                                    "ref": "RR00_T",
+                                    "value": {
+                                        "left": "RR00_T",
+                                        "op": "-",
+                                        "right": 1
                                     }
                                 },
                                 {
@@ -60,16 +98,16 @@
                                     "value": {
                                         "left": "R-AwaitingControl",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R00_S <- R00_S + 1",
-                                    "ref": "R00_S",
+                                    "comment": "RR00_S <- RR00_S + 1",
+                                    "ref": "RR00_S",
                                     "value": {
-                                        "left": "R00_S",
+                                        "left": "RR00_S",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -79,7 +117,7 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R_T",
+                                "left": "RR00_T",
                                 "op": "≥",
                                 "right": 1
                             },
@@ -101,21 +139,21 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R00_S <- R00_S - 1",
-                                    "ref": "R00_S",
+                                    "comment": "RR00_T <- RR00_T - 1",
+                                    "ref": "RR00_T",
                                     "value": {
-                                        "left": "R00_S",
+                                        "left": "RR00_T",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R01_T <- R01_T + 1",
-                                    "ref": "R01_T",
+                                    "comment": "RR00_F <- RR00_F + 1",
+                                    "ref": "RR00_F",
                                     "value": {
-                                        "left": "R01_T",
+                                        "left": "RR00_F",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -124,7 +162,53 @@
                     ],
                     "guard": {
                         "exp": {
-                            "left": "R00_S",
+                            "left": {
+                                "left": "RR00_T",
+                                "op": "≥",
+                                "right": 1
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "R-AwaitingControl",
+                                "op": "<",
+                                "right": 1
+                            }
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR_S <- RR_S - 1",
+                                    "ref": "RR_S",
+                                    "value": {
+                                        "left": "RR_S",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR_T <- RR_T + 1",
+                                    "ref": "RR_T",
+                                    "value": {
+                                        "left": "RR_T",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR_S",
                             "op": "≥",
                             "right": 1
                         }
@@ -139,21 +223,135 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R01_T <- R01_T - 1",
-                                    "ref": "R01_T",
+                                    "comment": "RR_F <- RR_F - 1",
+                                    "ref": "RR_F",
                                     "value": {
-                                        "left": "R01_T",
+                                        "left": "RR_F",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R10_H <- R10_H + 1",
-                                    "ref": "R10_H",
+                                    "comment": "RR_T <- RR_T + 1",
+                                    "ref": "RR_T",
                                     "value": {
-                                        "left": "R10_H",
+                                        "left": "RR_T",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR_F",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR_R <- RR_R - 1",
+                                    "ref": "RR_R",
+                                    "value": {
+                                        "left": "RR_R",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR_T <- RR_T + 1",
+                                    "ref": "RR_T",
+                                    "value": {
+                                        "left": "RR_T",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR_R",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR00_S <- RR00_S - 1",
+                                    "ref": "RR00_S",
+                                    "value": {
+                                        "left": "RR00_S",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR01_T <- RR01_T + 1",
+                                    "ref": "RR01_T",
+                                    "value": {
+                                        "left": "RR01_T",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR00_S",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR01_T <- RR01_T - 1",
+                                    "ref": "RR01_T",
+                                    "value": {
+                                        "left": "RR01_T",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR01_S <- RR01_S + 1",
+                                    "ref": "RR01_S",
+                                    "value": {
+                                        "left": "RR01_S",
+                                        "op": "+",
+                                        "right": 1
                                     }
                                 },
                                 {
@@ -162,7 +360,7 @@
                                     "value": {
                                         "left": "R-GetControl",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -171,7 +369,7 @@
                     ],
                     "guard": {
                         "exp": {
-                            "left": "R01_T",
+                            "left": "RR01_T",
                             "op": "≥",
                             "right": 1
                         }
@@ -186,21 +384,30 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R10_H <- R10_H - 1",
-                                    "ref": "R10_H",
+                                    "comment": "RR00_F <- RR00_F - 1",
+                                    "ref": "RR00_F",
                                     "value": {
-                                        "left": "R10_H",
+                                        "left": "RR00_F",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R10_A <- R10_A + 1",
-                                    "ref": "R10_A",
+                                    "comment": "RR0_Temp_F <- RR0_Temp_F + 1",
+                                    "ref": "RR0_Temp_F",
                                     "value": {
-                                        "left": "R10_A",
+                                        "left": "RR0_Temp_F",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR01_H <- RR01_H + 1",
+                                    "ref": "RR01_H",
+                                    "value": {
+                                        "left": "RR01_H",
+                                        "op": "+",
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -209,7 +416,7 @@
                     ],
                     "guard": {
                         "exp": {
-                            "left": "R10_H",
+                            "left": "RR00_F",
                             "op": "≥",
                             "right": 1
                         }
@@ -224,21 +431,21 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R10_A <- R10_A - 1",
-                                    "ref": "R10_A",
+                                    "comment": "RR01_H <- RR01_H - 1",
+                                    "ref": "RR01_H",
                                     "value": {
-                                        "left": "R10_A",
+                                        "left": "RR01_H",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R11_H <- R11_H + 1",
-                                    "ref": "R11_H",
+                                    "comment": "RR01_A <- RR01_A + 1",
+                                    "ref": "RR01_A",
                                     "value": {
-                                        "left": "R11_H",
+                                        "left": "RR01_A",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -247,7 +454,7 @@
                     ],
                     "guard": {
                         "exp": {
-                            "left": "R10_A",
+                            "left": "RR01_H",
                             "op": "≥",
                             "right": 1
                         }
@@ -262,410 +469,21 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R11_H <- R11_H - 1",
-                                    "ref": "R11_H",
+                                    "comment": "RR01_A <- RR01_A - 1",
+                                    "ref": "RR01_A",
                                     "value": {
-                                        "left": "R11_H",
+                                        "left": "RR01_A",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R11_A <- R11_A + 1",
-                                    "ref": "R11_A",
+                                    "comment": "RR10_H <- RR10_H + 1",
+                                    "ref": "RR10_H",
                                     "value": {
-                                        "left": "R11_A",
+                                        "left": "RR10_H",
                                         "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R11_H",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R11_A <- R11_A - 1",
-                                    "ref": "R11_A",
-                                    "value": {
-                                        "left": "R11_A",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R20_H <- R20_H + 1",
-                                    "ref": "R20_H",
-                                    "value": {
-                                        "left": "R20_H",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R11_A",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R20_H <- R20_H - 1",
-                                    "ref": "R20_H",
-                                    "value": {
-                                        "left": "R20_H",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R20_A <- R20_A + 1",
-                                    "ref": "R20_A",
-                                    "value": {
-                                        "left": "R20_A",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R20_H",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R20_A <- R20_A - 1",
-                                    "ref": "R20_A",
-                                    "value": {
-                                        "left": "R20_A",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R21_H <- R21_H + 1",
-                                    "ref": "R21_H",
-                                    "value": {
-                                        "left": "R21_H",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R20_A",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R21_H <- R21_H - 1",
-                                    "ref": "R21_H",
-                                    "value": {
-                                        "left": "R21_H",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R21_A <- R21_A + 1",
-                                    "ref": "R21_A",
-                                    "value": {
-                                        "left": "R21_A",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R21_H",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R21_A <- R21_A - 1",
-                                    "ref": "R21_A",
-                                    "value": {
-                                        "left": "R21_A",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R30_H <- R30_H + 1",
-                                    "ref": "R30_H",
-                                    "value": {
-                                        "left": "R30_H",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R21_A",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R30_H <- R30_H - 1",
-                                    "ref": "R30_H",
-                                    "value": {
-                                        "left": "R30_H",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R30_A <- R30_A + 1",
-                                    "ref": "R30_A",
-                                    "value": {
-                                        "left": "R30_A",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R30_H",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R30_A <- R30_A - 1",
-                                    "ref": "R30_A",
-                                    "value": {
-                                        "left": "R30_A",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R31_H <- R31_H + 1",
-                                    "ref": "R31_H",
-                                    "value": {
-                                        "left": "R31_H",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R30_A",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R31_H <- R31_H - 1",
-                                    "ref": "R31_H",
-                                    "value": {
-                                        "left": "R31_H",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R31_A <- R31_A + 1",
-                                    "ref": "R31_A",
-                                    "value": {
-                                        "left": "R31_A",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R31_H",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R31_A <- R31_A - 1",
-                                    "ref": "R31_A",
-                                    "value": {
-                                        "left": "R31_A",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R_A <- R_A + 1",
-                                    "ref": "R_A",
-                                    "value": {
-                                        "left": "R_A",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R31_A",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R_Temp_S <- R_Temp_S - 1",
-                                    "ref": "R_Temp_S",
-                                    "value": {
-                                        "left": "R_Temp_S",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R31_A <- R31_A - 1",
-                                    "ref": "R31_A",
-                                    "value": {
-                                        "left": "R31_A",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R_S <- R_S + 1",
-                                    "ref": "R_S",
-                                    "value": {
-                                        "left": "R_S",
-                                        "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -675,13 +493,580 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R_Temp_S",
+                                "left": "RR01_A",
                                 "op": "≥",
                                 "right": 1
                             },
                             "op": "∧",
                             "right": {
-                                "left": "R31_A",
+                                "left": {
+                                    "left": "RR0_Temp_F",
+                                    "op": "<",
+                                    "right": 1
+                                },
+                                "op": "∧",
+                                "right": {
+                                    "left": "RR0_Temp_R",
+                                    "op": "<",
+                                    "right": 1
+                                }
+                            }
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR10_H <- RR10_H - 1",
+                                    "ref": "RR10_H",
+                                    "value": {
+                                        "left": "RR10_H",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR10_A <- RR10_A + 1",
+                                    "ref": "RR10_A",
+                                    "value": {
+                                        "left": "RR10_A",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR10_H",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR10_A <- RR10_A - 1",
+                                    "ref": "RR10_A",
+                                    "value": {
+                                        "left": "RR10_A",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR11_H <- RR11_H + 1",
+                                    "ref": "RR11_H",
+                                    "value": {
+                                        "left": "RR11_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR10_A",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR11_H <- RR11_H - 1",
+                                    "ref": "RR11_H",
+                                    "value": {
+                                        "left": "RR11_H",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR11_A <- RR11_A + 1",
+                                    "ref": "RR11_A",
+                                    "value": {
+                                        "left": "RR11_A",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR11_H",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR11_A <- RR11_A - 1",
+                                    "ref": "RR11_A",
+                                    "value": {
+                                        "left": "RR11_A",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR20_H <- RR20_H + 1",
+                                    "ref": "RR20_H",
+                                    "value": {
+                                        "left": "RR20_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": {
+                                "left": "RR11_A",
+                                "op": "≥",
+                                "right": 1
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": {
+                                    "left": "RR1_Temp_F",
+                                    "op": "<",
+                                    "right": 1
+                                },
+                                "op": "∧",
+                                "right": {
+                                    "left": "RR1_Temp_R",
+                                    "op": "<",
+                                    "right": 1
+                                }
+                            }
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR20_H <- RR20_H - 1",
+                                    "ref": "RR20_H",
+                                    "value": {
+                                        "left": "RR20_H",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR20_A <- RR20_A + 1",
+                                    "ref": "RR20_A",
+                                    "value": {
+                                        "left": "RR20_A",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR20_H",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR20_A <- RR20_A - 1",
+                                    "ref": "RR20_A",
+                                    "value": {
+                                        "left": "RR20_A",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR21_H <- RR21_H + 1",
+                                    "ref": "RR21_H",
+                                    "value": {
+                                        "left": "RR21_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR20_A",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR21_H <- RR21_H - 1",
+                                    "ref": "RR21_H",
+                                    "value": {
+                                        "left": "RR21_H",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR21_A <- RR21_A + 1",
+                                    "ref": "RR21_A",
+                                    "value": {
+                                        "left": "RR21_A",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR21_H",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR21_A <- RR21_A - 1",
+                                    "ref": "RR21_A",
+                                    "value": {
+                                        "left": "RR21_A",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR30_H <- RR30_H + 1",
+                                    "ref": "RR30_H",
+                                    "value": {
+                                        "left": "RR30_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": {
+                                "left": "RR21_A",
+                                "op": "≥",
+                                "right": 1
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": {
+                                    "left": "RR2_Temp_F",
+                                    "op": "<",
+                                    "right": 1
+                                },
+                                "op": "∧",
+                                "right": {
+                                    "left": "RR2_Temp_R",
+                                    "op": "<",
+                                    "right": 1
+                                }
+                            }
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR30_H <- RR30_H - 1",
+                                    "ref": "RR30_H",
+                                    "value": {
+                                        "left": "RR30_H",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR30_A <- RR30_A + 1",
+                                    "ref": "RR30_A",
+                                    "value": {
+                                        "left": "RR30_A",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR30_H",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR30_A <- RR30_A - 1",
+                                    "ref": "RR30_A",
+                                    "value": {
+                                        "left": "RR30_A",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR31_H <- RR31_H + 1",
+                                    "ref": "RR31_H",
+                                    "value": {
+                                        "left": "RR31_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR30_A",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR31_H <- RR31_H - 1",
+                                    "ref": "RR31_H",
+                                    "value": {
+                                        "left": "RR31_H",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR31_A <- RR31_A + 1",
+                                    "ref": "RR31_A",
+                                    "value": {
+                                        "left": "RR31_A",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR31_H",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR31_A <- RR31_A - 1",
+                                    "ref": "RR31_A",
+                                    "value": {
+                                        "left": "RR31_A",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR_A <- RR_A + 1",
+                                    "ref": "RR_A",
+                                    "value": {
+                                        "left": "RR_A",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": {
+                                "left": "RR31_A",
+                                "op": "≥",
+                                "right": 1
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": {
+                                    "left": "RR_Temp_F",
+                                    "op": "<",
+                                    "right": 1
+                                },
+                                "op": "∧",
+                                "right": {
+                                    "left": "RR_Temp_R",
+                                    "op": "<",
+                                    "right": 1
+                                }
+                            }
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR_Temp_S <- RR_Temp_S - 1",
+                                    "ref": "RR_Temp_S",
+                                    "value": {
+                                        "left": "RR_Temp_S",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR31_A <- RR31_A - 1",
+                                    "ref": "RR31_A",
+                                    "value": {
+                                        "left": "RR31_A",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR_S <- RR_S + 1",
+                                    "ref": "RR_S",
+                                    "value": {
+                                        "left": "RR_S",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": {
+                                "left": "RR_Temp_S",
+                                "op": "≥",
+                                "right": 1
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "RR31_A",
                                 "op": "≥",
                                 "right": 1
                             }
@@ -697,30 +1082,30 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R_Temp_R <- R_Temp_R - 1",
-                                    "ref": "R_Temp_R",
+                                    "comment": "RR_Temp_R <- RR_Temp_R - 1",
+                                    "ref": "RR_Temp_R",
                                     "value": {
-                                        "left": "R_Temp_R",
+                                        "left": "RR_Temp_R",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R31_A <- R31_A - 1",
-                                    "ref": "R31_A",
+                                    "comment": "RR31_A <- RR31_A - 1",
+                                    "ref": "RR31_A",
                                     "value": {
-                                        "left": "R31_A",
+                                        "left": "RR31_A",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R_R <- R_R + 1",
-                                    "ref": "R_R",
+                                    "comment": "RR_R <- RR_R + 1",
+                                    "ref": "RR_R",
                                     "value": {
-                                        "left": "R_R",
+                                        "left": "RR_R",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -730,13 +1115,13 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R_Temp_R",
+                                "left": "RR_Temp_R",
                                 "op": "≥",
                                 "right": 1
                             },
                             "op": "∧",
                             "right": {
-                                "left": "R31_A",
+                                "left": "RR31_A",
                                 "op": "≥",
                                 "right": 1
                             }
@@ -752,30 +1137,30 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R3_Temp_F <- R3_Temp_F - 1",
-                                    "ref": "R3_Temp_F",
+                                    "comment": "RR3_Temp_F <- RR3_Temp_F - 1",
+                                    "ref": "RR3_Temp_F",
                                     "value": {
-                                        "left": "R3_Temp_F",
+                                        "left": "RR3_Temp_F",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R31_A <- R31_A - 1",
-                                    "ref": "R31_A",
+                                    "comment": "RR31_A <- RR31_A - 1",
+                                    "ref": "RR31_A",
                                     "value": {
-                                        "left": "R31_A",
+                                        "left": "RR31_A",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R_F <- R_F + 1",
-                                    "ref": "R_F",
+                                    "comment": "RR_F <- RR_F + 1",
+                                    "ref": "RR_F",
                                     "value": {
-                                        "left": "R_F",
+                                        "left": "RR_F",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -785,13 +1170,13 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R3_Temp_F",
+                                "left": "RR3_Temp_F",
                                 "op": "≥",
                                 "right": 1
                             },
                             "op": "∧",
                             "right": {
-                                "left": "R31_A",
+                                "left": "RR31_A",
                                 "op": "≥",
                                 "right": 1
                             }
@@ -807,30 +1192,30 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R3_Temp_R <- R3_Temp_R - 1",
-                                    "ref": "R3_Temp_R",
+                                    "comment": "RR3_Temp_R <- RR3_Temp_R - 1",
+                                    "ref": "RR3_Temp_R",
                                     "value": {
-                                        "left": "R3_Temp_R",
+                                        "left": "RR3_Temp_R",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R31_A <- R31_A - 1",
-                                    "ref": "R31_A",
+                                    "comment": "RR31_A <- RR31_A - 1",
+                                    "ref": "RR31_A",
                                     "value": {
-                                        "left": "R31_A",
+                                        "left": "RR31_A",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R_R <- R_R + 1",
-                                    "ref": "R_R",
+                                    "comment": "RR_R <- RR_R + 1",
+                                    "ref": "RR_R",
                                     "value": {
-                                        "left": "R_R",
+                                        "left": "RR_R",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -840,13 +1225,13 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R3_Temp_R",
+                                "left": "RR3_Temp_R",
                                 "op": "≥",
                                 "right": 1
                             },
                             "op": "∧",
                             "right": {
-                                "left": "R31_A",
+                                "left": "RR31_A",
                                 "op": "≥",
                                 "right": 1
                             }
@@ -862,12 +1247,67 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R21_A <- R21_A - 1",
-                                    "ref": "R21_A",
+                                    "comment": "RR2_Temp_F <- RR2_Temp_F - 1",
+                                    "ref": "RR2_Temp_F",
                                     "value": {
-                                        "left": "R21_A",
+                                        "left": "RR2_Temp_F",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR21_A <- RR21_A - 1",
+                                    "ref": "RR21_A",
+                                    "value": {
+                                        "left": "RR21_A",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR30_T <- RR30_T + 1",
+                                    "ref": "RR30_T",
+                                    "value": {
+                                        "left": "RR30_T",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": {
+                                "left": "RR2_Temp_F",
+                                "op": "≥",
+                                "right": 1
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "RR21_A",
+                                "op": "≥",
+                                "right": 1
+                            }
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 2
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR30_T <- RR30_T - 1",
+                                    "ref": "RR30_T",
+                                    "value": {
+                                        "left": "RR30_T",
+                                        "op": "-",
+                                        "right": 1
                                     }
                                 },
                                 {
@@ -876,16 +1316,16 @@
                                     "value": {
                                         "left": "R-ObjectPlaced",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R30_S <- R30_S + 1",
-                                    "ref": "R30_S",
+                                    "comment": "RR30_S <- RR30_S + 1",
+                                    "ref": "RR30_S",
                                     "value": {
-                                        "left": "R30_S",
+                                        "left": "RR30_S",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -895,7 +1335,7 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R21_A",
+                                "left": "RR30_T",
                                 "op": "≥",
                                 "right": 1
                             },
@@ -917,106 +1357,21 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R30_S <- R30_S - 1",
-                                    "ref": "R30_S",
+                                    "comment": "RR30_T <- RR30_T - 1",
+                                    "ref": "RR30_T",
                                     "value": {
-                                        "left": "R30_S",
+                                        "left": "RR30_T",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R31_T <- R31_T + 1",
-                                    "ref": "R31_T",
+                                    "comment": "RR30_F <- RR30_F + 1",
+                                    "ref": "RR30_F",
                                     "value": {
-                                        "left": "R31_T",
+                                        "left": "RR30_F",
                                         "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R30_S",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R31_T <- R31_T - 1",
-                                    "ref": "R31_T",
-                                    "value": {
-                                        "left": "R31_T",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R_S <- R_S + 1",
-                                    "ref": "R_S",
-                                    "value": {
-                                        "left": "R_S",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R-Done <- R-Done + 1",
-                                    "ref": "R-Done",
-                                    "value": {
-                                        "left": "R-Done",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R31_T",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R21_A <- R21_A - 1",
-                                    "ref": "R21_A",
-                                    "value": {
-                                        "left": "R21_A",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R30_F <- R30_F + 1",
-                                    "ref": "R30_F",
-                                    "value": {
-                                        "left": "R30_F",
-                                        "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -1026,7 +1381,7 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R21_A",
+                                "left": "RR30_T",
                                 "op": "≥",
                                 "right": 1
                             },
@@ -1048,86 +1403,39 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R30_F <- R30_F - 1",
-                                    "ref": "R30_F",
+                                    "comment": "RR2_Temp_R <- RR2_Temp_R - 1",
+                                    "ref": "RR2_Temp_R",
                                     "value": {
-                                        "left": "R30_F",
+                                        "left": "RR2_Temp_R",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R3_Temp_F <- R3_Temp_F + 1",
-                                    "ref": "R3_Temp_F",
+                                    "comment": "RR21_A <- RR21_A - 1",
+                                    "ref": "RR21_A",
                                     "value": {
-                                        "left": "R3_Temp_F",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R31_H <- R31_H + 1",
-                                    "ref": "R31_H",
-                                    "value": {
-                                        "left": "R31_H",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R30_F",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R2_Temp_R <- R2_Temp_R - 1",
-                                    "ref": "R2_Temp_R",
-                                    "value": {
-                                        "left": "R2_Temp_R",
+                                        "left": "RR21_A",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R21_A <- R21_A - 1",
-                                    "ref": "R21_A",
+                                    "comment": "RR_Temp_R <- RR_Temp_R + 1",
+                                    "ref": "RR_Temp_R",
                                     "value": {
-                                        "left": "R21_A",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R_Temp_R <- R_Temp_R + 1",
-                                    "ref": "R_Temp_R",
-                                    "value": {
-                                        "left": "R_Temp_R",
+                                        "left": "RR_Temp_R",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R30_H <- R30_H + 1",
-                                    "ref": "R30_H",
+                                    "comment": "RR30_H <- RR30_H + 1",
+                                    "ref": "RR30_H",
                                     "value": {
-                                        "left": "R30_H",
+                                        "left": "RR30_H",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -1137,13 +1445,13 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R2_Temp_R",
+                                "left": "RR2_Temp_R",
                                 "op": "≥",
                                 "right": 1
                             },
                             "op": "∧",
                             "right": {
-                                "left": "R21_A",
+                                "left": "RR21_A",
                                 "op": "≥",
                                 "right": 1
                             }
@@ -1159,12 +1467,67 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R11_A <- R11_A - 1",
-                                    "ref": "R11_A",
+                                    "comment": "RR1_Temp_F <- RR1_Temp_F - 1",
+                                    "ref": "RR1_Temp_F",
                                     "value": {
-                                        "left": "R11_A",
+                                        "left": "RR1_Temp_F",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR11_A <- RR11_A - 1",
+                                    "ref": "RR11_A",
+                                    "value": {
+                                        "left": "RR11_A",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR20_T <- RR20_T + 1",
+                                    "ref": "RR20_T",
+                                    "value": {
+                                        "left": "RR20_T",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": {
+                                "left": "RR1_Temp_F",
+                                "op": "≥",
+                                "right": 1
+                            },
+                            "op": "∧",
+                            "right": {
+                                "left": "RR11_A",
+                                "op": "≥",
+                                "right": 1
+                            }
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 2
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR20_T <- RR20_T - 1",
+                                    "ref": "RR20_T",
+                                    "value": {
+                                        "left": "RR20_T",
+                                        "op": "-",
+                                        "right": 1
                                     }
                                 },
                                 {
@@ -1173,16 +1536,16 @@
                                     "value": {
                                         "left": "R-ObjectPicked",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R20_S <- R20_S + 1",
-                                    "ref": "R20_S",
+                                    "comment": "RR20_S <- RR20_S + 1",
+                                    "ref": "RR20_S",
                                     "value": {
-                                        "left": "R20_S",
+                                        "left": "RR20_S",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -1192,7 +1555,7 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R11_A",
+                                "left": "RR20_T",
                                 "op": "≥",
                                 "right": 1
                             },
@@ -1214,106 +1577,21 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R20_S <- R20_S - 1",
-                                    "ref": "R20_S",
+                                    "comment": "RR20_T <- RR20_T - 1",
+                                    "ref": "RR20_T",
                                     "value": {
-                                        "left": "R20_S",
+                                        "left": "RR20_T",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R21_T <- R21_T + 1",
-                                    "ref": "R21_T",
+                                    "comment": "RR20_F <- RR20_F + 1",
+                                    "ref": "RR20_F",
                                     "value": {
-                                        "left": "R21_T",
+                                        "left": "RR20_F",
                                         "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R20_S",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R21_T <- R21_T - 1",
-                                    "ref": "R21_T",
-                                    "value": {
-                                        "left": "R21_T",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R30_H <- R30_H + 1",
-                                    "ref": "R30_H",
-                                    "value": {
-                                        "left": "R30_H",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R-ObjectPlace <- R-ObjectPlace + 1",
-                                    "ref": "R-ObjectPlace",
-                                    "value": {
-                                        "left": "R-ObjectPlace",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R21_T",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R11_A <- R11_A - 1",
-                                    "ref": "R11_A",
-                                    "value": {
-                                        "left": "R11_A",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R20_F <- R20_F + 1",
-                                    "ref": "R20_F",
-                                    "value": {
-                                        "left": "R20_F",
-                                        "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -1323,7 +1601,7 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R11_A",
+                                "left": "RR20_T",
                                 "op": "≥",
                                 "right": 1
                             },
@@ -1345,86 +1623,39 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R20_F <- R20_F - 1",
-                                    "ref": "R20_F",
+                                    "comment": "RR1_Temp_R <- RR1_Temp_R - 1",
+                                    "ref": "RR1_Temp_R",
                                     "value": {
-                                        "left": "R20_F",
+                                        "left": "RR1_Temp_R",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R2_Temp_F <- R2_Temp_F + 1",
-                                    "ref": "R2_Temp_F",
+                                    "comment": "RR11_A <- RR11_A - 1",
+                                    "ref": "RR11_A",
                                     "value": {
-                                        "left": "R2_Temp_F",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R21_H <- R21_H + 1",
-                                    "ref": "R21_H",
-                                    "value": {
-                                        "left": "R21_H",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R20_F",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R1_Temp_R <- R1_Temp_R - 1",
-                                    "ref": "R1_Temp_R",
-                                    "value": {
-                                        "left": "R1_Temp_R",
+                                        "left": "RR11_A",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R11_A <- R11_A - 1",
-                                    "ref": "R11_A",
+                                    "comment": "RR_Temp_R <- RR_Temp_R + 1",
+                                    "ref": "RR_Temp_R",
                                     "value": {
-                                        "left": "R11_A",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R_Temp_R <- R_Temp_R + 1",
-                                    "ref": "R_Temp_R",
-                                    "value": {
-                                        "left": "R_Temp_R",
+                                        "left": "RR_Temp_R",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R20_H <- R20_H + 1",
-                                    "ref": "R20_H",
+                                    "comment": "RR20_H <- RR20_H + 1",
+                                    "ref": "RR20_H",
                                     "value": {
-                                        "left": "R20_H",
+                                        "left": "RR20_H",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -1434,13 +1665,13 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R1_Temp_R",
+                                "left": "RR1_Temp_R",
                                 "op": "≥",
                                 "right": 1
                             },
                             "op": "∧",
                             "right": {
-                                "left": "R11_A",
+                                "left": "RR11_A",
                                 "op": "≥",
                                 "right": 1
                             }
@@ -1456,21 +1687,30 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R_T <- R_T - 1",
-                                    "ref": "R_T",
+                                    "comment": "RR0_Temp_F <- RR0_Temp_F - 1",
+                                    "ref": "RR0_Temp_F",
                                     "value": {
-                                        "left": "R_T",
+                                        "left": "RR0_Temp_F",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R00_F <- R00_F + 1",
-                                    "ref": "R00_F",
+                                    "comment": "RR01_A <- RR01_A - 1",
+                                    "ref": "RR01_A",
                                     "value": {
-                                        "left": "R00_F",
+                                        "left": "RR01_A",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR10_T <- RR10_T + 1",
+                                    "ref": "RR10_T",
+                                    "value": {
+                                        "left": "RR10_T",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -1480,21 +1720,21 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R_T",
+                                "left": "RR0_Temp_F",
                                 "op": "≥",
                                 "right": 1
                             },
                             "op": "∧",
                             "right": {
-                                "left": "R-AwaitingControl",
-                                "op": "<",
+                                "left": "RR01_A",
+                                "op": "≥",
                                 "right": 1
                             }
                         }
                     },
                     "location": "loc",
                     "priority": {
-                        "expression": 1
+                        "expression": 2
                     }
                 },
                 {
@@ -1502,135 +1742,12 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R00_F <- R00_F - 1",
-                                    "ref": "R00_F",
+                                    "comment": "RR10_T <- RR10_T - 1",
+                                    "ref": "RR10_T",
                                     "value": {
-                                        "left": "R00_F",
+                                        "left": "RR10_T",
                                         "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R0_Temp_F <- R0_Temp_F + 1",
-                                    "ref": "R0_Temp_F",
-                                    "value": {
-                                        "left": "R0_Temp_F",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R01_H <- R01_H + 1",
-                                    "ref": "R01_H",
-                                    "value": {
-                                        "left": "R01_H",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R00_F",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R01_H <- R01_H - 1",
-                                    "ref": "R01_H",
-                                    "value": {
-                                        "left": "R01_H",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R01_A <- R01_A + 1",
-                                    "ref": "R01_A",
-                                    "value": {
-                                        "left": "R01_A",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R01_H",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R01_A <- R01_A - 1",
-                                    "ref": "R01_A",
-                                    "value": {
-                                        "left": "R01_A",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R10_H <- R10_H + 1",
-                                    "ref": "R10_H",
-                                    "value": {
-                                        "left": "R10_H",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R01_A",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R01_A <- R01_A - 1",
-                                    "ref": "R01_A",
-                                    "value": {
-                                        "left": "R01_A",
-                                        "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
@@ -1639,16 +1756,16 @@
                                     "value": {
                                         "left": "R-Ready",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R10_S <- R10_S + 1",
-                                    "ref": "R10_S",
+                                    "comment": "RR10_S <- RR10_S + 1",
+                                    "ref": "RR10_S",
                                     "value": {
-                                        "left": "R10_S",
+                                        "left": "RR10_S",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -1658,7 +1775,7 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R01_A",
+                                "left": "RR10_T",
                                 "op": "≥",
                                 "right": 1
                             },
@@ -1680,106 +1797,21 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R10_S <- R10_S - 1",
-                                    "ref": "R10_S",
+                                    "comment": "RR10_T <- RR10_T - 1",
+                                    "ref": "RR10_T",
                                     "value": {
-                                        "left": "R10_S",
+                                        "left": "RR10_T",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R11_T <- R11_T + 1",
-                                    "ref": "R11_T",
+                                    "comment": "RR10_F <- RR10_F + 1",
+                                    "ref": "RR10_F",
                                     "value": {
-                                        "left": "R11_T",
+                                        "left": "RR10_F",
                                         "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R10_S",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R11_T <- R11_T - 1",
-                                    "ref": "R11_T",
-                                    "value": {
-                                        "left": "R11_T",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R20_H <- R20_H + 1",
-                                    "ref": "R20_H",
-                                    "value": {
-                                        "left": "R20_H",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R-ObjectPick <- R-ObjectPick + 1",
-                                    "ref": "R-ObjectPick",
-                                    "value": {
-                                        "left": "R-ObjectPick",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R11_T",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R01_A <- R01_A - 1",
-                                    "ref": "R01_A",
-                                    "value": {
-                                        "left": "R01_A",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R10_F <- R10_F + 1",
-                                    "ref": "R10_F",
-                                    "value": {
-                                        "left": "R10_F",
-                                        "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -1789,7 +1821,7 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R01_A",
+                                "left": "RR10_T",
                                 "op": "≥",
                                 "right": 1
                             },
@@ -1811,86 +1843,39 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R10_F <- R10_F - 1",
-                                    "ref": "R10_F",
+                                    "comment": "RR0_Temp_R <- RR0_Temp_R - 1",
+                                    "ref": "RR0_Temp_R",
                                     "value": {
-                                        "left": "R10_F",
+                                        "left": "RR0_Temp_R",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R1_Temp_F <- R1_Temp_F + 1",
-                                    "ref": "R1_Temp_F",
+                                    "comment": "RR01_A <- RR01_A - 1",
+                                    "ref": "RR01_A",
                                     "value": {
-                                        "left": "R1_Temp_F",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R11_H <- R11_H + 1",
-                                    "ref": "R11_H",
-                                    "value": {
-                                        "left": "R11_H",
-                                        "op": "+",
-                                        "right": "1"
-                                    }
-                                }
-                            ],
-                            "location": "loc"
-                        }
-                    ],
-                    "guard": {
-                        "exp": {
-                            "left": "R10_F",
-                            "op": "≥",
-                            "right": 1
-                        }
-                    },
-                    "location": "loc",
-                    "priority": {
-                        "expression": 1
-                    }
-                },
-                {
-                    "destinations": [
-                        {
-                            "assignments": [
-                                {
-                                    "comment": "R0_Temp_R <- R0_Temp_R - 1",
-                                    "ref": "R0_Temp_R",
-                                    "value": {
-                                        "left": "R0_Temp_R",
+                                        "left": "RR01_A",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R01_A <- R01_A - 1",
-                                    "ref": "R01_A",
+                                    "comment": "RR_Temp_R <- RR_Temp_R + 1",
+                                    "ref": "RR_Temp_R",
                                     "value": {
-                                        "left": "R01_A",
-                                        "op": "-",
-                                        "right": "1"
-                                    }
-                                },
-                                {
-                                    "comment": "R_Temp_R <- R_Temp_R + 1",
-                                    "ref": "R_Temp_R",
-                                    "value": {
-                                        "left": "R_Temp_R",
+                                        "left": "RR_Temp_R",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R10_H <- R10_H + 1",
-                                    "ref": "R10_H",
+                                    "comment": "RR10_H <- RR10_H + 1",
+                                    "ref": "RR10_H",
                                     "value": {
-                                        "left": "R10_H",
+                                        "left": "RR10_H",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -1900,13 +1885,13 @@
                     "guard": {
                         "exp": {
                             "left": {
-                                "left": "R0_Temp_R",
+                                "left": "RR0_Temp_R",
                                 "op": "≥",
                                 "right": 1
                             },
                             "op": "∧",
                             "right": {
-                                "left": "R01_A",
+                                "left": "RR01_A",
                                 "op": "≥",
                                 "right": 1
                             }
@@ -1922,21 +1907,30 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R_S <- R_S - 1",
-                                    "ref": "R_S",
+                                    "comment": "RR01_S <- RR01_S - 1",
+                                    "ref": "RR01_S",
                                     "value": {
-                                        "left": "R_S",
+                                        "left": "RR01_S",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R_T <- R_T + 1",
-                                    "ref": "R_T",
+                                    "comment": "RR_Temp_S <- RR_Temp_S + 1",
+                                    "ref": "RR_Temp_S",
                                     "value": {
-                                        "left": "R_T",
+                                        "left": "RR_Temp_S",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR10_H <- RR10_H + 1",
+                                    "ref": "RR10_H",
+                                    "value": {
+                                        "left": "RR10_H",
+                                        "op": "+",
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -1945,7 +1939,7 @@
                     ],
                     "guard": {
                         "exp": {
-                            "left": "R_S",
+                            "left": "RR01_S",
                             "op": "≥",
                             "right": 1
                         }
@@ -1960,21 +1954,30 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R_F <- R_F - 1",
-                                    "ref": "R_F",
+                                    "comment": "RR00_R <- RR00_R - 1",
+                                    "ref": "RR00_R",
                                     "value": {
-                                        "left": "R_F",
+                                        "left": "RR00_R",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R_T <- R_T + 1",
-                                    "ref": "R_T",
+                                    "comment": "RR0_Temp_R <- RR0_Temp_R + 1",
+                                    "ref": "RR0_Temp_R",
                                     "value": {
-                                        "left": "R_T",
+                                        "left": "RR0_Temp_R",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR01_H <- RR01_H + 1",
+                                    "ref": "RR01_H",
+                                    "value": {
+                                        "left": "RR01_H",
+                                        "op": "+",
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -1983,7 +1986,7 @@
                     ],
                     "guard": {
                         "exp": {
-                            "left": "R_F",
+                            "left": "RR00_R",
                             "op": "≥",
                             "right": 1
                         }
@@ -1998,21 +2001,30 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R_R <- R_R - 1",
-                                    "ref": "R_R",
+                                    "comment": "RR01_R <- RR01_R - 1",
+                                    "ref": "RR01_R",
                                     "value": {
-                                        "left": "R_R",
+                                        "left": "RR01_R",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R_T <- R_T + 1",
-                                    "ref": "R_T",
+                                    "comment": "RR_Temp_R <- RR_Temp_R + 1",
+                                    "ref": "RR_Temp_R",
                                     "value": {
-                                        "left": "R_T",
+                                        "left": "RR_Temp_R",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR10_H <- RR10_H + 1",
+                                    "ref": "RR10_H",
+                                    "value": {
+                                        "left": "RR10_H",
+                                        "op": "+",
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -2021,7 +2033,7 @@
                     ],
                     "guard": {
                         "exp": {
-                            "left": "R_R",
+                            "left": "RR01_R",
                             "op": "≥",
                             "right": 1
                         }
@@ -2036,21 +2048,21 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R_H <- R_H - 1",
-                                    "ref": "R_H",
+                                    "comment": "RR01_F <- RR01_F - 1",
+                                    "ref": "RR01_F",
                                     "value": {
-                                        "left": "R_H",
+                                        "left": "RR01_F",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R00_H <- R00_H + 1",
-                                    "ref": "R00_H",
+                                    "comment": "RR10_T <- RR10_T + 1",
+                                    "ref": "RR10_T",
                                     "value": {
-                                        "left": "R00_H",
+                                        "left": "RR10_T",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -2059,7 +2071,7 @@
                     ],
                     "guard": {
                         "exp": {
-                            "left": "R_H",
+                            "left": "RR01_F",
                             "op": "≥",
                             "right": 1
                         }
@@ -2074,21 +2086,21 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R00_H <- R00_H - 1",
-                                    "ref": "R00_H",
+                                    "comment": "RR10_S <- RR10_S - 1",
+                                    "ref": "RR10_S",
                                     "value": {
-                                        "left": "R00_H",
+                                        "left": "RR10_S",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R00_A <- R00_A + 1",
-                                    "ref": "R00_A",
+                                    "comment": "RR11_T <- RR11_T + 1",
+                                    "ref": "RR11_T",
                                     "value": {
-                                        "left": "R00_A",
+                                        "left": "RR11_T",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -2097,7 +2109,7 @@
                     ],
                     "guard": {
                         "exp": {
-                            "left": "R00_H",
+                            "left": "RR10_S",
                             "op": "≥",
                             "right": 1
                         }
@@ -2112,21 +2124,30 @@
                         {
                             "assignments": [
                                 {
-                                    "comment": "R00_A <- R00_A - 1",
-                                    "ref": "R00_A",
+                                    "comment": "RR11_T <- RR11_T - 1",
+                                    "ref": "RR11_T",
                                     "value": {
-                                        "left": "R00_A",
+                                        "left": "RR11_T",
                                         "op": "-",
-                                        "right": "1"
+                                        "right": 1
                                     }
                                 },
                                 {
-                                    "comment": "R01_H <- R01_H + 1",
-                                    "ref": "R01_H",
+                                    "comment": "RR11_S <- RR11_S + 1",
+                                    "ref": "RR11_S",
                                     "value": {
-                                        "left": "R01_H",
+                                        "left": "RR11_S",
                                         "op": "+",
-                                        "right": "1"
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "R-ObjectPick <- R-ObjectPick + 1",
+                                    "ref": "R-ObjectPick",
+                                    "value": {
+                                        "left": "R-ObjectPick",
+                                        "op": "+",
+                                        "right": 1
                                     }
                                 }
                             ],
@@ -2135,7 +2156,951 @@
                     ],
                     "guard": {
                         "exp": {
-                            "left": "R00_A",
+                            "left": "RR11_T",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR10_F <- RR10_F - 1",
+                                    "ref": "RR10_F",
+                                    "value": {
+                                        "left": "RR10_F",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR1_Temp_F <- RR1_Temp_F + 1",
+                                    "ref": "RR1_Temp_F",
+                                    "value": {
+                                        "left": "RR1_Temp_F",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR11_H <- RR11_H + 1",
+                                    "ref": "RR11_H",
+                                    "value": {
+                                        "left": "RR11_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR10_F",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR11_S <- RR11_S - 1",
+                                    "ref": "RR11_S",
+                                    "value": {
+                                        "left": "RR11_S",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR_Temp_S <- RR_Temp_S + 1",
+                                    "ref": "RR_Temp_S",
+                                    "value": {
+                                        "left": "RR_Temp_S",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR20_H <- RR20_H + 1",
+                                    "ref": "RR20_H",
+                                    "value": {
+                                        "left": "RR20_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR11_S",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR10_R <- RR10_R - 1",
+                                    "ref": "RR10_R",
+                                    "value": {
+                                        "left": "RR10_R",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR1_Temp_R <- RR1_Temp_R + 1",
+                                    "ref": "RR1_Temp_R",
+                                    "value": {
+                                        "left": "RR1_Temp_R",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR11_H <- RR11_H + 1",
+                                    "ref": "RR11_H",
+                                    "value": {
+                                        "left": "RR11_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR10_R",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR11_R <- RR11_R - 1",
+                                    "ref": "RR11_R",
+                                    "value": {
+                                        "left": "RR11_R",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR_Temp_R <- RR_Temp_R + 1",
+                                    "ref": "RR_Temp_R",
+                                    "value": {
+                                        "left": "RR_Temp_R",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR20_H <- RR20_H + 1",
+                                    "ref": "RR20_H",
+                                    "value": {
+                                        "left": "RR20_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR11_R",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR11_F <- RR11_F - 1",
+                                    "ref": "RR11_F",
+                                    "value": {
+                                        "left": "RR11_F",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR20_T <- RR20_T + 1",
+                                    "ref": "RR20_T",
+                                    "value": {
+                                        "left": "RR20_T",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR11_F",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR20_S <- RR20_S - 1",
+                                    "ref": "RR20_S",
+                                    "value": {
+                                        "left": "RR20_S",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR21_T <- RR21_T + 1",
+                                    "ref": "RR21_T",
+                                    "value": {
+                                        "left": "RR21_T",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR20_S",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR21_T <- RR21_T - 1",
+                                    "ref": "RR21_T",
+                                    "value": {
+                                        "left": "RR21_T",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR21_S <- RR21_S + 1",
+                                    "ref": "RR21_S",
+                                    "value": {
+                                        "left": "RR21_S",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "R-ObjectPlace <- R-ObjectPlace + 1",
+                                    "ref": "R-ObjectPlace",
+                                    "value": {
+                                        "left": "R-ObjectPlace",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR21_T",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR20_F <- RR20_F - 1",
+                                    "ref": "RR20_F",
+                                    "value": {
+                                        "left": "RR20_F",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR2_Temp_F <- RR2_Temp_F + 1",
+                                    "ref": "RR2_Temp_F",
+                                    "value": {
+                                        "left": "RR2_Temp_F",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR21_H <- RR21_H + 1",
+                                    "ref": "RR21_H",
+                                    "value": {
+                                        "left": "RR21_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR20_F",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR21_S <- RR21_S - 1",
+                                    "ref": "RR21_S",
+                                    "value": {
+                                        "left": "RR21_S",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR_Temp_S <- RR_Temp_S + 1",
+                                    "ref": "RR_Temp_S",
+                                    "value": {
+                                        "left": "RR_Temp_S",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR30_H <- RR30_H + 1",
+                                    "ref": "RR30_H",
+                                    "value": {
+                                        "left": "RR30_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR21_S",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR20_R <- RR20_R - 1",
+                                    "ref": "RR20_R",
+                                    "value": {
+                                        "left": "RR20_R",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR2_Temp_R <- RR2_Temp_R + 1",
+                                    "ref": "RR2_Temp_R",
+                                    "value": {
+                                        "left": "RR2_Temp_R",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR21_H <- RR21_H + 1",
+                                    "ref": "RR21_H",
+                                    "value": {
+                                        "left": "RR21_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR20_R",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR21_R <- RR21_R - 1",
+                                    "ref": "RR21_R",
+                                    "value": {
+                                        "left": "RR21_R",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR_Temp_R <- RR_Temp_R + 1",
+                                    "ref": "RR_Temp_R",
+                                    "value": {
+                                        "left": "RR_Temp_R",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR30_H <- RR30_H + 1",
+                                    "ref": "RR30_H",
+                                    "value": {
+                                        "left": "RR30_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR21_R",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR21_F <- RR21_F - 1",
+                                    "ref": "RR21_F",
+                                    "value": {
+                                        "left": "RR21_F",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR30_T <- RR30_T + 1",
+                                    "ref": "RR30_T",
+                                    "value": {
+                                        "left": "RR30_T",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR21_F",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR30_S <- RR30_S - 1",
+                                    "ref": "RR30_S",
+                                    "value": {
+                                        "left": "RR30_S",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR31_T <- RR31_T + 1",
+                                    "ref": "RR31_T",
+                                    "value": {
+                                        "left": "RR31_T",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR30_S",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR31_T <- RR31_T - 1",
+                                    "ref": "RR31_T",
+                                    "value": {
+                                        "left": "RR31_T",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR31_S <- RR31_S + 1",
+                                    "ref": "RR31_S",
+                                    "value": {
+                                        "left": "RR31_S",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "R-Done <- R-Done + 1",
+                                    "ref": "R-Done",
+                                    "value": {
+                                        "left": "R-Done",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR31_T",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR30_F <- RR30_F - 1",
+                                    "ref": "RR30_F",
+                                    "value": {
+                                        "left": "RR30_F",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR3_Temp_F <- RR3_Temp_F + 1",
+                                    "ref": "RR3_Temp_F",
+                                    "value": {
+                                        "left": "RR3_Temp_F",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR31_H <- RR31_H + 1",
+                                    "ref": "RR31_H",
+                                    "value": {
+                                        "left": "RR31_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR30_F",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR31_S <- RR31_S - 1",
+                                    "ref": "RR31_S",
+                                    "value": {
+                                        "left": "RR31_S",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR_S <- RR_S + 1",
+                                    "ref": "RR_S",
+                                    "value": {
+                                        "left": "RR_S",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR31_S",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR30_R <- RR30_R - 1",
+                                    "ref": "RR30_R",
+                                    "value": {
+                                        "left": "RR30_R",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR3_Temp_R <- RR3_Temp_R + 1",
+                                    "ref": "RR3_Temp_R",
+                                    "value": {
+                                        "left": "RR3_Temp_R",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR31_H <- RR31_H + 1",
+                                    "ref": "RR31_H",
+                                    "value": {
+                                        "left": "RR31_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR30_R",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR31_R <- RR31_R - 1",
+                                    "ref": "RR31_R",
+                                    "value": {
+                                        "left": "RR31_R",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR_R <- RR_R + 1",
+                                    "ref": "RR_R",
+                                    "value": {
+                                        "left": "RR_R",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR31_R",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR31_F <- RR31_F - 1",
+                                    "ref": "RR31_F",
+                                    "value": {
+                                        "left": "RR31_F",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR_F <- RR_F + 1",
+                                    "ref": "RR_F",
+                                    "value": {
+                                        "left": "RR_F",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR31_F",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR_H <- RR_H - 1",
+                                    "ref": "RR_H",
+                                    "value": {
+                                        "left": "RR_H",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR00_H <- RR00_H + 1",
+                                    "ref": "RR00_H",
+                                    "value": {
+                                        "left": "RR00_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR_H",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR00_H <- RR00_H - 1",
+                                    "ref": "RR00_H",
+                                    "value": {
+                                        "left": "RR00_H",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR00_A <- RR00_A + 1",
+                                    "ref": "RR00_A",
+                                    "value": {
+                                        "left": "RR00_A",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR00_H",
+                            "op": "≥",
+                            "right": 1
+                        }
+                    },
+                    "location": "loc",
+                    "priority": {
+                        "expression": 1
+                    }
+                },
+                {
+                    "destinations": [
+                        {
+                            "assignments": [
+                                {
+                                    "comment": "RR00_A <- RR00_A - 1",
+                                    "ref": "RR00_A",
+                                    "value": {
+                                        "left": "RR00_A",
+                                        "op": "-",
+                                        "right": 1
+                                    }
+                                },
+                                {
+                                    "comment": "RR01_H <- RR01_H + 1",
+                                    "ref": "RR01_H",
+                                    "value": {
+                                        "left": "RR01_H",
+                                        "op": "+",
+                                        "right": 1
+                                    }
+                                }
+                            ],
+                            "location": "loc"
+                        }
+                    ],
+                    "guard": {
+                        "exp": {
+                            "left": "RR00_A",
                             "op": "≥",
                             "right": 1
                         }
@@ -2179,32 +3144,57 @@
     "variables": [
         {
             "initial-value": 0,
-            "name": "R_A",
+            "name": "RR_A",
             "type": "int"
         },
         {
             "initial-value": 1,
-            "name": "R_T",
+            "name": "RR_T",
             "type": "int"
         },
         {
-            "initial-value": "0",
+            "initial-value": 0,
+            "name": "RR00_T",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
             "name": "R-AwaitingControl",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R00_S",
+            "name": "RR00_S",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R01_T",
+            "name": "RR00_F",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R10_H",
+            "name": "RR_S",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR01_T",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR01_S",
             "type": "int"
         },
         {
@@ -2214,92 +3204,132 @@
         },
         {
             "initial-value": 0,
-            "name": "R10_A",
+            "name": "RR0_Temp_F",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R11_H",
+            "name": "RR01_H",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R11_A",
+            "name": "RR01_A",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R20_H",
+            "name": "RR0_Temp_R",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R20_A",
+            "name": "RR10_H",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R21_H",
+            "name": "RR10_A",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R21_A",
+            "name": "RR11_H",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R30_H",
+            "name": "RR11_A",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R30_A",
+            "name": "RR1_Temp_F",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R31_H",
+            "name": "RR1_Temp_R",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R31_A",
+            "name": "RR20_H",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R_Temp_S",
+            "name": "RR20_A",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R_S",
+            "name": "RR21_H",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R_Temp_R",
+            "name": "RR21_A",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R_R",
+            "name": "RR2_Temp_F",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R3_Temp_F",
+            "name": "RR2_Temp_R",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R_F",
+            "name": "RR30_H",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R3_Temp_R",
+            "name": "RR30_A",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR31_H",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR31_A",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR_Temp_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR_Temp_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR_Temp_S",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR3_Temp_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR3_Temp_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR30_T",
             "type": "int"
         },
         {
@@ -2309,27 +3339,17 @@
         },
         {
             "initial-value": 0,
-            "name": "R30_S",
+            "name": "RR30_S",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R31_T",
+            "name": "RR30_F",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R-Done",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R30_F",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R2_Temp_R",
+            "name": "RR20_T",
             "type": "int"
         },
         {
@@ -2339,52 +3359,17 @@
         },
         {
             "initial-value": 0,
-            "name": "R20_S",
+            "name": "RR20_S",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R21_T",
+            "name": "RR20_F",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R-ObjectPlace",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R20_F",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R2_Temp_F",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R1_Temp_R",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R00_F",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R0_Temp_F",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R01_H",
-            "type": "int"
-        },
-        {
-            "initial-value": 0,
-            "name": "R01_A",
+            "name": "RR10_T",
             "type": "int"
         },
         {
@@ -2394,12 +3379,37 @@
         },
         {
             "initial-value": 0,
-            "name": "R10_S",
+            "name": "RR10_S",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R11_T",
+            "name": "RR10_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR00_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR01_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR01_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR11_T",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR11_S",
             "type": "int"
         },
         {
@@ -2409,32 +3419,92 @@
         },
         {
             "initial-value": 0,
-            "name": "R10_F",
+            "name": "RR10_R",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R1_Temp_F",
+            "name": "RR11_R",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R0_Temp_R",
+            "name": "RR11_F",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R_H",
+            "name": "RR21_T",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R00_H",
+            "name": "RR21_S",
             "type": "int"
         },
         {
             "initial-value": 0,
-            "name": "R00_A",
+            "name": "R-ObjectPlace",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR20_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR21_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR21_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR31_T",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR31_S",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "R-Done",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR30_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR31_R",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR31_F",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR_H",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR00_H",
+            "type": "int"
+        },
+        {
+            "initial-value": 0,
+            "name": "RR00_A",
             "type": "int"
         }
     ]

@@ -1,0 +1,22 @@
+<root BTCPP_format="4">
+    <BehaviorTree ID="one">
+        <ReactiveFallback>
+            <ReactiveSequence>
+                <BtCondition name="x_too_small" haltable="False" prob="1,1,0"/>
+                <BtAction name="move_x_up" haltable="False" prob="1,0,0"/>
+            </ReactiveSequence>
+            <ReactiveSequence>
+                <BtCondition name="x_too_big" haltable="False" prob="1,1,0"/>
+                <BtAction name="move_x_down" haltable="False" prob="1,0,0"/>
+            </ReactiveSequence> 
+            <ReactiveSequence>
+                <BtCondition name="y_too_small" haltable="False" prob="1,1,0"/>
+                <BtAction name="move_y_up" haltable="False" prob="1,0,0"/>
+            </ReactiveSequence> 
+            <ReactiveSequence>
+                <BtCondition name="y_too_big" haltable="False" prob="1,1,0"/>
+                <BtAction name="move_y_down" haltable="False" prob="1,0,0"/>
+            </ReactiveSequence> 
+        </ReactiveFallback>
+    </BehaviorTree>
+</root>

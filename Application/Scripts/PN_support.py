@@ -411,6 +411,18 @@ def repl_reset(match):
 
 
 def create_assignment(guard,result,priority,structure):
+
+
+    # Convert to dictionaries for easy lookup
+    dict1 = dict(re.findall(r'(\S+?)=(\S+)',guard))
+    dict2 = dict(re.findall(r'(\S+?)=(\S+)',result))
+
+    # Find common keys
+    common_keys = set(dict1.keys()) & set(dict2.keys())
+
+    # Extract matching tuples
+    matching_tuples = [(key, dict1[key]) for key in common_keys]
+
     temp=structure['automata'][0]['edges']
     edge_template={
                     "destinations": [],
@@ -464,14 +476,15 @@ def create_assignment(guard,result,priority,structure):
             guard_string+=array[p]+" "
     guard_string+=array[len(array)-1]+")"
     for i in range(len(guard_variables)):
-        assignment_template1=copy.copy(assignment_template)
-        assignment_template1["ref"]=guard_variables[i]
-        if op_variables[i]=="<":
-            continue
-        else:
-            assignment_template1["value"]={'left': guard_variables[i] ,'op': '-','right': assignment_variables[i]}
-            assignment_template1["comment"]=guard_variables[i]+" <- "+guard_variables[i]+" - "+assignment_variables[i]
-        destination_template["assignments"].append(assignment_template1)
+        if not guard_variables[i] in common_keys:
+            assignment_template1=copy.copy(assignment_template)
+            assignment_template1["ref"]=guard_variables[i]
+            if op_variables[i]=="<":
+                continue
+            else:
+                assignment_template1["value"]={'left': guard_variables[i] ,'op': '-','right': int(assignment_variables[i])}
+                assignment_template1["comment"]=guard_variables[i]+" <- "+guard_variables[i]+" - "+assignment_variables[i]
+            destination_template["assignments"].append(assignment_template1)
     edge_template['guard']["exp"]=construct_guard2(guard_string)
 
     # Construct the assignments
@@ -509,12 +522,14 @@ def create_assignment(guard,result,priority,structure):
             assignment_template1["value"]=0
             assignment_template1["comment"]=guard_variables[i]+" <- "+assignment_variables[i]
         else:
-            
+            if guard_variables[i] in common_keys:
+                assignment_variables[i]=str(-int(dict1[guard_variables[i]])+int(dict1[guard_variables[i]]))
             try:
-                right={'left': guard_variables[i] ,'op': '+','right': assignment_variables[i]}
+                right={'left': guard_variables[i] ,'op': '+','right': int(assignment_variables[i])}
             except:
                 
                 parts=assignment_variables[i].split("+")
+                
                 right={
                     "left":parts[0],
                     "op":"+",

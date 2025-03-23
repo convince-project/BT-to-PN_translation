@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<pnml>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
     <net id="Net-One" type="http://www.pnml.org/version-2009/grammar/ptnet">
-       <token id="Default" enabled="true" red="0" green="0" blue="0" />
-    <transition id="R_A=1--R_T=1">
+        <page id="top">
+       <transition id="R_A=1--R_T=1">
                 <graphics>
-                    <position x="522.18" y="1449.41" />
+                    <position x="789.43" y="1454.65" />
                 </graphics>
                 <name>
                     <value>R_A=1--R_T=1</value>
@@ -44,7 +44,7 @@
             </arc>
         <place id="R_A">
                 <graphics>
-                    <position x="119.79" y="1449.16" />
+                    <position x="458.32" y="1454.41" />
                 </graphics>
                 <name>
                     <value>R_A</value>
@@ -53,7 +53,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -78,7 +78,7 @@
             </arc>
         <place id="R_T">
                 <graphics>
-                    <position x="441.72" y="1450.79" />
+                    <position x="725.83" y="1456.00" />
                 </graphics>
                 <name>
                     <value>R_T</value>
@@ -87,7 +87,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>1</value>
+                    <text>1</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -98,7 +98,7 @@
             </place>
         <transition id="R_S=1--R_T=1">
                 <graphics>
-                    <position x="602.00" y="1449.41" />
+                    <position x="851.94" y="1454.65" />
                 </graphics>
                 <name>
                     <value>R_S=1--R_T=1</value>
@@ -138,7 +138,7 @@
             </arc>
         <place id="R_S">
                 <graphics>
-                    <position x="200.83" y="1449.16" />
+                    <position x="527.13" y="1454.41" />
                 </graphics>
                 <name>
                     <value>R_S</value>
@@ -147,7 +147,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -172,7 +172,7 @@
             </arc>
         <transition id="R_F=1--R_T=1">
                 <graphics>
-                    <position x="678.77" y="1449.41" />
+                    <position x="912.86" y="1454.65" />
                 </graphics>
                 <name>
                     <value>R_F=1--R_T=1</value>
@@ -212,7 +212,7 @@
             </arc>
         <place id="R_F">
                 <graphics>
-                    <position x="281.26" y="1449.16" />
+                    <position x="596.46" y="1454.41" />
                 </graphics>
                 <name>
                     <value>R_F</value>
@@ -221,7 +221,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -246,7 +246,7 @@
             </arc>
         <transition id="R_R=1--R_T=1">
                 <graphics>
-                    <position x="752.50" y="1449.41" />
+                    <position x="971.69" y="1454.65" />
                 </graphics>
                 <name>
                     <value>R_R=1--R_T=1</value>
@@ -286,7 +286,7 @@
             </arc>
         <place id="R_R">
                 <graphics>
-                    <position x="361.69" y="1449.16" />
+                    <position x="662.64" y="1454.41" />
                 </graphics>
                 <name>
                     <value>R_R</value>
@@ -295,7 +295,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -320,7 +320,7 @@
             </arc>
         <transition id="R00_H=1--R00_A=1">
                 <graphics>
-                    <position x="815.26" y="1449.41" />
+                    <position x="37.29" y="1574.75" />
                 </graphics>
                 <name>
                     <value>R00_H=1--R00_A=1</value>
@@ -360,7 +360,7 @@
             </arc>
         <place id="R00_H">
                 <graphics>
-                    <position x="815.01" y="161.50" />
+                    <position x="37.08" y="464.20" />
                 </graphics>
                 <name>
                     <value>R00_H</value>
@@ -369,7 +369,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -394,7 +394,7 @@
             </arc>
         <place id="R00_A">
                 <graphics>
-                    <position x="362.11" y="439.44" />
+                    <position x="596.30" y="462.48" />
                 </graphics>
                 <name>
                     <value>R00_A</value>
@@ -403,7 +403,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -412,12 +412,12 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <transition id="R00_T=1 and x_pos=1--R00_S=1">
+        <transition id="R00_T=1 and x_pos=-107 and not(x_pos=-102)--R00_S=1 and x_pos=-107">
                 <graphics>
-                    <position x="868.27" y="1449.41" />
+                    <position x="110.83" y="1574.75" />
                 </graphics>
                 <name>
-                    <value>R00_T=1 and x_pos=1--R00_S=1</value>
+                    <value>R00_T=1 and x_pos=-107 and not(x_pos=-102)--R00_S=1 and x_pos=-107</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -438,7 +438,7 @@
                     <value>1</value>
                 </priority>
             </transition>
-        <arc id="R00_T to R00_T=1 and x_pos=1--R00_S=1" source="R00_T" target="R00_T=1 and x_pos=1--R00_S=1">
+        <arc id="R00_T to R00_T=1 and x_pos=-107 and not(x_pos=-102)--R00_S=1 and x_pos=-107" source="R00_T" target="R00_T=1 and x_pos=-107 and not(x_pos=-102)--R00_S=1 and x_pos=-107">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -454,7 +454,7 @@
             </arc>
         <place id="R00_T">
                 <graphics>
-                    <position x="679.14" y="869.46" />
+                    <position x="726.19" y="880.75" />
                 </graphics>
                 <name>
                     <value>R00_T</value>
@@ -463,7 +463,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -472,10 +472,10 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <arc id="x_pos to R00_T=1 and x_pos=1--R00_S=1" source="x_pos" target="R00_T=1 and x_pos=1--R00_S=1">
+        <arc id="x_pos to R00_T=1 and x_pos=-107 and not(x_pos=-102)--R00_S=1 and x_pos=-107" source="x_pos" target="R00_T=1 and x_pos=-107 and not(x_pos=-102)--R00_S=1 and x_pos=-107">
                 <graphics />
                 <inscription>
-                    <value>1</value>
+                    <value>-</value>
                     <graphics />
                 </inscription>
                 <tagged>
@@ -488,7 +488,7 @@
             </arc>
         <place id="x_pos">
                 <graphics>
-                    <position x="200.71" y="1081.76" />
+                    <position x="250.22" y="1087.24" />
                 </graphics>
                 <name>
                     <value>x_pos</value>
@@ -497,7 +497,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -506,7 +506,7 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <arc id="R00_T=1 and x_pos=1--R00_S=1 to R00_S" source="R00_T=1 and x_pos=1--R00_S=1" target="R00_S">
+        <arc id="R00_T=1 and x_pos=-107 and not(x_pos=-102)--R00_S=1 and x_pos=-107 to R00_S" source="R00_T=1 and x_pos=-107 and not(x_pos=-102)--R00_S=1 and x_pos=-107" target="R00_S">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -522,7 +522,7 @@
             </arc>
         <place id="R00_S">
                 <graphics>
-                    <position x="441.93" y="439.44" />
+                    <position x="662.48" y="462.48" />
                 </graphics>
                 <name>
                     <value>R00_S</value>
@@ -531,7 +531,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -540,12 +540,26 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <transition id="R00_T=1 and x_pos=5--R00_F=1 and x_pos=5">
+        <arc id="R00_T=1 and x_pos=-107 and not(x_pos=-102)--R00_S=1 and x_pos=-107 to x_pos" source="R00_T=1 and x_pos=-107 and not(x_pos=-102)--R00_S=1 and x_pos=-107" target="x_pos">
+                <graphics />
+                <inscription>
+                    <value>-</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <transition id="R00_T=1 and x_pos=-102--R00_F=1 and x_pos=-102">
                 <graphics>
-                    <position x="921.28" y="1449.41" />
+                    <position x="180.68" y="1574.75" />
                 </graphics>
                 <name>
-                    <value>R00_T=1 and x_pos=5--R00_F=1 and x_pos=5</value>
+                    <value>R00_T=1 and x_pos=-102--R00_F=1 and x_pos=-102</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -566,7 +580,7 @@
                     <value>2</value>
                 </priority>
             </transition>
-        <arc id="R00_T to R00_T=1 and x_pos=5--R00_F=1 and x_pos=5" source="R00_T" target="R00_T=1 and x_pos=5--R00_F=1 and x_pos=5">
+        <arc id="R00_T to R00_T=1 and x_pos=-102--R00_F=1 and x_pos=-102" source="R00_T" target="R00_T=1 and x_pos=-102--R00_F=1 and x_pos=-102">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -580,10 +594,10 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="x_pos to R00_T=1 and x_pos=5--R00_F=1 and x_pos=5" source="x_pos" target="R00_T=1 and x_pos=5--R00_F=1 and x_pos=5">
+        <arc id="x_pos to R00_T=1 and x_pos=-102--R00_F=1 and x_pos=-102" source="x_pos" target="R00_T=1 and x_pos=-102--R00_F=1 and x_pos=-102">
                 <graphics />
                 <inscription>
-                    <value>5</value>
+                    <value>-</value>
                     <graphics />
                 </inscription>
                 <tagged>
@@ -594,7 +608,7 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R00_T=1 and x_pos=5--R00_F=1 and x_pos=5 to R00_F" source="R00_T=1 and x_pos=5--R00_F=1 and x_pos=5" target="R00_F">
+        <arc id="R00_T=1 and x_pos=-102--R00_F=1 and x_pos=-102 to R00_F" source="R00_T=1 and x_pos=-102--R00_F=1 and x_pos=-102" target="R00_F">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -610,7 +624,7 @@
             </arc>
         <place id="R00_F">
                 <graphics>
-                    <position x="521.75" y="439.44" />
+                    <position x="726.04" y="462.48" />
                 </graphics>
                 <name>
                     <value>R00_F</value>
@@ -619,7 +633,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -628,10 +642,10 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <arc id="R00_T=1 and x_pos=5--R00_F=1 and x_pos=5 to x_pos" source="R00_T=1 and x_pos=5--R00_F=1 and x_pos=5" target="x_pos">
+        <arc id="R00_T=1 and x_pos=-102--R00_F=1 and x_pos=-102 to x_pos" source="R00_T=1 and x_pos=-102--R00_F=1 and x_pos=-102" target="x_pos">
                 <graphics />
                 <inscription>
-                    <value>5</value>
+                    <value>-</value>
                     <graphics />
                 </inscription>
                 <tagged>
@@ -644,7 +658,7 @@
             </arc>
         <transition id="R01_H=1--R01_A=1">
                 <graphics>
-                    <position x="974.90" y="1449.41" />
+                    <position x="250.01" y="1574.75" />
                 </graphics>
                 <name>
                     <value>R01_H=1--R01_A=1</value>
@@ -684,7 +698,7 @@
             </arc>
         <place id="R01_H">
                 <graphics>
-                    <position x="868.63" y="161.50" />
+                    <position x="110.62" y="464.20" />
                 </graphics>
                 <name>
                     <value>R01_H</value>
@@ -693,7 +707,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -718,7 +732,7 @@
             </arc>
         <place id="R01_A">
                 <graphics>
-                    <position x="602.18" y="439.44" />
+                    <position x="789.06" y="462.48" />
                 </graphics>
                 <name>
                     <value>R01_A</value>
@@ -727,7 +741,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -736,12 +750,12 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <transition id="R01_T=1--R01_S=1 and x_pos=1">
+        <transition id="R01_T=1 and not(x_pos=-108)--R01_S=1 and x_pos=1">
                 <graphics>
-                    <position x="39.00" y="1562.80" />
+                    <position x="319.87" y="1574.75" />
                 </graphics>
                 <name>
-                    <value>R01_T=1--R01_S=1 and x_pos=1</value>
+                    <value>R01_T=1 and not(x_pos=-108)--R01_S=1 and x_pos=1</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -762,7 +776,7 @@
                     <value>1</value>
                 </priority>
             </transition>
-        <arc id="R01_T to R01_T=1--R01_S=1 and x_pos=1" source="R01_T" target="R01_T=1--R01_S=1 and x_pos=1">
+        <arc id="R01_T to R01_T=1 and not(x_pos=-108)--R01_S=1 and x_pos=1" source="R01_T" target="R01_T=1 and not(x_pos=-108)--R01_S=1 and x_pos=1">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -778,7 +792,7 @@
             </arc>
         <place id="R01_T">
                 <graphics>
-                    <position x="752.25" y="869.46" />
+                    <position x="789.22" y="880.75" />
                 </graphics>
                 <name>
                     <value>R01_T</value>
@@ -787,7 +801,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -796,7 +810,21 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <arc id="R01_T=1--R01_S=1 and x_pos=1 to R01_S" source="R01_T=1--R01_S=1 and x_pos=1" target="R01_S">
+        <arc id="x_pos to R01_T=1 and not(x_pos=-108)--R01_S=1 and x_pos=1" source="x_pos" target="R01_T=1 and not(x_pos=-108)--R01_S=1 and x_pos=1">
+                <graphics />
+                <inscription>
+                    <value>-</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R01_T=1 and not(x_pos=-108)--R01_S=1 and x_pos=1 to R01_S" source="R01_T=1 and not(x_pos=-108)--R01_S=1 and x_pos=1" target="R01_S">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -812,7 +840,7 @@
             </arc>
         <place id="R01_S">
                 <graphics>
-                    <position x="678.95" y="439.44" />
+                    <position x="852.09" y="462.48" />
                 </graphics>
                 <name>
                     <value>R01_S</value>
@@ -821,7 +849,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -830,7 +858,7 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <arc id="R01_T=1--R01_S=1 and x_pos=1 to x_pos" source="R01_T=1--R01_S=1 and x_pos=1" target="x_pos">
+        <arc id="R01_T=1 and not(x_pos=-108)--R01_S=1 and x_pos=1 to x_pos" source="R01_T=1 and not(x_pos=-108)--R01_S=1 and x_pos=1" target="x_pos">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -844,12 +872,12 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <transition id="R01_T=1 and x_pos=10--R01_F=1 and x_pos=10">
+        <transition id="R01_T=1 and x_pos=-108--R01_F=1 and x_pos=-108">
                 <graphics>
-                    <position x="120.03" y="1562.80" />
+                    <position x="389.20" y="1574.75" />
                 </graphics>
                 <name>
-                    <value>R01_T=1 and x_pos=10--R01_F=1 and x_pos=10</value>
+                    <value>R01_T=1 and x_pos=-108--R01_F=1 and x_pos=-108</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -870,7 +898,7 @@
                     <value>2</value>
                 </priority>
             </transition>
-        <arc id="R01_T to R01_T=1 and x_pos=10--R01_F=1 and x_pos=10" source="R01_T" target="R01_T=1 and x_pos=10--R01_F=1 and x_pos=10">
+        <arc id="R01_T to R01_T=1 and x_pos=-108--R01_F=1 and x_pos=-108" source="R01_T" target="R01_T=1 and x_pos=-108--R01_F=1 and x_pos=-108">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -884,10 +912,10 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="x_pos to R01_T=1 and x_pos=10--R01_F=1 and x_pos=10" source="x_pos" target="R01_T=1 and x_pos=10--R01_F=1 and x_pos=10">
+        <arc id="x_pos to R01_T=1 and x_pos=-108--R01_F=1 and x_pos=-108" source="x_pos" target="R01_T=1 and x_pos=-108--R01_F=1 and x_pos=-108">
                 <graphics />
                 <inscription>
-                    <value>1</value>
+                    <value>-</value>
                     <graphics />
                 </inscription>
                 <tagged>
@@ -898,7 +926,7 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R01_T=1 and x_pos=10--R01_F=1 and x_pos=10 to R01_F" source="R01_T=1 and x_pos=10--R01_F=1 and x_pos=10" target="R01_F">
+        <arc id="R01_T=1 and x_pos=-108--R01_F=1 and x_pos=-108 to R01_F" source="R01_T=1 and x_pos=-108--R01_F=1 and x_pos=-108" target="R01_F">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -914,7 +942,7 @@
             </arc>
         <place id="R01_F">
                 <graphics>
-                    <position x="752.07" y="439.44" />
+                    <position x="913.02" y="462.48" />
                 </graphics>
                 <name>
                     <value>R01_F</value>
@@ -923,7 +951,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -932,10 +960,10 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <arc id="R01_T=1 and x_pos=10--R01_F=1 and x_pos=10 to x_pos" source="R01_T=1 and x_pos=10--R01_F=1 and x_pos=10" target="x_pos">
+        <arc id="R01_T=1 and x_pos=-108--R01_F=1 and x_pos=-108 to x_pos" source="R01_T=1 and x_pos=-108--R01_F=1 and x_pos=-108" target="x_pos">
                 <graphics />
                 <inscription>
-                    <value>1</value>
+                    <value>-</value>
                     <graphics />
                 </inscription>
                 <tagged>
@@ -948,7 +976,7 @@
             </arc>
         <transition id="R0_T=1--R00_T=1">
                 <graphics>
-                    <position x="200.46" y="1562.80" />
+                    <position x="458.01" y="1574.75" />
                 </graphics>
                 <name>
                     <value>R0_T=1--R00_T=1</value>
@@ -988,7 +1016,7 @@
             </arc>
         <place id="R0_T">
                 <graphics>
-                    <position x="815.14" y="1277.30" />
+                    <position x="37.19" y="1453.91" />
                 </graphics>
                 <name>
                     <value>R0_T</value>
@@ -997,7 +1025,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -1022,7 +1050,7 @@
             </arc>
         <transition id="R0_H=1--R00_H=1">
                 <graphics>
-                    <position x="281.50" y="1562.80" />
+                    <position x="527.34" y="1574.75" />
                 </graphics>
                 <name>
                     <value>R0_H=1--R00_H=1</value>
@@ -1062,7 +1090,7 @@
             </arc>
         <place id="R0_H">
                 <graphics>
-                    <position x="361.78" y="1080.88" />
+                    <position x="389.07" y="1086.39" />
                 </graphics>
                 <name>
                     <value>R0_H</value>
@@ -1071,7 +1099,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -1096,7 +1124,7 @@
             </arc>
         <transition id="R00_S=1--R01_T=1">
                 <graphics>
-                    <position x="361.93" y="1562.80" />
+                    <position x="596.14" y="1574.75" />
                 </graphics>
                 <name>
                     <value>R00_S=1--R01_T=1</value>
@@ -1150,7 +1178,7 @@
             </arc>
         <transition id="R00_R=1--R0_Temp_R=1 and R01_H=1">
                 <graphics>
-                    <position x="441.75" y="1562.80" />
+                    <position x="662.32" y="1574.75" />
                 </graphics>
                 <name>
                     <value>R00_R=1--R0_Temp_R=1 and R01_H=1</value>
@@ -1190,7 +1218,7 @@
             </arc>
         <place id="R00_R">
                 <graphics>
-                    <position x="815.44" y="439.44" />
+                    <position x="971.85" y="462.48" />
                 </graphics>
                 <name>
                     <value>R00_R</value>
@@ -1199,7 +1227,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -1224,7 +1252,7 @@
             </arc>
         <place id="R0_Temp_R">
                 <graphics>
-                    <position x="39.21" y="162.15" />
+                    <position x="110.48" y="175.61" />
                 </graphics>
                 <name>
                     <value>R0_Temp_R</value>
@@ -1233,7 +1261,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -1258,7 +1286,7 @@
             </arc>
         <transition id="R00_F=1--R0_Temp_F=1 and R01_H=1">
                 <graphics>
-                    <position x="522.18" y="1562.80" />
+                    <position x="725.88" y="1574.75" />
                 </graphics>
                 <name>
                     <value>R00_F=1--R0_Temp_F=1 and R01_H=1</value>
@@ -1312,7 +1340,7 @@
             </arc>
         <place id="R0_Temp_F">
                 <graphics>
-                    <position x="361.74" y="161.27" />
+                    <position x="389.04" y="177.21" />
                 </graphics>
                 <name>
                     <value>R0_Temp_F</value>
@@ -1321,7 +1349,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -1346,7 +1374,7 @@
             </arc>
         <transition id="R00_A=1--R01_H=1">
                 <graphics>
-                    <position x="602.00" y="1562.80" />
+                    <position x="789.43" y="1574.75" />
                 </graphics>
                 <name>
                     <value>R00_A=1--R01_H=1</value>
@@ -1400,7 +1428,7 @@
             </arc>
         <transition id="R01_S=1--R0_S=1">
                 <graphics>
-                    <position x="678.77" y="1562.80" />
+                    <position x="851.94" y="1574.75" />
                 </graphics>
                 <name>
                     <value>R01_S=1--R0_S=1</value>
@@ -1454,7 +1482,7 @@
             </arc>
         <place id="R0_S">
                 <graphics>
-                    <position x="679.02" y="1081.63" />
+                    <position x="726.09" y="1087.12" />
                 </graphics>
                 <name>
                     <value>R0_S</value>
@@ -1463,7 +1491,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -1474,7 +1502,7 @@
             </place>
         <transition id="R01_R=1--R0_R=1">
                 <graphics>
-                    <position x="752.50" y="1562.80" />
+                    <position x="912.86" y="1574.75" />
                 </graphics>
                 <name>
                     <value>R01_R=1--R0_R=1</value>
@@ -1514,7 +1542,7 @@
             </arc>
         <place id="R01_R">
                 <graphics>
-                    <position x="868.45" y="439.44" />
+                    <position x="37.45" y="673.27" />
                 </graphics>
                 <name>
                     <value>R01_R</value>
@@ -1523,7 +1551,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -1548,7 +1576,7 @@
             </arc>
         <place id="R0_R">
                 <graphics>
-                    <position x="752.13" y="1081.63" />
+                    <position x="789.12" y="1087.12" />
                 </graphics>
                 <name>
                     <value>R0_R</value>
@@ -1557,7 +1585,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -1566,12 +1594,12 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <transition id="R01_A=1--R0_A=1">
+        <transition id="R01_A=1 and not(R0_Temp_F=1) and not(R0_Temp_R=1)--R0_A=1">
                 <graphics>
-                    <position x="815.26" y="1562.80" />
+                    <position x="971.69" y="1574.75" />
                 </graphics>
                 <name>
-                    <value>R01_A=1--R0_A=1</value>
+                    <value>R01_A=1 and not(R0_Temp_F=1) and not(R0_Temp_R=1)--R0_A=1</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -1592,7 +1620,7 @@
                     <value>1</value>
                 </priority>
             </transition>
-        <arc id="R01_A to R01_A=1--R0_A=1" source="R01_A" target="R01_A=1--R0_A=1">
+        <arc id="R01_A to R01_A=1 and not(R0_Temp_F=1) and not(R0_Temp_R=1)--R0_A=1" source="R01_A" target="R01_A=1 and not(R0_Temp_F=1) and not(R0_Temp_R=1)--R0_A=1">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -1606,7 +1634,35 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R01_A=1--R0_A=1 to R0_A" source="R01_A=1--R0_A=1" target="R0_A">
+        <arc id="R0_Temp_F to R01_A=1 and not(R0_Temp_F=1) and not(R0_Temp_R=1)--R0_A=1" source="R0_Temp_F" target="R01_A=1 and not(R0_Temp_F=1) and not(R0_Temp_R=1)--R0_A=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R0_Temp_R to R01_A=1 and not(R0_Temp_F=1) and not(R0_Temp_R=1)--R0_A=1" source="R0_Temp_R" target="R01_A=1 and not(R0_Temp_F=1) and not(R0_Temp_R=1)--R0_A=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R01_A=1 and not(R0_Temp_F=1) and not(R0_Temp_R=1)--R0_A=1 to R0_A" source="R01_A=1 and not(R0_Temp_F=1) and not(R0_Temp_R=1)--R0_A=1" target="R0_A">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -1622,7 +1678,7 @@
             </arc>
         <place id="R0_A">
                 <graphics>
-                    <position x="815.50" y="1081.63" />
+                    <position x="852.15" y="1087.12" />
                 </graphics>
                 <name>
                     <value>R0_A</value>
@@ -1631,7 +1687,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -1642,7 +1698,7 @@
             </place>
         <transition id="R0_Temp_F=1 and R01_A=1--R0_F=1">
                 <graphics>
-                    <position x="868.27" y="1562.80" />
+                    <position x="37.29" y="1640.93" />
                 </graphics>
                 <name>
                     <value>R0_Temp_F=1 and R01_A=1--R0_F=1</value>
@@ -1710,7 +1766,7 @@
             </arc>
         <place id="R0_F">
                 <graphics>
-                    <position x="868.51" y="1081.63" />
+                    <position x="913.07" y="1087.12" />
                 </graphics>
                 <name>
                     <value>R0_F</value>
@@ -1719,7 +1775,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -1730,7 +1786,7 @@
             </place>
         <transition id="R01_F=1--R0_F=1">
                 <graphics>
-                    <position x="921.28" y="1562.80" />
+                    <position x="110.83" y="1640.93" />
                 </graphics>
                 <name>
                     <value>R01_F=1--R0_F=1</value>
@@ -1784,7 +1840,7 @@
             </arc>
         <transition id="R0_Temp_R=1 and R01_A=1--R0_R=1">
                 <graphics>
-                    <position x="974.90" y="1562.80" />
+                    <position x="180.68" y="1640.93" />
                 </graphics>
                 <name>
                     <value>R0_Temp_R=1 and R01_A=1--R0_R=1</value>
@@ -1852,7 +1908,7 @@
             </arc>
         <transition id="R10_H=1--R10_A=1">
                 <graphics>
-                    <position x="39.00" y="1630.84" />
+                    <position x="250.01" y="1640.93" />
                 </graphics>
                 <name>
                     <value>R10_H=1--R10_A=1</value>
@@ -1892,7 +1948,7 @@
             </arc>
         <place id="R10_H">
                 <graphics>
-                    <position x="921.64" y="161.50" />
+                    <position x="180.47" y="464.20" />
                 </graphics>
                 <name>
                     <value>R10_H</value>
@@ -1901,7 +1957,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -1926,7 +1982,7 @@
             </arc>
         <place id="R10_A">
                 <graphics>
-                    <position x="921.46" y="439.44" />
+                    <position x="110.98" y="673.27" />
                 </graphics>
                 <name>
                     <value>R10_A</value>
@@ -1935,7 +1991,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -1944,120 +2000,12 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <transition id="R10_T=1 and x_pos=5--R10_S=1">
+        <transition id="R10_T=1 and x_pos=-103--R10_S=1 and x_pos=-103">
                 <graphics>
-                    <position x="120.03" y="1630.84" />
+                    <position x="319.87" y="1640.93" />
                 </graphics>
                 <name>
-                    <value>R10_T=1 and x_pos=5--R10_S=1</value>
-                    <graphics>
-                        <offset x="-5.0" y="35.0" />
-                    </graphics>
-                </name>
-                <orientation>
-                    <value>0</value>
-                </orientation>
-                <rate>
-                    <value>1.0</value>
-                </rate>
-                <timed>
-                    <value>false</value>
-                </timed>
-                <infiniteServer>
-                    <value>false</value>
-                </infiniteServer>
-                <priority>
-                    <value>1</value>
-                </priority>
-            </transition>
-        <arc id="R10_T to R10_T=1 and x_pos=5--R10_S=1" source="R10_T" target="R10_T=1 and x_pos=5--R10_S=1">
-                <graphics />
-                <inscription>
-                    <value>1</value>
-                    <graphics />
-                </inscription>
-                <tagged>
-                    <value>false</value>
-                </tagged>
-                <type value="normal" />
-                <probability>
-                    <value>1.0</value>
-                </probability>
-            </arc>
-        <place id="R10_T">
-                <graphics>
-                    <position x="815.01" y="869.46" />
-                </graphics>
-                <name>
-                    <value>R10_T</value>
-                    <graphics>
-                        <offset x="0.0" y="0.0" />
-                    </graphics>
-                </name>
-                <initialMarking>
-                    <value>0</value>
-                    <graphics>
-                        <offset x="0.0" y="0.0" />
-                    </graphics>
-                </initialMarking>
-                <capacity>
-                    <value>0</value>
-                </capacity>
-            </place>
-        <arc id="x_pos to R10_T=1 and x_pos=5--R10_S=1" source="x_pos" target="R10_T=1 and x_pos=5--R10_S=1">
-                <graphics />
-                <inscription>
-                    <value>5</value>
-                    <graphics />
-                </inscription>
-                <tagged>
-                    <value>false</value>
-                </tagged>
-                <type value="normal" />
-                <probability>
-                    <value>1.0</value>
-                </probability>
-            </arc>
-        <arc id="R10_T=1 and x_pos=5--R10_S=1 to R10_S" source="R10_T=1 and x_pos=5--R10_S=1" target="R10_S">
-                <graphics />
-                <inscription>
-                    <value>1</value>
-                    <graphics />
-                </inscription>
-                <tagged>
-                    <value>false</value>
-                </tagged>
-                <type value="normal" />
-                <probability>
-                    <value>1.0</value>
-                </probability>
-            </arc>
-        <place id="R10_S">
-                <graphics>
-                    <position x="974.47" y="439.44" />
-                </graphics>
-                <name>
-                    <value>R10_S</value>
-                    <graphics>
-                        <offset x="0.0" y="0.0" />
-                    </graphics>
-                </name>
-                <initialMarking>
-                    <value>0</value>
-                    <graphics>
-                        <offset x="0.0" y="0.0" />
-                    </graphics>
-                </initialMarking>
-                <capacity>
-                    <value>0</value>
-                </capacity>
-            </place>
-        <transition id="R10_T=1 and x_pos=5--R10_F=1 and x_pos=5">
-                <graphics>
-                    <position x="200.46" y="1630.84" />
-                </graphics>
-                <name>
-                    <value>R10_T=1 and x_pos=5--R10_F=1 and x_pos=5</value>
+                    <value>R10_T=1 and x_pos=-103--R10_S=1 and x_pos=-103</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -2078,7 +2026,7 @@
                     <value>2</value>
                 </priority>
             </transition>
-        <arc id="R10_T to R10_T=1 and x_pos=5--R10_F=1 and x_pos=5" source="R10_T" target="R10_T=1 and x_pos=5--R10_F=1 and x_pos=5">
+        <arc id="R10_T to R10_T=1 and x_pos=-103--R10_S=1 and x_pos=-103" source="R10_T" target="R10_T=1 and x_pos=-103--R10_S=1 and x_pos=-103">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -2092,10 +2040,30 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="x_pos to R10_T=1 and x_pos=5--R10_F=1 and x_pos=5" source="x_pos" target="R10_T=1 and x_pos=5--R10_F=1 and x_pos=5">
+        <place id="R10_T">
+                <graphics>
+                    <position x="852.25" y="880.75" />
+                </graphics>
+                <name>
+                    <value>R10_T</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <arc id="x_pos to R10_T=1 and x_pos=-103--R10_S=1 and x_pos=-103" source="x_pos" target="R10_T=1 and x_pos=-103--R10_S=1 and x_pos=-103">
                 <graphics />
                 <inscription>
-                    <value>5</value>
+                    <value>-</value>
                     <graphics />
                 </inscription>
                 <tagged>
@@ -2106,7 +2074,109 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R10_T=1 and x_pos=5--R10_F=1 and x_pos=5 to R10_F" source="R10_T=1 and x_pos=5--R10_F=1 and x_pos=5" target="R10_F">
+        <arc id="R10_T=1 and x_pos=-103--R10_S=1 and x_pos=-103 to R10_S" source="R10_T=1 and x_pos=-103--R10_S=1 and x_pos=-103" target="R10_S">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <place id="R10_S">
+                <graphics>
+                    <position x="180.31" y="673.27" />
+                </graphics>
+                <name>
+                    <value>R10_S</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <arc id="R10_T=1 and x_pos=-103--R10_S=1 and x_pos=-103 to x_pos" source="R10_T=1 and x_pos=-103--R10_S=1 and x_pos=-103" target="x_pos">
+                <graphics />
+                <inscription>
+                    <value>-</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <transition id="R10_T=1 and x_pos=-102 and not(x_pos=-103)--R10_F=1 and x_pos=-102">
+                <graphics>
+                    <position x="389.20" y="1640.93" />
+                </graphics>
+                <name>
+                    <value>R10_T=1 and x_pos=-102 and not(x_pos=-103)--R10_F=1 and x_pos=-102</value>
+                    <graphics>
+                        <offset x="-5.0" y="35.0" />
+                    </graphics>
+                </name>
+                <orientation>
+                    <value>0</value>
+                </orientation>
+                <rate>
+                    <value>1.0</value>
+                </rate>
+                <timed>
+                    <value>false</value>
+                </timed>
+                <infiniteServer>
+                    <value>false</value>
+                </infiniteServer>
+                <priority>
+                    <value>1</value>
+                </priority>
+            </transition>
+        <arc id="R10_T to R10_T=1 and x_pos=-102 and not(x_pos=-103)--R10_F=1 and x_pos=-102" source="R10_T" target="R10_T=1 and x_pos=-102 and not(x_pos=-103)--R10_F=1 and x_pos=-102">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="x_pos to R10_T=1 and x_pos=-102 and not(x_pos=-103)--R10_F=1 and x_pos=-102" source="x_pos" target="R10_T=1 and x_pos=-102 and not(x_pos=-103)--R10_F=1 and x_pos=-102">
+                <graphics />
+                <inscription>
+                    <value>-</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R10_T=1 and x_pos=-102 and not(x_pos=-103)--R10_F=1 and x_pos=-102 to R10_F" source="R10_T=1 and x_pos=-102 and not(x_pos=-103)--R10_F=1 and x_pos=-102" target="R10_F">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -2122,7 +2192,7 @@
             </arc>
         <place id="R10_F">
                 <graphics>
-                    <position x="39.18" y="656.15" />
+                    <position x="250.17" y="673.27" />
                 </graphics>
                 <name>
                     <value>R10_F</value>
@@ -2131,7 +2201,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -2140,10 +2210,10 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <arc id="R10_T=1 and x_pos=5--R10_F=1 and x_pos=5 to x_pos" source="R10_T=1 and x_pos=5--R10_F=1 and x_pos=5" target="x_pos">
+        <arc id="R10_T=1 and x_pos=-102 and not(x_pos=-103)--R10_F=1 and x_pos=-102 to x_pos" source="R10_T=1 and x_pos=-102 and not(x_pos=-103)--R10_F=1 and x_pos=-102" target="x_pos">
                 <graphics />
                 <inscription>
-                    <value>5</value>
+                    <value>-</value>
                     <graphics />
                 </inscription>
                 <tagged>
@@ -2156,7 +2226,7 @@
             </arc>
         <transition id="R11_H=1--R11_A=1">
                 <graphics>
-                    <position x="281.50" y="1630.84" />
+                    <position x="458.01" y="1640.93" />
                 </graphics>
                 <name>
                     <value>R11_H=1--R11_A=1</value>
@@ -2196,7 +2266,7 @@
             </arc>
         <place id="R11_H">
                 <graphics>
-                    <position x="974.65" y="161.50" />
+                    <position x="250.33" y="464.20" />
                 </graphics>
                 <name>
                     <value>R11_H</value>
@@ -2205,7 +2275,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -2230,7 +2300,7 @@
             </arc>
         <place id="R11_A">
                 <graphics>
-                    <position x="119.61" y="656.15" />
+                    <position x="320.03" y="673.27" />
                 </graphics>
                 <name>
                     <value>R11_A</value>
@@ -2239,7 +2309,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -2250,7 +2320,7 @@
             </place>
         <transition id="R11_T=1 and x_pos=1--R11_S=1">
                 <graphics>
-                    <position x="361.93" y="1630.84" />
+                    <position x="527.34" y="1640.93" />
                 </graphics>
                 <name>
                     <value>R11_T=1 and x_pos=1--R11_S=1</value>
@@ -2290,7 +2360,7 @@
             </arc>
         <place id="R11_T">
                 <graphics>
-                    <position x="868.63" y="869.46" />
+                    <position x="912.65" y="880.75" />
                 </graphics>
                 <name>
                     <value>R11_T</value>
@@ -2299,7 +2369,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -2338,7 +2408,7 @@
             </arc>
         <place id="R11_S">
                 <graphics>
-                    <position x="200.65" y="656.15" />
+                    <position x="389.36" y="673.27" />
                 </graphics>
                 <name>
                     <value>R11_S</value>
@@ -2347,7 +2417,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -2358,7 +2428,7 @@
             </place>
         <transition id="R1_T=1--R10_T=1">
                 <graphics>
-                    <position x="441.75" y="1630.84" />
+                    <position x="596.14" y="1640.93" />
                 </graphics>
                 <name>
                     <value>R1_T=1--R10_T=1</value>
@@ -2398,7 +2468,7 @@
             </arc>
         <place id="R1_T">
                 <graphics>
-                    <position x="868.15" y="1277.30" />
+                    <position x="110.72" y="1453.91" />
                 </graphics>
                 <name>
                     <value>R1_T</value>
@@ -2407,7 +2477,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -2432,7 +2502,7 @@
             </arc>
         <transition id="R1_H=1--R10_H=1">
                 <graphics>
-                    <position x="522.18" y="1630.84" />
+                    <position x="662.32" y="1640.93" />
                 </graphics>
                 <name>
                     <value>R1_H=1--R10_H=1</value>
@@ -2472,7 +2542,7 @@
             </arc>
         <place id="R1_H">
                 <graphics>
-                    <position x="442.21" y="1080.88" />
+                    <position x="458.40" y="1086.39" />
                 </graphics>
                 <name>
                     <value>R1_H</value>
@@ -2481,7 +2551,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -2506,7 +2576,7 @@
             </arc>
         <transition id="R10_S=1--R11_T=1">
                 <graphics>
-                    <position x="602.00" y="1630.84" />
+                    <position x="725.88" y="1640.93" />
                 </graphics>
                 <name>
                     <value>R10_S=1--R11_T=1</value>
@@ -2560,7 +2630,7 @@
             </arc>
         <transition id="R10_R=1--R1_Temp_R=1 and R11_H=1">
                 <graphics>
-                    <position x="678.77" y="1630.84" />
+                    <position x="789.43" y="1640.93" />
                 </graphics>
                 <name>
                     <value>R10_R=1--R1_Temp_R=1 and R11_H=1</value>
@@ -2600,7 +2670,7 @@
             </arc>
         <place id="R10_R">
                 <graphics>
-                    <position x="281.68" y="656.15" />
+                    <position x="458.16" y="673.27" />
                 </graphics>
                 <name>
                     <value>R10_R</value>
@@ -2609,7 +2679,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -2634,7 +2704,7 @@
             </arc>
         <place id="R1_Temp_R">
                 <graphics>
-                    <position x="119.63" y="162.15" />
+                    <position x="180.34" y="175.61" />
                 </graphics>
                 <name>
                     <value>R1_Temp_R</value>
@@ -2643,7 +2713,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -2668,7 +2738,7 @@
             </arc>
         <transition id="R10_F=1--R1_Temp_F=1 and R11_H=1">
                 <graphics>
-                    <position x="752.50" y="1630.84" />
+                    <position x="851.94" y="1640.93" />
                 </graphics>
                 <name>
                     <value>R10_F=1--R1_Temp_F=1 and R11_H=1</value>
@@ -2722,7 +2792,7 @@
             </arc>
         <place id="R1_Temp_F">
                 <graphics>
-                    <position x="442.17" y="161.27" />
+                    <position x="458.37" y="177.21" />
                 </graphics>
                 <name>
                     <value>R1_Temp_F</value>
@@ -2731,7 +2801,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -2756,7 +2826,7 @@
             </arc>
         <transition id="R10_A=1--R11_H=1">
                 <graphics>
-                    <position x="815.26" y="1630.84" />
+                    <position x="912.86" y="1640.93" />
                 </graphics>
                 <name>
                     <value>R10_A=1--R11_H=1</value>
@@ -2810,7 +2880,7 @@
             </arc>
         <transition id="R11_S=1--R1_S=1">
                 <graphics>
-                    <position x="868.27" y="1630.84" />
+                    <position x="971.69" y="1640.93" />
                 </graphics>
                 <name>
                     <value>R11_S=1--R1_S=1</value>
@@ -2864,7 +2934,7 @@
             </arc>
         <place id="R1_S">
                 <graphics>
-                    <position x="921.52" y="1081.63" />
+                    <position x="971.90" y="1087.12" />
                 </graphics>
                 <name>
                     <value>R1_S</value>
@@ -2873,7 +2943,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -2884,7 +2954,7 @@
             </place>
         <transition id="R11_R=1--R1_R=1">
                 <graphics>
-                    <position x="921.28" y="1630.84" />
+                    <position x="37.29" y="1707.10" />
                 </graphics>
                 <name>
                     <value>R11_R=1--R1_R=1</value>
@@ -2924,7 +2994,7 @@
             </arc>
         <place id="R11_R">
                 <graphics>
-                    <position x="362.11" y="656.15" />
+                    <position x="526.97" y="673.27" />
                 </graphics>
                 <name>
                     <value>R11_R</value>
@@ -2933,7 +3003,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -2958,7 +3028,7 @@
             </arc>
         <place id="R1_R">
                 <graphics>
-                    <position x="974.53" y="1081.63" />
+                    <position x="37.53" y="1278.30" />
                 </graphics>
                 <name>
                     <value>R1_R</value>
@@ -2967,7 +3037,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -2976,12 +3046,12 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <transition id="R11_A=1--R1_A=1">
+        <transition id="R11_A=1 and not(R1_Temp_F=1) and not(R1_Temp_R=1)--R1_A=1">
                 <graphics>
-                    <position x="974.90" y="1630.84" />
+                    <position x="110.83" y="1707.10" />
                 </graphics>
                 <name>
-                    <value>R11_A=1--R1_A=1</value>
+                    <value>R11_A=1 and not(R1_Temp_F=1) and not(R1_Temp_R=1)--R1_A=1</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -3002,7 +3072,7 @@
                     <value>1</value>
                 </priority>
             </transition>
-        <arc id="R11_A to R11_A=1--R1_A=1" source="R11_A" target="R11_A=1--R1_A=1">
+        <arc id="R11_A to R11_A=1 and not(R1_Temp_F=1) and not(R1_Temp_R=1)--R1_A=1" source="R11_A" target="R11_A=1 and not(R1_Temp_F=1) and not(R1_Temp_R=1)--R1_A=1">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -3016,7 +3086,35 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R11_A=1--R1_A=1 to R1_A" source="R11_A=1--R1_A=1" target="R1_A">
+        <arc id="R1_Temp_F to R11_A=1 and not(R1_Temp_F=1) and not(R1_Temp_R=1)--R1_A=1" source="R1_Temp_F" target="R11_A=1 and not(R1_Temp_F=1) and not(R1_Temp_R=1)--R1_A=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R1_Temp_R to R11_A=1 and not(R1_Temp_F=1) and not(R1_Temp_R=1)--R1_A=1" source="R1_Temp_R" target="R11_A=1 and not(R1_Temp_F=1) and not(R1_Temp_R=1)--R1_A=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R11_A=1 and not(R1_Temp_F=1) and not(R1_Temp_R=1)--R1_A=1 to R1_A" source="R11_A=1 and not(R1_Temp_F=1) and not(R1_Temp_R=1)--R1_A=1" target="R1_A">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -3032,7 +3130,7 @@
             </arc>
         <place id="R1_A">
                 <graphics>
-                    <position x="38.66" y="1278.18" />
+                    <position x="110.54" y="1278.30" />
                 </graphics>
                 <name>
                     <value>R1_A</value>
@@ -3041,7 +3139,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3052,7 +3150,7 @@
             </place>
         <transition id="R1_Temp_F=1 and R11_A=1--R1_F=1">
                 <graphics>
-                    <position x="39.00" y="1698.87" />
+                    <position x="180.68" y="1707.10" />
                 </graphics>
                 <name>
                     <value>R1_Temp_F=1 and R11_A=1--R1_F=1</value>
@@ -3120,7 +3218,7 @@
             </arc>
         <place id="R1_F">
                 <graphics>
-                    <position x="119.70" y="1278.18" />
+                    <position x="180.39" y="1278.30" />
                 </graphics>
                 <name>
                     <value>R1_F</value>
@@ -3129,7 +3227,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3140,7 +3238,7 @@
             </place>
         <transition id="R11_F=1--R1_F=1">
                 <graphics>
-                    <position x="120.03" y="1698.87" />
+                    <position x="250.01" y="1707.10" />
                 </graphics>
                 <name>
                     <value>R11_F=1--R1_F=1</value>
@@ -3180,7 +3278,7 @@
             </arc>
         <place id="R11_F">
                 <graphics>
-                    <position x="441.93" y="656.15" />
+                    <position x="596.30" y="673.27" />
                 </graphics>
                 <name>
                     <value>R11_F</value>
@@ -3189,7 +3287,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3214,7 +3312,7 @@
             </arc>
         <transition id="R1_Temp_R=1 and R11_A=1--R1_R=1">
                 <graphics>
-                    <position x="200.46" y="1698.87" />
+                    <position x="319.87" y="1707.10" />
                 </graphics>
                 <name>
                     <value>R1_Temp_R=1 and R11_A=1--R1_R=1</value>
@@ -3282,7 +3380,7 @@
             </arc>
         <transition id="R20_H=1--R20_A=1">
                 <graphics>
-                    <position x="281.50" y="1698.87" />
+                    <position x="389.20" y="1707.10" />
                 </graphics>
                 <name>
                     <value>R20_H=1--R20_A=1</value>
@@ -3322,7 +3420,7 @@
             </arc>
         <place id="R20_H">
                 <graphics>
-                    <position x="38.75" y="438.69" />
+                    <position x="319.66" y="464.20" />
                 </graphics>
                 <name>
                     <value>R20_H</value>
@@ -3331,7 +3429,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3356,7 +3454,7 @@
             </arc>
         <place id="R20_A">
                 <graphics>
-                    <position x="521.75" y="656.15" />
+                    <position x="662.48" y="673.27" />
                 </graphics>
                 <name>
                     <value>R20_A</value>
@@ -3365,7 +3463,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3374,12 +3472,12 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <transition id="R20_T=1 and y_pos=1--R20_S=1">
+        <transition id="R20_T=1 and y_pos=-109 and not(y_pos=-105)--R20_S=1 and y_pos=-109">
                 <graphics>
-                    <position x="361.93" y="1698.87" />
+                    <position x="458.01" y="1707.10" />
                 </graphics>
                 <name>
-                    <value>R20_T=1 and y_pos=1--R20_S=1</value>
+                    <value>R20_T=1 and y_pos=-109 and not(y_pos=-105)--R20_S=1 and y_pos=-109</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -3400,7 +3498,7 @@
                     <value>1</value>
                 </priority>
             </transition>
-        <arc id="R20_T to R20_T=1 and y_pos=1--R20_S=1" source="R20_T" target="R20_T=1 and y_pos=1--R20_S=1">
+        <arc id="R20_T to R20_T=1 and y_pos=-109 and not(y_pos=-105)--R20_S=1 and y_pos=-109" source="R20_T" target="R20_T=1 and y_pos=-109 and not(y_pos=-105)--R20_S=1 and y_pos=-109">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -3416,7 +3514,7 @@
             </arc>
         <place id="R20_T">
                 <graphics>
-                    <position x="921.64" y="869.46" />
+                    <position x="971.48" y="880.75" />
                 </graphics>
                 <name>
                     <value>R20_T</value>
@@ -3425,7 +3523,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3434,10 +3532,10 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <arc id="y_pos to R20_T=1 and y_pos=1--R20_S=1" source="y_pos" target="R20_T=1 and y_pos=1--R20_S=1">
+        <arc id="y_pos to R20_T=1 and y_pos=-109 and not(y_pos=-105)--R20_S=1 and y_pos=-109" source="y_pos" target="R20_T=1 and y_pos=-109 and not(y_pos=-105)--R20_S=1 and y_pos=-109">
                 <graphics />
                 <inscription>
-                    <value>1</value>
+                    <value>-</value>
                     <graphics />
                 </inscription>
                 <tagged>
@@ -3450,7 +3548,7 @@
             </arc>
         <place id="y_pos">
                 <graphics>
-                    <position x="281.75" y="1081.76" />
+                    <position x="320.08" y="1087.24" />
                 </graphics>
                 <name>
                     <value>y_pos</value>
@@ -3459,7 +3557,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3468,7 +3566,7 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <arc id="R20_T=1 and y_pos=1--R20_S=1 to R20_S" source="R20_T=1 and y_pos=1--R20_S=1" target="R20_S">
+        <arc id="R20_T=1 and y_pos=-109 and not(y_pos=-105)--R20_S=1 and y_pos=-109 to R20_S" source="R20_T=1 and y_pos=-109 and not(y_pos=-105)--R20_S=1 and y_pos=-109" target="R20_S">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -3484,7 +3582,7 @@
             </arc>
         <place id="R20_S">
                 <graphics>
-                    <position x="602.18" y="656.15" />
+                    <position x="726.04" y="673.27" />
                 </graphics>
                 <name>
                     <value>R20_S</value>
@@ -3493,7 +3591,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3502,12 +3600,26 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <transition id="R20_T=1 and y_pos=5--R20_F=1 and y_pos=5">
+        <arc id="R20_T=1 and y_pos=-109 and not(y_pos=-105)--R20_S=1 and y_pos=-109 to y_pos" source="R20_T=1 and y_pos=-109 and not(y_pos=-105)--R20_S=1 and y_pos=-109" target="y_pos">
+                <graphics />
+                <inscription>
+                    <value>-</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <transition id="R20_T=1 and y_pos=-105--R20_F=1 and y_pos=-105">
                 <graphics>
-                    <position x="441.75" y="1698.87" />
+                    <position x="527.34" y="1707.10" />
                 </graphics>
                 <name>
-                    <value>R20_T=1 and y_pos=5--R20_F=1 and y_pos=5</value>
+                    <value>R20_T=1 and y_pos=-105--R20_F=1 and y_pos=-105</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -3528,7 +3640,7 @@
                     <value>2</value>
                 </priority>
             </transition>
-        <arc id="R20_T to R20_T=1 and y_pos=5--R20_F=1 and y_pos=5" source="R20_T" target="R20_T=1 and y_pos=5--R20_F=1 and y_pos=5">
+        <arc id="R20_T to R20_T=1 and y_pos=-105--R20_F=1 and y_pos=-105" source="R20_T" target="R20_T=1 and y_pos=-105--R20_F=1 and y_pos=-105">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -3542,10 +3654,10 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="y_pos to R20_T=1 and y_pos=5--R20_F=1 and y_pos=5" source="y_pos" target="R20_T=1 and y_pos=5--R20_F=1 and y_pos=5">
+        <arc id="y_pos to R20_T=1 and y_pos=-105--R20_F=1 and y_pos=-105" source="y_pos" target="R20_T=1 and y_pos=-105--R20_F=1 and y_pos=-105">
                 <graphics />
                 <inscription>
-                    <value>5</value>
+                    <value>-</value>
                     <graphics />
                 </inscription>
                 <tagged>
@@ -3556,7 +3668,7 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R20_T=1 and y_pos=5--R20_F=1 and y_pos=5 to R20_F" source="R20_T=1 and y_pos=5--R20_F=1 and y_pos=5" target="R20_F">
+        <arc id="R20_T=1 and y_pos=-105--R20_F=1 and y_pos=-105 to R20_F" source="R20_T=1 and y_pos=-105--R20_F=1 and y_pos=-105" target="R20_F">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -3572,7 +3684,7 @@
             </arc>
         <place id="R20_F">
                 <graphics>
-                    <position x="678.95" y="656.15" />
+                    <position x="789.06" y="673.27" />
                 </graphics>
                 <name>
                     <value>R20_F</value>
@@ -3581,7 +3693,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3590,10 +3702,10 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <arc id="R20_T=1 and y_pos=5--R20_F=1 and y_pos=5 to y_pos" source="R20_T=1 and y_pos=5--R20_F=1 and y_pos=5" target="y_pos">
+        <arc id="R20_T=1 and y_pos=-105--R20_F=1 and y_pos=-105 to y_pos" source="R20_T=1 and y_pos=-105--R20_F=1 and y_pos=-105" target="y_pos">
                 <graphics />
                 <inscription>
-                    <value>5</value>
+                    <value>-</value>
                     <graphics />
                 </inscription>
                 <tagged>
@@ -3606,7 +3718,7 @@
             </arc>
         <transition id="R21_H=1--R21_A=1">
                 <graphics>
-                    <position x="522.18" y="1698.87" />
+                    <position x="596.14" y="1707.10" />
                 </graphics>
                 <name>
                     <value>R21_H=1--R21_A=1</value>
@@ -3646,7 +3758,7 @@
             </arc>
         <place id="R21_H">
                 <graphics>
-                    <position x="119.79" y="438.69" />
+                    <position x="388.99" y="464.20" />
                 </graphics>
                 <name>
                     <value>R21_H</value>
@@ -3655,7 +3767,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3680,7 +3792,7 @@
             </arc>
         <place id="R21_A">
                 <graphics>
-                    <position x="752.07" y="656.15" />
+                    <position x="852.09" y="673.27" />
                 </graphics>
                 <name>
                     <value>R21_A</value>
@@ -3689,7 +3801,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3698,12 +3810,12 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <transition id="R21_T=1--R21_S=1 and y_pos=1">
+        <transition id="R21_T=1 and not(y_pos=-110)--R21_S=1 and y_pos=1">
                 <graphics>
-                    <position x="602.00" y="1698.87" />
+                    <position x="662.32" y="1707.10" />
                 </graphics>
                 <name>
-                    <value>R21_T=1--R21_S=1 and y_pos=1</value>
+                    <value>R21_T=1 and not(y_pos=-110)--R21_S=1 and y_pos=1</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -3724,7 +3836,7 @@
                     <value>1</value>
                 </priority>
             </transition>
-        <arc id="R21_T to R21_T=1--R21_S=1 and y_pos=1" source="R21_T" target="R21_T=1--R21_S=1 and y_pos=1">
+        <arc id="R21_T to R21_T=1 and not(y_pos=-110)--R21_S=1 and y_pos=1" source="R21_T" target="R21_T=1 and not(y_pos=-110)--R21_S=1 and y_pos=1">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -3740,7 +3852,7 @@
             </arc>
         <place id="R21_T">
                 <graphics>
-                    <position x="974.65" y="869.46" />
+                    <position x="37.11" y="1086.63" />
                 </graphics>
                 <name>
                     <value>R21_T</value>
@@ -3749,7 +3861,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3758,7 +3870,21 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <arc id="R21_T=1--R21_S=1 and y_pos=1 to R21_S" source="R21_T=1--R21_S=1 and y_pos=1" target="R21_S">
+        <arc id="y_pos to R21_T=1 and not(y_pos=-110)--R21_S=1 and y_pos=1" source="y_pos" target="R21_T=1 and not(y_pos=-110)--R21_S=1 and y_pos=1">
+                <graphics />
+                <inscription>
+                    <value>-</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R21_T=1 and not(y_pos=-110)--R21_S=1 and y_pos=1 to R21_S" source="R21_T=1 and not(y_pos=-110)--R21_S=1 and y_pos=1" target="R21_S">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -3774,7 +3900,7 @@
             </arc>
         <place id="R21_S">
                 <graphics>
-                    <position x="815.44" y="656.15" />
+                    <position x="913.02" y="673.27" />
                 </graphics>
                 <name>
                     <value>R21_S</value>
@@ -3783,7 +3909,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3792,7 +3918,7 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <arc id="R21_T=1--R21_S=1 and y_pos=1 to y_pos" source="R21_T=1--R21_S=1 and y_pos=1" target="y_pos">
+        <arc id="R21_T=1 and not(y_pos=-110)--R21_S=1 and y_pos=1 to y_pos" source="R21_T=1 and not(y_pos=-110)--R21_S=1 and y_pos=1" target="y_pos">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -3806,12 +3932,12 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <transition id="R21_T=1 and y_pos=10--R21_F=1 and y_pos=10">
+        <transition id="R21_T=1 and y_pos=-110--R21_F=1 and y_pos=-110">
                 <graphics>
-                    <position x="678.77" y="1698.87" />
+                    <position x="725.88" y="1707.10" />
                 </graphics>
                 <name>
-                    <value>R21_T=1 and y_pos=10--R21_F=1 and y_pos=10</value>
+                    <value>R21_T=1 and y_pos=-110--R21_F=1 and y_pos=-110</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -3832,7 +3958,7 @@
                     <value>2</value>
                 </priority>
             </transition>
-        <arc id="R21_T to R21_T=1 and y_pos=10--R21_F=1 and y_pos=10" source="R21_T" target="R21_T=1 and y_pos=10--R21_F=1 and y_pos=10">
+        <arc id="R21_T to R21_T=1 and y_pos=-110--R21_F=1 and y_pos=-110" source="R21_T" target="R21_T=1 and y_pos=-110--R21_F=1 and y_pos=-110">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -3846,10 +3972,10 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="y_pos to R21_T=1 and y_pos=10--R21_F=1 and y_pos=10" source="y_pos" target="R21_T=1 and y_pos=10--R21_F=1 and y_pos=10">
+        <arc id="y_pos to R21_T=1 and y_pos=-110--R21_F=1 and y_pos=-110" source="y_pos" target="R21_T=1 and y_pos=-110--R21_F=1 and y_pos=-110">
                 <graphics />
                 <inscription>
-                    <value>1</value>
+                    <value>-</value>
                     <graphics />
                 </inscription>
                 <tagged>
@@ -3860,7 +3986,7 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R21_T=1 and y_pos=10--R21_F=1 and y_pos=10 to R21_F" source="R21_T=1 and y_pos=10--R21_F=1 and y_pos=10" target="R21_F">
+        <arc id="R21_T=1 and y_pos=-110--R21_F=1 and y_pos=-110 to R21_F" source="R21_T=1 and y_pos=-110--R21_F=1 and y_pos=-110" target="R21_F">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -3876,7 +4002,7 @@
             </arc>
         <place id="R21_F">
                 <graphics>
-                    <position x="868.45" y="656.15" />
+                    <position x="971.85" y="673.27" />
                 </graphics>
                 <name>
                     <value>R21_F</value>
@@ -3885,7 +4011,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3894,10 +4020,10 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <arc id="R21_T=1 and y_pos=10--R21_F=1 and y_pos=10 to y_pos" source="R21_T=1 and y_pos=10--R21_F=1 and y_pos=10" target="y_pos">
+        <arc id="R21_T=1 and y_pos=-110--R21_F=1 and y_pos=-110 to y_pos" source="R21_T=1 and y_pos=-110--R21_F=1 and y_pos=-110" target="y_pos">
                 <graphics />
                 <inscription>
-                    <value>1</value>
+                    <value>-</value>
                     <graphics />
                 </inscription>
                 <tagged>
@@ -3910,7 +4036,7 @@
             </arc>
         <transition id="R2_T=1--R20_T=1">
                 <graphics>
-                    <position x="752.50" y="1698.87" />
+                    <position x="789.43" y="1707.10" />
                 </graphics>
                 <name>
                     <value>R2_T=1--R20_T=1</value>
@@ -3950,7 +4076,7 @@
             </arc>
         <place id="R2_T">
                 <graphics>
-                    <position x="921.76" y="1277.30" />
+                    <position x="180.58" y="1453.91" />
                 </graphics>
                 <name>
                     <value>R2_T</value>
@@ -3959,7 +4085,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -3984,7 +4110,7 @@
             </arc>
         <transition id="R2_H=1--R20_H=1">
                 <graphics>
-                    <position x="815.26" y="1698.87" />
+                    <position x="851.94" y="1707.10" />
                 </graphics>
                 <name>
                     <value>R2_H=1--R20_H=1</value>
@@ -4024,7 +4150,7 @@
             </arc>
         <place id="R2_H">
                 <graphics>
-                    <position x="522.03" y="1080.88" />
+                    <position x="527.18" y="1086.39" />
                 </graphics>
                 <name>
                     <value>R2_H</value>
@@ -4033,7 +4159,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -4058,7 +4184,7 @@
             </arc>
         <transition id="R20_S=1--R21_T=1">
                 <graphics>
-                    <position x="868.27" y="1698.87" />
+                    <position x="912.86" y="1707.10" />
                 </graphics>
                 <name>
                     <value>R20_S=1--R21_T=1</value>
@@ -4112,7 +4238,7 @@
             </arc>
         <transition id="R20_R=1--R2_Temp_R=1 and R21_H=1">
                 <graphics>
-                    <position x="921.28" y="1698.87" />
+                    <position x="971.69" y="1707.10" />
                 </graphics>
                 <name>
                     <value>R20_R=1--R2_Temp_R=1 and R21_H=1</value>
@@ -4152,7 +4278,7 @@
             </arc>
         <place id="R20_R">
                 <graphics>
-                    <position x="921.46" y="656.15" />
+                    <position x="37.45" y="881.60" />
                 </graphics>
                 <name>
                     <value>R20_R</value>
@@ -4161,7 +4287,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -4186,7 +4312,7 @@
             </arc>
         <place id="R2_Temp_R">
                 <graphics>
-                    <position x="200.67" y="162.15" />
+                    <position x="250.19" y="175.61" />
                 </graphics>
                 <name>
                     <value>R2_Temp_R</value>
@@ -4195,7 +4321,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -4220,7 +4346,7 @@
             </arc>
         <transition id="R20_F=1--R2_Temp_F=1 and R21_H=1">
                 <graphics>
-                    <position x="974.90" y="1698.87" />
+                    <position x="37.29" y="1773.28" />
                 </graphics>
                 <name>
                     <value>R20_F=1--R2_Temp_F=1 and R21_H=1</value>
@@ -4274,7 +4400,7 @@
             </arc>
         <place id="R2_Temp_F">
                 <graphics>
-                    <position x="521.99" y="161.27" />
+                    <position x="527.18" y="177.21" />
                 </graphics>
                 <name>
                     <value>R2_Temp_F</value>
@@ -4283,7 +4409,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -4308,7 +4434,7 @@
             </arc>
         <transition id="R20_A=1--R21_H=1">
                 <graphics>
-                    <position x="39.00" y="1766.91" />
+                    <position x="110.83" y="1773.28" />
                 </graphics>
                 <name>
                     <value>R20_A=1--R21_H=1</value>
@@ -4362,7 +4488,7 @@
             </arc>
         <transition id="R21_S=1--R2_S=1">
                 <graphics>
-                    <position x="120.03" y="1766.91" />
+                    <position x="180.68" y="1773.28" />
                 </graphics>
                 <name>
                     <value>R21_S=1--R2_S=1</value>
@@ -4416,7 +4542,7 @@
             </arc>
         <place id="R2_S">
                 <graphics>
-                    <position x="200.74" y="1278.18" />
+                    <position x="250.25" y="1278.30" />
                 </graphics>
                 <name>
                     <value>R2_S</value>
@@ -4425,7 +4551,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -4436,7 +4562,7 @@
             </place>
         <transition id="R21_R=1--R2_R=1">
                 <graphics>
-                    <position x="200.46" y="1766.91" />
+                    <position x="250.01" y="1773.28" />
                 </graphics>
                 <name>
                     <value>R21_R=1--R2_R=1</value>
@@ -4476,7 +4602,7 @@
             </arc>
         <place id="R21_R">
                 <graphics>
-                    <position x="974.47" y="656.15" />
+                    <position x="110.98" y="881.60" />
                 </graphics>
                 <name>
                     <value>R21_R</value>
@@ -4485,7 +4611,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -4510,7 +4636,7 @@
             </arc>
         <place id="R2_R">
                 <graphics>
-                    <position x="281.17" y="1278.18" />
+                    <position x="319.58" y="1278.30" />
                 </graphics>
                 <name>
                     <value>R2_R</value>
@@ -4519,7 +4645,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -4528,12 +4654,12 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <transition id="R21_A=1--R2_A=1">
+        <transition id="R21_A=1 and not(R2_Temp_F=1) and not(R2_Temp_R=1)--R2_A=1">
                 <graphics>
-                    <position x="281.50" y="1766.91" />
+                    <position x="319.87" y="1773.28" />
                 </graphics>
                 <name>
-                    <value>R21_A=1--R2_A=1</value>
+                    <value>R21_A=1 and not(R2_Temp_F=1) and not(R2_Temp_R=1)--R2_A=1</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -4554,7 +4680,7 @@
                     <value>1</value>
                 </priority>
             </transition>
-        <arc id="R21_A to R21_A=1--R2_A=1" source="R21_A" target="R21_A=1--R2_A=1">
+        <arc id="R21_A to R21_A=1 and not(R2_Temp_F=1) and not(R2_Temp_R=1)--R2_A=1" source="R21_A" target="R21_A=1 and not(R2_Temp_F=1) and not(R2_Temp_R=1)--R2_A=1">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -4568,7 +4694,35 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R21_A=1--R2_A=1 to R2_A" source="R21_A=1--R2_A=1" target="R2_A">
+        <arc id="R2_Temp_F to R21_A=1 and not(R2_Temp_F=1) and not(R2_Temp_R=1)--R2_A=1" source="R2_Temp_F" target="R21_A=1 and not(R2_Temp_F=1) and not(R2_Temp_R=1)--R2_A=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R2_Temp_R to R21_A=1 and not(R2_Temp_F=1) and not(R2_Temp_R=1)--R2_A=1" source="R2_Temp_R" target="R21_A=1 and not(R2_Temp_F=1) and not(R2_Temp_R=1)--R2_A=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R21_A=1 and not(R2_Temp_F=1) and not(R2_Temp_R=1)--R2_A=1 to R2_A" source="R21_A=1 and not(R2_Temp_F=1) and not(R2_Temp_R=1)--R2_A=1" target="R2_A">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -4584,7 +4738,7 @@
             </arc>
         <place id="R2_A">
                 <graphics>
-                    <position x="362.20" y="1278.18" />
+                    <position x="388.91" y="1278.30" />
                 </graphics>
                 <name>
                     <value>R2_A</value>
@@ -4593,7 +4747,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -4604,7 +4758,7 @@
             </place>
         <transition id="R2_Temp_F=1 and R21_A=1--R2_F=1">
                 <graphics>
-                    <position x="361.93" y="1766.91" />
+                    <position x="389.20" y="1773.28" />
                 </graphics>
                 <name>
                     <value>R2_Temp_F=1 and R21_A=1--R2_F=1</value>
@@ -4672,7 +4826,7 @@
             </arc>
         <place id="R2_F">
                 <graphics>
-                    <position x="442.02" y="1278.18" />
+                    <position x="458.24" y="1278.30" />
                 </graphics>
                 <name>
                     <value>R2_F</value>
@@ -4681,7 +4835,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -4692,7 +4846,7 @@
             </place>
         <transition id="R21_F=1--R2_F=1">
                 <graphics>
-                    <position x="441.75" y="1766.91" />
+                    <position x="458.01" y="1773.28" />
                 </graphics>
                 <name>
                     <value>R21_F=1--R2_F=1</value>
@@ -4746,7 +4900,7 @@
             </arc>
         <transition id="R2_Temp_R=1 and R21_A=1--R2_R=1">
                 <graphics>
-                    <position x="522.18" y="1766.91" />
+                    <position x="527.34" y="1773.28" />
                 </graphics>
                 <name>
                     <value>R2_Temp_R=1 and R21_A=1--R2_R=1</value>
@@ -4814,7 +4968,7 @@
             </arc>
         <transition id="R30_H=1--R30_A=1">
                 <graphics>
-                    <position x="602.00" y="1766.91" />
+                    <position x="596.14" y="1773.28" />
                 </graphics>
                 <name>
                     <value>R30_H=1--R30_A=1</value>
@@ -4854,7 +5008,7 @@
             </arc>
         <place id="R30_H">
                 <graphics>
-                    <position x="200.83" y="438.69" />
+                    <position x="458.32" y="464.20" />
                 </graphics>
                 <name>
                     <value>R30_H</value>
@@ -4863,7 +5017,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -4888,7 +5042,7 @@
             </arc>
         <place id="R30_A">
                 <graphics>
-                    <position x="39.18" y="870.34" />
+                    <position x="180.31" y="881.60" />
                 </graphics>
                 <name>
                     <value>R30_A</value>
@@ -4897,7 +5051,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -4906,120 +5060,12 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <transition id="R30_T=1 and y_pos=5--R30_S=1">
+        <transition id="R30_T=1 and y_pos=-106--R30_S=1 and y_pos=-106">
                 <graphics>
-                    <position x="678.77" y="1766.91" />
+                    <position x="662.32" y="1773.28" />
                 </graphics>
                 <name>
-                    <value>R30_T=1 and y_pos=5--R30_S=1</value>
-                    <graphics>
-                        <offset x="-5.0" y="35.0" />
-                    </graphics>
-                </name>
-                <orientation>
-                    <value>0</value>
-                </orientation>
-                <rate>
-                    <value>1.0</value>
-                </rate>
-                <timed>
-                    <value>false</value>
-                </timed>
-                <infiniteServer>
-                    <value>false</value>
-                </infiniteServer>
-                <priority>
-                    <value>1</value>
-                </priority>
-            </transition>
-        <arc id="R30_T to R30_T=1 and y_pos=5--R30_S=1" source="R30_T" target="R30_T=1 and y_pos=5--R30_S=1">
-                <graphics />
-                <inscription>
-                    <value>1</value>
-                    <graphics />
-                </inscription>
-                <tagged>
-                    <value>false</value>
-                </tagged>
-                <type value="normal" />
-                <probability>
-                    <value>1.0</value>
-                </probability>
-            </arc>
-        <place id="R30_T">
-                <graphics>
-                    <position x="38.78" y="1081.13" />
-                </graphics>
-                <name>
-                    <value>R30_T</value>
-                    <graphics>
-                        <offset x="0.0" y="0.0" />
-                    </graphics>
-                </name>
-                <initialMarking>
-                    <value>0</value>
-                    <graphics>
-                        <offset x="0.0" y="0.0" />
-                    </graphics>
-                </initialMarking>
-                <capacity>
-                    <value>0</value>
-                </capacity>
-            </place>
-        <arc id="y_pos to R30_T=1 and y_pos=5--R30_S=1" source="y_pos" target="R30_T=1 and y_pos=5--R30_S=1">
-                <graphics />
-                <inscription>
-                    <value>5</value>
-                    <graphics />
-                </inscription>
-                <tagged>
-                    <value>false</value>
-                </tagged>
-                <type value="normal" />
-                <probability>
-                    <value>1.0</value>
-                </probability>
-            </arc>
-        <arc id="R30_T=1 and y_pos=5--R30_S=1 to R30_S" source="R30_T=1 and y_pos=5--R30_S=1" target="R30_S">
-                <graphics />
-                <inscription>
-                    <value>1</value>
-                    <graphics />
-                </inscription>
-                <tagged>
-                    <value>false</value>
-                </tagged>
-                <type value="normal" />
-                <probability>
-                    <value>1.0</value>
-                </probability>
-            </arc>
-        <place id="R30_S">
-                <graphics>
-                    <position x="119.61" y="870.34" />
-                </graphics>
-                <name>
-                    <value>R30_S</value>
-                    <graphics>
-                        <offset x="0.0" y="0.0" />
-                    </graphics>
-                </name>
-                <initialMarking>
-                    <value>0</value>
-                    <graphics>
-                        <offset x="0.0" y="0.0" />
-                    </graphics>
-                </initialMarking>
-                <capacity>
-                    <value>0</value>
-                </capacity>
-            </place>
-        <transition id="R30_T=1 and y_pos=5--R30_F=1 and y_pos=5">
-                <graphics>
-                    <position x="752.50" y="1766.91" />
-                </graphics>
-                <name>
-                    <value>R30_T=1 and y_pos=5--R30_F=1 and y_pos=5</value>
+                    <value>R30_T=1 and y_pos=-106--R30_S=1 and y_pos=-106</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -5040,7 +5086,7 @@
                     <value>2</value>
                 </priority>
             </transition>
-        <arc id="R30_T to R30_T=1 and y_pos=5--R30_F=1 and y_pos=5" source="R30_T" target="R30_T=1 and y_pos=5--R30_F=1 and y_pos=5">
+        <arc id="R30_T to R30_T=1 and y_pos=-106--R30_S=1 and y_pos=-106" source="R30_T" target="R30_T=1 and y_pos=-106--R30_S=1 and y_pos=-106">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -5054,10 +5100,30 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="y_pos to R30_T=1 and y_pos=5--R30_F=1 and y_pos=5" source="y_pos" target="R30_T=1 and y_pos=5--R30_F=1 and y_pos=5">
+        <place id="R30_T">
+                <graphics>
+                    <position x="110.64" y="1086.63" />
+                </graphics>
+                <name>
+                    <value>R30_T</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <arc id="y_pos to R30_T=1 and y_pos=-106--R30_S=1 and y_pos=-106" source="y_pos" target="R30_T=1 and y_pos=-106--R30_S=1 and y_pos=-106">
                 <graphics />
                 <inscription>
-                    <value>5</value>
+                    <value>-</value>
                     <graphics />
                 </inscription>
                 <tagged>
@@ -5068,7 +5134,109 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R30_T=1 and y_pos=5--R30_F=1 and y_pos=5 to R30_F" source="R30_T=1 and y_pos=5--R30_F=1 and y_pos=5" target="R30_F">
+        <arc id="R30_T=1 and y_pos=-106--R30_S=1 and y_pos=-106 to R30_S" source="R30_T=1 and y_pos=-106--R30_S=1 and y_pos=-106" target="R30_S">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <place id="R30_S">
+                <graphics>
+                    <position x="250.17" y="881.60" />
+                </graphics>
+                <name>
+                    <value>R30_S</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <arc id="R30_T=1 and y_pos=-106--R30_S=1 and y_pos=-106 to y_pos" source="R30_T=1 and y_pos=-106--R30_S=1 and y_pos=-106" target="y_pos">
+                <graphics />
+                <inscription>
+                    <value>-</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <transition id="R30_T=1 and y_pos=-105 and not(y_pos=-106)--R30_F=1 and y_pos=-105">
+                <graphics>
+                    <position x="725.88" y="1773.28" />
+                </graphics>
+                <name>
+                    <value>R30_T=1 and y_pos=-105 and not(y_pos=-106)--R30_F=1 and y_pos=-105</value>
+                    <graphics>
+                        <offset x="-5.0" y="35.0" />
+                    </graphics>
+                </name>
+                <orientation>
+                    <value>0</value>
+                </orientation>
+                <rate>
+                    <value>1.0</value>
+                </rate>
+                <timed>
+                    <value>false</value>
+                </timed>
+                <infiniteServer>
+                    <value>false</value>
+                </infiniteServer>
+                <priority>
+                    <value>1</value>
+                </priority>
+            </transition>
+        <arc id="R30_T to R30_T=1 and y_pos=-105 and not(y_pos=-106)--R30_F=1 and y_pos=-105" source="R30_T" target="R30_T=1 and y_pos=-105 and not(y_pos=-106)--R30_F=1 and y_pos=-105">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="y_pos to R30_T=1 and y_pos=-105 and not(y_pos=-106)--R30_F=1 and y_pos=-105" source="y_pos" target="R30_T=1 and y_pos=-105 and not(y_pos=-106)--R30_F=1 and y_pos=-105">
+                <graphics />
+                <inscription>
+                    <value>-</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R30_T=1 and y_pos=-105 and not(y_pos=-106)--R30_F=1 and y_pos=-105 to R30_F" source="R30_T=1 and y_pos=-105 and not(y_pos=-106)--R30_F=1 and y_pos=-105" target="R30_F">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -5084,7 +5252,7 @@
             </arc>
         <place id="R30_F">
                 <graphics>
-                    <position x="200.65" y="870.34" />
+                    <position x="320.03" y="881.60" />
                 </graphics>
                 <name>
                     <value>R30_F</value>
@@ -5093,7 +5261,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -5102,10 +5270,10 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <arc id="R30_T=1 and y_pos=5--R30_F=1 and y_pos=5 to y_pos" source="R30_T=1 and y_pos=5--R30_F=1 and y_pos=5" target="y_pos">
+        <arc id="R30_T=1 and y_pos=-105 and not(y_pos=-106)--R30_F=1 and y_pos=-105 to y_pos" source="R30_T=1 and y_pos=-105 and not(y_pos=-106)--R30_F=1 and y_pos=-105" target="y_pos">
                 <graphics />
                 <inscription>
-                    <value>5</value>
+                    <value>-</value>
                     <graphics />
                 </inscription>
                 <tagged>
@@ -5118,7 +5286,7 @@
             </arc>
         <transition id="R31_H=1--R31_A=1">
                 <graphics>
-                    <position x="815.26" y="1766.91" />
+                    <position x="789.43" y="1773.28" />
                 </graphics>
                 <name>
                     <value>R31_H=1--R31_A=1</value>
@@ -5158,7 +5326,7 @@
             </arc>
         <place id="R31_H">
                 <graphics>
-                    <position x="281.26" y="438.69" />
+                    <position x="527.13" y="464.20" />
                 </graphics>
                 <name>
                     <value>R31_H</value>
@@ -5167,7 +5335,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -5192,7 +5360,7 @@
             </arc>
         <place id="R31_A">
                 <graphics>
-                    <position x="281.68" y="870.34" />
+                    <position x="389.36" y="881.60" />
                 </graphics>
                 <name>
                     <value>R31_A</value>
@@ -5201,7 +5369,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -5212,7 +5380,7 @@
             </place>
         <transition id="R31_T=1 and y_pos=1--R31_S=1">
                 <graphics>
-                    <position x="868.27" y="1766.91" />
+                    <position x="851.94" y="1773.28" />
                 </graphics>
                 <name>
                     <value>R31_T=1 and y_pos=1--R31_S=1</value>
@@ -5252,7 +5420,7 @@
             </arc>
         <place id="R31_T">
                 <graphics>
-                    <position x="119.82" y="1081.13" />
+                    <position x="180.50" y="1086.63" />
                 </graphics>
                 <name>
                     <value>R31_T</value>
@@ -5261,7 +5429,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -5300,7 +5468,7 @@
             </arc>
         <place id="R31_S">
                 <graphics>
-                    <position x="362.11" y="870.34" />
+                    <position x="458.16" y="881.60" />
                 </graphics>
                 <name>
                     <value>R31_S</value>
@@ -5309,7 +5477,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -5320,7 +5488,7 @@
             </place>
         <transition id="R3_T=1--R30_T=1">
                 <graphics>
-                    <position x="921.28" y="1766.91" />
+                    <position x="912.86" y="1773.28" />
                 </graphics>
                 <name>
                     <value>R3_T=1--R30_T=1</value>
@@ -5360,7 +5528,7 @@
             </arc>
         <place id="R3_T">
                 <graphics>
-                    <position x="974.77" y="1277.30" />
+                    <position x="249.91" y="1453.91" />
                 </graphics>
                 <name>
                     <value>R3_T</value>
@@ -5369,7 +5537,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -5394,7 +5562,7 @@
             </arc>
         <transition id="R3_H=1--R30_H=1">
                 <graphics>
-                    <position x="974.90" y="1766.91" />
+                    <position x="971.69" y="1773.28" />
                 </graphics>
                 <name>
                     <value>R3_H=1--R30_H=1</value>
@@ -5434,7 +5602,7 @@
             </arc>
         <place id="R3_H">
                 <graphics>
-                    <position x="601.85" y="1080.88" />
+                    <position x="595.99" y="1086.39" />
                 </graphics>
                 <name>
                     <value>R3_H</value>
@@ -5443,7 +5611,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -5468,7 +5636,7 @@
             </arc>
         <transition id="R30_S=1--R31_T=1">
                 <graphics>
-                    <position x="39.00" y="1834.95" />
+                    <position x="37.29" y="1839.46" />
                 </graphics>
                 <name>
                     <value>R30_S=1--R31_T=1</value>
@@ -5522,7 +5690,7 @@
             </arc>
         <transition id="R30_R=1--R3_Temp_R=1 and R31_H=1">
                 <graphics>
-                    <position x="120.03" y="1834.95" />
+                    <position x="110.83" y="1839.46" />
                 </graphics>
                 <name>
                     <value>R30_R=1--R3_Temp_R=1 and R31_H=1</value>
@@ -5562,7 +5730,7 @@
             </arc>
         <place id="R30_R">
                 <graphics>
-                    <position x="441.93" y="870.34" />
+                    <position x="526.97" y="881.60" />
                 </graphics>
                 <name>
                     <value>R30_R</value>
@@ -5571,7 +5739,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -5596,7 +5764,7 @@
             </arc>
         <place id="R3_Temp_R">
                 <graphics>
-                    <position x="281.71" y="162.15" />
+                    <position x="320.05" y="175.61" />
                 </graphics>
                 <name>
                     <value>R3_Temp_R</value>
@@ -5605,7 +5773,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -5630,7 +5798,7 @@
             </arc>
         <transition id="R30_F=1--R3_Temp_F=1 and R31_H=1">
                 <graphics>
-                    <position x="200.46" y="1834.95" />
+                    <position x="180.68" y="1839.46" />
                 </graphics>
                 <name>
                     <value>R30_F=1--R3_Temp_F=1 and R31_H=1</value>
@@ -5684,7 +5852,7 @@
             </arc>
         <place id="R3_Temp_F">
                 <graphics>
-                    <position x="601.81" y="161.27" />
+                    <position x="595.99" y="177.21" />
                 </graphics>
                 <name>
                     <value>R3_Temp_F</value>
@@ -5693,7 +5861,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -5718,7 +5886,7 @@
             </arc>
         <transition id="R30_A=1--R31_H=1">
                 <graphics>
-                    <position x="281.50" y="1834.95" />
+                    <position x="250.01" y="1839.46" />
                 </graphics>
                 <name>
                     <value>R30_A=1--R31_H=1</value>
@@ -5772,7 +5940,7 @@
             </arc>
         <transition id="R31_S=1--R3_S=1">
                 <graphics>
-                    <position x="361.93" y="1834.95" />
+                    <position x="319.87" y="1839.46" />
                 </graphics>
                 <name>
                     <value>R31_S=1--R3_S=1</value>
@@ -5826,7 +5994,7 @@
             </arc>
         <place id="R3_S">
                 <graphics>
-                    <position x="521.84" y="1278.18" />
+                    <position x="527.02" y="1278.30" />
                 </graphics>
                 <name>
                     <value>R3_S</value>
@@ -5835,7 +6003,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -5846,7 +6014,7 @@
             </place>
         <transition id="R31_R=1--R3_R=1">
                 <graphics>
-                    <position x="441.75" y="1834.95" />
+                    <position x="389.20" y="1839.46" />
                 </graphics>
                 <name>
                     <value>R31_R=1--R3_R=1</value>
@@ -5886,7 +6054,7 @@
             </arc>
         <place id="R31_R">
                 <graphics>
-                    <position x="521.75" y="870.34" />
+                    <position x="596.30" y="881.60" />
                 </graphics>
                 <name>
                     <value>R31_R</value>
@@ -5895,7 +6063,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -5920,7 +6088,7 @@
             </arc>
         <place id="R3_R">
                 <graphics>
-                    <position x="602.27" y="1278.18" />
+                    <position x="596.35" y="1278.30" />
                 </graphics>
                 <name>
                     <value>R3_R</value>
@@ -5929,7 +6097,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -5938,12 +6106,12 @@
                     <value>0</value>
                 </capacity>
             </place>
-        <transition id="R31_A=1--R3_A=1">
+        <transition id="R31_A=1 and not(R3_Temp_F=1) and not(R3_Temp_R=1)--R3_A=1">
                 <graphics>
-                    <position x="522.18" y="1834.95" />
+                    <position x="458.01" y="1839.46" />
                 </graphics>
                 <name>
-                    <value>R31_A=1--R3_A=1</value>
+                    <value>R31_A=1 and not(R3_Temp_F=1) and not(R3_Temp_R=1)--R3_A=1</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -5964,7 +6132,7 @@
                     <value>1</value>
                 </priority>
             </transition>
-        <arc id="R31_A to R31_A=1--R3_A=1" source="R31_A" target="R31_A=1--R3_A=1">
+        <arc id="R31_A to R31_A=1 and not(R3_Temp_F=1) and not(R3_Temp_R=1)--R3_A=1" source="R31_A" target="R31_A=1 and not(R3_Temp_F=1) and not(R3_Temp_R=1)--R3_A=1">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -5978,7 +6146,35 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R31_A=1--R3_A=1 to R3_A" source="R31_A=1--R3_A=1" target="R3_A">
+        <arc id="R3_Temp_F to R31_A=1 and not(R3_Temp_F=1) and not(R3_Temp_R=1)--R3_A=1" source="R3_Temp_F" target="R31_A=1 and not(R3_Temp_F=1) and not(R3_Temp_R=1)--R3_A=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R3_Temp_R to R31_A=1 and not(R3_Temp_F=1) and not(R3_Temp_R=1)--R3_A=1" source="R3_Temp_R" target="R31_A=1 and not(R3_Temp_F=1) and not(R3_Temp_R=1)--R3_A=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R31_A=1 and not(R3_Temp_F=1) and not(R3_Temp_R=1)--R3_A=1 to R3_A" source="R31_A=1 and not(R3_Temp_F=1) and not(R3_Temp_R=1)--R3_A=1" target="R3_A">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -5994,7 +6190,7 @@
             </arc>
         <place id="R3_A">
                 <graphics>
-                    <position x="679.02" y="1278.18" />
+                    <position x="662.53" y="1278.30" />
                 </graphics>
                 <name>
                     <value>R3_A</value>
@@ -6003,7 +6199,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -6014,7 +6210,7 @@
             </place>
         <transition id="R3_Temp_F=1 and R31_A=1--R3_F=1">
                 <graphics>
-                    <position x="602.00" y="1834.95" />
+                    <position x="527.34" y="1839.46" />
                 </graphics>
                 <name>
                     <value>R3_Temp_F=1 and R31_A=1--R3_F=1</value>
@@ -6082,7 +6278,7 @@
             </arc>
         <place id="R3_F">
                 <graphics>
-                    <position x="752.13" y="1278.18" />
+                    <position x="726.09" y="1278.30" />
                 </graphics>
                 <name>
                     <value>R3_F</value>
@@ -6091,7 +6287,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -6102,7 +6298,7 @@
             </place>
         <transition id="R31_F=1--R3_F=1">
                 <graphics>
-                    <position x="678.77" y="1834.95" />
+                    <position x="596.14" y="1839.46" />
                 </graphics>
                 <name>
                     <value>R31_F=1--R3_F=1</value>
@@ -6142,7 +6338,7 @@
             </arc>
         <place id="R31_F">
                 <graphics>
-                    <position x="602.18" y="870.34" />
+                    <position x="662.48" y="881.60" />
                 </graphics>
                 <name>
                     <value>R31_F</value>
@@ -6151,7 +6347,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -6176,7 +6372,7 @@
             </arc>
         <transition id="R3_Temp_R=1 and R31_A=1--R3_R=1">
                 <graphics>
-                    <position x="752.50" y="1834.95" />
+                    <position x="662.32" y="1839.46" />
                 </graphics>
                 <name>
                     <value>R3_Temp_R=1 and R31_A=1--R3_R=1</value>
@@ -6242,9 +6438,457 @@
                     <value>1.0</value>
                 </probability>
             </arc>
+        <transition id="R4_H=1--R4_A=1">
+                <graphics>
+                    <position x="725.88" y="1839.46" />
+                </graphics>
+                <name>
+                    <value>R4_H=1--R4_A=1</value>
+                    <graphics>
+                        <offset x="-5.0" y="35.0" />
+                    </graphics>
+                </name>
+                <orientation>
+                    <value>0</value>
+                </orientation>
+                <rate>
+                    <value>1.0</value>
+                </rate>
+                <timed>
+                    <value>false</value>
+                </timed>
+                <infiniteServer>
+                    <value>false</value>
+                </infiniteServer>
+                <priority>
+                    <value>1</value>
+                </priority>
+            </transition>
+        <arc id="R4_H to R4_H=1--R4_A=1" source="R4_H" target="R4_H=1--R4_A=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <place id="R4_H">
+                <graphics>
+                    <position x="662.69" y="1086.39" />
+                </graphics>
+                <name>
+                    <value>R4_H</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <arc id="R4_H=1--R4_A=1 to R4_A" source="R4_H=1--R4_A=1" target="R4_A">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <place id="R4_A">
+                <graphics>
+                    <position x="789.12" y="1278.30" />
+                </graphics>
+                <name>
+                    <value>R4_A</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <transition id="R4_T=1--R(set_xgoal) and R(set_ygoal) and reached_goal=1 and reset_goal=1">
+                <graphics>
+                    <position x="789.43" y="1839.46" />
+                </graphics>
+                <name>
+                    <value>R4_T=1--R(set_xgoal) and R(set_ygoal) and reached_goal=1 and reset_goal=1</value>
+                    <graphics>
+                        <offset x="-5.0" y="35.0" />
+                    </graphics>
+                </name>
+                <orientation>
+                    <value>0</value>
+                </orientation>
+                <rate>
+                    <value>1.0</value>
+                </rate>
+                <timed>
+                    <value>false</value>
+                </timed>
+                <infiniteServer>
+                    <value>false</value>
+                </infiniteServer>
+                <priority>
+                    <value>1</value>
+                </priority>
+            </transition>
+        <arc id="R4_T to R4_T=1--R(set_xgoal) and R(set_ygoal) and reached_goal=1 and reset_goal=1" source="R4_T" target="R4_T=1--R(set_xgoal) and R(set_ygoal) and reached_goal=1 and reset_goal=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <place id="R4_T">
+                <graphics>
+                    <position x="319.76" y="1453.91" />
+                </graphics>
+                <name>
+                    <value>R4_T</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <arc id="R4_T=1--R(set_xgoal) and R(set_ygoal) and reached_goal=1 and reset_goal=1 to set_xgoal" source="R4_T=1--R(set_xgoal) and R(set_ygoal) and reached_goal=1 and reset_goal=1" target="set_xgoal">
+                <graphics />
+                <inscription>
+                    <value>0</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <place id="set_xgoal">
+                <graphics>
+                    <position x="912.81" y="176.57" />
+                </graphics>
+                <name>
+                    <value>set_xgoal</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <arc id="R4_T=1--R(set_xgoal) and R(set_ygoal) and reached_goal=1 and reset_goal=1 to set_ygoal" source="R4_T=1--R(set_xgoal) and R(set_ygoal) and reached_goal=1 and reset_goal=1" target="set_ygoal">
+                <graphics />
+                <inscription>
+                    <value>0</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <place id="set_ygoal">
+                <graphics>
+                    <position x="971.64" y="176.57" />
+                </graphics>
+                <name>
+                    <value>set_ygoal</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <arc id="R4_T=1--R(set_xgoal) and R(set_ygoal) and reached_goal=1 and reset_goal=1 to reached_goal" source="R4_T=1--R(set_xgoal) and R(set_ygoal) and reached_goal=1 and reset_goal=1" target="reached_goal">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <place id="reached_goal">
+                <graphics>
+                    <position x="37.55" y="175.25" />
+                </graphics>
+                <name>
+                    <value>reached_goal</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <arc id="R4_T=1--R(set_xgoal) and R(set_ygoal) and reached_goal=1 and reset_goal=1 to reset_goal" source="R4_T=1--R(set_xgoal) and R(set_ygoal) and reached_goal=1 and reset_goal=1" target="reset_goal">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <place id="reset_goal">
+                <graphics>
+                    <position x="662.59" y="175.25" />
+                </graphics>
+                <name>
+                    <value>reset_goal</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <transition id="reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1">
+                <graphics>
+                    <position x="851.94" y="1839.46" />
+                </graphics>
+                <name>
+                    <value>reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1</value>
+                    <graphics>
+                        <offset x="-5.0" y="35.0" />
+                    </graphics>
+                </name>
+                <orientation>
+                    <value>0</value>
+                </orientation>
+                <rate>
+                    <value>1.0</value>
+                </rate>
+                <timed>
+                    <value>false</value>
+                </timed>
+                <infiniteServer>
+                    <value>false</value>
+                </infiniteServer>
+                <priority>
+                    <value>1</value>
+                </priority>
+            </transition>
+        <arc id="reached_goal to reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1" source="reached_goal" target="reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="set_xgoal to reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1" source="set_xgoal" target="reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="set_ygoal to reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1" source="set_ygoal" target="reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="reset_goal to reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1" source="reset_goal" target="reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1 to reached_goal" source="reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1" target="reached_goal">
+                <graphics />
+                <inscription>
+                    <value>2</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1 to R4_S" source="reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1" target="R4_S">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <place id="R4_S">
+                <graphics>
+                    <position x="852.15" y="1278.30" />
+                </graphics>
+                <name>
+                    <value>R4_S</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <arc id="reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1 to set_xgoal" source="reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1" target="set_xgoal">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1 to set_ygoal" source="reached_goal=1 and set_xgoal=1 and set_ygoal=1 and reset_goal=1--reached_goal=2 and R4_S=1 and set_xgoal=1 and set_ygoal=1" target="set_ygoal">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
         <transition id="R_T=1--R0_T=1">
                 <graphics>
-                    <position x="815.26" y="1834.95" />
+                    <position x="912.86" y="1839.46" />
                 </graphics>
                 <name>
                     <value>R_T=1--R0_T=1</value>
@@ -6298,7 +6942,7 @@
             </arc>
         <transition id="R_H=1--R0_H=1">
                 <graphics>
-                    <position x="868.27" y="1834.95" />
+                    <position x="971.69" y="1839.46" />
                 </graphics>
                 <name>
                     <value>R_H=1--R0_H=1</value>
@@ -6338,7 +6982,7 @@
             </arc>
         <place id="R_H">
                 <graphics>
-                    <position x="38.93" y="1448.40" />
+                    <position x="389.15" y="1456.12" />
                 </graphics>
                 <name>
                     <value>R_H</value>
@@ -6347,7 +6991,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -6372,7 +7016,7 @@
             </arc>
         <transition id="R0_F=1--R1_T=1">
                 <graphics>
-                    <position x="921.28" y="1834.95" />
+                    <position x="37.29" y="1905.64" />
                 </graphics>
                 <name>
                     <value>R0_F=1--R1_T=1</value>
@@ -6426,7 +7070,7 @@
             </arc>
         <transition id="R0_R=1--R_Temp_R=1 and R1_H=1">
                 <graphics>
-                    <position x="974.90" y="1834.95" />
+                    <position x="110.83" y="1905.64" />
                 </graphics>
                 <name>
                     <value>R0_R=1--R_Temp_R=1 and R1_H=1</value>
@@ -6480,7 +7124,7 @@
             </arc>
         <place id="R_Temp_R">
                 <graphics>
-                    <position x="679.08" y="161.78" />
+                    <position x="726.14" y="175.25" />
                 </graphics>
                 <name>
                     <value>R_Temp_R</value>
@@ -6489,7 +7133,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -6514,7 +7158,7 @@
             </arc>
         <transition id="R0_S=1--R_Temp_S=1 and R1_H=1">
                 <graphics>
-                    <position x="39.00" y="1902.98" />
+                    <position x="180.68" y="1905.64" />
                 </graphics>
                 <name>
                     <value>R0_S=1--R_Temp_S=1 and R1_H=1</value>
@@ -6568,7 +7212,7 @@
             </arc>
         <place id="R_Temp_S">
                 <graphics>
-                    <position x="752.38" y="163.41" />
+                    <position x="789.33" y="176.84" />
                 </graphics>
                 <name>
                     <value>R_Temp_S</value>
@@ -6577,7 +7221,7 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <value>0</value>
+                    <text>0</text>
                     <graphics>
                         <offset x="0.0" y="0.0" />
                     </graphics>
@@ -6602,7 +7246,7 @@
             </arc>
         <transition id="R0_A=1--R1_H=1">
                 <graphics>
-                    <position x="120.03" y="1902.98" />
+                    <position x="250.01" y="1905.64" />
                 </graphics>
                 <name>
                     <value>R0_A=1--R1_H=1</value>
@@ -6656,7 +7300,7 @@
             </arc>
         <transition id="R1_F=1--R2_T=1">
                 <graphics>
-                    <position x="200.46" y="1902.98" />
+                    <position x="319.87" y="1905.64" />
                 </graphics>
                 <name>
                     <value>R1_F=1--R2_T=1</value>
@@ -6710,7 +7354,7 @@
             </arc>
         <transition id="R1_R=1--R_Temp_R=1 and R2_H=1">
                 <graphics>
-                    <position x="281.50" y="1902.98" />
+                    <position x="389.20" y="1905.64" />
                 </graphics>
                 <name>
                     <value>R1_R=1--R_Temp_R=1 and R2_H=1</value>
@@ -6778,7 +7422,7 @@
             </arc>
         <transition id="R1_S=1--R_Temp_S=1 and R2_H=1">
                 <graphics>
-                    <position x="361.93" y="1902.98" />
+                    <position x="458.01" y="1905.64" />
                 </graphics>
                 <name>
                     <value>R1_S=1--R_Temp_S=1 and R2_H=1</value>
@@ -6846,7 +7490,7 @@
             </arc>
         <transition id="R1_A=1--R2_H=1">
                 <graphics>
-                    <position x="441.75" y="1902.98" />
+                    <position x="527.34" y="1905.64" />
                 </graphics>
                 <name>
                     <value>R1_A=1--R2_H=1</value>
@@ -6900,7 +7544,7 @@
             </arc>
         <transition id="R2_F=1--R3_T=1">
                 <graphics>
-                    <position x="522.18" y="1902.98" />
+                    <position x="596.14" y="1905.64" />
                 </graphics>
                 <name>
                     <value>R2_F=1--R3_T=1</value>
@@ -6954,7 +7598,7 @@
             </arc>
         <transition id="R2_R=1--R_Temp_R=1 and R3_H=1">
                 <graphics>
-                    <position x="602.00" y="1902.98" />
+                    <position x="662.32" y="1905.64" />
                 </graphics>
                 <name>
                     <value>R2_R=1--R_Temp_R=1 and R3_H=1</value>
@@ -7022,7 +7666,7 @@
             </arc>
         <transition id="R2_S=1--R_Temp_S=1 and R3_H=1">
                 <graphics>
-                    <position x="678.77" y="1902.98" />
+                    <position x="725.88" y="1905.64" />
                 </graphics>
                 <name>
                     <value>R2_S=1--R_Temp_S=1 and R3_H=1</value>
@@ -7090,7 +7734,7 @@
             </arc>
         <transition id="R2_A=1--R3_H=1">
                 <graphics>
-                    <position x="752.50" y="1902.98" />
+                    <position x="789.43" y="1905.64" />
                 </graphics>
                 <name>
                     <value>R2_A=1--R3_H=1</value>
@@ -7142,12 +7786,12 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <transition id="R3_F=1--R_F=1">
+        <transition id="R3_F=1--R4_T=1">
                 <graphics>
-                    <position x="815.26" y="1902.98" />
+                    <position x="851.94" y="1905.64" />
                 </graphics>
                 <name>
-                    <value>R3_F=1--R_F=1</value>
+                    <value>R3_F=1--R4_T=1</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -7168,7 +7812,7 @@
                     <value>1</value>
                 </priority>
             </transition>
-        <arc id="R3_F to R3_F=1--R_F=1" source="R3_F" target="R3_F=1--R_F=1">
+        <arc id="R3_F to R3_F=1--R4_T=1" source="R3_F" target="R3_F=1--R4_T=1">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -7182,7 +7826,7 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R3_F=1--R_F=1 to R_F" source="R3_F=1--R_F=1" target="R_F">
+        <arc id="R3_F=1--R4_T=1 to R4_T" source="R3_F=1--R4_T=1" target="R4_T">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -7196,12 +7840,12 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <transition id="R3_R=1--R_R=1">
+        <transition id="R3_R=1--R_Temp_R=1 and R4_H=1">
                 <graphics>
-                    <position x="868.27" y="1902.98" />
+                    <position x="912.86" y="1905.64" />
                 </graphics>
                 <name>
-                    <value>R3_R=1--R_R=1</value>
+                    <value>R3_R=1--R_Temp_R=1 and R4_H=1</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -7222,7 +7866,7 @@
                     <value>1</value>
                 </priority>
             </transition>
-        <arc id="R3_R to R3_R=1--R_R=1" source="R3_R" target="R3_R=1--R_R=1">
+        <arc id="R3_R to R3_R=1--R_Temp_R=1 and R4_H=1" source="R3_R" target="R3_R=1--R_Temp_R=1 and R4_H=1">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -7236,7 +7880,7 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R3_R=1--R_R=1 to R_R" source="R3_R=1--R_R=1" target="R_R">
+        <arc id="R3_R=1--R_Temp_R=1 and R4_H=1 to R_Temp_R" source="R3_R=1--R_Temp_R=1 and R4_H=1" target="R_Temp_R">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -7250,12 +7894,26 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <transition id="R3_A=1--R_A=1">
+        <arc id="R3_R=1--R_Temp_R=1 and R4_H=1 to R4_H" source="R3_R=1--R_Temp_R=1 and R4_H=1" target="R4_H">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <transition id="R3_S=1--R_Temp_S=1 and R4_H=1">
                 <graphics>
-                    <position x="921.28" y="1902.98" />
+                    <position x="971.69" y="1905.64" />
                 </graphics>
                 <name>
-                    <value>R3_A=1--R_A=1</value>
+                    <value>R3_S=1--R_Temp_S=1 and R4_H=1</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -7276,7 +7934,7 @@
                     <value>1</value>
                 </priority>
             </transition>
-        <arc id="R3_A to R3_A=1--R_A=1" source="R3_A" target="R3_A=1--R_A=1">
+        <arc id="R3_S to R3_S=1--R_Temp_S=1 and R4_H=1" source="R3_S" target="R3_S=1--R_Temp_S=1 and R4_H=1">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -7290,7 +7948,7 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R3_A=1--R_A=1 to R_A" source="R3_A=1--R_A=1" target="R_A">
+        <arc id="R3_S=1--R_Temp_S=1 and R4_H=1 to R_Temp_S" source="R3_S=1--R_Temp_S=1 and R4_H=1" target="R_Temp_S">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -7304,12 +7962,330 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <transition id="R_Temp_S=1 and R3_A=1--R_S=1">
+        <arc id="R3_S=1--R_Temp_S=1 and R4_H=1 to R4_H" source="R3_S=1--R_Temp_S=1 and R4_H=1" target="R4_H">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <transition id="R3_A=1--R4_H=1">
                 <graphics>
-                    <position x="974.90" y="1902.98" />
+                    <position x="37.29" y="1971.81" />
                 </graphics>
                 <name>
-                    <value>R_Temp_S=1 and R3_A=1--R_S=1</value>
+                    <value>R3_A=1--R4_H=1</value>
+                    <graphics>
+                        <offset x="-5.0" y="35.0" />
+                    </graphics>
+                </name>
+                <orientation>
+                    <value>0</value>
+                </orientation>
+                <rate>
+                    <value>1.0</value>
+                </rate>
+                <timed>
+                    <value>false</value>
+                </timed>
+                <infiniteServer>
+                    <value>false</value>
+                </infiniteServer>
+                <priority>
+                    <value>1</value>
+                </priority>
+            </transition>
+        <arc id="R3_A to R3_A=1--R4_H=1" source="R3_A" target="R3_A=1--R4_H=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R3_A=1--R4_H=1 to R4_H" source="R3_A=1--R4_H=1" target="R4_H">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <transition id="R4_F=1--R_F=1">
+                <graphics>
+                    <position x="110.83" y="1971.81" />
+                </graphics>
+                <name>
+                    <value>R4_F=1--R_F=1</value>
+                    <graphics>
+                        <offset x="-5.0" y="35.0" />
+                    </graphics>
+                </name>
+                <orientation>
+                    <value>0</value>
+                </orientation>
+                <rate>
+                    <value>1.0</value>
+                </rate>
+                <timed>
+                    <value>false</value>
+                </timed>
+                <infiniteServer>
+                    <value>false</value>
+                </infiniteServer>
+                <priority>
+                    <value>1</value>
+                </priority>
+            </transition>
+        <arc id="R4_F to R4_F=1--R_F=1" source="R4_F" target="R4_F=1--R_F=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <place id="R4_F">
+                <graphics>
+                    <position x="913.07" y="1278.30" />
+                </graphics>
+                <name>
+                    <value>R4_F</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <arc id="R4_F=1--R_F=1 to R_F" source="R4_F=1--R_F=1" target="R_F">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <transition id="R4_R=1--R_R=1">
+                <graphics>
+                    <position x="180.68" y="1971.81" />
+                </graphics>
+                <name>
+                    <value>R4_R=1--R_R=1</value>
+                    <graphics>
+                        <offset x="-5.0" y="35.0" />
+                    </graphics>
+                </name>
+                <orientation>
+                    <value>0</value>
+                </orientation>
+                <rate>
+                    <value>1.0</value>
+                </rate>
+                <timed>
+                    <value>false</value>
+                </timed>
+                <infiniteServer>
+                    <value>false</value>
+                </infiniteServer>
+                <priority>
+                    <value>1</value>
+                </priority>
+            </transition>
+        <arc id="R4_R to R4_R=1--R_R=1" source="R4_R" target="R4_R=1--R_R=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <place id="R4_R">
+                <graphics>
+                    <position x="971.90" y="1278.30" />
+                </graphics>
+                <name>
+                    <value>R4_R</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <arc id="R4_R=1--R_R=1 to R_R" source="R4_R=1--R_R=1" target="R_R">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <transition id="R4_A=1 and not(R_Temp_F=1) and not(R_Temp_R=1)--R_A=1">
+                <graphics>
+                    <position x="250.01" y="1971.81" />
+                </graphics>
+                <name>
+                    <value>R4_A=1 and not(R_Temp_F=1) and not(R_Temp_R=1)--R_A=1</value>
+                    <graphics>
+                        <offset x="-5.0" y="35.0" />
+                    </graphics>
+                </name>
+                <orientation>
+                    <value>0</value>
+                </orientation>
+                <rate>
+                    <value>1.0</value>
+                </rate>
+                <timed>
+                    <value>false</value>
+                </timed>
+                <infiniteServer>
+                    <value>false</value>
+                </infiniteServer>
+                <priority>
+                    <value>1</value>
+                </priority>
+            </transition>
+        <arc id="R4_A to R4_A=1 and not(R_Temp_F=1) and not(R_Temp_R=1)--R_A=1" source="R4_A" target="R4_A=1 and not(R_Temp_F=1) and not(R_Temp_R=1)--R_A=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R_Temp_F to R4_A=1 and not(R_Temp_F=1) and not(R_Temp_R=1)--R_A=1" source="R_Temp_F" target="R4_A=1 and not(R_Temp_F=1) and not(R_Temp_R=1)--R_A=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <place id="R_Temp_F">
+                <graphics>
+                    <position x="851.83" y="176.84" />
+                </graphics>
+                <name>
+                    <value>R_Temp_F</value>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                    <graphics>
+                        <offset x="0.0" y="0.0" />
+                    </graphics>
+                </initialMarking>
+                <capacity>
+                    <value>0</value>
+                </capacity>
+            </place>
+        <arc id="R_Temp_R to R4_A=1 and not(R_Temp_F=1) and not(R_Temp_R=1)--R_A=1" source="R_Temp_R" target="R4_A=1 and not(R_Temp_F=1) and not(R_Temp_R=1)--R_A=1">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <arc id="R4_A=1 and not(R_Temp_F=1) and not(R_Temp_R=1)--R_A=1 to R_A" source="R4_A=1 and not(R_Temp_F=1) and not(R_Temp_R=1)--R_A=1" target="R_A">
+                <graphics />
+                <inscription>
+                    <value>1</value>
+                    <graphics />
+                </inscription>
+                <tagged>
+                    <value>false</value>
+                </tagged>
+                <type value="normal" />
+                <probability>
+                    <value>1.0</value>
+                </probability>
+            </arc>
+        <transition id="R_Temp_S=1 and R4_A=1--R_S=1">
+                <graphics>
+                    <position x="319.87" y="1971.81" />
+                </graphics>
+                <name>
+                    <value>R_Temp_S=1 and R4_A=1--R_S=1</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -7330,7 +8306,7 @@
                     <value>2</value>
                 </priority>
             </transition>
-        <arc id="R_Temp_S to R_Temp_S=1 and R3_A=1--R_S=1" source="R_Temp_S" target="R_Temp_S=1 and R3_A=1--R_S=1">
+        <arc id="R_Temp_S to R_Temp_S=1 and R4_A=1--R_S=1" source="R_Temp_S" target="R_Temp_S=1 and R4_A=1--R_S=1">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -7344,7 +8320,7 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R3_A to R_Temp_S=1 and R3_A=1--R_S=1" source="R3_A" target="R_Temp_S=1 and R3_A=1--R_S=1">
+        <arc id="R4_A to R_Temp_S=1 and R4_A=1--R_S=1" source="R4_A" target="R_Temp_S=1 and R4_A=1--R_S=1">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -7358,7 +8334,7 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R_Temp_S=1 and R3_A=1--R_S=1 to R_S" source="R_Temp_S=1 and R3_A=1--R_S=1" target="R_S">
+        <arc id="R_Temp_S=1 and R4_A=1--R_S=1 to R_S" source="R_Temp_S=1 and R4_A=1--R_S=1" target="R_S">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -7372,12 +8348,12 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <transition id="R3_S=1--R_S=1">
+        <transition id="R4_S=1--R_S=1">
                 <graphics>
-                    <position x="39.00" y="1971.02" />
+                    <position x="389.20" y="1971.81" />
                 </graphics>
                 <name>
-                    <value>R3_S=1--R_S=1</value>
+                    <value>R4_S=1--R_S=1</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -7398,7 +8374,7 @@
                     <value>1</value>
                 </priority>
             </transition>
-        <arc id="R3_S to R3_S=1--R_S=1" source="R3_S" target="R3_S=1--R_S=1">
+        <arc id="R4_S to R4_S=1--R_S=1" source="R4_S" target="R4_S=1--R_S=1">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -7412,7 +8388,7 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R3_S=1--R_S=1 to R_S" source="R3_S=1--R_S=1" target="R_S">
+        <arc id="R4_S=1--R_S=1 to R_S" source="R4_S=1--R_S=1" target="R_S">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -7426,12 +8402,12 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <transition id="R_Temp_R=1 and R3_A=1--R_R=1">
+        <transition id="R_Temp_R=1 and R4_A=1--R_R=1">
                 <graphics>
-                    <position x="120.03" y="1971.02" />
+                    <position x="458.01" y="1971.81" />
                 </graphics>
                 <name>
-                    <value>R_Temp_R=1 and R3_A=1--R_R=1</value>
+                    <value>R_Temp_R=1 and R4_A=1--R_R=1</value>
                     <graphics>
                         <offset x="-5.0" y="35.0" />
                     </graphics>
@@ -7452,7 +8428,7 @@
                     <value>2</value>
                 </priority>
             </transition>
-        <arc id="R_Temp_R to R_Temp_R=1 and R3_A=1--R_R=1" source="R_Temp_R" target="R_Temp_R=1 and R3_A=1--R_R=1">
+        <arc id="R_Temp_R to R_Temp_R=1 and R4_A=1--R_R=1" source="R_Temp_R" target="R_Temp_R=1 and R4_A=1--R_R=1">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -7466,7 +8442,7 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R3_A to R_Temp_R=1 and R3_A=1--R_R=1" source="R3_A" target="R_Temp_R=1 and R3_A=1--R_R=1">
+        <arc id="R4_A to R_Temp_R=1 and R4_A=1--R_R=1" source="R4_A" target="R_Temp_R=1 and R4_A=1--R_R=1">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -7480,7 +8456,7 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        <arc id="R_Temp_R=1 and R3_A=1--R_R=1 to R_R" source="R_Temp_R=1 and R3_A=1--R_R=1" target="R_R">
+        <arc id="R_Temp_R=1 and R4_A=1--R_R=1 to R_R" source="R_Temp_R=1 and R4_A=1--R_R=1" target="R_R">
                 <graphics />
                 <inscription>
                     <value>1</value>
@@ -7494,5 +8470,6 @@
                     <value>1.0</value>
                 </probability>
             </arc>
-        </net>
+        </page>
+    </net>
 </pnml>

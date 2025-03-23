@@ -1,0 +1,1 @@
+{'result': 1, 'user_time': 0.985, 'min_trace_length': 205, 'max_trace_length': 205}

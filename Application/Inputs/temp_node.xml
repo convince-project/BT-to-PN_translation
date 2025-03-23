@@ -1,0 +1,19 @@
+<model>
+    <btnodes>
+        <btnode name="move_x_up">
+            <transition input="'btnode'_T=1 &amp; not(x_pos=x_max)" output="'btnode'_S=1 &amp; x_pos=1" inferred="False" priority="1"/>
+            <transition input="'btnode'_T=1 &amp; x_pos=x_max" output="'btnode'_F=1 &amp; x_pos=x_max" inferred="False" priority="2"/>
+        </btnode>
+    </btnodes>
+    <constants>
+        <x_goal value="5"/>
+        <x_min value="1"/>
+        <x_max value="10"/>
+    </constants>
+    <variables>
+        <x_pos value="1"/>
+        <y_pos value="1"/>
+    </variables>
+    <places_params>
+    </places_params>
+</model>

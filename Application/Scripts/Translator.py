@@ -20,6 +20,8 @@ custom_execution_nodes={}
 custom_places={}
 root_name=""
 
+constants={}
+
 report={
     "BT":{
         "nodes":0
@@ -228,6 +230,7 @@ def floodFill(G,node,Q,edge_list,trace=[],contract=False):
                     Q.add_edge(i[0],i[1]) # Add the edge to the temporary graph
             else:
                 temp=copy.deepcopy(trace)
+                
                 keeper=True if i[1].split("\"")[1] in Unsumm_nodes or i[1].split("\"")[1] in Aux_nodes else False
                 temp.append((i[1].split("\"")[1],priority,y,keeper))
                 corrected_sequence=correct_and_update_sequence(temp)
@@ -604,19 +607,19 @@ class Graph:
                 else:
                     if name in custom_places.keys():
                         if "initial_value" in custom_places[name].keys():
-                            print(custom_places[name])
                             new_place=modifyField(new_place,"initialMarking/text",str(custom_places[name]["initial_value"]),"text")
                             
                         else:
                             new_place=modifyField(new_place,"initialMarking/text","0","text")
                         tags=[x.tag for x in new_place]
-                        for field in custom_places[name]["additional_elements"]:
-                            
-                            if not field.tag in tags:
-                                new_place.append(field)
-                            else:
-                                for x in field:
-                                    new_place[tags.index(field.tag)].append(x)
+                        if "additional_elements" in custom_places[name]:
+                            for field in custom_places[name]["additional_elements"]:
+                                
+                                if not field.tag in tags:
+                                    new_place.append(field)
+                                else:
+                                    for x in field:
+                                        new_place[tags.index(field.tag)].append(x)
                     else:
                         new_place=modifyField(new_place,"initialMarking/text","0","text")
 
@@ -781,7 +784,7 @@ class Graph:
                 if name in custom_places.keys():
                     if "initial_value" in custom_places[name].keys():
                         assignment=custom_places[name]["initial_value"]
-                initial_assignment["initial-value"]=assignment
+                initial_assignment["initial-value"]=int(assignment)
                 initial_assignment["name"]=name
                 initial_assignment["type"]="int"
                 if not initial_assignment in gs.jani_structure["variables"]:
@@ -826,7 +829,7 @@ def customize_Tree(root,filename):
         "initial_value":0,
         "additional_content":{}
     }
-    constants={}
+    
 
     
 
@@ -840,7 +843,7 @@ def customize_Tree(root,filename):
             nodes_root = nodes_tree.getroot() # take its root
             temp_constants=nodes_root.findall(".//constants")
             for i in temp_constants[0]:
-                constants[i.tag]=i.attrib["value"]
+                constants[i.tag]={"value":i.attrib["value"]}
             temp_variables=nodes_root.findall(".//variables")
             for i in temp_variables[0]:
                 if not i.tag in custom_places.keys():
@@ -867,8 +870,8 @@ def customize_Tree(root,filename):
                         "inferred":False
                     }
                     for k in constants.keys():
-                        m.attrib["input"]=m.attrib["input"].replace(k,constants[k])
-                        m.attrib["output"]=m.attrib["output"].replace(k,constants[k])
+                        m.attrib["input"]=m.attrib["input"].replace(k,constants[k]["value"])
+                        m.attrib["output"]=m.attrib["output"].replace(k,constants[k]["value"])
                     transition["input"]=m.attrib["input"]
                     transition["output"]=m.attrib["output"]
                     transition["priority"]=int(m.attrib["priority"])
@@ -881,7 +884,7 @@ def customize_Tree(root,filename):
 
 def main(filename):
     global blankPNML, P,Unsumm_nodes, F, G, report
-    graphics=False
+    graphics=True
     folder=os.path.basename(filename).split(".")[0]
     # Extract the behavior tree from its file
     tree = ET.parse(filename) # extract the bt in xml format
@@ -905,8 +908,8 @@ def main(filename):
     print("Constructed BT graph")
     F=temp_graph.construct_graph()
     print("Constructed Unoptimized transition graph")
-
-    F.render(script_path+"/Outputs/Images/"+folder+"/Unoptimized_transition_graph",format='png',engine="dot")
+    if graphics:
+        F.render(script_path+"/Outputs/Images/"+folder+"/Unoptimized_transition_graph",format='png',engine="dot")
     # report["BT"]["unoptimized_transition_graph"]=script_path+"/Outputs/Images/"+folder+"/Unoptimized_transition_graph.png"
     
     K=temp_graph.construct_PN(contracted=True)
@@ -941,7 +944,8 @@ def main(filename):
             i.attributes.append(("style","dashed"))
     F=temp_graph.construct_graph()
     print("Constructed graph")
-    F.render(script_path+"/Outputs/Images/"+folder+"/Optimized_transition_graph",format='png',engine="dot")
+    if graphics:
+        F.render(script_path+"/Outputs/Images/"+folder+"/Optimized_transition_graph",format='png',engine="dot")
     # report["BT"]["optimized_transition_graph"]=script_path+"/Outputs/Images/"+folder+"/Optimized_transition_graph.png"
     K=temp_graph.construct_PN(contracted=True)
     print("Constructed Optimized PN")
